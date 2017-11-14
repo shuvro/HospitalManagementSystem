@@ -1,0 +1,101 @@
+<div class="row  nav-button-container fade in" role="tabpanel" id="manage-prescription">
+    <div class="col-xs-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Manage Prescription
+
+            </div>
+            <div class="noticeboard-body">
+                <div>
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#prescription-list" aria-controls="prescription-list" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i> 
+                                Medication List                    	</a></li>
+
+
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="prescription-list">
+
+                            <div class="table-responsive table-adjusment ">
+							 <form method="post"  action="<?php echo base_url(); ?>pharmacistAdd/medicine_update/">
+                                <table class="table table-hover" id="datatab2">
+                                    
+                                    <thead>
+                                        <tr>
+
+                                            <th>ID</th>
+                                            <th>Medication</th>
+                                            <th>Dose</th>
+                                            <th>Duration</th>
+                                            <th>Remarks</th>
+											 <th>Quntity</th>
+                                            <th>Option</th>
+											<th style="display:none">Option</th>
+											
+											
+											
+                                        </tr>
+
+                                    </thead>
+									 
+                                    <tbody>
+                                    <?php
+                                        if (isset($get_medication)) 
+                                        {
+                                            $count = 1;
+                                            foreach ($get_medication as $key):
+									?>
+                                               
+                                                <tr>
+                                                    <td><?php echo $count++; ?></td>
+                                                    <?php if($key['given_status'] ==0){ ?>
+                                                    <td><?php echo $key['med_name']; ?></td>
+                                                    <?php }else{ ?>
+                                                    <td style="color:red"><?php echo $key['med_name'];; ?></td>
+                                                    <?php } ?>
+													
+                                                    <td><?php echo $key['dose']; ?></td>
+                                                    <td><?php echo $key['duration']; ?></td>
+                                                    <td><?php echo $key['remarks']; ?></td>
+                                                    <td><?php echo $key['quantity']; ?></td>
+													
+                                                    <td>
+                                                        <input type="checkbox" name="check_med[]" value="<?php echo $key['pm_id']; ?>" <?php if ($key['given_status'] !== '0') echo 'checked="checked"'; ?>>
+                                                    </td>
+                                                    </td>
+                                                    
+													<td style="display:none"><input type="hidden" name="prescription_id" value="<?php echo $key['prescription_id']; ?>"></td>
+                                                </tr>
+                                    <?php endforeach;
+                                        } 
+                                    ?>
+                                      
+                                        </tbody>
+                                
+                                </table>
+								<?php
+                           if($key['given_status'] ==0) 
+                                       
+                                 echo '<div class="pull-left">
+                                <button type="submit"class="btn btn-primary btn-modal">Confirm</button>
+                            </div>'
+							?>
+							    </form>
+						
+                            </div>
+                           
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,129 @@
+<style>
+    @font-face {
+        font-family: Raleway;
+        src: url(../fonts/Raleway-Light.ttf);
+    }
+    
+    body {
+        font-family: 'Raleway', sans-serif;
+        overflow-x: hidden;
+        font-weight: 300;
+        font-size: 16px;
+        font-style: normal;
+        scrollbar-face-color: #b46868;
+        color: #455a64;
+        background: #F0F0F0;
+    }
+    
+    .centerthing {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+    
+    table {
+        border: none;
+        border-color: transparent;
+        outline: 0;
+    }
+    
+    table thead th {
+        font-size: 13px;
+        border-bottom: 1px solid #474747;
+    }
+    
+    table tr {
+        font-size: 12px;
+    }
+    
+    table td {
+        font-size: 13px;
+    }
+    
+    .form-control {
+        border: none;
+        border-color: transparent;
+        outline: 0;
+        font-size: 15px;
+        width: 150px;
+    }
+</style>
+
+<div class="row nav-button-container tab-pane fade in active" role="tabpanel" id="patient-detailes">
+    <div id="print">
+        <div class="col-sm-12 centerthing">
+            <div class="noticeboard">
+                <div class="noticeboard-header content-header">
+                    <img src="<?php echo base_url()?>others/images/rangpur_logo.png" style="max-width: 80px;" alt="logo_cmh">
+                    <h3 style="font-size: 15px;">Combined Military Hospital, Rangpur </h3>
+                    <h4 style="border: 1px solid #000; width: 100%;"> Medicine Demand List </h4>
+                </div>
+
+            </div>
+        </div>
+        
+        <div style="margin-top: -2%;">
+            <div>
+                <div class="" style="font-size: 10px;">
+                    <div class="form-group">
+                        <label for="patient-id" class="control-label">Date :</label>
+                        <span><?php echo date('Y-m-d H:m:s') ?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <div style="padding-bottom: 20px;">
+                    <table style="border: 1px solid #000; width: 100%;">
+                        <thead>
+                              <th>Medicine Generic Name</th>
+							  <th>Medicine Generic Name</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="3" for="voucher_no"><b>Voucher No.</b>
+                                    
+                                </td>
+                                <td colspan="3" for="del-date"><b>Del Date:</b>
+                                    
+                                </td>
+                                <td colspan="3" for="report-no"><b>Report No.</b>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="12" for="patient-name"><b>Name: </b>
+                                    
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="3" for=""><b>Referred By </b> CMH
+                                </td>
+                                <td colspan="3" for="patient-address" class="control-label"><b>Age: </b>
+                                   
+                                </td>
+                                <td colspan="3" for="patient-name"><b>Gender: </b>
+                                   
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    
+                    <br>
+                    
+
+                    <p style="padding-left: 550px;padding-top: 50px">
+                     __________________   
+                    </p>
+
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    

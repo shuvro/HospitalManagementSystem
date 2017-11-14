@@ -1,0 +1,293 @@
+<!--  containt tab for view-blood-bank-->
+  <div class="row  nav-button-container fade in" role="tabpanel" id="view-blood-bank">
+    <div class="col-xs-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> View Blood Bank
+            </div>
+            <div class="noticeboard-body">
+                <div>
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                     <li role="presentation" class="active"><a href="#blood-bank" aria-controls="blood-bank" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i>
+                        Blood Bank                      </a></li>
+                        <li role="presentation"><a href="#blood-donor-list" aria-controls="bed-allotment" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i> 
+                            Blood Donor List                    	</a></li>
+
+                            <li role="presentation"><a href="#add-blood-donor" aria-controls="add-blood-donor" role="tab" data-toggle="tab"><i class="fa fa-plus"></i>
+                                Add Blood Donor                    	</a></li>
+
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade in" id="blood-donor-list">
+
+                                    <div class="table-responsive table-adjusment ">
+                                        <table class="table table-hover" id="datatab" style="width:100%">
+                                            <!--<div class="table-header ">
+
+                                                <div class="input-group dept-input">
+                                                    <span class="input-group-addon" id="search-blood-donor"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                                   <input type="text" id="Search_blood_donor" class="form-control" placeholder="Search" aria-describedby="search-blood-bank" name="blood_donor">
+                                                </div>
+                                            </div>-->
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+													<th style="display:none">Name</th>
+                                                    <th>Name</th>
+                                                    <th>Age</th>
+                                                    <th>Sex</th>
+                                                    <th>Blood Group</th>
+                                                    <th>Option</th>
+
+                                                </tr>
+
+                                            </thead>
+                                            <tbody id="search_result">
+                                             
+                                                <tr>
+                                                    <th scope="row"></th>
+                                                    <td style="display:none;"></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <button title="Edit" class="btn btn-primary btn-sm" id="getdata"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                                        <a href="<?php echo base_url(); ?>receptionist/manage_blood_donor/delete/"><button title="Delete" class="btn  btn-danger btn-sm" onclick=" return ConfirmDelete()"><i class="fa fa-trash" aria-hidden="true"></i>
+                                                        </button></a>
+                                                    </td>
+
+                                                </tr>
+
+                                           
+
+                                        </tbody>
+
+                                    </table>
+                                    
+                                </div>
+
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade in active" id="blood-bank">
+
+                                <div class="table-responsive table-adjusment">
+                                    <table class="table table-hover" id="datatab2">
+                                        
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Blood Group</th>
+                                                <th>Status</th>
+                                                <th>Option</th>
+
+
+                                            </tr>
+
+                                        </thead>
+                                        <tbody id="search_result_Blood">
+                                           
+
+                                            <tr>
+                                                <th scope="row"></th>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                                                    <button title="Edit" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                                    <button title="Delete" class="btn  btn-danger btn-sm" onclick=" return ConfirmDelete()"><i class="fa fa-trash" aria-hidden="true"></i>
+                                                    </button>
+                                                </td>
+
+
+                                            </tr>
+
+
+                                       
+
+                                    </tbody>
+
+                                </table>
+                               
+                            </div>
+
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane fade" id="add-blood-donor">
+                            <div class="table-adjusment">
+                                <!--<form class="form-horizontal">-->
+                                
+
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Name</label>
+                                    <div class=" ">
+                                        <input type="text" class="form-control dept-input" id="patient-name" placeholder=" Name" name="name" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-email" class="control-label">Email</label>
+                                    <div class=" ">
+                                        <input type="email" class="form-control dept-input" id="patient-email" placeholder="Email" name="email" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="patient-address" class="control-label">Address</label>
+                                    <div class=" ">
+                                        <input type="text" class="form-control dept-input" id="patient-address" placeholder="Address" name="address" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-phone" class="control-label">Phone</label>
+                                    <div class=" ">
+                                        <input type="number" class="form-control dept-input" id="patient-phone" placeholder="Phone" name="phone" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-sex" class="control-label">Sex</label>
+                                    <div class=" ">
+
+                                        <select id="patient-sex" type="text" class="form-control dept-input" name="sex">
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="others">Do Not Mention</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="patient-age" class="control-label">Age</label>
+                                    <div class=" ">
+                                        <input type="number" class="form-control dept-input" id="patient-age" name="age" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-blood-group" class="control-label">Blood Group</label>
+                                    <div class=" ">
+
+                                        <select id="patient-blood-group" type="text" class="form-control dept-input" name="blood_group">
+                                            <option value="A+">A+</option>
+                                            <option value="A-">A-</option>
+                                            <option value="B+">B+</option>
+                                            <option value="B-">B-</option>
+                                            <option value="AB+">AB+</option>
+                                            <option value="AB-">AB-</option>
+                                            <option value="O+">O+</option>
+                                            <option value="O-">O-</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class=" ">
+                                        <button type="submit" class="btn btn-default ">Add Patient</button>
+                                    </div>
+                                </div>
+                                <!--</form>-->
+                                    
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+           
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit Donor </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="table-adjusment">
+
+                        <input type="hidden" id="modal_id" name="id" value="">
+
+
+                        <div class="form-group">
+                            <label for="patient-name" class="control-label">Name</label>
+                            <div class=" ">
+                                <input type="text" class="form-control dept-input" id="edit-donor-name" placeholder=" Name" name="name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-email" class="control-label">Email</label>
+                            <div class=" ">
+                                <input type="email" class="form-control dept-input" id="edit-donor-email" placeholder="Email" name="email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="patient-address" class="control-label">Address</label>
+                            <div class=" ">
+                                <input type="text" class="form-control dept-input" id="edit-donor-address" placeholder="Address" name="address" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-phone" class="control-label">Phone</label>
+                            <div class=" ">
+                                <input type="number" class="form-control dept-input" id="edit-donor-phone" placeholder="Phone" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-sex" class="control-label">Sex</label>
+                            <div class=" ">
+
+                                <select id="edit-donor-sex" type="text" class="form-control dept-input" name="sex">
+                                <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Do Not Mention">Do Not Mention</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-age" class="control-label">Age</label>
+                            <div class=" ">
+                                <input type="number" class="form-control dept-input" id="edit-donor-age" name="age" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-blood-group" class="control-label">Blood Group</label>
+                            <div class=" ">
+
+                                <select id="edit-donor-blood-group" type="text" class="form-control dept-input" name="blood_group">
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary btn-modal">Save changes</button>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+	

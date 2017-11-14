@@ -1,0 +1,291 @@
+<div class="row  nav-button-container fade in" role="tabpanel" id="manage-prescription">
+    <div class="col-xs-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-eyedropper" aria-hidden="true"></i> Manage Report
+
+            </div>
+            <div class="noticeboard-body">
+                <div>
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#prescription-list" aria-controls="prescription-list" role="tab" data-toggle="tab"><i class="fa fa-eyedropper"></i>
+                              Serum Bilirubin             </a></li>
+                    </ul>
+
+
+                    <!-- Tab panes -->
+                    
+                    <?php 
+                    if($this->session->userdata('user_type')=='pathology_technician')
+                    {
+                    ?>
+                            <form id="addrec" action="<?php echo base_url(); ?>LabTest/serum_bilirubin" method="POST" enctype="multipart/form-data">
+                            
+							 <input type="hidden" name="prescription_id" value="<?php echo $this->uri->segment(4)?>">
+							 <input type="hidden" name="lab_test_no" value="<?php echo $this->uri->segment(3)?>">
+                             <?php }else{ ?>
+
+                             <form id="addrec" action="<?php echo base_url(); ?>LabTest_update/serum_bilirubin" method="POST" enctype="multipart/form-data">
+                            
+                             <input type="hidden" name="prescription_id" value="<?php echo $this->uri->segment(4)?>">
+                             <input type="hidden" name="lab_test_no" value="<?php echo $this->uri->segment(3)?>">
+
+
+                              <input type="hidden" name="test_id" value="<?php echo $serum_bilirubin['test_id'];?>">
+
+                            
+                             <?php } ?>
+                            
+                                <div class="table-responsive table-adjusment ">
+                                <div class="col-sm-12 pull-right">
+                                                     <?php if(!isset($serum_bilirubin) && $this->session->userdata('user_type')!='doctor'){
+							               echo  '<div class="form-group pull-right">
+
+                                                        <label class="fileContainer btn btn-primary waves-effect btn-browse waves-effect waves-effect">
+                                                            <i class="fa fa-upload" aria-hidden="true"></i> Click to Upload Document
+                                                            <input type="file" style="display: none;" name = "userfile">
+                                                        </label>
+                                                        
+                                                        
+
+                                                    </div>';
+                                           } else{
+                                           echo '<div class="col-sm-12 pull-right">
+                                     <div class="form-group pull-right">
+                                                        
+                                  
+                                                           <a href="https://docs.google.com/viewer?url='.base_url().'others/uploads/report/'.$file_name['file_name'].'" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>Download</a>	
+     
+                                                        
+                                                        
+
+                                                    </div>
+                                </div>';
+                                           }
+                                                  ?>                
+                                                
+                                                </div>
+
+                    <!-- Tab panes -->
+                    <div id="print" class="tab-content" >
+                        <div role="tabpanel" class="tab-pane fade in active" id="prescription-list">
+                           
+                            
+                                <div class="table-responsive table-adjusment ">
+                                
+                                    <table class="table table-hover">
+
+                                    <div>
+                        <h3 style="font-size: 20px"><CENTER><b>Combined Military Hospital, Rangpur</b></CENTER></h3>
+                                                        <h4 style="font-size: 16px"><CENTER><b>Clinical Pathology Report</b></CENTER></h4>
+                        <!-- <h5 style="color: blue"><center><b>Tel:Mil:887123,Ext.6604,6616,Civ:9836600</b></center></h5>
+                        <h5 style="color: blue"><center><b>Fax:88-02-9836804,e-mail:something@test.com,Website:www.army.mil.bd</b></center></h5> -->
+                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <div class="form-group col-md-6">
+                                                    <div>
+                                                        <label class="col-md-3">Voucher No:</label>
+                                                        <input class="col-md-9" type="text" name="voucher_no" value="<?php if(isset($serum_bilirubin)){echo $serum_bilirubin['vouchar_no'];}?>" disabled="disabled">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <div>
+                                                        <label class="col-md-3">Report No:</label>
+                                                        <input class="col-md-9" type="text" name="report_no" value="<?php if(isset($serum_bilirubin)){echo $serum_bilirubin['report_no'];}?>" disabled="disabled">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <div>
+                                                        <label>Date:</label>
+                                                        <input type="text" id="date" name="test_date" value="<?php if(isset($serum_bilirubin)){echo $serum_bilirubin['date'];}?>">
+														<div class="monthly" id="mycalendarAll"></div> 
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <div>
+                                                        <label>Del. Date</label>
+                                                        <input type="text" id="date2" name="delivery_date" value="<?php if(isset($serum_bilirubin)){echo $serum_bilirubin['delivery_date'];}?>">                                                     <div class="monthly" id="mycalendarAll2"></div> 
+                                                    </div>
+                                                </div>
+                                                
+                                                <br>
+                                                <br>
+                                                <div class="form-group col-md-12">
+                                                    <div>
+                                                        <label class="col-md-2">Patient Name: </label>
+                                                        <input class="col-md-6" type="text" name="patient_name" value="<?php if(isset($user_info)){echo $user_info['name'];}?>" disabled="disabled">
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <div class="form-group col-md-7">
+                                                    <div>
+                                                        <label>Referred By :</label>
+                                                        <input type="text" name="patient_name" value="CMH">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-5">
+                                                    <div class="form-group col-md-6">
+                                                        <div>
+                                                            <label>Age :</label>
+                                                            <input type="text" name="patient_age" value="<?php if(isset($user_info)){echo $user_info['age'];}?>" disabled="disabled">
+                                                        </div> 
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <div>
+
+                                                            <label>Sex :</label>
+                                                            <input type="text" name="patient_sex" value="<?php if(isset($user_info)){echo $user_info['sex'];}?>" disabled="disabled">
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <div class="form-group col-md-4">
+                                                    <div>
+                                                        <label class="col-md-2">Sample:</label>
+                                                        <input class="col-md-10" type="text" name="sample_name" value="Serum">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-8">
+                                                    <div class="col-md-10">
+                                                        <label class="col-md-3">Lab. No: </label>
+                                                        <input class="col-md-9" type="text" name="lab_no" value="<?php if(isset($serum_bilirubin)){echo $serum_bilirubin['lab_no'];}?>" disabled="disabled">
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <br>
+
+                                                <div class="form-group col-md-12">
+                                                    <div>
+                                                        <label>Tests :</label>
+                                                        <input type="text" name="test_names" value="Serum Bilirubin">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                                            
+                                    </table>
+                                   
+                                    <div class="col-md-12">
+                                        <div class="noticeboard">
+                                            <div>
+
+                                                <div class="table-responsive table-adjusment" >
+                                                    <table class="table table-hover col-md-12">
+                                                        <div class="table-header ">
+
+                                                            <div class="input-group dept-input table-head">
+                                                                <span> <label>Serum Bilirubin</label>
+                                                                </span>
+                                                            </div>
+                                                            </div>
+                                                           
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-4"><strong>Serum Bilirubin</strong></label>
+                                                                <div class="email-profile inline-block">
+                                                                    <select class="form-control">
+                                                                        <option>Direct</option>
+                                                                        <option>Indirect</option>
+                                                                        <option>Total</option>
+                                                                    </select>
+                                                                </div>
+                                                                <label>/mol/L</label>
+                                                                <div class="email-profile inline-block">
+                                                                    <input type="text" class="form-control" id="esr" name="serum_bilirubin_ml" value="<?php if(isset($serum_bilirubin)){echo $serum_bilirubin['serum_bilirubin_ml'];}?>">
+                                                                </div>
+                                                                <label>mg/dl</label>
+
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-4"><strong>Normal</strong></label>
+                                                                <div class="email-profile inline-block">
+                                                                    <input type="text" class="form-control" id="esr" name="esr" value="5-17">
+                                                                </div>
+                                                                <label>mol/L</label>
+                                                                <div class="email-profile inline-block">
+                                                                    <input type="text" class="form-control" id="esr" name="esr" value="0.29-0.99">
+                                                                </div>
+                                                                <label>mg/dl</label>
+
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-4"><strong>NB</strong></label>
+                                                                <div class="email-profile inline-block">
+                                                                    <input type="text" class="form-control" id="esr" name="esr" value="0.2-1.0">
+                                                                </div>
+                                                                <label>mol/L</label>
+                                                                <div class="email-profile inline-block">
+                                                                    <input type="text" class="form-control" id="esr" name="esr" value=" < 13.0">
+                                                                </div>
+                                                                <label>mg/dl</label>
+
+                                                            </div>
+                                                            
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                             
+                                              <div class="pull-right"><?php if(!isset($serum_bilirubin) && $this->session->userdata('user_type')!='doctor')
+                                   echo  '<button type="Submit" class="btn btn-success pull-left print" style="padding: 16px,12px">
+                                        <strong>SUBMIT</strong></button>'; ?>
+                                            
+
+                                            <?php if($this->session->userdata('user_type')=='pathologist')
+                                   echo  '<button type="Submit" class="btn btn-success pull-left print" style="padding: 16px,12px">
+                                        <strong>SUBMIT</strong></button>'; ?>
+                                        </div>
+                                            </form>
+                                            </div>
+                                             <div class="col-xs-12 table-footer table-foot" style="margin-top:20px;">
+                                                 
+
+                                                <div class="btn-group pull-right print" role="group" aria-label="">
+                                                <a href="<?php echo base_url()?>printing/report_printing/<?php echo $this->uri->segment(2);?>/<?php echo $this->uri->segment(3);?>/<?php echo $this->uri->segment(4);?>" target="_blank"><button type="button" class="btn btn-default"><i class="fa fa-print" aria-hidden="true"></i></button></a>
+                                                </div>
+                                                 
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+        
+        function printFunction() {
+        var divContents = $("#print").html();
+            var printWindow = window.open('', '', 'height=1500,width=1500');
+            printWindow.document.write('<html><head>'+
+                '<link href="<?php echo base_url(); ?>others/css/bootstrap.min.css" rel="stylesheet">'+
+'<link href="<?php echo base_url(); ?>others/css/style-admin.css" rel="stylesheet">'+
+'<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">'+
+'<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">'+
+'<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" type="text/css">'+
+'<link rel="stylesheet" href="<?php echo base_url(); ?>others/css/monthly.css">'+
+'<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.min.css">'+
+'<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">'+
+'<link href="<?php echo base_url(); ?>others/css/typeahead.css" rel="stylesheet">'+
+'<link rel="stylesheet" href="<?php echo base_url(); ?>others/css/perfect-scrollbar.css"/><title></title>'+
+'<style type="text/css">.print {display: none;}</style>');
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+    </script>

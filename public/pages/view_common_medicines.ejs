@@ -1,0 +1,125 @@
+<!--  containt tab for view-medicine-->
+                <div class="row  nav-button-container fade in" role="tabpanel" id="view-medicine">
+                    <div class="col-xs-12">
+                        <div class="noticeboard">
+                            <div class="noticeboard-header content-header">
+                                <i class="fa fa-info-circle" aria-hidden="true"></i> View Medicine
+                            </div>
+                            <div class="noticeboard-body">
+                                <div>
+
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#medicine-list" aria-controls="medicine-list" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i> Medicine List</a></li>
+
+
+                                    </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade in active" id="medicine-list">
+
+                                            <div class="table-responsive table-adjusment ">
+                                                <table class="table table-hover"  id="datatab">
+                                                
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+														
+                                                        <th>Medicine Name</th>
+                                                        <th>Medicine Category</th>
+                                                        <th>Lot number</th>
+                                                        <th>A/U</th>
+                                                        <th>PV</th>
+                                                        <th>Status</th>
+                                                        <!--<th>Option</th>-->
+
+                                                    </tr>
+
+                                                </thead>
+                                               
+                                                <tbody id="">
+												 <?php 
+												    foreach ( $medicine as $row):
+												     ?>
+													 
+                                                    <tr>
+                                                        <th scope="row"><?php echo $row['med_id']; ?></th>
+                                                        
+                                                       <td><?php echo $row['med_name']; ?></td>
+							                            <td><?php echo $row['cat_name'];?></td>
+							                            <td><?php echo $row['lot_id']; ?></td>
+							                            <td><?php echo $row['a_u']; ?></td>
+							                            <td><?php echo $row['pv']; ?></td>
+                                                        <td><?php echo $row['available_status']; ?></td>
+                                                        <!--<td> <button title="Edit" class="btn btn-primary btn-sm" id="getdata" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>-->
+
+                                                    </tr>
+                                                     <?php endforeach;?>
+                                                </tbody>
+												
+
+                                            </table>
+                                                <div class="col-xs-12 table-footer hidden">
+
+
+                                                    <div class="btn-group pull-right" role="group" aria-label="">
+                                                        <button type="button" class="btn btn-default">Previous</button>
+                                                        <button type="button" class="btn btn-default">1</button>
+                                                        <button type="button" class="btn btn-default">Next</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+				<script>
+        $(document).ready(function () {
+
+               // var table = $('#search_id').attr('name');
+                $('#Search_medicine').keyup(function () {
+                    var search_key = $(this).val();
+					 //alert(search_key);
+					  //alert(table);
+					 
+
+                    $.ajax({
+                        url: '<?php echo base_url();?>Search/Search_medicine',
+                        data: {'search_key': search_key, 'pagination_number':1},
+                        type: 'POST',
+                        dataType: 'json',
+
+                        error: function () {
+                            alert("Sorry");
+                        //alert(pagination_number);
+                    },
+                    success: function (data) {
+                        //alert(data[0]);
+                    //alert(searchid);
+                    $('#medicine_result').empty();
+                    $("#pagination").empty();
+
+                    // var count = 0;
+                    // $.each(data, function(key, value) {
+                    //     $( "#search_result" ).append( '<tr><th scope="row">'+(count+1)+'</th><td style="display: none;">'+data[count].department_id+'</td><td>'+data[count].name+'</td><td>'+data[count].description+'</td><td><button class="btn btn-primary btn-sm" id="getdata" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td></tr>' );
+                    //     count++;
+                    // });
+                    //$( "#search_result" ).html( '<tr><td>'+data[0].department_id+'</td></tr>' );
+                    
+                    $("#medicine_result").append(data[0]);
+                    $("#pagination").append(data['pagination']);
+                } // End of success function of ajax form
+            }); // End of ajax call
+                });
+            });
+    </script>

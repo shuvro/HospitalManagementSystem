@@ -1,0 +1,70 @@
+<!--  containt tab for view-appointment-->
+<div class="row  nav-button-container fade in" role="tabpanel" id="view-appointment">
+    <div class="col-xs-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> View Appointment
+            </div>
+            <div class="noticeboard-body">
+                <div>
+
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="bed-list">
+
+                            <div class="table-responsive table-adjusment" style="height:400px;">
+							 <form id="addrec" action="<?php echo base_url(); ?>admin/app_report" method="post" enctype="multipart/form-data">
+							 
+							 <div class="form-group col-md-3">
+                                    <div>
+                                        <label class="col-md-4">Doctor name:</label>
+                                        			<select class="form-control" name="name" style="margin-top:12px;" required>
+                                                                <option disabled="" selected="">Select name</option>
+                                                                
+                                                                                        <?php
+																							$count = 1;
+																							foreach ($doctors as $row):
+																								?>
+                                                                                            <option value="<?php echo $row['user_id']; ?>">
+                                                                                                <?php echo $row['name']; ?>
+                                                                                            </option>
+                                                                                            <?php endforeach; ?>
+                                                            </select>
+                                    </div>
+                                </div>
+							 
+                                <div class="form-group col-md-3">
+                                    <div>
+                                        <label class="col-md-4">Form:</label>
+                                        <input class="col-md-7" type="text" name="date_form" value="" id="date" style="padding-bottom:34px;">
+										<div class="monthly" id="mycalendarAll"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <div>
+                                        <label class="col-md-4">To:</label>
+                                        <input class="col-md-7" type="text" name="date_to" value="<?php echo date("m/d/y");?>" id="date2" style="padding-bottom:34px;">
+										<div class="monthly" id="mycalendarAll2"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <div>
+                                        <button type="Submit" class="btn btn-success pull-left print">
+                                            <strong>SUBMIT</strong></button>
+                                    </div>
+                                </div>
+							</form>	
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

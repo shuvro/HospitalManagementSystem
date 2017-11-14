@@ -1,0 +1,246 @@
+<!--  containt tab for Nurse-->
+                <div class="row  nav-button-container fade in" role="tabpanel" id="nurse">
+                    <div class="col-xs-12">
+                        <div class="noticeboard">
+                            <div class="noticeboard-header content-header">
+                                <i class="fa fa-info-circle" aria-hidden="true"></i> Manage Category
+                            </div>
+                            <div class="noticeboard-body">
+                                <div>
+
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#category-list" aria-controls="nurse-list" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i>
+                                                Category List                    	</a></li>
+                                        <li role="presentation"><a href="#category-add" aria-controls="add-nurse" role="tab" data-toggle="tab"><i class="fa fa-plus"></i>
+                                                Add Category                    	</a></li>
+
+                                    </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade in active" id="category-list">
+
+                                            <div class="table-responsive table-adjusment ">
+                                                <table class="table table-hover" id="datatab">
+                                                    <div class="table-header hidden">
+
+                                                        <div class="input-group dept-input">
+                                                            <span class="input-group-addon" id="search-nurse"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                                            <input id="Search_medicine_category" type="text" class="form-control" placeholder="Search" aria-describedby="search-nurse" name="lab_category">
+                                                        </div>
+                                                    </div>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th style="display:none">Lab Name</th>
+															<th>Lab Name</th>
+                                                            <th>Description</th>
+                                                            <th>Options</th>
+                                                        </tr>
+
+                                                    </thead>
+                                                    
+                                                    <tbody id="search_result_category">
+                                                        <?php $count = 1;foreach($category as $row):?>
+                                                        <tr>
+                                                            <th scope="row"><?php echo $count++;?></th>
+                                                            <td style="display: none;"><?php echo $row['lab_category_id'] ?></td>
+															<td><?php echo $row['lab_name'] ?></td>
+                                                            <td><?php echo $row['lab_description'];?></td>
+                                                            <td>
+                                                                <button title="Edit" class="btn btn-primary btn-sm" id="getdata" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+
+
+                                                                <a href="<?php echo base_url();?>laboratorist/manage_category/delete/<?php echo $row['lab_category_id'];?>"><button title="Delete" class="btn  btn-danger btn-sm" onclick="return ConfirmDelete()"><i class="fa fa-trash" aria-hidden="true"></i>
+                                                                </button></a>
+                                                            </td>
+
+                                                        </tr>
+                                                <?php endforeach;?>
+
+                                                    </tbody>
+
+                                                </table>
+                                                <div class="col-xs-12 table-footer hidden">
+
+
+                                                    <div class="btn-group pull-right" role="group" aria-label="">
+                                                        <button type="button" class="btn btn-default">Previous</button>
+                                                        <button type="button" class="btn btn-default">1</button>
+                                                        <button type="button" class="btn btn-default">Next</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="category-add">
+                                            <div class="table-adjusment">
+<!--                                                <form class="form-horizontal">-->
+                                                    <?php echo form_open('laboratorist/manage_category/create/' , array('class' => 'form-horizontal validatable'));?>
+                                                    <div class="form-group">
+                                                        <label for="nurse-name" class="control-label">Name</label>
+                                                        <div class=" ">
+                                                            <input type="text" class="form-control dept-input" id="category-name" placeholder="Category Name" name="name" required>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group">
+                                                        <label for="cat-description" class="control-label">Description</label>
+                                                        <div class=" ">
+                                                            <input type="text" class="form-control dept-input" id="description" placeholder="Description" name="description" required>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group">
+                                                        <div class=" ">
+                                                            <button type="submit" class="btn btn-default">Add Category</button>
+                                                        </div>
+                                                    </div>
+<!--                                                </form>-->
+                                                     <?php echo form_close();?>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+<!-- Modal -->
+   <div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+
+            <div class="modal-content">
+            
+                <?php echo form_open('laboratorist/manage_category/edit/do_update/', array('class' => 'form-horizontal')); ?>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit Lab Category Details </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="table-adjusment">
+                    
+
+                                <input type="hidden" class="form-control dept-input" id="id" name="id">
+
+
+                                <div class="form-group">
+                                                        <label for="nurse-name" class="control-label">Lab category name</label>
+                                                        <div class=" ">
+                                                            <input type="text" class="form-control dept-input" id="lab_name" placeholder="Nurse Name" name="lab_name" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="nurse-email" class="control-label">Description</label>
+                                                        <div class=" ">
+                                                            <input type="text" class="form-control dept-input" id="lab_description" placeholder="Email" name="lab_description"  required>
+                                                        </div>
+                                                    </div>
+
+                                                    
+                                                      
+
+                                    <div class="modal-footer">
+                        <button type="" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary btn-modal">Save changes</button>
+                    </div>
+                    <?php echo form_close(); ?>
+    
+                                </div>
+
+                            </div>
+        
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+
+            $(document).on('click','#getdata', function(){
+        var edit_id= $(this).closest('tr').children()[1].textContent;
+        var infoModal = $('#view-modal');
+       // $("#view-modal").modal("show");
+        $.ajax({
+
+            url: '<?php echo base_url();?>laboratorist/edit_category',
+            data: {'edit_id': edit_id},
+            type:'POST',
+            dataType: 'json',
+
+            error: function(){
+                alert("Data not found");        
+            },
+
+            success:function(data){    
+                 $(".modal #id").val(data[0].lab_category_id);
+                $(".modal #lab_name").val(data[0].lab_name);
+                $(".modal #lab_description").val(data[0].lab_description);
+                
+                $("#view-modal").modal("show");
+
+                          } // End of success function of ajax form
+                          }); // End of ajax call
+});
+
+
+
+        </script> 
+		<script>
+        $(document).ready(function () {
+
+               // var table = $('#search_id').attr('name');
+                $('#Search_medicine_category').keyup(function () {
+                    var search_key = $(this).val();
+					 //alert(search_key);
+					  //alert(table);
+					 
+
+                    $.ajax({
+                        url: '<?php echo base_url();?>Search/Search_lab_category',
+                        data: {'search_key': search_key, 'pagination_number':1},
+                        type: 'POST',
+                        dataType: 'json',
+
+                        error: function () {
+                            alert("Sorry");
+                        //alert(pagination_number);
+                    },
+                    success: function (data) {
+                        //alert(data[0]);
+                    //alert(searchid);
+                    $('#search_result_category').empty();
+                    $("#pagination").empty();
+
+                    // var count = 0;
+                    // $.each(data, function(key, value) {
+                    //     $( "#search_result" ).append( '<tr><th scope="row">'+(count+1)+'</th><td style="display: none;">'+data[count].department_id+'</td><td>'+data[count].name+'</td><td>'+data[count].description+'</td><td><button class="btn btn-primary btn-sm" id="getdata" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td></tr>' );
+                    //     count++;
+                    // });
+                    //$( "#search_result" ).html( '<tr><td>'+data[0].department_id+'</td></tr>' );
+                    
+                    $("#search_result_category").append(data[0]);
+                    $("#pagination").append(data['pagination']);
+                } // End of success function of ajax form
+            }); // End of ajax call
+                });
+            });
+    </script>

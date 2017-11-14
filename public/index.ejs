@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+    <title> LOGIN | RANGPUR CMH </title>
+
+
+    <link href="<?php echo base_url(); ?>others/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="<?php echo base_url(); ?>others/css/style-admin.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+
+
+
+</head>
+
+<body>
+    <!-- header -->
+
+    <div class="container-fluid admin-header">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="logo-box">
+                <?php
+                if(!isset($account))
+                {
+                    $account='';
+                }
+                 if (file_exists('uploads/logo/hmslogo_' . $account . '.png')) { 
+                     $filename=$account;  }
+                    else 
+                        { 
+                            $filename = 'default';
+                        }
+                    ?>
+                    <a href="#"><img src="<?php echo base_url(); ?>uploads/logo/hmslogo_<?php echo $filename; ?>.png" width="50px" height="50px"></a>
+                </div>
+                <div class="menu-icon">
+
+                </div>
+                <div class="pull-left page-title">
+                    <span class="line"></span>
+                    <h1 class="ng-binding"> RANGPUR CMH </h1>
+                    <!-- <div class="hide-shadow"></div> -->
+                </div>
+
+                <div class="right-menus pull-right right-menus-login">
+
+                    <div class="language-menu centerthing dropdown">
+
+
+                        <a data-toggle="dropdown" href="#" class="clearfix dropdown-toggle">
+                            <i class="fa fa-language" aria-hidden="true"></i> Language
+                        </a>
+                        <ul role="menu" class="dropdown-menu fadeInUp">
+                            <li><a href="#"><span class="user-nav-icon"><i class="fa fa-flag"></i></span><span class="user-nav-label"> English(US)</span></a>
+                            </li>
+                            <li><a href="#"><span class="user-nav-icon"><i class="fa fa-flag"></i></span><span class="user-nav-label"> English(UK)</span></a>
+                            </li>
+
+                        </ul>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <?php if (file_exists('uploads/admin/admin-' . $account . '.jpg')) { 
+                     $filename=$account;  }
+                    else 
+                        { 
+                            $filename = 'default';
+                        }
+                    ?>
+    <div class="container-fluid background" style="background: transparent url(&quot;<?php echo base_url();?>uploads/background/hospital-<?php echo $filename;?>.jpg&quot;) no-repeat fixed center center / cover ;">
+
+        <div class="login-box">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-check-square" aria-hidden="true"></i> Login
+
+            </div>
+            <div class="form-group" style="padding-left: 35px;" >
+
+                    <div class="logo-box" id="acc-type" >
+                        <a href="#"><img src="<?php echo base_url(); ?>uploads/logo/hmslogo_<?php echo $filename; ?>.png" width="90px" height="90px"></a>
+                    </div>
+            </div>
+            <div class="login-froms">
+                
+            
+                   <form action="<?php echo base_url(); ?>login/verify" method="post">
+                    <div class="input-group login-form-box login-extra-margin" >
+                        <span class="input-group-addon login-input-group-addon" id="login-email"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                        <input type="text" class="form-control" placeholder="Army No" aria-describedby="login-email" name="login_email" required>
+                    </div>
+                    <div class="input-group login-form-box">
+                        <span class="input-group-addon login-input-group-addon" id="login-password"><i class="fa fa-key" aria-hidden="true"></i></span>
+                        <input type="password" class="form-control" placeholder="Password" aria-describedby="login-password" id="p1" name="login_password" required>
+                    </div>
+                    <div id="res2"></div>
+                    <div class="login-button-box">
+                        <button type="submit" class="btn btn-default pull-right btn-login" id="TextBoxId">Login</button>
+                        
+                        <a href="<?php echo base_url();?>Main/forget_password"><button type="button" class="btn btn-link  pull-left" style="display: none;">Forgot Password ?</button></a>
+                    </div>
+					</form>
+
+                
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="<?php echo base_url(); ?>others/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>
+

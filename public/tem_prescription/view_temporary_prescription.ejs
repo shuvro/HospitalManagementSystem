@@ -1,0 +1,124 @@
+<div class="row  nav-button-container tab-pane fade in active" role="tabpanel" id="patient-detailes">
+    <div class="col-sm-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Patients Details
+            </div>
+
+        </div>
+    </div>
+    
+
+    <!-- form start for everything in the form-->
+
+
+    <form id="addrec" action="<?php echo base_url(); ?>DoctorAdd/fav_prescription/<?php echo $this->uri->segment(5)?>" method="POST" enctype="multipart/form-data">
+    <div class="col-md-12 col-sm-12"></div>
+        <div class="col-sm-12">
+            <div class="noticeboard">
+
+                <div>
+                    <div class="table-responsive table-adjusment">
+                        <table class="table table-hover">
+                            <div class="table-header ">
+                                <div class="input-group dept-input table-head">
+                                    <i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp; &nbsp;Chief Complaints
+                                </div>
+                            </div>
+                            <div>
+                                <textarea style="max-width: 100%;" type="text" class="form-control comment" id="comment125" name="chief_complaint" placeholder="Chief Complaints"><?php if(isset($prescription_fav)){echo $prescription_fav['cheif_complaint'];}?></textarea>
+                            </div>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+                        <div class="col-sm-12">
+                            <div class="col-md-6 col-sm-6">
+                                    <div class="noticeboard">
+
+                                        <div>
+                                            <div class="table-responsive table-adjusment">
+                                                <table class="table table-hover">
+                                                    <div class="table-header ">
+                                                        <div class="input-group dept-input table-head">
+                                                            <i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp; &nbsp;Past History
+                                                        </div>
+                                                    </div>
+                                                    <?php
+                                                        if(isset($prescription_fav['past_history']))
+                                                        {
+                                                            $res1 = '';
+                                                            $res2 = '';
+                                                            $res3 = '';
+                                                            $res4 = '';
+                                                            $res5 = '';
+                                                            $history = explode(",", $prescription_fav['past_history']);
+                                                            foreach ($history as $key) {
+                                                                if($key == 'Diabetes Mellitus')
+                                                                    $res1 = 'checked';
+                                                                else if($key == 'Hypertension')
+                                                                    $res2 = 'checked';
+                                                                else if($key == 'Hronchial Asthma')
+                                                                    $res3 = 'checked';
+                                                                else if($key == 'Cerebrovascular Disease')
+                                                                    $res4 = 'checked';
+                                                                else $res5 = $key;
+                                                            }
+                                                        }
+                                                    ?>
+                                                    <div>
+													 <div class="input-group dept-input table-head">
+													 <input type="checkbox" name="past_history[]" value="Diabetes Mellitus" <?php if (isset($res1) && $res1 != '') {
+                                                         echo 'checked';
+                                                     } ?> />   Diabetes Mellitus 
+														</div>
+													   <div class="input-group dept-input table-head">
+                                                          <input type="checkbox" name="past_history[]"  value="Hypertension" <?php if (isset($res2) && $res2 != '') {
+                                                          echo 'checked';
+                                                     } ?>/>  Hypertension
+                                                        </div>
+														<div class="input-group dept-input table-head">
+                                            <input type="checkbox" name="past_history[]" value="Hronchial Asthma" <?php if (isset($res3) && $res3 != '') {
+                                                         echo 'checked';
+                                                     } ?>/> Hronchial Asthma 
+                                                        </div>
+														<div class="input-group dept-input table-head">
+                                                     <input type="checkbox" name="past_history[]" value="Cerebrovascular Disease" <?php if (isset($res4) &&  $res4 != '') {
+                                                          echo 'checked';
+                                                     } ?>/> Cerebrovascular Disease 
+                                                        </div>
+													    
+                                                        <textarea style="max-width: 100%;" type="text" class="form-control comment" id="comment" name="past_history[]" placeholder="Others History"><?php if (isset($res5) &&$res5 != '') {
+                                                          echo $res5;
+                                                     } ?></textarea>
+                                                    </div>
+
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                    <div class="noticeboard">
+
+                                        <div>
+                                            <div class="table-responsive table-adjusment">
+                                                <table class="table table-hover">
+                                                    <div class="table-header ">
+                                                        <div class="input-group dept-input table-head">
+                                                            <i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp; &nbsp;Drug History
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <textarea style="max-width: 100%;" type="text" class="form-control comment" id="comment" name="drug_history" placeholder="Drug History"><?php if(isset($prescription_fav)){echo $prescription_fav['drug_history'];}?></textarea>
+                                                    </div>
+
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+
+                        </div>

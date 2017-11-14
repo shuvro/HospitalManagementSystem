@@ -1,0 +1,443 @@
+<!--  containt tab for Manage Report-->
+   <div class="row  nav-button-container fade in" role="tabpanel" id="manage-report">
+                <div class="col-xs-12">
+                    <div class="noticeboard">
+                        <div class="noticeboard-header content-header">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i> Manage Report
+
+                        </div>
+                        <div class="noticeboard-body">
+                            <div>
+
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#operation-list" aria-controls="operation-list" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i> 
+					Operation                    	</a></li>
+                                   <li role="presentation"><a href="#birth-list" aria-controls="birth-list" role="tab" data-toggle="tab"><i class="fa fa-plus"></i>
+					Birth                    	</a></li>
+                                   <li role="presentation"><a href="#death-list" aria-controls="death-list" role="tab" data-toggle="tab"><i class="fa fa-plus"></i>
+					Death                   	</a></li>
+                                   <li role="presentation"><a href="#others-list" aria-controls="others-list" role="tab" data-toggle="tab"><i class="fa fa-plus"></i>
+					Others                    	</a></li>
+                                    <li role="presentation"><a href="#add-report" aria-controls="add-report" role="tab" data-toggle="tab"><i class="fa fa-plus"></i>
+					Add Report                    	</a></li>
+
+                                </ul>
+
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade in active" id="operation-list">
+
+                                        <div class="table-responsive table-adjusment ">
+                                            <table class="table table-hover" id="datatab">
+                                                <!--<div class="table-header ">
+
+                                                    <div class="input-group dept-input">
+                                                        <span class="input-group-addon" id="patient-operation-list"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                                         <input type="text" id="Search_opertaion" class="form-control" placeholder="Search By paitent" aria-describedby="patient-operation-list" name="report">
+                                                    </div>
+                                                </div>-->
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+														<th style="display:none">ID</th>
+                                                        <th>Description</th>
+                                                        <th>Date</th>
+                                                        <th>Patient</th>
+                                                        <th>Doctor</th>
+                                                        <th>Option</th>
+
+                                                    </tr>
+
+                                                </thead>
+                                                <tbody id="search_result_opretion">
+                                                    
+                                                    <tr>
+                                                        <th scope="row"></th>
+                                                        <td style="display: none;"></td>
+                                                        <td></td>
+                                                        
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                       
+                                                        
+
+
+                                                        <td>
+                                                            <button title="Edit" class="btn btn-primary btn-sm" id="getdata" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+
+                                                            <a href="<?php echo base_url();?>doctor/"><button title="Delete" class="btn  btn-danger btn-sm" onclick=" return ConfirmDelete()"><i class="fa fa-trash" aria-hidden="true"></i>
+                                                                </button></a>
+                                                        </td>
+
+                                                    </tr>
+                                                    
+
+                                                          
+                                                </tbody>
+
+                                            </table>
+                                            <!--<div class="col-xs-12 table-footer">
+
+
+                                                <div class="btn-group pull-right" role="group" aria-label="">
+                                                    <button type="button" class="btn btn-default"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                                                    <button type="button" class="btn btn-default">1</button>
+                                                    <button type="button" class="btn btn-default"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                                                </div>
+
+                                            </div>-->
+                                        </div>
+
+                                    </div>
+                                    
+                                    <div role="tabpanel" class="tab-pane fade in " id="birth-list">
+
+                                        <div class="table-responsive table-adjusment ">
+                                            <table class="table table-hover" id="datatab2" style="width: 100%;">
+                                                <!--<div class="table-header ">
+
+                                                    <div class="input-group dept-input">
+                                                        <span class="input-group-addon" id="patient-birth-list"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                                        <input type="text" id="Search_birth" class="form-control" placeholder="Search By paitent" aria-describedby="patient-birth-list">
+                                                    </div>
+                                                </div>-->
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+														<th style="display:none">Description</th>
+                                                        <th>Description</th>
+                                                        <th>Date</th>
+                                                        <th>Patient</th>
+                                                        <th>Doctor</th>
+                                                        
+
+                                                        <th>Option</th>
+
+                                                    </tr>
+
+                                                </thead>
+                                                <tbody id="search_result_birth">
+                                                    
+                                                    <tr>
+                                                        <td></td>
+                                                        <td style="display: none;"></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        
+
+
+                                                        <td>
+                                                            <button title="Edit" class="btn btn-primary btn-sm" id="getdata" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+
+                                                            <a href="<?php echo base_url();?>doctor/"><button title="Delete" class="btn  btn-danger btn-sm" onclick=" return ConfirmDelete()"><i class="fa fa-trash" aria-hidden="true"></i>
+                                                             </button></a>
+                                                         </td>
+
+                                                     </tr>
+                                                     
+                                                
+
+                                             </tbody>
+
+                                            </table>
+                                            <!--<div class="col-xs-12 table-footer">
+
+
+                                                <div class="btn-group pull-right" role="group" aria-label="">
+                                                    <button type="button" class="btn btn-default"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                                                    <button type="button" class="btn btn-default">1</button>
+                                                    <button type="button" class="btn btn-default"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                                                </div>
+
+                                            </div>-->
+                                        </div>
+
+                                    </div>
+                                    
+                                    <div role="tabpanel" class="tab-pane fade in " id="death-list">
+
+                                        <div class="table-responsive table-adjusment">
+                                            <table class="table table-hover" id="datatab3" style="width:100%">
+                                                <div class="table-header ">
+
+                                                    <div class="input-group dept-input">
+                                                        <span class="input-group-addon" id="patient-death-list"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                                        <input type="text" id="Search_death" class="form-control" placeholder="Search By paitent" aria-describedby="patient-death-list">
+                                                    </div>
+                                                </div>
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+														<th style="display:none">ID</th>
+                                                        <th>Description</th>
+                                                        <th>Date</th>
+                                                        <th>Patient</th>
+                                                        <th>Doctor</th>
+                                                        
+
+                                                        <th>Option</th>
+
+                                                    </tr>
+
+                                                </thead>
+                                                <tbody id="">
+                                                   
+                                                   <tr>
+                                                    <td scope="row"></td>
+                                                    <td style="display: none;"></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    
+                                                    <td>
+                                                        <button title="Edit" class="btn btn-primary btn-sm" id="getdata" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+
+                                                        <a href="<?php echo base_url();?>doctor/"><button title="Delete" class="btn  btn-danger btn-sm" onclick=" return ConfirmDelete()"><i class="fa fa-trash" aria-hidden="true"></i>
+                                                        </button></a>
+                                                    </td>
+
+                                                </tr>
+                                                
+                                           
+
+                                                </tbody>
+
+                                            </table>
+                                            <!--<div class="col-xs-12 table-footer">
+
+
+                                                <div class="btn-group pull-right" role="group" aria-label="">
+                                                    <button type="button" class="btn btn-default"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                                                    <button type="button" class="btn btn-default">1</button>
+                                                    <button type="button" class="btn btn-default"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                                                </div>
+
+                                            </div>-->
+                                        </div>
+
+                                    </div>
+                                    
+                                    <div role="tabpanel" class="tab-pane fade in " id="others-list">
+
+                                        <div class="table-responsive table-adjusment ">
+                                            <table class="table table-hover" id="datatab4" style="width:100%">
+                                                <div class="table-header hidden">
+
+                                                    <div class="input-group dept-input">
+                                                        <span class="input-group-addon" id="patient-others-list"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                                        <input type="text" id="Search_other" class="form-control" placeholder="Search By paitent" aria-describedby="patient-others-list">
+                                                    </div>
+                                                </div>
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+														<th style="display:none">ID</th>
+                                                        <th>Description</th>
+                                                        <th>Date</th>
+                                                        <th>Patient</th>
+                                                        <th>Doctor</th>
+                                                        
+
+                                                        <th>Option</th>
+
+                                                    </tr>
+
+                                                </thead>
+                                                <tbody id="serach_result_other">
+                                                    
+                                                    <tr>
+                                                        <th scope="row"></th>
+                                                        <td style="display: none;"></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        
+
+
+                                                        <td>
+                                                            <button title="Edit" class="btn btn-primary btn-sm" id="getdata" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+
+                                                            <a href="<?php echo base_url();?>doctor/print_prescription"><button title="Delete" class="btn  btn-danger btn-sm" onclick=" return ConfirmDelete()"><i class="fa fa-trash" aria-hidden="true"></i>
+                                                            </button></a>
+                                                        </td>
+
+                                                    </tr>
+                                                    
+                                               
+
+                                            </tbody>
+
+                                            </table>
+                                            <!--<div class="col-xs-12 table-footer">
+
+
+                                                <div class="btn-group pull-right" role="group" aria-label="">
+                                                    <button type="button" class="btn btn-default"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                                                    <button type="button" class="btn btn-default">1</button>
+                                                    <button type="button" class="btn btn-default"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                                                </div>
+
+                                            </div>-->
+                                        </div>
+
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="add-report">
+                                        <div class="table-adjusment">
+                                            <!--<form class="form-horizontal">-->
+                                                                
+
+                                             <div class="form-group">
+                                                    <label for="operation-type" class="control-label">Type</label>
+                                                    <div class=" ">
+
+                                                        <select name="type" id="operation-type" type="text" class="form-control dept-input">
+                                                            <option value="Operation">Operation</option>
+                                                            <option value="Birth">Birth</option>
+                                                            <option value="Death">Death</option>
+                                                            <option value="Others">Others</option>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                              <div class="form-group">
+                                                    <label for="operation-description" class="control-label">Description</label>
+                                                    <div class=" " style="">
+                                                        <textarea name="description" type="text" class="form-control dept-input" id="operation-description" value="" required></textarea>
+                                                        
+                                                    </div>
+                                                </div>
+                                               <div class="form-group">
+                                                    <label for="operation-date" class="control-label">Date</label>
+                                                    <div class=" " style="">
+                                                        <input name="timestamp" type="text" class="form-control dept-input" id="apo-date" value="" required>
+                                                        <div class="monthly " id="mycalendar4"></div>
+                                                    </div>
+                                                </div>
+                                            <div class="form-group">
+                                                <label for="doctor-name" class="control-label">Doctor</label>
+                                                <div class="  email-profile">
+                                                    <span></span>
+                                                    <input type="hidden" name="doctor_id" value=""  />
+                                                </div>
+                                            </div>
+                                                
+                                               
+                                                <div class="form-group">
+                                                    <label for="patient-name" class="control-label">Patient</label>
+                                                    <div class=" ">
+
+                                                        <select name="patient_id" id="patient-name" type="text" class="form-control dept-input">
+                                                            <option value="">select</option>
+									
+                                        	<option value=""></option>
+                                        
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                
+                                                
+
+                                                <div class="form-group">
+                                                    <div class=" ">
+                                                        <button type="submit" class="btn btn-default ">Add report</button>
+                                                    </div>
+                                                </div>
+                                            <!--</form>-->
+                                           
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+<!-- Modal -->
+   <div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+
+            <div class="modal-content">
+            
+               
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit Report Details </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="table-adjusment">
+                    
+
+                                <input type="hidden" class="form-control dept-input" id="id" name="report_id">
+
+
+                                <div class="form-group">
+                                                    <label for="operation-type" class="control-label">Type</label>
+                                                    <div class=" ">
+
+                                                        <select name="type" id="operation-type" type="text" class="form-control dept-input">
+                                                            <option value="Operation">Operation</option>
+                                                            <option value="Birth">Birth</option>
+                                                            <option value="Death">Death</option>
+                                                            <option value="Others">Others</option>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                              <div class="form-group">
+                                                    <label for="operation-description" class="control-label">Description</label>
+                                                    <div class=" " style="">
+                                                        <textarea name="description" type="text" class="form-control dept-input" id="description" value="" required></textarea>
+                                                        
+                                                    </div>
+                                                </div>
+                                               <div class="form-group">
+                                                    <label for="operation-date" class="control-label">Date</label>
+                                                    <div class=" " style="">
+                                                        <input name="timestamp" type="text" class="form-control dept-input" id="report-date" value="" readonly>
+                                                    </div>
+                                                </div>
+
+                                            <div class="form-group">
+                                                <label for="doctor-name" class="control-label">Doctor</label>
+                                                <div class="  email-profile">
+                                                     <input type="text" class="form-control dept-input" id="doctor-name" name="doctor-name" readonly>
+                                                </div>
+                                            </div>
+                                                
+                                               
+                                                <div class="form-group">
+                                                    <label for="patient-name" class="control-label">Patient</label>
+                                                    <div class=" email-profile ">
+                                                     <input type="text" class="form-control dept-input" id="patient-name" name="patient-name" readonly>
+                                                    </div>
+                                                </div> 
+
+                                    <div class="modal-footer">
+                        <button type="" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary btn-modal">Save changes</button>
+                    </div>
+                   
+    
+                                </div>
+
+                            </div>
+        
+
+                </div>
+            </div>
+        </div>
+
+

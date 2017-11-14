@@ -1,0 +1,81 @@
+<div class="row  nav-button-container fade in" role="tabpanel" id="manage-prescription">
+    <div class="col-xs-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Manage Prescription
+
+            </div>
+            <div class="noticeboard-body">
+                <div>
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#prescription-list" aria-controls="prescription-list" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i> 
+                                Prescription List                    	</a></li>
+
+
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="prescription-list">
+
+                            <div class="table-responsive table-adjusment ">
+                                <table class="table table-hover"  id="datatab">
+                                    <div class="table-header hidden">
+
+                                        <div class="input-group dept-input">
+                                            <span class="input-group-addon" id="patient-prescription"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                            <input type="text" id="manange_prescription" class="form-control" placeholder="Search" aria-describedby="patient-prescription" name="prescription">
+                                        </div>
+                                    </div>
+                                    <thead>
+                                        <tr>
+                                            <th>Patient ID</th>
+											 <th>Prescription Id </th>
+                                            <th style="display:none">ID</th>
+                                            <th>Patient</th>
+                                            <th>Doctor</th>
+                                           
+                                        </tr>
+
+                                    </thead>
+                                    <tbody id="medicine_result">
+                                        <?php foreach($prescription as $row):?>
+										
+                                            <tr>
+                                                <th><?php echo $row['patient_id']; ?></th>
+												<td style="cursor: pointer" class='clickable-row' data-href='<?php echo base_url(); ?>pharmacist/medicine_details/<?php echo $row['prescription_id']; ?>'><?php echo $row['prescription_id']; ?></td>
+                                                <td style="display:none"><?php echo $row['id']; ?></td>
+                                                 <td style="cursor: pointer" class='clickable-row' data-href='<?php echo base_url(); ?>pharmacist/patient_details/<?php echo $row['patient_id']; ?>'> <?php echo $row['pname']; ?></td>
+                                                <td><?php echo $row['uname']; ?></td>
+                                              
+                                            </tr>
+                                      <?php endforeach; ?>
+                                    </tbody>
+
+                                </table>
+                                <div class="col-xs-12 table-footer hidden">
+
+
+                                    <div class="btn-group pull-right" role="group" aria-label="">
+                                        <button type="button" class="btn btn-default"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                                        <button type="button" class="btn btn-default">1</button>
+                                        <button type="button" class="btn btn-default"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

@@ -1,0 +1,2699 @@
+<div class="col-md-12 col-sm-12">
+	<div class="noticeboard">
+                <div>
+                    <div style="" class="table-responsive table-adjusment ">
+                        <table class="table table-hover">
+
+                            <div class="table-header ">
+                                <div class="input-group dept-input table-head">
+                                    <i class="fa fa-exchange" aria-hidden="true"></i>&nbsp; &nbsp;Occular Systemic Examination
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label"><u>VISION</u></label>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label" style="padding-left: 20px">VAR :</label>
+                                    <div class="email-profile inline-block">
+                                        <input type="text" class="form-control" name="var" id="var" value="<?php if(isset($prescription_fav)){echo $prescription_fav['var'];}?>">
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label" style="padding-left: 20px">VAL :</label>
+                                    <div class="email-profile inline-block">
+                                        <input type="text" class="form-control" name="val" id="val" value="<?php if(isset($prescription_fav)){echo $prescription_fav['val'];}?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Eyelid :</label>
+                                    <div class="email-profile inline-block">
+                                        <input type="text" class="form-control" name="eyelid" id="eyelid" value="<?php if(isset($prescription_fav)){echo $prescription_fav['eyelid'];}?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Eyelash :</label>
+                                    <div class="email-profile inline-block">
+                                        <input type="text" class="form-control" name="eyelash" id="eyelash" value="<?php if(isset($prescription_fav)){echo $prescription_fav['eyelash'];}?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Cornea :</label>
+                                    <div class="email-profile inline-block">
+                                        <input type="text" class="form-control" name="cornea" id="cornea" value="<?php if(isset($prescription_fav)){echo $prescription_fav['cornea'];}?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Conjunctiva :</label>
+                                    <div class="email-profile inline-block">
+                                        <input type="text" class="form-control" name="conjunctiva" id="conjunctiva" value="<?php if(isset($prescription_fav)){echo $prescription_fav['conjunctiva'];}?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Anterior Segment:</label>
+                                    <div class="email-profile inline-block">
+                                        <input type="text" class="form-control" name="anterior_seg" id="anterior_seg" value="<?php if(isset($prescription_fav)){echo $prescription_fav['anterior_seg'];}?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Lens :</label>
+                                    <div class="email-profile inline-block">
+                                        <input type="text" class="form-control" name="lens" id="lens" value="<?php if(isset($prescription_fav)){echo $prescription_fav['lens'];}?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Fundus :</label>
+                                    <div class="email-profile inline-block">
+                                        <input type="text" class="form-control" name="fundus" id="fundus" value="<?php if(isset($prescription_fav)){echo $prescription_fav['fundus'];}?>">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Orbit :</label>
+                                    <div class="email-profile inline-block">
+                                        <input type="text" class="form-control" name="orbit" id="orbit" value="<?php if(isset($prescription_fav)){echo $prescription_fav['orbit'];}?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Lacrimal Gland :</label>
+                                    <div class="email-profile inline-block">
+                                        <input type="text" class="form-control" name="lacrimal_gland" id="lacrimal_gland" value="<?php if(isset($prescription_fav)){echo $prescription_fav['lacrimal_gland'];}?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Retina :</label>
+                                    <div class="email-profile inline-block">
+                                        <input type="text" class="form-control" name="retina" id="retina" value="<?php if(isset($prescription_fav)){echo $prescription_fav['retina'];}?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Vitreous :</label>
+                                    <div class="email-profile inline-block">
+                                        <input type="text" class="form-control" name="vitreous" id="vitreous" value="<?php if(isset($prescription_fav)){echo $prescription_fav['vitreous'];}?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Optic disc :</label>
+                                    <div class="email-profile inline-block">
+                                        <input type="text" class="form-control" name="optic_disc" id="optic_disc" value="<?php if(isset($prescription_fav)){echo $prescription_fav['optic_disc'];}?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Iris :</label>
+                                    <div class="email-profile inline-block">
+                                        <input type="text" class="form-control" name="iris" id="iris" value="<?php if(isset($prescription_fav)){echo $prescription_fav['iris'];}?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Pupil :</label>
+                                    <div class="email-profile inline-block">
+                                        <input type="text" class="form-control" name="pupil" id="pupil" value="<?php if(isset($prescription_fav)){echo $prescription_fav['pupil'];}?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Posterior Segment:</label>
+                                    <div class="email-profile inline-block">
+                                        <input type="text" class="form-control" name="posterior_seg" id="posterior_seg" value="<?php if(isset($prescription_fav)){echo $prescription_fav['posterior_seg'];}?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Others :</label>
+                                    <div class="email-profile inline-block">
+                                        <input type="text" class="form-control" name="eye_others" id="others" value="<?php if(isset($prescription_fav)){echo $prescription_fav['eye_others'];}?>"> 
+                                    </div>
+                                </div>
+
+                            </div>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="">
+
+                </div>
+            </div>
+</div>
+ <div class="col-md-12 col-sm-12">
+    <div class="noticeboard">
+
+        <div>
+            <div class="table-responsive table-adjusment">
+                <table class="table table-hover">
+                    <div class="table-header ">
+                        <div class="input-group dept-input table-head">
+                            <i class="fa fa-star" aria-hidden="true" style="color: red"></i>&nbsp; &nbsp;Diagnosis
+                        </div>
+                    </div>
+                    <div>
+                        <textarea style="max-width: 100%;" type="text" class="form-control comment" id="comment" name="diagnosis" placeholder="Diagnosis "><?php if(isset($prescription_fav)){echo $prescription_fav['diagnosis'];}?></textarea>
+                    </div>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12">
+                                        <div class="noticeboard">
+
+                                      
+                                                <div class="table-responsive table-adjusment">
+                                                    <table class="table table-hover">
+                                                        <div class="table-header ">
+                                                            <div class="input-group dept-input table-head">
+                                                                <i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp; &nbsp;SPECTACLE PRESCRIPTION
+                                                            </div>
+                                                        </div>
+
+                                                    </table>
+                                                    <div class="col-sm-6">
+
+                                                        <style>
+                                                            table {
+                                                                font-family: arial, sans-serif;
+                                                                border-collapse: collapse;
+                                                                width: 100%;
+                                                            }
+                                                            
+                                                            td,
+                                                            th,
+                                                            tr {
+                                                                border: 1px solid #dddddd;
+                                                                text-align: left;
+                                                                padding: 8px;
+                                                            }
+                                                            
+                                                            tr:nth-child(even) {
+                                                                background-color: #dddddd;
+                                                            }
+                                                            
+                                                            tr:nth-child(odd) {
+                                                                background-color: #dbdbdb;
+                                                            }
+                                                        </style>
+
+                                                            <table>
+                                                                <thead>
+                                                                    <tr>Right Eye (OD)</tr>
+                                                                </thead>
+                                                                <tr>
+
+                                                                    <th>SPH </th>
+                                                                    <th>CYL</th>
+                                                                    <th>AXIS</th>
+                                                                    <th>VA</th>
+                                                                </tr>
+                                                                <tr>
+
+                                                                    <td>
+                                                                        <input type="text" name="right_eye_sph_1" style="max-width: 100px" value="<?php if(isset($prescription_fav)){echo $prescription_fav['right_eye_sph_1'];}?>">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="text" name="right_eye_cyl_1" style="max-width: 100px" value="<?php if(isset($prescription_fav)){echo $prescription_fav['right_eye_cyl_1'];}?>"> </td>
+                                                                    <td>
+                                                                        <input type="text" name="right_eye_axis_1" style="max-width: 100px" value="<?php if(isset($prescription_fav)){echo $prescription_fav['right_eye_axis_1'];}?>">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="text" name="right_eye_va_1" style="max-width: 100px" value="<?php if(isset($prescription_fav)){echo $prescription_fav['right_eye_va_1'];}?>">
+                                                                    </td>
+
+                                                                </tr>
+                                                                <tr>
+
+                                                                    <td>
+                                                                        <input type="text" name="right_eye_sph_2" style="max-width: 100px" value="<?php if(isset($prescription_fav)){echo $prescription_fav['right_eye_sph_2'];}?>">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="text" name="right_eye_cyl_2" style="max-width: 100px" value="<?php if(isset($prescription_fav)){echo $prescription_fav['right_eye_cyl_2'];}?>">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="text" name="right_eye_axis_2" style="max-width: 100px" value="<?php if(isset($prescription_fav)){echo $prescription_fav['right_eye_axis_2'];}?>">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="text" name="right_eye_va_2" style="max-width: 100px" value="<?php if(isset($prescription_fav)){echo $prescription_fav['right_eye_va_2'];}?>">
+                                                                    </td>
+
+                                                                </tr>
+
+                                                            </table>
+
+                                                    
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        
+                                                        <table>
+                                                            <thead>
+                                                                <tr>Left Eye (OD)</tr>
+                                                            </thead>
+                                                            <tr>
+                                                                <th></th>
+                                                                <th>SPH </th>
+                                                                <th>CYL</th>
+                                                                <th>AXIS</th>
+                                                                <th>VA</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>DV</td>
+                                                                <td>
+                                                                    <input type="text" name="left_eye_sph_1" style="max-width: 100px" value="<?php if(isset($prescription_fav)){echo $prescription_fav['right_eye_axis_2'];}?>">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name="left_eye_cyl_1" style="max-width: 100px" value="<?php if(isset($prescription_fav)){echo $prescription_fav['right_eye_axis_2'];}?>"> </td>
+                                                                <td>
+                                                                    <input type="text" name="left_eye_axis_1" style="max-width: 100px" value="<?php if(isset($prescription_fav)){echo $prescription_fav['right_eye_axis_2'];}?>">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name="left_eye_va_1" style="max-width: 100px" value="<?php if(isset($prescription_fav)){echo $prescription_fav['right_eye_axis_2'];}?>">
+                                                                </td>
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td>NV</td>
+                                                                <td>
+                                                                    <input type="text" name="left_eye_sph_2" style="max-width: 100px" value="<?php if(isset($prescription_fav)){echo $prescription_fav['left_eye_sph_2'];}?>">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name="left_eye_cyl_2" style="max-width: 100px" value="<?php if(isset($prescription_fav)){echo $prescription_fav['left_eye_cyl_2'];}?>"> </td>
+                                                                <td>
+                                                                    <input type="text" name="left_eye_axis_2" style="max-width: 100px" value="<?php if(isset($prescription_fav)){echo $prescription_fav['left_eye_axis_2'];}?>">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name="left_eye_va_2" style="max-width: 100px" value="<?php if(isset($prescription_fav)){echo $prescription_fav['left_eye_va_2'];}?>">
+                                                                </td>
+
+                                                            </tr>
+
+                                                        </table>
+
+                                                    </div>
+                                                    <h3><u>Remarks:</u></h3>
+                                                    <div class="form-group">
+                                                        <label for="patient-name" class="control-label">I.P.D :</label>
+                                                        <div class="email-profile inline-block">
+                                                            <input type="text" class="form-control" name="ipd" id="ipd" value="<?php if(isset($prescription_fav)){echo $prescription_fav['ipd'];}?>">
+                                                        </div>
+                                                        <label>mm</label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="patient-name" class="control-label">Lens:</label>
+                                                        <div class="email-profile inline-block">
+                                                            <select class="form-control" name="lenss">
+                                                                <option disabled="" selected="">Select</option>
+                                                                <option value="Glass">Glass </option>
+                                                                <option value="Plasticles">Plasticles</option>
+                                                                <option value="Progressive">Progressive</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="patient-name" class="control-label">Instruction :</label>
+                                                        <div class="email-profile inline-block">
+                                                            <select class="form-control" name="instruction">
+                                                                <option disabled="" selected="">Select</option>
+                                                                <option value="Unifocal">Unifocal</option>
+                                                                <option value="Bifocal">Bifocal</option>
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="patient-name" class="control-label"></label>
+                                                        <div class="email-profile inline-block">
+                                                            <select class="form-control" name="distance">
+                                                                <option disabled="" selected="">Select</option>
+                                                                <option title="Use"> Distamce Use</option>
+                                                                <option value="Near_Work">Near Work</option>
+                                                                <option value="Constant_Use">Constant Use</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                           
+                                        </div>
+                                    </div>
+
+
+
+<div class="col-md-12 col-sm-12">
+    <div class="col-sm-12">
+        <div class="noticeboard">
+            <div>
+			<div class="table-header">
+			<div class="input-group table-head" style="background:#eaeaea">
+                                <i class="fa fa-tint" aria-hidden="true"></i>&nbsp; &nbsp;	Investigation
+                                <button type="button" class="btn pull-right" id="btn3"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            </div>
+                <div class="table-responsive table-adjusment" style="height: 290px; overflow-y: auto;">
+                    <table class="table table-hover">
+                                <thead>
+                                        <tr>
+											<th style="display:none;"></th>
+                                            <th style="text-align: center;">Investigation</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                        <tbody id="new3">
+                            <tr style="display:none">
+                                <td>
+                                    <input type="text" id="lab_length_rad" value="1">
+                                </td>
+								<td>
+                                    
+                                </td>
+								<td>
+                                    
+                                </td>
+                            </tr>
+                            <?php
+                                    $count = 1;
+                                    //$length = count($prescribed_medicine);
+                                    if(isset($lab_fav)){
+                                    foreach ($lab_fav as $key):
+                                        ?>
+                                <tr>
+
+                                    <td style="display:none">
+                                        <input type="hidden" value="<?php echo $key['fav_lab_id']; ?>" class="form-control" id="pim_id" name="pres_id[]">
+
+                                    </td>
+                                    <td style="border-left: 1px solid grey;">
+                                        <input type="text" value="<?php echo $key['lab_test_name']; ?>" class="form-control lab_class" id="lab_test" name="lab_test_radiology[]">
+
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"  value="<?php echo $key['lab_test_type']; ?>">
+
+                                       
+                                    </td>
+                                    <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                						<i class="fa fa-times" aria-hidden="true"></i></a>
+                                   </td>
+
+                                </tr>
+                            <?php endforeach; } 
+           
+                         
+
+                                ?>
+                           
+                                <tr>
+                                    <td>
+                                        <input type="text" value="" class="form-control lab_class" name="lab_test_radiology[]">
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"  value="">
+                                    </td>
+									<td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                <i class="fa fa-times" aria-hidden="true"></i></a>
+				                   </td>
+                
+									
+
+                                </tr>
+								<tr>
+                                    <td>
+                                        <input type="text" value="" class="form-control lab_class" id="lab_test" name="lab_test_radiology[]">
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"  value="">
+                                    </td>
+									<td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                <i class="fa fa-times" aria-hidden="true"></i></a>
+				                   </td>
+									
+
+                                </tr>
+								<tr>
+                                    <td>
+                                        <input type="text" value="" class="form-control lab_class" id="lab_test" name="lab_test_radiology[]">
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"  value="">
+                                    </td>
+									<td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                <i class="fa fa-times" aria-hidden="true"></i></a>
+				                   </td>
+									
+
+                                </tr>
+								<tr>
+                                    <td>
+                                        <input type="text" value="" class="form-control lab_class" id="lab_test" name="lab_test_radiology[]">
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"   value="">
+                                    </td>
+									<td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                <i class="fa fa-times" aria-hidden="true"></i></a>
+				                   </td>
+									
+
+                                </tr>
+								<tr>
+                                    <td>
+                                        <input type="text" value="" class="form-control lab_class" id="lab_test" name="lab_test_radiology[]">
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"   value="">
+                                    </td>
+									<td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                <i class="fa fa-times" aria-hidden="true"></i></a>
+				                   </td>
+									
+
+                                </tr>
+								<tr>
+                                    <td>
+                                        <input type="text" value="" class="form-control lab_class" name="lab_test_radiology[]">
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"  value="">
+                                    </td>
+									<td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                <i class="fa fa-times" aria-hidden="true"></i></a>
+				                   </td>
+                
+									
+
+                                </tr>
+								<tr>
+                                    <td>
+                                        <input type="text" value="" class="form-control lab_class" id="lab_test" name="lab_test_radiology[]">
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"  value="">
+                                    </td>
+									<td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                <i class="fa fa-times" aria-hidden="true"></i></a>
+				                   </td>
+									
+
+                                </tr>
+								<tr>
+                                    <td>
+                                        <input type="text" value="" class="form-control lab_class" id="lab_test" name="lab_test_radiology[]">
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"  value="">
+                                    </td>
+									<td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                <i class="fa fa-times" aria-hidden="true"></i></a>
+				                   </td>
+									
+
+                                </tr>
+								<tr>
+                                    <td>
+                                        <input type="text" value="" class="form-control lab_class" id="lab_test" name="lab_test_radiology[]">
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"   value="">
+                                    </td>
+									<td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                <i class="fa fa-times" aria-hidden="true"></i></a>
+				                   </td>
+									
+
+                                </tr>
+								<tr>
+                                    <td>
+                                        <input type="text" value="" class="form-control lab_class" id="lab_test" name="lab_test_radiology[]">
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"   value="">
+                                    </td>
+									<td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                <i class="fa fa-times" aria-hidden="true"></i></a>
+				                   </td>
+									
+
+                                </tr>
+								<tr>
+                                    <td>
+                                        <input type="text" value="" class="form-control lab_class" name="lab_test_radiology[]">
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"  value="">
+                                    </td>
+									<td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                <i class="fa fa-times" aria-hidden="true"></i></a>
+				                   </td>
+                
+									
+
+                                </tr>
+								<tr>
+                                    <td>
+                                        <input type="text" value="" class="form-control lab_class" id="lab_test" name="lab_test_radiology[]">
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"  value="">
+                                    </td>
+									<td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                <i class="fa fa-times" aria-hidden="true"></i></a>
+				                   </td>
+									
+
+                                </tr>
+								<tr>
+                                    <td>
+                                        <input type="text" value="" class="form-control lab_class" id="lab_test" name="lab_test_radiology[]">
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"  value="">
+                                    </td>
+									<td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                <i class="fa fa-times" aria-hidden="true"></i></a>
+				                   </td>
+									
+
+                                </tr>
+								<tr>
+                                    <td>
+                                        <input type="text" value="" class="form-control lab_class" id="lab_test" name="lab_test_radiology[]">
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"   value="">
+                                    </td>
+									<td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                <i class="fa fa-times" aria-hidden="true"></i></a>
+				                   </td>
+									
+
+                                </tr>
+								<tr>
+                                    <td>
+                                        <input type="text" value="" class="form-control lab_class" id="lab_test" name="lab_test_radiology[]">
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"   value="">
+                                    </td>
+									<td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                <i class="fa fa-times" aria-hidden="true"></i></a>
+				                   </td>
+									
+
+                                </tr>
+								<tr>
+                                    <td>
+                                        <input type="text" value="" class="form-control lab_class" name="lab_test_radiology[]">
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"  value="">
+                                    </td>
+									<td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                <i class="fa fa-times" aria-hidden="true"></i></a>
+				                   </td>
+                
+									
+
+                                </tr>
+								<tr>
+                                    <td>
+                                        <input type="text" value="" class="form-control lab_class" id="lab_test" name="lab_test_radiology[]">
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"  value="">
+                                    </td>
+									<td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                <i class="fa fa-times" aria-hidden="true"></i></a>
+				                   </td>
+									
+
+                                </tr>
+								<tr>
+                                    <td>
+                                        <input type="text" value="" class="form-control lab_class" id="lab_test" name="lab_test_radiology[]">
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"  value="">
+                                    </td>
+									<td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                <i class="fa fa-times" aria-hidden="true"></i></a>
+				                   </td>
+									
+
+                                </tr>
+								<tr>
+                                    <td>
+                                        <input type="text" value="" class="form-control lab_class" id="lab_test" name="lab_test_radiology[]">
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"   value="">
+                                    </td>
+									<td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                <i class="fa fa-times" aria-hidden="true"></i></a>
+				                   </td>
+									
+
+                                </tr>
+								<tr>
+                                    <td>
+                                        <input type="text" value="" class="form-control lab_class" id="lab_test" name="lab_test_radiology[]">
+                                        <input type="hidden" class="custom-input col-md-12 lab_hidden_class" name="lab_cat[]"   value="">
+                                    </td>
+									<td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row">
+                <i class="fa fa-times" aria-hidden="true"></i></a>
+				                   </td>
+									
+
+                                </tr>
+
+                        </tbody>
+                    </table>
+					 </div>
+                    <label for="" class="control-label">Others:</label>
+                    <div class="email-profile inline-block">
+					<textarea style="max-width: 100%;" class="form-control" name="rad_test_others"></textarea>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+         
+</div>
+<div class="col-sm-12 col-md-12">
+    <div class="noticeboard" >
+        <div class="col-sm-12">
+            <div class="col-md-12">
+               
+                 <div class="table-header" style="background:#e8e1e1"> 
+
+                                    <div class="input-group table-head">
+                                        <i class="fa fa-stethoscope" aria-hidden="true"></i>&nbsp; &nbsp;Medication
+                                        <button type="button" class="btn pull-right" id="tab"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                <div class="tab-content" style="height: 290px; overflow-y: auto;" style="background:#fff">
+                    <div role="tabpanel" class="tab-pane fade in active" id="tablet">
+
+                        <div class="table-responsive table-adjusment ">
+                            <table class="table table-hover">
+                                
+
+                                <div id="medicine" style="display: none;">
+                                    <thead>
+                                        <tr>
+
+                                            <th style="text-align: center;">Medicine</th>
+                                            <th style="text-align: center;">Dose</th>
+                                             <th style="text-align: center;">Duration</th>
+                                            <th style="text-align: center;">Quantity</th>
+                                            <th style="text-align: center;">Remarks</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tab2">
+                                        <tr style="display: none">
+                                            <td>
+                                                <input type="text" id="length" value="1">
+                                            </td>
+                                        </tr>
+
+                        <?php
+
+                                       
+                            $count = 1;
+                            if(isset($medicines_fav_tab)){
+                            foreach ($medicines_fav_tab as $key):
+                                ?>
+                                            <tr>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['med_name']; ?>" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['dose']; ?>" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['duration']; ?>" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['quantity']; ?>" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['remarks']; ?>" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+
+                                                
+                                                    <input type="hidden" class="form-control" name="pm_id[]" value="<?php echo $key['fav_pm_id']; ?>" />
+
+                                                </td>
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+                        <?php endforeach; } 
+
+                        
+                        ?>
+                                       
+                                            <tr>
+
+                                                
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+                                                
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+											<tr>
+                                                
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+                                                
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+											<tr>
+                                                
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+                                                
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+											<tr>
+                                                
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+                                                
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+											<tr>
+                                                
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+                                                
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+											<tr>
+                                                
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+                                                
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+											<tr>
+                                                
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+                                                
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+											<tr>
+                                                
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+                                                
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+											<tr>
+                                                
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+                                                
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+											<tr>
+                                                
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+                                                
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+											<tr>
+                                                
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+                                                
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+											<tr>
+                                                
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+                                                
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+											<tr>
+                                                
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+                                                
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+											<tr>
+                                                
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+                                                
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+											<tr>
+                                                
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+                                                
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+											<tr>
+                                                
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+                                                
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+											<tr>
+                                                
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+                                                
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+											<tr>
+                                                
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+                                                
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+											<tr>
+                                                
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+                                                
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+											<tr>
+                                                
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control medicine_class" id="medicine" name="tab_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control dose" id="dose" name="tab_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control duration" id="duration" name="tab_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control quantity" id="quantity" name="tab_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="" class="form-control remarks" id="remarks" name="tab_remarks[]">
+                                                </td>
+                                                
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+
+                                    </tbody>
+                                </div>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <!--<div role="tabpanel" class="tab-pane fade in" id="capsule">
+
+                        <div class="table-responsive table-adjusment ">
+                            <table class="table table-hover">
+                                <div class="table-header ">
+
+                                    <div class="input-group table-head">
+                                        <i class="fa fa-stethoscope" aria-hidden="true"></i>&nbsp; &nbsp;Medication (Capsule)
+                                        <button type="button" class="btn pull-right" id="cap"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+
+                                <div id="medicine" style="display: none;">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: center;">Sl.</th>
+                                            <th style="text-align: center;">Medicine</th>
+                                            <th style="text-align: center;">Dose</th>
+                                            <th style="text-align: center;">Duration</th>
+											<th style="text-align: center;">Quantity</th>
+                                            <th style="text-align: center;">Remarks</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="cap2">
+                                        <tr style="display: none">
+                                            <td>
+                                                <input type="text" id="length_cap" value="1">
+                                            </td>
+                                        </tr>
+                                        <?php
+                            $count = 1;
+                            if(isset($medicines_fav_cab)){
+                            foreach ($medicines_fav_cab as $key):
+                                ?>
+                                            <tr>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <?php echo $count++; ?>
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['med_name']; ?>" class="form-control medicine_class" id="medicine" name="cap_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['dose']; ?>" class="form-control dose" id="dose" name="cap_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['duration']; ?>" class="form-control duration" id="duration" name="cap_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['duration']; ?>" class="form-control quantity" id="quantity" name="cap_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['remarks']; ?>" class="form-control remarks" id="remarks" name="cap_remarks[]">
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" class="form-control" name="pm_id[]" value="<?php echo $key['fav_pm_id']; ?>" />
+                                                </td>
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+                                            <?php endforeach; } ?>
+                                    </tbody>
+                                </div>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane fade in" id="syrup">
+
+                        <div class="table-responsive table-adjusment ">
+                            <table class="table table-hover">
+                                <div class="table-header ">
+
+                                    <div class="input-group table-head">
+                                        <i class="fa fa-stethoscope" aria-hidden="true"></i>&nbsp; &nbsp;Medication (Syrup)
+                                        <button type="button" class="btn pull-right" id="syr"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+
+                                <div id="medicine" style="display: none;">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: center;">Sl.</th>
+                                            <th style="text-align: center;">Medicine</th>
+                                            <th style="text-align: center;">Dose</th>
+
+                                            <th style="text-align: center;">Duration</th>
+											<th style="text-align: center;">Quantity</th>
+                                            <th style="text-align: center;">Remarks</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="syr2">
+                                        <tr style="display: none">
+                                            <td>
+                                                <input type="text" id="length_syr" value="1">
+                                            </td>
+                                        </tr>
+                                        <?php
+                            $count = 1;
+                            if(isset($medicines_fav_sry)){
+                            foreach ($medicines_fav_sry as $key):
+                                ?>
+                                            <tr>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <?php echo $count++; ?>
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['med_name']; ?>" class="form-control medicine_class" id="medicine" name="sry_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['dose']; ?>" class="form-control dose" id="dose" name="sry_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['duration']; ?>" class="form-control duration" id="duration" name="sry_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['duration']; ?>" class="form-control quantity" id="quantity" name="sry_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['remarks']; ?>" class="form-control remarks" id="remarks" name="sry_remarks[]">
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" class="form-control" name="pm_id[]" value="<?php echo $key['fav_pm_id']; ?>" />
+                                                </td>
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+                                            <?php endforeach; } ?>
+                                    </tbody>
+                                </div>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane fade in" id="injection">
+
+                        <div class="table-responsive table-adjusment ">
+                            <table class="table table-hover">
+                                <div class="table-header ">
+
+                                    <div class="input-group table-head">
+                                        <i class="fa fa-stethoscope" aria-hidden="true"></i>&nbsp; &nbsp;Medication (Injection)
+                                        <button type="button" class="btn pull-right" id="inj"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+
+                                <div id="medicine" style="display: none;">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: center;">Sl.</th>
+                                            <th style="text-align: center;">Medicine</th>
+                                            <th style="text-align: center;">Dose</th>
+
+                                            <th style="text-align: center;">Duration</th>
+											<th style="text-align: center;">Quantity</th>
+                                            <th style="text-align: center;">Remarks</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="inj2">
+                                        <tr style="display: none">
+                                            <td>
+                                                <input type="text" id="length_inj" value="1">
+                                            </td>
+                                        </tr>
+                                        <?php
+                            $count = 1;
+                            if(isset($medicines_fav_inj)){
+                            foreach ($medicines_fav_inj as $key):
+                                ?>
+                                            <tr>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <?php echo $count++; ?>
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['med_name']; ?>" class="form-control medicine_class" id="medicine" name="inj_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['dose']; ?>" class="form-control dose" id="dose" name="inj_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['duration']; ?>" class="form-control duration" id="duration" name="inj_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['quantity']; ?>" class="form-control quantity" id="quantity" name="inj_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['remarks']; ?>" class="form-control remarks" id="remarks" name="inj_remarks[]">
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" class="form-control" name="pm_id[]" value="<?php echo $key['fav_pm_id']; ?>" />
+                                                </td>
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+                                            <?php endforeach; } ?>
+                                    </tbody>
+                                </div>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane fade in" id="ointment">
+
+                        <div class="table-responsive table-adjusment ">
+                            <table class="table table-hover">
+                                <div class="table-header ">
+
+                                    <div class="input-group table-head">
+                                        <i class="fa fa-stethoscope" aria-hidden="true"></i>&nbsp; &nbsp;Medication (Ointment)
+                                        <button type="button" class="btn pull-right" id="oin"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+
+                                <div id="medicine" style="display: none;">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: center;">Sl.</th>
+                                            <th style="text-align: center;">Medicine</th>
+                                            <th style="text-align: center;">Dose</th>
+
+                                            <th style="text-align: center;">Duration</th>
+											<th style="text-align: center;">Quantity</th>
+                                            <th style="text-align: center;">Remarks</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="oin2">
+                                        <tr style="display: none">
+                                            <td>
+                                                <input type="text" id="length_oin" value="1">
+                                            </td>
+                                        </tr>
+                                        <?php
+                            $count = 1;
+                            if(isset($medicines_fav_oin)){
+                            foreach ($medicines_fav_oin as $key):
+                                ?>
+                                            <tr>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <?php echo $count++; ?>
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['med_name']; ?>" class="form-control medicine_class" id="medicine" name="oin_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['dose']; ?>" class="form-control dose" id="dose" name="oin_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['duration']; ?>" class="form-control duration" id="duration" name="oin_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['quantity']; ?>" class="form-control quantity" id="quantity" name="oin_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['remarks']; ?>" class="form-control remarks" id="remarks" name="oin_remarks[]">
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" class="form-control" name="pm_id[]" value="<?php echo $key['fav_pm_id']; ?>" />
+                                                </td>
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+                                            <?php endforeach; } ?>
+                                    </tbody>
+                                </div>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane fade in" id="suppository">
+
+                        <div class="table-responsive table-adjusment ">
+                            <table class="table table-hover">
+                                <div class="table-header ">
+
+                                    <div class="input-group table-head">
+                                        <i class="fa fa-stethoscope" aria-hidden="true"></i>&nbsp; &nbsp;Medication (Suppository)
+                                        <button type="button" class="btn pull-right" id="sup"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+
+                                <div id="medicine" style="display: none;">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: center;">Sl.</th>
+                                            <th style="text-align: center;">Medicine</th>
+                                            <th style="text-align: center;">Dose</th>
+
+                                            <th style="text-align: center;">Duration</th>
+											<th style="text-align: center;">Quantity</th>
+                                            <th style="text-align: center;">Remarks</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="sup2">
+                                        <tr style="display: none">
+                                            <td>
+                                                <input type="text" id="length_sup" value="1">
+                                            </td>
+                                        </tr>
+                                        <?php
+                            $count = 1;
+                            if(isset($medicines_fav_sup)){
+                            foreach ($medicines_fav_sup as $key):
+                                ?>
+                                            <tr>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <?php echo $count++; ?>
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['med_name']; ?>" class="form-control medicine_class" id="medicine" name="sup_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['dose']; ?>" class="form-control dose" id="dose" name="sup_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['duration']; ?>" class="form-control duration" id="duration" name="sup_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['quantity']; ?>" class="form-control quantity" id="quantity" name="sup_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['remarks']; ?>" class="form-control remarks" id="remarks" name="sup_remarks[]">
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" class="form-control" name="pm_id[]" value="<?php echo $key['fav_pm_id']; ?>" />
+                                                </td>
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+                                            <?php endforeach; } ?>
+                                    </tbody>
+                                </div>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane fade in" id="miscellaneous">
+
+                        <div class="table-responsive table-adjusment ">
+                            <table class="table table-hover">
+                                <div class="table-header ">
+
+                                    <div class="input-group table-head">
+                                        <i class="fa fa-stethoscope" aria-hidden="true"></i>&nbsp; &nbsp;Medication (Miscellaneous)
+                                        <button type="button" class="btn pull-right" id="mis"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+
+                                <div id="medicine" style="display: none;">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: center;">Sl.</th>
+                                            <th style="text-align: center;">Medicine</th>
+                                            <th style="text-align: center;">Dose</th>
+
+                                            <th style="text-align: center;">Duration</th>
+											<th style="text-align: center;">Quantity</th>
+                                            <th style="text-align: center;">Remarks</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="mis2">
+                                        <tr style="display: none">
+                                            <td>
+                                                <input type="text" id="length_mis" value="1">
+                                            </td>
+                                        </tr>
+                                        <?php
+                            $count = 1;
+                            if(isset($medicines_fav_mis)){
+                            foreach ($medicines_fav_mis as $key):
+                                ?>
+                                            <tr>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <?php echo $count++; ?>
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['med_name']; ?>" class="form-control medicine_class" id="medicine" name="mis_medicine[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['dose']; ?>" class="form-control dose" id="dose" name="mis_dose[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['duration']; ?>" class="form-control duration" id="duration" name="mis_duration[]">
+                                                </td>
+												<td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['quantity']; ?>" class="form-control quantity" id="quantity" name="mis_quantity[]">
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['remarks']; ?>" class="form-control remarks" id="remarks" name="mis_remarks[]">
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" class="form-control" name="pm_id[]" value="<?php echo $key['fav_pm_id']; ?>" />
+                                                </td>
+                                                <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+                                            <?php endforeach; } ?>
+                                    </tbody>
+                                </div>
+                            </table>
+                        </div>
+
+                    </div>-->
+
+                </div>
+
+            </div>
+
+        </div>
+  </div>
+</div>
+<div class="col-sm-12">
+    <div class="noticeboard">
+
+        <div>
+            <div class="table-responsive table-adjusment">
+                <table class="table table-hover">
+                    <div class="table-header ">
+                        <div class="input-group dept-input table-head">
+                            <i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp; &nbsp;Advice
+                        </div>
+                    </div>
+                    <div>
+                        <textarea style="max-width: 100%;" type="text" class="form-control comment" id="comment" name="comment" placeholder="Type your Comment Here"> <?php if(isset($prescription_fav)){echo $prescription_fav['comment'];}?></textarea>
+                    </div>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="noticeboard col-md-12">
+                                                        <div style="min-height: 400px;" class="col-md-6 table-responsive table-adjusment ">
+                                                            <table class="table table-hover">
+                                                                <div class="table-header ">
+
+                                                                    <div class="input-group dept-input table-head">
+                                                                        <i class="fa fa-th-list" aria-hidden="true"></i>&nbsp; &nbsp;Disposal
+                                                                    </div>
+                                                                </div>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Select Type</th>
+                                                                        <th>Type Input</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                        
+                                              
+                                                                            <select class="form-control" name="disposal">
+                                                                 <option value="<?php if(isset($prescription_fav)){echo $prescription_fav['disposal_type'];} ?>" selected="">
+                                                                            <?php if(isset($prescription_fav)){echo $prescription_fav['disposal_type'];} ?>
+                                                                           </option>
+                                                                                <option value="" disabled>Select</option>
+                                                                                <option value="SIQ">SIQ</option>
+                                                                                <option value="MXD">MXD</option>
+                                                                                <option value="Sick Leave">Sick Leave</option>
+                                                                                <option value="AttnC">Attn "C"</option>
+                                                                                <option value="AttnB">Attn "B"</option>
+                                                                                <option value="PPG Excuse">PPG Excuse</option>
+                                                                                <option value="PPGF Excuse">PPGF Excuse</option>
+                                                                                <option value="Boot Excuse">Boot  Excuse</option>
+                                                                                <option value="Admit">Admit</option>
+                                                                            </select>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="email-profile inline-block">
+                                                                                <input type="text" class="form-control" name="disposal_value" id="disposal_value" value="<?php if(isset($prescription_fav)){echo $prescription_fav['disposal'];}?>">
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <div class="noticeboard col-md-6">
+
+                                                            <div>
+                                                                <div class="table-responsive table-adjusment">
+                                                                    <table class="table table-hover">
+                                                                        <div class="table-header ">
+                                                                            <div class="input-group dept-input table-head">
+                                                                                <i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp; &nbsp;Reference
+                                                                            </div>
+                                                                        </div>
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Department</th>
+                                                                                <th>Doctor</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <select class="form-control" id="select_department" name="select_department">
+                                                                                        <option value=""  selected="">Select Department</option>
+                                                                                        <?php
+                                            $count = 1;
+                                            foreach ($department as $row):
+                                                ?>
+                                                                                            <option value="<?php echo $row['department_id']; ?>">
+                                                                                                <?php echo $row['department_name']; ?>
+                                                                                            </option>
+                                                                                            <?php endforeach; ?>
+                                                                                    </select>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <select id="doctor-list" type="text" class="form-control dept-input" name="doctor_id"></select>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>   
+                                                    <div class="col-xs-12 table-footer table-foot">
+
+                                                        <div style="padding: 5px;" class="pull-right">
+                                                        <!--<div class="col-md-4" style="padding-right: 10px;padding-top: 10px;">
+                                                        <input class="form-control" type="text" name="template_name" placeholder="Save as">
+                                                        </div>-->
+                                                     
+                                                        <div style="padding: 0px; margin-left:10px" class="print">
+                                                        <input  type="checkbox" class="btn btn-info" style="margin: 5px; background-color:#a4ffa4" name="preserved"><label class="control-label" style="padding-right: 70px">Preserved</label>
+                                                            <!-- <button style="margin: 0; background-color:#a4ffa4" type="submit" class="btn btn-info"><strong>Submit</strong></button> -->
+                                                            <!-- print button -->
+                                                            <button style="margin: 0; background-color:#a4ffa4" class="btn btn-success" type="submit"  formaction="<?php echo base_url(); ?>DoctorAdd/add_prescription/<?php echo $this->uri->segment(5)?>">Submit <i class="fa fa-check" aria-hidden="true"></i></button>
+
+                                                            <!--<button class="btn btn-default" type="submit" formaction="<?php echo base_url(); ?>DoctorAdd/temporary_prescription/">Print <i class="fa fa-print" aria-hidden="true"></i></button>-->
+															<button class="btn btn-default" type="submit" formaction="<?php echo base_url(); ?>printing/temporary_prescription/">Preview <i class="fa fa-print" aria-hidden="true"></i></button>
+                                                            <!-- print button ends -->
+                                                        </div>                                                       
+                                                        </div>
+
+
+                                                    </div>                  
+
+    </form>
+</div>  
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script type="text/javascript">
+    $('#select_department').on('change', function() {
+        var selected = $(this).val();
+        //alert(selected);
+
+        $.ajax({
+            url: '<?php echo base_url();?>ReceptionistGet/dept_doctor/' + selected,
+            //data: {'selected': selected},
+            type: 'GET',
+            dataType: 'json',
+            error: function() {
+                //alert("Sorry...Something goes Wrong");
+            },
+            success: function(data) {
+
+                    $('#doctor-list').empty();
+
+                    for (var i = 0; i < data.length; i++) {
+                        $("#doctor-list").append("<option value='" + data[i]['user_id'] + "'>" + data[i]['name'] + "</option>");
+                    }
+                } // End of success function of ajax form
+        }); // End of ajax call
+    });
+</script>
+<script type="text/javascript">
+    $(document).on('click', '#prescribe', function() {
+        var edit_id = $(this).closest('tr').children()[1].textContent;
+        $('#appointment_id').val(edit_id);
+        //alert(edit_id);
+        $("#add-prescription").modal("show");
+    });
+
+    $(document).on('click', '#details', function() {
+
+        var edit_id = $(this).closest('tr').children()[1].textContent;
+        //alert(edit_id);
+
+        //         $(".modal #prescription_id").val(edit_id);
+        var temp;
+        //    $("#appointment_modal").modal("show");
+
+        $.ajax({
+
+            url: '<?php echo base_url(); ?>receptionist/get_reports',
+            data: {
+                'edit_id': edit_id
+            },
+            type: 'POST',
+            dataType: 'json',
+
+            error: function() {
+                alert("Nothing Prescribe");
+            },
+
+            success: function(data) {
+                    if (data.reports.length > 0) {
+                        for (var i = 0; i < data.reports.length; i++) {
+                            temp += '<tr><th scope="row">' + (i + 1) + '</th><td>' + data.reports[i].report_type + '</td><td><img src="<?php echo base_url(); ?>others/images/x-ray.jpg" height="50px" width="107px"><a href="https://docs.google.com/viewer?url=<?php echo base_url() ?>/uploads/report/' + data.reports[i].file_name + '" target="_blank"><button class="btn btn-primary" style="margin-top: 10px;"><i class="fa fa-download" aria-hidden="true"></i>Download</button></a></td><td>' + data.reports[i].description + '</td><td>' + data.reports[i].timestamp + '</td><td>' + data.reports[i].laboratorist_name + '</td></tr>';
+                        }
+
+                        $("#all_reports").empty();
+                        $("#all_reports").append(temp);
+                    } else {
+                        $("#all_reports").empty();
+                        $("#all_reports").append('No Reports');
+                    }
+                    $("#medication").html(data.prescription_details[0].medication);
+                    $("#doctor-advise").html(data.prescription_details[0].advise);
+                    $("#appointment_modal").modal("show");
+
+                } // End of success function of ajax form
+        }); // End of ajax call
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        var id = document.getElementById('length').value;
+
+        //alert(id);
+        $("#btn1").bind('click', function() {
+
+            $("#new").append('<tr>' +
+               
+                '<td style="border-left: 1px solid grey;"><input type="text" name="medicine[]" class="form-control medicine_class" id="medicine"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="dose[]" class="form-control dose" id="dose"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="duration[]" class="form-control duration" id="duration"></td>' +
+				 '<td style="border-left: 1px solid grey;"><input type="text" name="quantity[]" class="form-control quantity" id="quantity"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="remarks[]" class="form-control remarks" id="remarks"></td>' +
+                
+                '<td style="color:red; text-align: center;" class="col-md-1">' +
+                '<a style="color:red;" href="javascript:void(0);" class="remove_row">' +
+                '<i class="fa fa-times" aria-hidden="true"></i></a>' +
+                '</td>' +
+                '</tr>');
+            id++;
+            return false;
+        });
+        $("#new").on('click', '.remove_row', function() {
+            $(this).parent().parent().remove();
+            id--;
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        var id = document.getElementById('length').value;
+
+        //alert(id);
+        $("#tab").bind('click', function() {
+
+            $("#tab2").append('<tr>' +
+               
+                '<td style="border-left: 1px solid grey;"><input type="text" name="tab_medicine[]" class="form-control medicine_class" id="medicine"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="tab_dose[]" class="form-control dose" id="dose"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="tab_duration[]" class="form-control duration" id="duration"></td>' +
+				'<td style="border-left: 1px solid grey;"><input type="text" name="tab_quantity[]" class="form-control quantity" id="quantity"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="tab_remarks[]" class="form-control remarks" id="remarks"></td>' +
+                
+                '<td style="color:red; text-align: center;" class="col-md-1">' +
+                '<a style="color:red;" href="javascript:void(0);" class="remove_row">' +
+                '<i class="fa fa-times" aria-hidden="true"></i></a>' +
+                '</td>' +
+                '</tr>');
+            id++;
+            return false;
+        });
+        $("#tab2").on('click', '.remove_row', function() {
+            $(this).parent().parent().remove();
+            id--;
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        var id = document.getElementById('length_cap').value;
+
+        //alert(id);
+        $("#cap").bind('click', function() {
+
+            $("#cap2").append('<tr>' +
+               
+                '<td style="border-left: 1px solid grey;"><input type="text" name="cap_medicine[]" class="form-control medicine_class" id="medicine"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="cap_dose[]" class="form-control dose" id="dose"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="cap_duration[]" class="form-control duration" id="duration"></td>' +
+				'<td style="border-left: 1px solid grey;"><input type="text" name="cap_quantity[]" class="form-control quantity" id="quantity"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="cap_remarks[]" class="form-control remarks" id="remarks"></td>' +
+                
+                '<td style="color:red; text-align: center;" class="col-md-1">' +
+                '<a style="color:red;" href="javascript:void(0);" class="remove_row">' +
+                '<i class="fa fa-times" aria-hidden="true"></i></a>' +
+                '</td>' +
+                '</tr>');
+            id++;
+            return false;
+        });
+        $("#cap2").on('click', '.remove_row', function() {
+            $(this).parent().parent().remove();
+            id--;
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        var id = document.getElementById('length_syr').value;
+
+        //alert(id);
+        $("#syr").bind('click', function() {
+
+            $("#syr2").append('<tr>' +
+                
+                '<td style="border-left: 1px solid grey;"><input type="text" name="syr_medicine[]" class="form-control medicine_class" id="medicine"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="syr_dose[]" class="form-control dose" id="dose"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="syr_duration[]" class="form-control duration" id="duration"></td>' +
+				'<td style="border-left: 1px solid grey;"><input type="text" name="sry_quantity[]" class="form-control quantity" id="quantity"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="syr_remarks[]" class="form-control remarks" id="remarks"></td>' +
+               
+                '<td style="color:red; text-align: center;" class="col-md-1">' +
+                '<a style="color:red;" href="javascript:void(0);" class="remove_row">' +
+                '<i class="fa fa-times" aria-hidden="true"></i></a>' +
+                '</td>' +
+                '</tr>');
+            id++;
+            return false;
+        });
+        $("#syr2").on('click', '.remove_row', function() {
+            $(this).parent().parent().remove();
+            id--;
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        var id = document.getElementById('length_inj').value;
+
+        //alert(id);
+        $("#inj").bind('click', function() {
+
+            $("#inj2").append('<tr>' +
+                '<td style="border-left: 1px solid grey;">' + id + '</td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="inj_medicine[]" class="form-control medicine_class" id="medicine"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="inj_dose[]" class="form-control dose" id="dose"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="inj_duration[]" class="form-control duration" id="duration"></td>' +
+				'<td style="border-left: 1px solid grey;"><input type="text" name="inj_quantity[]" class="form-control quantity" id="quantity"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="inj_remarks[]" class="form-control remarks" id="remarks"></td>' +
+                '<td><input type="hidden" class="form-control" name="inj_pm_id[]" value="" /></td>' +
+                '<td style="color:red; text-align: center;" class="col-md-1">' +
+                '<a style="color:red;" href="javascript:void(0);" class="remove_row">' +
+                '<i class="fa fa-times" aria-hidden="true"></i></a>' +
+                '</td>' +
+                '</tr>');
+            id++;
+            return false;
+        });
+        $("#inj2").on('click', '.remove_row', function() {
+            $(this).parent().parent().remove();
+            id--;
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        var id = document.getElementById('length_oin').value;
+
+        //alert(id);
+        $("#oin").bind('click', function() {
+
+            $("#oin2").append('<tr>' +
+                
+                '<td style="border-left: 1px solid grey;"><input type="text" name="oin_medicine[]" class="form-control medicine_class" id="medicine"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="oin_dose[]" class="form-control dose" id="dose"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="oin_duration[]" class="form-control duration" id="duration"></td>' +
+				'<td style="border-left: 1px solid grey;"><input type="text" name="oin_quantity[]" class="form-control quantity" id="quantity"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="oin_remarks[]" class="form-control remarks" id="remarks"></td>' +
+                '<td><input type="hidden" class="form-control" name="oin_pm_id[]" value="" /></td>' +
+                '<td style="color:red; text-align: center;" class="col-md-1">' +
+                '<a style="color:red;" href="javascript:void(0);" class="remove_row">' +
+                '<i class="fa fa-times" aria-hidden="true"></i></a>' +
+                '</td>' +
+                '</tr>');
+            id++;
+            return false;
+        });
+        $("#oin2").on('click', '.remove_row', function() {
+            $(this).parent().parent().remove();
+            id--;
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        var id = document.getElementById('length_sup').value;
+
+        //alert(id);
+        $("#sup").bind('click', function() {
+
+            $("#sup2").append('<tr>' +
+                
+                '<td style="border-left: 1px solid grey;"><input type="text" name="sup_medicine[]" class="form-control medicine_class" id="medicine"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="sup_dose[]" class="form-control dose" id="dose"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="sup_duration[]" class="form-control duration" id="duration"></td>' +
+				'<td style="border-left: 1px solid grey;"><input type="text" name="sup_quantity[]" class="form-control quantity" id="quantity"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="sup_remarks[]" class="form-control remarks" id="remarks"></td>' +
+                '<td><input type="hidden" class="form-control" name="sup_pm_id[]" value="" /></td>' +
+                '<td style="color:red; text-align: center;" class="col-md-1">' +
+                '<a style="color:red;" href="javascript:void(0);" class="remove_row">' +
+                '<i class="fa fa-times" aria-hidden="true"></i></a>' +
+                '</td>' +
+                '</tr>');
+            id++;
+            return false;
+        });
+        $("#sup2").on('click', '.remove_row', function() {
+            $(this).parent().parent().remove();
+            id--;
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        var id = document.getElementById('length_mis').value;
+
+        //alert(id);
+        $("#mis").bind('click', function() {
+
+            $("#mis2").append('<tr>' +
+                
+                '<td style="border-left: 1px solid grey;"><input type="text" name="mis_medicine[]" class="form-control medicine_class" id="medicine"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="mis_dose[]" class="form-control dose" id="dose"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="mis_duration[]" class="form-control duration" id="duration"></td>' +
+				'<td style="border-left: 1px solid grey;"><input type="text" name="mis_quantity[]" class="form-control quantity" id="quantity"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="mis_remarks[]" class="form-control remarks" id="remarks"></td>' +
+                '<td><input type="hidden" class="form-control" name="mis_pm_id[]" value="" /></td>' +
+                '<td style="color:red; text-align: center;" class="col-md-1">' +
+                '<a style="color:red;" href="javascript:void(0);" class="remove_row">' +
+                '<i class="fa fa-times" aria-hidden="true"></i></a>' +
+                '</td>' +
+                '</tr>');
+            id++;
+            return false;
+        });
+        $("#mis2").on('click', '.remove_row', function() {
+            $(this).parent().parent().remove();
+            id--;
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        var id = document.getElementById("lab_length").value;
+
+        $("#btn2").bind('click', function() {
+            id++;
+            $("#new2").append('<tr>' +
+                
+                '<td style="border-left: 1px solid grey;"><input type="text" name="lab_test_pathology[]" class="form-control lab_class" id="lab_test1"></td>' +
+                '<td style="color:red; text-align: center;" class="col-md-1">' +
+                '<a style="color:red;" href="javascript:void(0);" class="remove_row">' +
+                '<i class="fa fa-times" aria-hidden="true"></i></a>' +
+                '</td>' +
+                '</tr>');
+            id++;
+            return false;
+        });
+        $("#new2").on('click', '.remove_row', function() {
+            $(this).parent().parent().remove();
+            id--;
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
+    var dose = [
+        "0+0+1",
+        "1+0+1",
+        "0+1+0",
+        "01 Tab",
+        "2 TSF",
+        "cap 01",
+        "IM / IV",
+        "01 amp",
+        "02 drops",
+        "02 Puff",
+        "1 Stick",
+        "1+1+1"
+    ];
+    var duration = [
+        "3 Days",
+        "7 Days",
+        "14 Days",
+        "30 Days",
+        "60 Days",
+        "06 hourly",
+        "08 hourly",
+        "90 Days"
+    ];
+    var remarks = [
+        "Before meal",
+        "After meal",
+        "With food",
+        "Stat",
+        "SOS",
+        "Without food"
+        
+    ];
+    var comment = [
+        "Report after 7 days",
+        "Report after 3 days",
+
+    ];
+    $("#tab2").on("click", function() {
+        $(".medicine_class").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: '<?php echo base_url(); ?>doctor/get_medicine_hint',
+                    method: "POST",
+                    data: {
+                        med: request.term
+                    },
+                    dataType: "json",
+                    error: function() {
+                        alert('someThing Goes Wrong');
+                    },
+                    success: function(data) {
+                        response(data);
+                    }
+                });
+            },
+        });
+        $(".dose").autocomplete({
+            source: dose
+        });
+        $(".remarks").autocomplete({
+            source: remarks
+        });
+        $(".duration").autocomplete({
+            source: duration
+        });
+        $(".comment").autocomplete({
+            source: comment
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    var dose = [
+       "0+0+1",
+        "1+0+1",
+        "0+1+0",
+        "01 Tab",
+        "2 TSF",
+        "cap 01",
+        "IM / IV",
+        "01 amp",
+        "02 drops",
+        "02 Puff",
+        "1 Stick",
+        "1+1+1"
+    ];
+    var duration = [
+        "3 Days",
+        "7 Days",
+        "14 Days",
+        "30 Days",
+        "60 Days",
+        "06 hourly",
+        "08 hourly",
+        "90 Days"
+    ];
+    var remarks = [
+        "Before meal",
+        "After meal",
+        "With food",
+        "Stat",
+        "SOS",
+        "Without food"
+        
+    ];
+    var comment = [
+        "Report after 7 days",
+        "Report after 3 days",
+
+    ];
+    $("#cap2").on("click", function() {
+        $(".medicine_class").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: '<?php echo base_url(); ?>doctor/get_cap_hint',
+                    method: "POST",
+                    data: {
+                        med: request.term
+                    },
+                    dataType: "json",
+                    error: function() {
+                        alert('someThing Goes Wrong');
+                    },
+                    success: function(data) {
+                        response(data);
+                    }
+                });
+            },
+        });
+        $(".dose").autocomplete({
+            source: dose
+        });
+        $(".remarks").autocomplete({
+            source: remarks
+        });
+        $(".duration").autocomplete({
+            source: duration
+        });
+        $(".comment").autocomplete({
+            source: comment
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    var dose = [
+        "0+0+1",
+        "1+0+1",
+        "0+1+0",
+        "01 Tab",
+        "2 TSF",
+        "cap 01",
+        "IM / IV",
+        "01 amp",
+        "02 drops",
+        "02 Puff",
+        "1 Stick",
+        "1+1+1"
+    ];
+    var duration = [
+        "3 Days",
+        "7 Days",
+        "14 Days",
+        "30 Days",
+        "60 Days",
+        "06 hourly",
+        "08 hourly",
+        "90 Days"
+    ];
+    var remarks = [
+        "Before meal",
+        "After meal",
+        "With food",
+        "Stat",
+        "SOS",
+        "Without food"
+        
+    ];
+    var comment = [
+        "Report after 7 days",
+        "Report after 3 days",
+
+    ];
+    $("#syr2").on("click", function() {
+        $(".medicine_class").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: '<?php echo base_url(); ?>doctor/get_syr_hint',
+                    method: "POST",
+                    data: {
+                        med: request.term
+                    },
+                    dataType: "json",
+                    error: function() {
+                        alert('someThing Goes Wrong');
+                    },
+                    success: function(data) {
+                        response(data);
+                    }
+                });
+            },
+        });
+        $(".dose").autocomplete({
+            source: dose
+        });
+        $(".remarks").autocomplete({
+            source: remarks
+        });
+        $(".duration").autocomplete({
+            source: duration
+        });
+        $(".comment").autocomplete({
+            source: comment
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    var dose = [
+       "0+0+1",
+        "1+0+1",
+        "0+1+0",
+        "01 Tab",
+        "2 TSF",
+        "cap 01",
+        "IM / IV",
+        "01 amp",
+        "02 drops",
+        "02 Puff",
+        "1 Stick",
+        "1+1+1"
+    ];
+    var duration = [
+        "3 Days",
+        "7 Days",
+        "14 Days",
+        "30 Days",
+        "60 Days",
+        "06 hourly",
+        "08 hourly",
+        "90 Days"
+    ];
+    var remarks = [
+        "Before meal",
+        "After meal",
+        "With food",
+        "Stat",
+        "SOS",
+        "Without food"
+        
+    ];
+    var comment = [
+        "Report after 7 days",
+        "Report after 3 days",
+
+    ];
+    $("#inj2").on("click", function() {
+        $(".medicine_class").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: '<?php echo base_url(); ?>doctor/get_inj_hint',
+                    method: "POST",
+                    data: {
+                        med: request.term
+                    },
+                    dataType: "json",
+                    error: function() {
+                        alert('someThing Goes Wrong');
+                    },
+                    success: function(data) {
+                        response(data);
+                    }
+                });
+            },
+        });
+        $(".dose").autocomplete({
+            source: dose
+        });
+        $(".remarks").autocomplete({
+            source: remarks
+        });
+        $(".duration").autocomplete({
+            source: duration
+        });
+        $(".comment").autocomplete({
+            source: comment
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    var dose = [
+       "0+0+1",
+        "1+0+1",
+        "0+1+0",
+        "01 Tab",
+        "2 TSF",
+        "cap 01",
+        "IM / IV",
+        "01 amp",
+        "02 drops",
+        "02 Puff",
+        "1 Stick",
+        "1+1+1"
+    ];
+    var duration = [
+        "3 Days",
+        "7 Days",
+        "14 Days",
+        "30 Days",
+        "60 Days",
+        "06 hourly",
+        "08 hourly",
+        "90 Days"
+    ];
+    var remarks = [
+        "Before meal",
+        "After meal",
+        "With food",
+        "Stat",
+        "SOS",
+        "Without food"
+        
+    ];
+    var comment = [
+        "Report after 7 days",
+        "Report after 3 days",
+
+    ];
+    $("#oin2").on("click", function() {
+        $(".medicine_class").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: '<?php echo base_url(); ?>doctor/get_oin_hint',
+                    method: "POST",
+                    data: {
+                        med: request.term
+                    },
+                    dataType: "json",
+                    error: function() {
+                        alert('someThing Goes Wrong');
+                    },
+                    success: function(data) {
+                        response(data);
+                    }
+                });
+            },
+        });
+        $(".dose").autocomplete({
+            source: dose
+        });
+        $(".remarks").autocomplete({
+            source: remarks
+        });
+        $(".duration").autocomplete({
+            source: duration
+        });
+        $(".comment").autocomplete({
+            source: comment
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    var dose = [
+        "0+0+1",
+        "1+0+1",
+        "0+1+0",
+        "01 Tab",
+        "2 TSF",
+        "cap 01",
+        "IM / IV",
+        "01 amp",
+        "02 drops",
+        "02 Puff",
+        "1 Stick",
+        "1+1+1"
+        
+    ];
+   var duration = [
+        "3 Days",
+        "7 Days",
+        "14 Days",
+        "30 Days",
+        "60 Days",
+        "06 hourly",
+        "08 hourly",
+        "90 Days"
+    ];
+    var remarks = [
+        "Before meal",
+        "After meal",
+        "With food",
+        "Stat",
+        "SOS",
+        "Without food"
+        
+    ];
+    var comment = [
+        "Report after 7 days",
+        "Report after 3 days",
+
+    ];
+    $("#sup2").on("click", function() {
+        $(".medicine_class").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: '<?php echo base_url(); ?>doctor/get_sup_hint',
+                    method: "POST",
+                    data: {
+                        med: request.term
+                    },
+                    dataType: "json",
+                    error: function() {
+                        alert('someThing Goes Wrong');
+                    },
+                    success: function(data) {
+                        response(data);
+                    }
+                });
+            },
+
+        });
+        $(".dose").autocomplete({
+            source: dose
+        });
+        $(".remarks").autocomplete({
+            source: remarks
+        });
+        $(".duration").autocomplete({
+            source: duration
+        });
+        $(".comment").autocomplete({
+            source: comment
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    var dose = [
+       "0+0+1",
+        "1+0+1",
+        "0+1+0",
+        "01 Tab",
+        "2 TSF",
+        "cap 01",
+        "IM / IV",
+        "01 amp",
+        "02 drops",
+        "02 Puff",
+        "1 Stick",
+        "1+1+1"
+    ];
+    var duration = [
+        "3 Days",
+        "7 Days",
+        "14 Days",
+        "30 Days",
+        "60 Days",
+        "06 hourly",
+        "08 hourly",
+        "90 Days"
+    ];
+    var remarks = [
+        "Before meal",
+        "After meal",
+        "With food",
+        "Stat",
+        "SOS",
+        "Without food"
+        
+    ];
+    var comment = [
+        "Report after 7 days",
+        "Report after 3 days",
+
+    ];
+    $("#mis2").on("click", function() {
+        $(".medicine_class").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: '<?php echo base_url(); ?>doctor/get_mis_hint',
+                    method: "POST",
+                    data: {
+                        med: request.term
+                    },
+                    dataType: "json",
+                    error: function() {
+                        alert('someThing Goes Wrong');
+                    },
+                    success: function(data) {
+                        response(data);
+                    }
+                });
+            },
+        });
+        $(".dose").autocomplete({
+            source: dose
+        });
+        $(".remarks").autocomplete({
+            source: remarks
+        });
+        $(".duration").autocomplete({
+            source: duration
+        });
+        $(".comment").autocomplete({
+            source: comment
+        });
+    });
+</script>
+<script>
+
+    // $(".lab_class").keyup (function (e) {
+    //     var p = $(this).val();
+    // $("#new3").on("click", function() {    
+    //     $('.lab_class').autocomplete({
+    //         source: function( request, response ) {             
+    //             $.ajax({
+    //                 url : '<?php echo base_url(); ?>doctor/get_lab_and_rad_hint/',
+    //                 dataType: "json",
+    //                 method: "POST",
+    //                 data: {
+    //                     med: request.term
+    //                 },
+    //                 success: function( data ) {
+    //                     response( $.map( data, function( item ) {
+    //                         var code = item.split("|");
+    //                         return {
+    //                             label: code[0],
+    //                             value: code[0],
+    //                             data : item
+    //                         }
+    //                     }));
+    //                 }
+    //             });
+    //         },
+    //         autoFocus: true,
+    //         minLength: 0,
+    //         select: function( event, ui ) {
+    //             var names = ui.item.data.split("|");
+    //             $('.lab_hidden_class').val(names[1]);
+    //         }
+    //     });
+    // });
+
+
+        $("#new3").on("click", function() {    
+        $('.lab_class').autocomplete({
+            source: function( request, response ) {             
+                $.ajax({
+                    url : '<?php echo base_url(); ?>doctor/get_lab_and_rad_hint/',
+                    dataType: "json",
+                    method: "POST",
+                    data: {
+                        med: request.term
+                    },
+                    success: function( data ) {
+                        response( $.map( data, function( item ) {
+                            var code = item.split("|");
+                            return {
+                                label: code[0],
+                                value: code[0],
+                                data : item
+                            }
+                        }));
+                    }
+                });
+            },
+            autoFocus: true,
+            minLength: 0,
+            select: function( event, ui ) {
+                var names = ui.item.data.split("|");
+                $(this).closest('tr').find(".lab_hidden_class").val(names[1]) ;
+                // $('.lab_hidden_class').val(names[1]);
+            }
+        });
+    });
+
+
+</script>
+
+
+
+
+<!-- <script type="text/javascript">
+    $("#new2").on("click", function() {
+        $(".lab_class").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: '<?php echo base_url(); ?>doctor/get_lab_and_rad_hint',
+                    method: "POST",
+                    data: {
+                        test: request.term
+                    },
+                    dataType: "json",
+                    error: function() {
+                        alert('someThing Goes Wrong');
+                    },
+                    success: function(data) {
+                        response(data);
+                    }
+                });
+            },
+        });
+    });
+
+    $("#new3").on("click", function() {
+        $(".lab_class").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: '<?php echo base_url(); ?>doctor/get_lab_and_rad_hint',
+                    method: "POST",
+                    data: {
+                        test: request.term
+                    },
+                    dataType: "json",
+                    error: function() {
+                        alert('someThing Goes Wrong');
+                    },
+                    success: function(data) {
+                        response(data);
+                    }
+                });
+            },
+        });
+    });
+</script>                                                             -->
+<script>
+        var id = document.getElementById("lab_length_rad").value;
+
+        $("#btn3").bind('click', function() {
+            id++;
+            $("#new3").append('<tr>' +
+                
+                '<td style="border-left: 1px solid grey;"><input type="text" name="lab_test_radiology[]" class="form-control lab_class" id="lab_test1"></td>' +
+                '<td style="color:red; text-align: center;" class="col-md-1">' +
+                '<a style="color:red;" href="javascript:void(0);" class="remove_row">' +
+                '<i class="fa fa-times" aria-hidden="true"></i></a>' +
+                '</td>' +
+                '</tr>');
+            id++;
+            return false;
+        });
+        $("#new3").on('click', '.remove_row', function() {
+            $(this).parent().parent().remove();
+            id--;
+        });
+</script>

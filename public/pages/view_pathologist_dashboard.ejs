@@ -1,0 +1,64 @@
+<div class="row  nav-button-container fade in active" role="tabpanel" id="dashboard">
+
+    <div class="col-xs-6 col-sm-3 col-md-2 action-nav-button">
+        <a href="<?php echo base_url();?>Pathologist/report"><i class="fa fa-stethoscope" aria-hidden="true"></i><span>Diagnosis Report</span>
+        </a>
+
+    </div>
+
+
+
+
+    <!--<div class="col-xs-6 col-sm-3 col-md-2 action-nav-button">
+        <a href="<?php echo base_url();?>Pathologist/blood_bank"><i class="fa fa-tint" aria-hidden="true"></i>
+            <span>Blood Bank</span>
+        </a>
+
+    </div>-->
+
+    <!--<div class="col-xs-6 col-sm-3 col-md-2 action-nav-button">
+        <a href="<?php echo base_url();?>Pathologist/blood_donor"><i class="fa fa-user" aria-hidden="true"></i>
+            <span>Blood Donor</span>
+        </a>
+
+    </div>-->
+
+
+    <!--  main containt 2nd part -->
+    <div class="col-xs-12 content2">
+        <div class="col-xs-6">
+            <div style="width:100%; max-width:600px; display:inline-block;">
+                <div class="monthly" id="mycalendar">
+                </div>
+
+            </div>
+        </div>
+        <div class="col-xs-6 board">
+            <div class="noticeboard">
+                <div class="noticeboard-header">
+                    <i class="fa fa-reorder" aria-hidden="true"></i> Noticeboard
+                </div>
+                 <?php 			 
+								foreach ( $notice as $row):
+								 ?>
+                                <div class="noticeboard-body">
+                                            <div class="box-section news with-icons">
+                                                <div class="avatar blue">
+                                                    <i class="fa fa-tag" aria-hidden="true"></i>                                    </div>
+                                                
+                                                <div class="news-content">
+                                                    <div class="news-title">
+                                                        <?php echo $row['notice_tittle']; ?>
+                                                    </div>
+                                                    <div class="news-text">
+                                                        <?php echo $row['notice']; ?> 
+                                                    </div>
+                                                </div>
+                                            </div>                                       
+                                </div>
+								<?php endforeach;?>
+                    </div>
+                </div>
+            </div>
+
+        </div>

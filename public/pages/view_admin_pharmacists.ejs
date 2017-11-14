@@ -1,0 +1,310 @@
+<!--  containt tab for pharmacist-->
+<div class="row  nav-button-container fade in" role="tabpanel" id="pharmacist">
+    <div class="col-xs-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Manage Pharmacist
+            </div>
+            <div class="noticeboard-body">
+                <div>
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#pharmacist-list" aria-controls="pharmacist-list" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i> 
+                                Pharmacist List                    	</a></li>
+                        <li role="presentation"><a href="#add-pharmacist" aria-controls="add-pharmacist" role="tab" data-toggle="tab"><i class="fa fa-plus"></i>
+                                Add Pharmacist                    	</a></li>
+
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="pharmacist-list">
+
+                            <div class="table-responsive table-adjusment ">
+                               <table class="table table-hover" id="datatab">
+   <thead>
+                                                    <tr>
+                                                        <th style="display:none">ID</th>
+                                                        <th>Pharmacist Name</th>
+														<th>Army No</th>
+														<th>Rank</th>
+														<th>Phone number</th>
+                                                        <th>Department</th>
+                                                        <th>Profile</th>
+                                                        <th>Options</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <?php foreach($pharmacist as $row):?>
+													<?php
+                           
+							
+							                       if ($row['image_name'] == '')
+                                                            $image_url = 'others/uploads/doctor/default-doctor.png';
+                                                        else
+                                                            $image_url = 'others/uploads/doctor/' . $row['image_name'];
+                            ?>
+                                                    <tr>
+									
+                                                        <th style="display:none"><?php echo $row['user_id'];?></th>
+                                                      
+                                                        <td><?php echo $row['name'];?></td>
+                                                        <td><?php echo $row['army_no'];?></td>
+                                                        <td><?php echo $row['rank'];?></td>
+														<td><?php echo $row['phone_no'];?></td>
+														<td><?php echo $row['department_name'];?></td>
+														<td><img src="<?php echo base_url() . $image_url ?>"></td>
+                                                        <td>
+														<a href="<?php echo base_url();?>admin/employee_details/<?php echo $row['user_id'];?>"><button class="btn btn-primary btn-sm"  type="button"><i class="fa fa-user" aria-hidden="true"></i></button> </a>
+                                                         <button class="btn btn-primary btn-sm" id="getdata" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button> 
+
+                                                                       </td>
+                                                 </tr>
+                                           <?php endforeach; ?>
+                                         </tbody>
+
+
+                                     </table>
+                               
+                            </div>
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="add-pharmacist">
+                            <div class="table-adjusment">
+                        <!--                                                <form class="form-horizontal">-->
+                        <form id="addrec" action="<?php echo base_url(); ?>add/add_pharmacist" method="post" enctype="multipart/form-data">
+                        <div class="form-group col-md-12">
+                            <label for="doc-name" class="control-label col-md-2">Pharmacist Name</label>
+                            <div class="email-profile inline-block col-md-10 ">
+                                <input type="text" class="form-control dept-input" id="doc-name" placeholder="Pharmacist Name" name="name" autocomplete ="off" required>
+                            </div>
+                        </div>
+						<div class="form-group col-md-12">
+                            <label for="doc-name" class="control-label col-md-2">Army No</label>
+                            <div class="email-profile inline-block col-md-10 ">
+                                <input type="text" class="form-control dept-input" id="doc-name" placeholder="Army no" name="army_no" autocomplete ="off" required>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="doc-email" class="control-label col-md-2">Email</label>
+                            <div class="email-profile inline-block col-md-10 ">
+                                <input type="text" class="form-control dept-input" id="doc-email" placeholder="Email" name="email" autocomplete ="off">
+                            </div>
+                        </div>
+						<div class="form-group col-md-12">
+                            <label for="doc-email" class="control-label col-md-2">Password</label>
+                            <div class="email-profile inline-block col-md-10 ">
+                                <input type="password" class="form-control dept-input" id="doc-email" placeholder="Password" name="Password" autocomplete ="off" required>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="doc-address" class="control-label col-md-2">Address</label>
+                            <div class="email-profile inline-block col-md-10 ">
+                                <input type="text" class="form-control dept-input" id="doc-address" placeholder="Address" name="address" autocomplete ="off">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="doc-phone" class="control-label col-md-2">Phone</label>
+                            <div class="email-profile inline-block col-md-10 ">
+                                <input type="number" class="form-control dept-input" placeholder="Phone" name="phone" autocomplete ="off">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="doc-department" class="control-label col-md-2">Department</label>
+                            <div class="email-profile inline-block col-md-10 ">
+
+                                <select id="doc-profile" type="text" class="form-control dept-input" name = "department_id">
+								<option value="" selected="selected" disabled="disabled">Select Department</option>
+								<?php foreach($department as $row):?>
+                                    <option value="<?php echo $row['department_id'];?>"><?php echo $row['department_name'];?></option>
+                                 <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="doc-profile" class="control-label col-md-2">Rank</label>
+                                <div class="email-profile inline-block col-md-10 ">
+                                    <input type="text" class="form-control dept-input" id="doc-profile" placeholder="Rank" name="rank" autocomplete ="off">
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <label for="doc-profile" class="">Photo</label>
+								<span id='modal_update_photo'>
+                                       
+                                    </span>
+                                <div class="controls">
+                                                            
+                                                            <img id="preview_background" src=""  style="max-height:100px; max-width:200px;"/>
+                                                           
+                                                            
+                                                            <br>
+                                                            <input type="file" id="photo_background" class="" name="photo" accept="image/*">
+                                                        </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class=" ">
+                                    <button type="submit" class="btn btn-default">Add </button>
+                                </div>
+                            </div>
+							</form>
+                           
+                        </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+<div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+           
+           <form action="<?php echo base_url(); ?>AdminEdit/edit_pharmacists" method="post" enctype="multipart/form-data">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Edit Pharmacists Details </h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-adjusment">
+
+
+                    <input type="hidden" class="form-control dept-input" id="id" name="doctor_id">
+
+
+                    <div class="form-group col-md-12">
+                        <label for="doc-name" class="control-label col-md-2">Pharmacists Name</label>
+                        <div class="email-profile inline-block col-md-6  ">
+                            <input type="text" class="form-control dept-input" id="doc-name" placeholder="Doctor Name" name="name">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="doc-email" class="control-label col-md-2">Email</label>
+                        <div class="email-profile inline-block col-md-6  ">
+                            <input type="text" class="form-control dept-input" id="doc-email" placeholder="Email" name="email">
+                        </div>
+                    </div>
+					<div class="form-group col-md-12">
+                        <label for="doc-email" class="control-label col-md-2">Rank</label>
+                        <div class="email-profile inline-block col-md-6  ">
+                            <input type="text" class="form-control dept-input" id="doc-rank" placeholder="Rank" name="rank">
+                        </div>
+                    </div>
+					<div class="form-group col-md-12">
+                        <label for="doc-email" class="control-label col-md-2">Unit</label>
+                        <div class="email-profile inline-block col-md-6  ">
+                            <input type="text" class="form-control dept-input" id="doc-unit" placeholder="Unit" name="unit">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="doc-address" class="control-label col-md-2">Address</label>
+                        <div class=" email-profile inline-block col-md-6 ">
+                            <input type="text" class="form-control dept-input" id="doc-address" placeholder="Address" name="address">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="doc-phone" class="control-label col-md-2">Phone</label>
+                        <div class="email-profile inline-block col-md-6  ">
+                            <input type="tel" class="form-control dept-input" id="doc-phone" placeholder="Phone" name="phone">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="doc-department" class="control-label col-md-2">Department</label>
+                        <div class="email-profile inline-block col-md-6  ">
+
+                            <select id="doc-dept" type="text" class="form-control dept-input" name ="department_id">
+                                <option value="" selected="selected" disabled="disabled">Select Department</option>
+                                        <?php foreach($department as $row):?>
+                                    <option value="<?php echo $row['department_id'];?>"><?php echo $row['department_name'];?></option>
+                                 <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="doc-profile" class="control-label col-md-2">Army no</label>
+                            <div class="email-profile inline-block col-md-6  ">
+                                <input type="text" class="form-control dept-input" id="army_no" placeholder="army-no" name="army">
+                            </div>
+                        </div>   
+						<div class="form-group col-md-12">
+                            <label for="doc-profile" class="control-label col-md-2">Photo</label>
+                            <div class="email-profile inline-block col-md-6  ">
+							<span id='modal_photo'></span>
+                                <input type="file" class="form-control dept-input" id="doc-photo" placeholder="army-no" name="photo">
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary btn-modal">Save changes</button>
+                        </div>
+                       
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+
+        $(document).on('click','#getdata', function(){
+            var edit_id= $(this).closest('tr').children()[0].textContent;
+            var infoModal = $('#view-modal');
+			//alert(edit_id);
+       // $("#view-modal").modal("show");
+       $.ajax({
+
+        url: '<?php echo base_url();?>AdminGet/get_doctor',
+        data: {'edit_id': edit_id},
+        type:'POST',
+        dataType: 'json',
+
+        error: function(){
+            alert("Data not found");        
+        },
+
+        success:function(data){    
+            $(".modal #id").val(data[0].user_id);
+            $(".modal #doc-name").val(data[0].name);
+            $(".modal #doc-email").val(data[0].email);
+			$(".modal #doc-rank").val(data[0].rank);
+			$(".modal #doc-unit").val(data[0].unit);
+            $(".modal #doc-address").val(data[0].address);
+            $(".modal #doc-dept").val(data[0].department_id);
+            $(".modal #doc-phone").val(data[0].phone_no);
+            $(".modal #army_no").val(data[0].army_no);
+			 if (data.image_name == '') {
+                    data.image_name = 'default.png';
+                }
+                $("#modal_photo").html('<img style="border:1px solid #000000;" height="100" width="auto" src="' + '<?php echo base_url(); ?>others/uploads/doctor/' + data[0].image_name + '">');
+			
+           // alert(edit_id);
+           $("#view-modal").modal("show");
+
+                          } // End of success function of ajax form
+                          }); // End of ajax call
+                          });
+
+        
+
+
+        
+
+
+    </script>

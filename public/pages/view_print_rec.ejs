@@ -1,0 +1,122 @@
+<div class="row  nav-button-container tab-pane fade in active" role="tabpanel" id="patient-detailes">
+    <div class="col-sm-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Print Token
+            </div>
+            <div class="tab-content table-content">
+
+            <div role="tabpanel" class="card tab-pane fade in active" id="add-category">
+                <div class="card-header">
+                    <div class="container" style="padding-right: 200px">
+                        <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-12">
+                                        <div class="well col-sm-6 col-sm-offset-3"  id='print'>
+                                            <div>
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-6 col-sm-offset-3">
+                                            <address>
+                                                <strong>Rangpur CMH</strong>
+                                                <br>
+                                                
+                                                <br>
+                                                Rangpur
+                                                <br>
+                                                <strong title="Phone">Patient Id : </strong><?php echo $patient_serial['patient_id'];?>
+                                            </address>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="text-center col-sm-6 col-sm-offset-3">
+                                            <h3>#Token</h3>
+                                        </div>
+                                        </span>
+                                        <div class="col-sm-6 col-sm-offset-3">
+                                        <div>
+                                            <label>Doctor</label>
+                                            <span><?php echo $patient_serial['name'];?></span>
+                                        </div>
+                                        <div>
+                                            <label>Date</label>
+                                            <span><?php echo $patient_serial['app_date'];?></span>
+                                        </div>
+                                    
+                                        <div>
+                                            <label>SL No.</label>
+                                            <span><?php echo $patient_serial['serial_id'];?></span>
+                                        </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                                
+                            </div>
+                                        </table>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-success btn-lg btn-block" id='btn' value='Print'>
+                                    Print   <span class="glyphicon glyphicon-print"></span>
+                                </button>
+                                </td>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+    <!--<script>
+        function printFunction() {
+            var divContents = $("#print").html();
+            var printWindow = window.open('', '', 'height=1500,width=1500');
+            printWindow.document.write('<html><head>' +
+                '<link href="<?php echo base_url(); ?>others/css/bootstrap.min.css" rel="stylesheet">' +
+                '<link href="<?php echo base_url(); ?>others/css/style-admin.css" rel="stylesheet">' +
+                '<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">' +
+                '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">' +
+                '<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" type="text/css">' +
+                '<link rel="stylesheet" href="<?php echo base_url(); ?>others/css/monthly.css">' +
+                '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.min.css">' +
+                '<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">' +
+                '<link href="<?php echo base_url(); ?>others/css/typeahead.css" rel="stylesheet">' +
+                '<link rel="stylesheet" href="<?php echo base_url(); ?>others/css/perfect-scrollbar.css"/><title></title>' +
+                '<style type="text/css">.print {display: none;}</style>');
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+    </script>-->
+
+    <!--<script>
+
+
+
+    function printDiv() {
+
+        var divToPrint = document.getElementById('DivIdToPrint');
+
+        var newWin = window.open('', 'Print-Window');
+
+        newWin.document.open();
+
+        newWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</body></html>');
+
+        newWin.document.close();
+
+        setTimeout(function() {
+            newWin.close();
+        }, 10);
+
+    }
+</script>-->
+
+ 

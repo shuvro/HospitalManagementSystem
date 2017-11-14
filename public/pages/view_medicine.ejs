@@ -1,0 +1,322 @@
+<div class="row  nav-button-container fade in" role="tabpanel" id="manage-medicine">
+                <div class="col-xs-12">
+                    <div class="noticeboard">
+                        <div class="noticeboard-header content-header">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i> Manage Medicine
+
+                        </div>
+                        <div class="noticeboard-body">
+                            <div>
+
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#medicine-list" aria-controls="medicine-list" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i> 
+					Medicine List                    	</a></li>
+                                    
+                                    <li role="presentation"><a href="#add-medicine" aria-controls="add-medicine" role="tab" data-toggle="tab"><i class="fa fa-plus"></i>
+					Add Medicine                    	</a></li>
+
+                                </ul>
+
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade in active" id="medicine-list">
+
+                                        <div class="table-responsive table-adjusment ">
+                                            <table class="table table-hover"  id="datatab">
+                                                
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+														
+                                                        <th>Medicine Name</th>
+                                                        <th>Medicine Category</th>
+                                                        <th>Lot number</th>
+                                                        <th>A/U</th>
+                                                        <th>Medicine type</th>
+                                                        <th>Status</th>
+                                                        <th>Option</th>
+
+                                                    </tr>
+
+                                                </thead>
+                                               
+                                                <tbody id="">
+												 <?php 
+												 
+												    foreach ( $medicine as $row):
+												     ?>
+													 
+                                                    <tr>
+                                                        <th scope="row"><?php echo $row['med_id']; ?></th>
+                                                        
+                                                       <td><?php echo $row['med_name']; ?></td>
+							                            <td><?php echo $row['cat_name']; ?></td>
+							                            <td><?php echo $row['lot_id']; ?></td>
+							                            <td><?php echo $row['a_u']; ?></td>
+							                            <td><?php echo $row['med_type_name']; ?></td>
+                                                        <td><?php echo $row['available_status']; ?></td>
+                                                        <td> <button title="Edit" class="btn btn-primary btn-sm" id="getdata" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
+
+                                                    </tr>
+                                                     <?php endforeach;?>
+                                                </tbody>
+												
+
+                                            </table>
+                                           
+                                        </div>
+
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="add-medicine">
+                                        <div class="table-adjusment">
+                                                              
+                                            <!--<form class="form-horizontal">-->
+                                                 <form id="addrec" action="<?php echo base_url(); ?>PharmacistAdd/add_medicine" method="post" enctype="multipart/form-data">
+
+                                                                         <div class="form-group col-md-12">
+                                                    <label for="medcicne-name" class="control-label col-md-2">Generic Name</label>
+                                                    <div class=" email-profile inline-block col-md-10 ">
+
+
+                                                        <input type="text" class="form-control dept-input" id="medcicne-name" value="" name="name" required>
+                                                    </div>
+                                                </div>
+												
+                                                   <div class="form-group col-md-12">
+                                                    <label for="medcicne-name" class="control-label col-md-2">Trade Name</label>
+                                                    <div class=" email-profile inline-block col-md-10 ">
+
+
+                                                        <input type="text" class="form-control dept-input" id="medcicne-name" value="" name="trade_name" required>
+                                                    </div>
+                                                </div>
+												
+											
+
+												<div class="form-group col-md-12">
+                                                    <label for="medcicne-company" class="control-label col-md-2">PVMS</label>
+                                                    <div class=" email-profile inline-block col-md-10">
+
+                                                        <input type="text"  class="form-control dept-input" id="emp-attendance" value="" name="pv">
+														
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label for="medcicne-caregory" class="control-label col-md-2">Medicine Category</label>
+                                                    <div class=" email-profile inline-block col-md-10 ">
+
+                                                        <select id="medcicne_caregory_op" type="text" class="form-control dept-input" name="medicine_category_id" required>
+                                                            <option selected disabled>Choose Medicine Category</option>
+                                    		                     <?php 
+																	foreach ( $category as $row):?>
+																	<option value="<?php echo $row['med_cat_id'];?>"><?php echo $row['cat_name'];?></option>
+																<?php endforeach;?>
+                                       
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group col-md-12">
+                                                    <label for="medcicne-discription" class="control-label col-md-2">Form of Medicine</label>
+                                                    <div class=" email-profile inline-block col-md-10 " style="">
+
+                                                       <select id="medcicne_caregory_id" type="text" class="form-control dept-input" name="medicine_type" required>
+                                                            <option selected disabled>Choose Medicine type</option>
+                                    		                     <?php 
+																	foreach ( $med_type as $row):?>
+																	<option value="<?php echo $row['med_type_id'];?>"><?php echo $row['med_type_name'];?></option>
+																<?php endforeach;?>
+                                       
+                                                        </select>
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label for="medcicne-price" class="control-label col-md-2">A/U</label>
+                                                    <div class=" email-profile inline-block col-md-10 ">
+
+                                                        <input type="text" class="form-control dept-input" id="medcicne-price" value="" name="a_u">
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div class="form-group" style="padding-left:200px; margin-bottom:200px;">
+                                                    <div class="">
+                                                        <button type="submit" class="btn btn-default">Add Medicine</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            
+                                        </div>
+
+                                    </div>
+                                    
+                                  
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+<!-- Modal -->
+   <div class="modal fade" id="view_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+
+            <div class="modal-content">
+            
+                
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit Medicine Details </h4>
+                </div>
+                <div class="modal-body">
+				 <form action="<?php echo base_url(); ?>PharmacistEdit/update_medicine" method="post" enctype="multipart/form-data">
+                    <div class="table-adjusment">
+                    
+
+                                <input type="hidden" class="form-control dept-input" id="id" name="patient_id">
+
+
+                                <div class="form-group">
+                                                    <label for="medicine-name" class="control-label">Medicine id</label>
+                                                    <div class=" ">
+
+                                                        <input type="text" class="form-control dept-input" id="medicine_id" value="" name="medicine_id" disabled="disabled">
+                                                    </div>
+                                                </div>
+												
+												<div class="form-group">
+                                                    <label for="medicine-name" class="control-label">Name</label>
+                                                    <div class=" ">
+
+                                                        <input type="text" class="form-control dept-input" id="medicine_name" value="" name="name">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="medicine-category" class="control-label">Medicine Category</label>
+                                                    <div class=" ">
+
+                                                        <select id="medicine_category" type="text" class="form-control dept-input" name="medicine_category_id">
+                                                           
+                                                              <?php 
+																	foreach ( $category as $row):?>
+																	<option value="<?php echo $row['med_cat_id'];?>"><?php echo $row['cat_name'];?></option>
+																<?php endforeach;?>
+                                                     </select>
+                                                    </div>
+                                                </div>
+												
+												<div class="form-group">
+                                                    <label for="medicine-category" class="control-label">Medicine type</label>
+                                                    <div class=" ">
+
+                                                        <select id="medicine_type" type="text" class="form-control dept-input" name="medicine_type_id">
+                                                           
+                                                              <?php 
+																	foreach ( $med_type as $row):?>
+																	<option value="<?php echo $row['med_type_id'];?>"><?php echo $row['med_type_name'];?></option>
+																<?php endforeach;?>
+                                                     </select>
+                                                    </div>
+                                                </div>
+                                                
+                                          <div class="form-group">
+                                                    <label for="medcicne-price" class="control-label">A/U</label>
+                                                    <div class=" ">
+
+                                                        <input type="text" class="form-control dept-input" id="a_u" value="" name="a_u" >
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                  
+
+                                    <div class="modal-footer">
+                        <button type="" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary btn-modal">Save changes</button>
+                    </div>
+                    
+    
+                                </div>
+                 </form>
+                 </div>
+        
+
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+
+        $(document).on('click','#getdata', function(){
+            var edit_id= $(this).closest('tr').children()[0].textContent;
+            var infoModal = $('#view-modal');
+			//alert(edit_id);
+       // $("#view-modal").modal("show");
+       $.ajax({
+
+        url: '<?php echo base_url();?>PharmacistGet/get_medicine',
+        data: {'edit_id': edit_id},
+        type:'POST',
+        dataType: 'json',
+
+        error: function(){
+            alert("Data not found");        
+        },
+
+        success:function(data){    
+            $(".modal #id").val(data[0].med_id);
+			$(".modal #medicine_id").val(data[0].med_id);
+            $(".modal #medicine_name").val(data[0].med_name);
+            $(".modal #medicine_category").val(data[0].med_cat_id);
+			
+			$(".modal #a_u").val(data[0].a_u);
+			$(".modal #medicine_type").val(data[0].med_type_id);
+			
+           $("#view_modal").modal("show");
+
+                          } // End of success function of ajax form
+                          }); // End of ajax call
+                          });
+
+        
+
+
+        
+
+
+    </script> 
+		
+	<script type="text/javascript">
+    $('#medcicne_caregory').on('change', function() {
+        var selected = $(this).val();
+		//alert(selected);
+
+        $.ajax({
+            url: '<?php echo base_url();?>PharmacistGet/get_lot_number/'+selected,
+        //data: {'selected': selected},
+        type:'GET',
+        dataType: 'json',
+        error: function(){
+            alert("Sorry...Something goes Wrong");
+        },
+        success:function(data){
+
+           $('#medcicne_lot').empty();
+
+           for(var i=0; i<data.length; i++){
+            $( "#medcicne_lot" ).append( "<option value='"+data[i]['lot_id']+"'>"+data[i]['lot_id']+"</option>" );
+        }
+        } // End of success function of ajax form
+            }); // End of ajax call
+    });
+
+
+</script>

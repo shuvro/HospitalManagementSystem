@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html>
+
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="shortcut icon" href="/scripts/template/front/img/fav.png" type="image/x-icon">
+        <title>Welcome | Medipith</title>
+        <link href="http://fonts.googleapis.com/css?family=Roboto:100,400,300,300italic,400italic,500,700,900" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="/scripts/template/front/css/bootstrap.min.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="/scripts/template/front/css/theme.css" type="text/css" media="all" />
+        <!-- REVOLUTION CSS FILES 
+        <link rel="stylesheet" type="text/css" href="http://localhost/o2core/template/front/revolution/css/settings.css">
+        <link rel="stylesheet" type="text/css" href="http://localhost/o2core/template/front/revolution/css/layers.css">
+        <link rel="stylesheet" type="text/css" href="http://localhost/o2core/template/front/revolution/css/navigation.css">-->
+
+        <link rel="stylesheet" href="/scripts/template/front/css/custom.css" type="text/css" media="all" />
+
+        <link rel="stylesheet" type="text/css" href="/scripts/template/front/modal/css/sm.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/scripts/template/front/hover/css/stylesCode.css">
+        <link rel="stylesheet" type="text/css" href="/scripts/template/front/hover/css/style.css">
+
+
+        <!-- Owl Carousel Assets -->
+        <link href="/scripts/template/front/owl/owl-carousel/owl.carousel.css" rel="stylesheet">
+        <link href="/scripts/template/front/owl/owl-carousel/owl.theme.css" rel="stylesheet">
+        <link href="/scripts/template/front/owl/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+        <script type="text/javascript" src="/scripts/template/front/js/jquery.min.js"></script> 
+        <script type="text/javascript" src="/scripts/template/front/modal/js/jquery.slick-modals.js"></script>
+    </head>
+
+    <body>
+
+
+        <!-- MODALS -->
+        <div id="main_header" class="type1">
+            <div class="header_parent_wrap" style="border-bottom: 1px solid #F1F1F1;">
+                <header>
+                    <div class="container" style="height:50px !important;">
+                        <div class="logo_sect">
+                            <a href="<?php echo base_url(); ?>" class="logo"><img src="/scripts/template/front/img/logo.png" class="logo_def" alt="" /></a>
+                        </div>
+                        <div class="fright">
+                            <nav>
+                                <ul class="menu">
+                                    <li class=""><a href="/">Home</a>
+                                        <div class="sub-nav">
+
+                                        </div>
+                                    </li>
+                                    <li class="menu-item-has-children"><a href="<?php echo base_url(); ?>#about">About us</a>
+                                        <div class="sub-nav">
+
+                                        </div>
+                                    </li>
+
+										<li class="menu-item-has-children"><a href="<?php echo base_url() . $user_type; ?>/dashboard" type="button">Dashboard</a>
+                                            <div class="sub-nav">
+                                            </div>
+                                        </li>
+										
+                                    
+                                        <li class="menu-item-has-children" style="display:none"><a href="" type="button" data-toggle="modal" data-target="#signup">Sign Up</a>
+                                            <div class="sub-nav">
+
+                                            </div>
+                                        </li>
+                                 
+                                        <li class="menu-item-has-children"><a href="<?php echo base_url(); ?>logout/index">Logout</a>
+                                            <div class="sub-nav">
+                                            </div>
+                                        </li>
+                                    
+                                        
+                                    
+                                        <!-- <li class="menu-item-has-children"><a href="" type="button" data-toggle="modal" data-target="#login">Login</a>
+                                            <div class="sub-nav">
+                                            </div>
+                                        </li> -->
+                                        <li class="menu-item-has-children"><a href="<?php echo base_url();?>main/login" type="button">Login</a>
+                                            <div class="sub-nav">
+                                            </div>
+                                        </li>
+                                
+                                    <li class="menu-item-has-children"><a href="<?php echo base_url(); ?>Main/contactus">Contact us</a>
+                                    </li>
+
+                                </ul>
+                            </nav>
+                            <div class="cart_in_header"></div><div class="socials_in_header"></div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </header>
+            </div>
+        </div>
+
+        <div id="popup-1" class="slickModal">
+            <div class="window row" style="min-height:500px;">
+                <!-- Your popup content -->
+                <div class="wrap col-md-12" style="">
+                    <div class="title">
+                        <img src="/scripts/template/front/img/logo.png" class="logo_def" alt="">
+                    </div>
+                </div>
+
+                <div class="col-md-12 contact_form" style="margin-top:140px;">
+                    <div class="module_content contact_form">
+                        <div id="note1"></div>
+                        <div id="fields1">
+                            <form class="ajax-contact-form1" action="#">
+                                <input type="text" name="name1" value="" placeholder="Name *" />
+                                <input type="text" name="email1" value="" placeholder="Email *" />
+                                <input type="text" name="subject1" value="" placeholder="Subject" />
+                                <textarea name="message1" id="message" placeholder="Message *" style="border: 2px #eee solid;"></textarea>
+                                <div class="comment_submit_wrap" style="margin-top: 5px;">
+                                    <input type="submit" value="Send message">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- / Your popup content -->
+            </div>
+        </div>
+
+        <style>
+            .bord{
+                border: 1px solid red !important;	
+            }
+        </style>
+        <script>
+            var base_url = '<?php echo base_url(); ?>';
+        </script>
+        <!-- REVOLUTION STYLE SHEETS -->
+        <link rel="stylesheet" type="text/css" href="/scripts/template/front/revolution/revolution/css/settings.css">
+        <!-- REVOLUTION LAYERS STYLES -->
+        <link rel="stylesheet" type="text/css" href="/scripts/template/front/revolution/revolution/css/layers.css">
+
+        <!-- REVOLUTION NAVIGATION STYLES -->
+        <link rel="stylesheet" type="text/css" href="/scripts/template/front/revolution/revolution/css/navigation.css">
+
+        <link rel="stylesheet" type="text/css" href="/scripts/template/front/revolution/revolution/fonts/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="/scripts/template/front/revolution/revolution/fonts/font-awesome/css/font-awesome.css">
+        <!-- REVOLUTION JS FILES -->
+        <script type="text/javascript" src="/scripts/template/front/revolution/revolution/js/jquery.themepunch.tools.min.js"></script>
+        <script type="text/javascript" src="/scripts/template/front/revolution/revolution/js/jquery.themepunch.revolution.min.js"></script>
+
+        <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  
+                (Load Extensions only on Local File Systems ! 
+                 The following part can be removed on Server for On Demand Loading) -->	
+        <script type="text/javascript" src="/scripts/template/front/revolution/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+        <script type="text/javascript" src="/scripts/template/front/revolution/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+        <script type="text/javascript" src="/scripts/template/front/revolution/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+        <script type="text/javascript" src="/scripts/template/front/revolution/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script type="text/javascript" src="/scripts/template/front/revolution/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+        <script type="text/javascript" src="/scripts/template/front/revolution/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+        <script type="text/javascript" src="/scripts/template/front/revolution/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+        <script type="text/javascript" src="/scripts/template/front/revolution/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+        <script type="text/javascript" src="/scripts/template/front/revolution/revolution/js/extensions/revolution.extension.video.min.js"></script>
+        <div class="first-module module_slider module_cont pb0 fullwidthslider" style="">     
+            <!-- START REVOLUTION SLIDER 5.0.7 auto mode -->
+            <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.7">
+                <ul>
+                    <%
+                    for(var key in data) {
+                    %>
+                        <!-- SLIDE  -->
+                        <li data-index="rs-<%= data[key].no %>" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="<%= data[key].bg_thumb %>"  data-rotate="0"  data-saveperformance="off"  data-title="<%= data[key].title %>" data-description="">
+                            <!-- MAIN IMAGE -->
+                            <img src="<%= data[key].bg %>"  data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Power1.easeOut" data-scalestart="120" data-scaleend="100" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" class="rev-slidebg" data-no-retina>
+                            <!-- LAYERS -->
+
+                            <!-- LAYER NR. 1 -->
+                            <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
+                                 id="slide-<%= data[key].no %>-layer-1" 
+                                 data-x="['left','left','left','left']" data-hoffset="['0','0','0','0']" 
+                                 data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
+                                 data-fontsize="['40','40','40','20']"
+                                 data-lineheight="['70','70','70','50']"
+                                 data-width="none"
+                                 data-height="none"
+                                 data-whitespace="nowrap"
+                                 data-transform_idle="o:1;"
+                                 data-transform_in="x:[-105%];z:0;rX:0deg;rY:0deg;rZ:-90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
+                                 data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
+                                 data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
+                                 data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
+                                 data-start="1000" 
+                                 data-splitin="chars" 
+                                 data-splitout="none" 
+                                 data-responsive_offset="on"
+                                 data-elementdelay="0.1" 
+
+                                 style="z-index: 5; white-space: nowrap;"><% data[key].txt1 %>
+                            </div>
+                            <!-- LAYER NR. 1 -->
+                            <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
+                                 id="slide-<%= data[key].no %>-layer-2" 
+                                 data-x="['left','left','left','left']" data-hoffset="['0','0','0','0']" 
+                                 data-y="['middle','middle','middle','middle']" data-voffset="['52','52','52','52']" 
+                                 data-fontsize="['20','20','20','20']"
+                                 data-lineheight="['20','20','20','20']"
+                                 data-width="none"
+                                 data-height="none"
+                                 data-whitespace="nowrap"
+                                 data-transform_idle="o:1;"
+                                 data-transform_in="x:[-105%];z:0;rX:0deg;rY:0deg;rZ:-90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
+                                 data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
+                                 data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
+                                 data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
+                                 data-start="1000" 
+                                 data-splitin="chars" 
+                                 data-splitout="none" 
+                                 data-responsive_offset="on"
+                                 data-elementdelay="0.1"
+                                 style="z-index: 5; white-space: nowrap;"><%= data[key].txt2 %>
+                            </div>
+                            <!-- LAYER NR. 1 -->
+
+
+
+                            <div class="tp-caption rev-btn rev-maxround rev-hiddenicon rev-bordered click_btn " 
+                                 id="slide-<%= data[key].no %>-layer-8" 
+                                 data-x="['left','center','center','center']" 
+                                 data-hoffset="['10','0','0','0']" 
+                                 data-y="['middle','middle','middle','middle']" 
+                                 data-voffset="['131','131','21','21']" 
+                                 data-width="none"
+                                 data-height="none"
+                                 data-whitespace="nowrap"
+                                 data-transform_idle="o:1;"
+                                 data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power1.easeInOut;"
+                                 data-style_hover="c:rgba(255, 255, 255, 1.00);bg:rgba(114, 168, 0, 0);bc:rgba(139, 192, 39, 1.00);cursor:pointer;"
+                                 data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
+                                 data-transform_out="y:[175%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
+                                 data-mask_out="x:inherit;y:inherit;" 
+                                 data-start="1650" 
+                                 data-splitin="none" 
+                                 data-splitout="none" 
+                                 data-actions='[{"event":"click","action":"jumptoslide","slide":"rs-46","delay":""}]'
+                                 data-responsive_offset="on" 
+                                 data-responsive="off"
+
+                                 style="">
+                                <a href="/">Click here  <i class="fa-icon-chevron-right"></i> </a>
+                            </div>
+
+
+
+                            <div class="tp-caption tp-resizeme" 
+                                 id="slide-<%= data[key].no %>-layer-1" 
+                                 data-x="['right','right','center','center']" data-hoffset="['0','0','70','60']"
+                                 data-y="['middle','middle','middle','bottom']" data-voffset="['50','50','211','25']" 
+                                 data-width="none"
+                                 data-height="none"
+                                 data-whitespace="nowrap"
+                                 data-transform_idle="o:1;"
+                                 data-transform_in="x:right;s:1500;e:Power3.easeOut;" 
+                                 data-transform_out="opacity:0;s:1500;e:Power4.easeIn;s:1500;e:Power4.easeIn;" 
+                                 data-start="2500" 
+                                 data-responsive_offset="on" 
+                                 style="z-index: 5;">
+                                <img src="<%= data[key].img %>" alt="" width="500" height="300" data-ww="['500px','500px','300px','150px']" data-hh="['300px','300px','200px','110px']" data-no-retina>
+
+
+                                <!-- LAYER NR. 3 -->
+                                <div class="tp-caption NotGeneric-Icon   tp-resizeme rs-parallaxlevel-0" 
+                                 id="slide-<%= data[key].no %>-layer-8" 
+                                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
+                                     data-y="['middle','middle','middle','middle']" data-voffset="['-68','-68','-68','-68']" 
+                                     data-width="none"
+                                     data-height="none"
+                                     data-whitespace="nowrap"
+                                     data-transform_idle="o:1;"
+                                     data-style_hover="cursor:default;"
+
+                                     data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeInOut;" 
+                                     data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
+                                     data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
+                                     data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
+                                     data-start="2000" 
+                                     data-splitin="none" 
+                                     data-splitout="none" 
+                                     data-responsive_offset="on" 
+
+                                     style="z-index: 7; white-space: nowrap;"><i class="pe-7s-diamond"></i> 
+                                </div>
+                        </li>
+                        <%
+                    }
+                    %>
+
+                    <div class="tp-static-layers"></div>
+                    <div class="tp-bannertimer" style="height: 7px; background-color: rgba(255, 255, 255, 0.25);"></div>	
+            </div>
+        </div>          
+
+
+        <script type="text/javascript">
+            var tpj = jQuery;
+            var revapi4;
+            tpj(document).ready(function () {
+                if (tpj("#rev_slider_4_1").revolution == undefined) {
+                    revslider_showDoubleJqueryError("#rev_slider_4_1");
+                } else {
+                    revapi4 = tpj("#rev_slider_4_1").show().revolution({
+                        sliderType: "standard",
+                        jsFileLocation: "/scripts/template/revolution/js/",
+                        sliderLayout: "fullwidth",
+                        dottedOverlay: "none",
+                        delay: 9000,
+                        navigation: {
+                            keyboardNavigation: "off",
+                            keyboard_direction: "horizontal",
+                            mouseScrollNavigation: "off",
+                            onHoverStop: "off",
+                            touch: {
+                                touchenabled: "on",
+                                swipe_threshold: 75,
+                                swipe_min_touches: 1,
+                                swipe_direction: "horizontal",
+                                drag_block_vertical: false
+                            }
+                            ,
+                            arrows: {
+                                style: "zeus",
+                                enable: false,
+                                hide_onmobile: true,
+                                hide_under: 600,
+                                hide_onleave: true,
+                                hide_delay: 200,
+                                hide_delay_mobile: 1200,
+                                tmp: '<div class="tp-title-wrap">  	<div class="tp-arr-imgholder"></div> </div>',
+                                left: {
+                                    h_align: "left",
+                                    v_align: "center",
+                                    h_offset: 30,
+                                    v_offset: 0
+                                },
+                                right: {
+                                    h_align: "right",
+                                    v_align: "center",
+                                    h_offset: 30,
+                                    v_offset: 0
+                                }
+                            }
+                            ,
+                            bullets: {
+                                enable: false,
+                                hide_onmobile: true,
+                                hide_under: 600,
+                                style: "metis",
+                                hide_onleave: true,
+                                hide_delay: 200,
+                                hide_delay_mobile: 1200,
+                                direction: "horizontal",
+                                h_align: "center",
+                                v_align: "bottom",
+                                h_offset: 0,
+                                v_offset: 30,
+                                space: 5,
+                                tmp: '<span class="tp-bullet-img-wrap">  <span class="tp-bullet-image"></span></span><span class="tp-bullet-title">{{title}}</span>'
+                            }
+                        },
+                        viewPort: {
+                            enable: true,
+                            outof: "pause",
+                            visible_area: "80%"
+                        },
+                        responsiveLevels: [1240, 1024, 778, 480],
+                        gridwidth: [1240, 1024, 778, 480],
+                        gridheight: [700, 700, 600, 500],
+                        lazyType: "none",
+                        parallax: {
+                            type: "mouse",
+                            origo: "slidercenter",
+                            speed: 2000,
+                            levels: [2, 3, 4, 5, 6, 7, 12, 16, 10, 50],
+                        },
+                        shadow: 0,
+                        spinner: "off",
+                        stopLoop: "off",
+                        stopAfterLoops: -1,
+                        stopAtSlide: -1,
+                        shuffle: "off",
+                        autoHeight: "off",
+                        hideThumbsOnMobile: "off",
+                        hideSliderAtLimit: 0,
+                        hideCaptionAtLimit: 0,
+                        hideAllCaptionAtLilmit: 0,
+                        debugMode: false,
+                        fallbacks: {
+                            simplifyAll: "off",
+                            nextSlideOnWindowFocus: "off",
+                            disableFocusListener: false,
+                        }
+                    });
+                }
+            });	/*ready*/
+        </script>
+        <style>
+            .click_btn{
+                z-index: 12; 
+                white-space: nowrap; 
+                font-size: 15px; 
+                line-height: 15px; 
+                font-weight: 600; 
+                color: #fff !important;
+                font-family:Raleway;
+                padding:12px 35px 12px 35px;
+                border-color:#fff;
+                border-style:solid;
+                border-width:2px;
+                border-radius:30px 30px 30px 30px;
+                letter-spacing:1px;	
+            }
+            .click_btn:hover{
+                border-color:#14fcff !important;
+                color: #14fcff !important;	
+            }
+            .click_btn:active{
+                border-color:#14fcff !important;
+                color: #14fcff !important;		
+            }
+            .click_btn:before{
+                border-color:#14fcff !important;
+                color: #14fcff !important;		
+            }
+            .click_btn:after{
+                border-color:#14fcff !important;
+                color: #14fcff !important;		
+            }
+        </style>
+
+        <div class="wrapper" id="about">
+            <div class="container">
+                <div class="content_block row no-sidebar">
+                    <div class="fl-container">
+                        <div class="posts-block">
+                            <div class="contentarea">
+                                <div class="fw_block bg_start stretch portfolio_bg2 pt65 mb65">
+                                    <div class="row">
+                                        <div class="col-sm-12 module_cont module_title pb5">
+                                            <div class="bg_title">
+                                                <h2>ABOUT US</h2>
+                                                <div class="icon_divider"></div>
+                                                <p>We are a creative technology company passionate about building next intelligent products.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row flip_box_section pb40">
+                                        <div class="col-sm-3 module_cont">
+                                            <div class="flip-box-wrap">
+                                                <div class="flip-box">
+                                                    <div class="ifb-flip-box">
+                                                        <div class="ifb-face ifb-front">
+                                                            <div class="ifb-flip-box-section ">
+                                                                <h5>Creative Interface</h5>
+                                                               <!-- <p class="mb24">Lorem ipsum dolor sit amet</p>-->
+                                                                <div class="flip-box-icon">
+                                                                    <i class="fa fa-magic"></i>
+                                                                </div>
+                                                                <p>We develop our products with users in mind. Our intuitive products are simple enough that anyone with basic computer knowledge will be able to use.</p>
+                                                            </div>
+                                                        </div><!-- END .front -->
+                                                        <div class="ifb-face ifb-back">
+                                                            <div class="ifb-flip-box-section">
+                                                                <h5>More Info</h5>
+                                                                <div class="ifb-desc-back">
+                                                                    <p>We develop our products with users in mind. Our intuitive products are simple enough that anyone with basic computer knowledge will be able to use.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- //back -->
+                                                    </div><!-- //ifb-flip-box -->
+                                                </div><!-- //flip-box -->
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 module_cont">
+                                            <div class="flip-box-wrap">
+                                                <div class="flip-box yellow_bg">
+                                                    <div class="ifb-flip-box">
+                                                        <div class="ifb-face ifb-front">
+                                                            <div class="ifb-flip-box-section ">
+                                                                <h5>Customization</h5>
+                                                               <!-- <p class="mb24">Quisque nec dictum lorem</p>-->
+                                                                <div class="flip-box-icon">
+                                                                    <i class="fa fa-wrench"></i>
+                                                                </div>
+                                                                <p>Each and every hospital has different need and processes and our products are flexible to customize as per your organizations need.</p>
+                                                            </div>
+                                                        </div><!-- END .front -->
+                                                        <div class="ifb-face ifb-back">
+                                                            <div class="ifb-flip-box-section">
+                                                                <h5>More Info</h5>
+                                                                <div class="ifb-desc-back">
+                                                                    <p>Each and every hospital has different need and processes and our products are flexible to customize as per your organizations need.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- //back -->
+                                                    </div><!-- //ifb-flip-box -->
+                                                </div><!-- //flip-box -->
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 module_cont">
+                                            <div class="flip-box-wrap">
+                                                <div class="flip-box green_bg">
+                                                    <div class="ifb-flip-box">
+                                                        <div class="ifb-face ifb-front">
+                                                            <div class="ifb-flip-box-section ">
+                                                                <h5>Cloud Based</h5>
+                                                              <!--  <p class="mb24">Nunc sit amet augue tellus</p>-->
+                                                                <div class="flip-box-icon">
+                                                                    <i class="fa fa-cloud"></i>
+                                                                </div>
+                                                                <p>All our products are cloud based application. No need for any type of infrastructure to take advantage of modern applications.</p>
+                                                            </div>
+                                                        </div><!-- END .front -->
+                                                        <div class="ifb-face ifb-back">
+                                                            <div class="ifb-flip-box-section">
+                                                                <h5>More Info</h5>
+                                                                <div class="ifb-desc-back">
+                                                                    <p>All our products are cloud based application. No need for any type of infrastructure to take advantage of modern applications.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- //back -->
+                                                    </div><!-- //ifb-flip-box -->
+                                                </div><!-- //flip-box -->
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 module_cont">
+                                            <div class="flip-box-wrap">
+                                                <div class="flip-box red_bg">
+                                                    <div class="ifb-flip-box">
+                                                        <div class="ifb-face ifb-front">
+                                                            <div class="ifb-flip-box-section ">
+                                                                <h5>Development</h5>
+                                                              <!--  <p class="mb24">Nunc sit amet augue tellus</p>-->
+                                                                <div class="flip-box-icon">
+                                                                    <i class="fa fa-code"></i>
+                                                                </div>
+                                                                <p>
+                                                                    Our core belief is to satisfy our customer and we have some of the best talents to do your development
+
+                                                                    work
+                                                                </p>
+                                                            </div>
+                                                        </div><!-- END .front -->
+                                                        <div class="ifb-face ifb-back">
+                                                            <div class="ifb-flip-box-section">
+                                                                <h5>More Info</h5>
+                                                                <div class="ifb-desc-back">
+                                                                    <p>Our core belief is to satisfy our customer and we have some of the best talents to do your development
+
+                                                                        work</p>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- //back -->
+                                                    </div><!-- //ifb-flip-box -->
+                                                </div><!-- //flip-box -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+                                    <div class="fw_block bg_start fw_block_bgcolor1 pt25 hide">
+                                        <div class="row">
+                                            <div class="col-sm-12 module_cont module_title pb5">
+                                                <div class="bg_title">
+                                                    <h2>OUR CLIENTS</h2>
+                                                    <div class="icon_divider"></div>
+                                                </div>
+                                            </div><br>
+                                            <div class="col-sm-12 module_cont module_partners pb25">
+                                                <div class="module_content sponsors_works items6">
+                                                    <ul>
+                                                        <li>
+                                                            <div class="item_wrapper">
+                                                                <div class="item">
+                                                                    <a href="javascript:void(0);"><img src="/scripts/template/front/img/imgs/sponsor7.png" alt="" /></a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="item_wrapper">
+                                                                <div class="item">
+                                                                    <a href="javascript:void(0);"><img src="/scripts/template/front/img/imgs/sponsor8.png" alt="" /></a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="item_wrapper">
+                                                                <div class="item">
+                                                                    <a href="javascript:void(0);"><img src="/scripts/template/front/img/imgs/sponsor9.png" alt="" /></a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="item_wrapper">
+                                                                <div class="item">
+                                                                    <a href="javascript:void(0);"><img src="/scripts/template/front/img/imgs/sponsor10.png" alt="" /></a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="item_wrapper">
+                                                                <div class="item">
+                                                                    <a href="javascript:void(0);"><img src="/scripts/template/front/img/imgs/sponsor11.png" alt="" /></a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="item_wrapper">
+                                                                <div class="item">
+                                                                    <a href="javascript:void(0);"><img src="/scripts/template/front/img/imgs/sponsor12.png" alt="" /></a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="fw_block bg_start colored_bg blue_bg">
+                                        <div class="row">
+                                            <div class="col-sm-12 module_cont pb0">
+                                                <div class="shortcode_promoblock">
+                                                    <div class="promoblock_wrapper">
+                                                        <div class="promo_text_block">
+                                                            <div class="promo_text_block_wrapper">
+                                                                <h1 class="promo_text_main_title">Please feel free contact us for any <span>inquiry</span></h1>
+                                                            </div>
+                                                        </div>
+                                                        <div class="promo_button_block"><a class="shortcode_button btn_large btn_type1 left_icon openSlickModal-1 manualLabel" href="javascript:void(0);"><i class="fa fa-envelope"></i>Get in Touch</a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <style>
+                .btn_arw{
+                    background:#CACACA;	
+                    color:#fff;
+                    font-weight:300;
+                    transition: all .4s ease-in-out;
+                    padding: 4px 8px;
+                    border-radius:0px;
+                    font-size:12px;
+                }
+                .btn_arw:hover{
+                    background:#00A7D4;	
+                    color:#fff;
+                    transition: all .4s ease-in-out;
+                }
+            </style>
+
+
+            <div id="popup-2" class="slickModal">
+                <div class="window">
+                    <!-- Your popup content -->
+                    <div class="wrap">
+                        <div class="popup-icon"></div>
+                        <div class="title">Sample heading</div>
+                        <p>I'm a demo preview Slick popup, nice to meet you.</p>
+                    </div>
+                    <div class="cta">
+                        <span class="closeModal">Close me</label>
+                    </div>
+                    <!-- / Your popup content -->
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="pre_footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <div class="sidepanel widget_text">
+                                    <h6 class="title">Contact Info</h6>
+                                    <div class="textwidget contact_text">
+                                        <div class="section col-sm-12">
+                                                                <p class="section_title"><i class="fa fa-phone"></i> Phone Number:  +880 1977 755 835</p>
+                                        </div>
+                                                            <div class="section col-sm-12">
+                                                                <p class="section_title"><i class="fa fa-map-marker"></i> Office:  Plot No. 1262, Road No. 9, Avenue No. 2, Mirpur DOHS, Dhaka.</p>
+                                                         </div>
+                                     
+                                        <div class="section col-sm-12">
+                                            <p class="section_title"><i class="fa fa-envelope"></i> Email:  <a href="mailto:#">contact@intoiit.com</a></p>
+                                        </div>
+                                    </div>
+                                </div>                          
+                            </div>
+                            <!--<div class="col-sm-3">-->
+                            <!--<div class="sidepanel widget_posts">-->
+                            <!--<h6 class="title">Recent Posts</h6>-->
+                            <!--<ul class="recent_posts">-->
+                            <!--<li class="with_img">-->
+                            <!--<div class="recent_posts_content">-->
+                                <!--<img src="/scripts/template/front/img/imgs/widget_post1.jpg" alt="" />-->
+                            <!--<a href="javascript:void(0);" class="title">Duis Aute Irure Dolor</a>-->
+                            <!--<div class="recent_posts_info">June 09, 2018</div>-->
+                            <!--</div>-->
+                            <!--</li>-->
+                            <!--<li class="with_img">-->
+                            <!--<div class="recent_posts_content">-->
+                                <!--<img src="/scripts/template/front/img/imgs/widget_post2.jpg" alt="" />-->
+                            <!--<a href="javascript:void(0);" class="title">Temporibus Autem Quibusdam</a>-->
+                            <!--<div class="recent_posts_info">June 08, 2018</div>-->
+                            <!--</div>-->
+                            <!--</li>-->
+                            <!--<li class="with_img">-->
+                            <!--<div class="recent_posts_content">-->
+                                <!--<img src="/scripts/template/front/img/imgs/widget_post3.jpg" alt="" />-->
+                            <!--<a href="javascript:void(0);" class="title">Saepe Eveniet Ut Et</a>-->
+                            <!--<div class="recent_posts_info">June 06, 2018</div>-->
+                            <!--</div>-->
+                            <!--</li>-->
+                            <!--</ul>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <div class="col-sm-3">
+                                <div class="sidepanel widget_nav_menu">
+                                    <h6 class="title">Useful Links</h6>
+                                    <ul>
+                                        <li><a href="<?php echo base_url(); ?>">Home</a></li>
+                                        <li><a href="<?php echo base_url(); ?>#about">About</a></li>
+                                        <li><a href="<?php echo base_url(); ?>Main/terms">Terms</a></li>
+                                        <li><a href="<?php echo base_url(); ?>Main/privacy">Privacy</a></li>
+                                        <li><a href="<?php echo base_url(); ?>Main/contactus">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--<div class="col-sm-3">-->
+                            <!--<div class="sidepanel widget_flickr">-->
+                            <!--<h6 class="title">Flickr Photostream</h6>-->
+                            <!--<div class="flickr_widget_wrapper"><script src="http://www.flickr.com/badge_code_v2.gne?count=8&amp;display=latest&amp;size=s&amp;layout=x&amp;source=user&amp;user=91205275@N03"></script></div>   -->
+                            <!--</div>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer_bottom">
+                    <div class="container">
+                        <div class="foot_info_block">
+                            <div class="logo_sect">
+                                <a href="index-2.html" class="logo"><img src="/scripts/template/front/img/logo_white.png" class="logo_def" alt="" /><img src="/scripts/template/front/img/retina/logo_white.png" class="logo_retina" alt="" /></a>
+                            </div>
+                            <div class="copyright">Copyright &copy; 2015 Intoiit. All Rights Reserved.</div>
+                            <div class="foot_menu">
+                                <ul>
+                                    <li><a href="index-2.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="service.html">Services</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
+                                    <li><a href="showreel.html">Showreel</a></li>
+                                    <li><a href="portfolio_masonry.html">Portfolio</a></li>
+                                    <li><a href="blog_right_sidebar.html">Blog</a></li>
+                                    <li><a href="contact_sidebar.html">Contacts</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="social_icons">
+                            <ul>
+                                <li><span>Follow:</span></li>
+                                <li><a class="soc_fb" href="javascript:void(0);"><i class="fa fa-facebook-square"></i></a></li>
+                                <li><a class="soc_tweet" href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
+                                <li><a class="soc_instagram" href="javascript:void(0);"><i class="fa fa-instagram"></i></a></li>
+                                <li><a class="soc_dribbble" href="javascript:void(0);"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a class="soc_pinterest" href="javascript:void(0);"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a class="soc_flickr" href="javascript:void(0);"><i class="fa fa-flickr"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Modal -->
+
+            <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-body">
+
+                            <div class="row reg-bg">
+                                <div class="col-md-12 signup-box">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h3 class="head-text head-text-modal">Register Your Hospital</h3>
+
+                                </div>
+                                <div style="visibility: visible;" class="col-md-12">
+                                    <div class="fun-box">
+                                        <div id="res"></div>
+                                        <form>
+
+                                            <!--<form method="post" class="reply" id="contact" action="reg/registration">-->
+                                            <fieldset>
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                        <div class="row">
+
+
+
+                                                            <div class="col-md-12">
+                                                                <input class="form-control" id="s_n" name="hms_name" placeholder="Your Name" value="" required="" type="text" maxlength="30" required>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <input class="form-control" id="n" name="h_name" placeholder="Hospital/clinic name" value="" required="" maxlength="50" type="text" required>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <input class="form-control" id="s_id" name="h_id" placeholder="Hospital/clinic ID" value="" required="" maxlength="30" type="text" required>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <input class="form-control" id="e" name="email" placeholder="E-mail" value="" required="" type="email" maxlength="30" required>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <input class="form-control" id="c_e" name="c_email" placeholder="Confirm E-mail" value="" required="" type="email" maxlength="30" required>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <input class="form-control" name="password" id="p" placeholder="Password" value="" required="" type="password" maxlength="30" required>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <input class="form-control" id="c_p" name="c_password" placeholder="Confirm Password" value="" required="" maxlength="30" type="password" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </fieldset>
+                                        </form>
+                                        <!--</form>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+
+                            <a type="" class="btn btn-login btn-reg" onClick="subitaas()">Register</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal end -->
+
+            <!-- login Modal  -->
+
+            <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-body">
+
+                            <div class="row reg-bg">
+                                <div class="col-md-12 signup-box">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h3 class="head-text head-text-modal">LOGIN</h3>
+
+                                </div>
+                                <div style="visibility: visible;" class="col-md-12">
+                                    <div class="fun-box">
+                                        <div id="res2"></div>
+                                        <form id="login_form">
+
+                                            <!--<form method="post" class="reply" id="contact" action="reg/registration">-->
+                                            <fieldset>
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                        <div class="row login-box-width">
+
+
+
+                                                            <div class="col-md-12">
+                                                                <input class="form-control" id="e1" name="email" placeholder="E-mail" value="" required="" type="email" maxlength="30" required>
+                                                            </div>
+
+                                                            <div class="col-md-12">
+                                                                <input class="form-control" name="password" id="p1" placeholder="Password" value="" required="" type="password" maxlength="30" required>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </fieldset>
+                                        </form>
+                                        <!--</form>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="modal-footer">
+
+                            <a href="<?php echo base_url(); ?>login/forget_password">
+                                <button type="button" class="btn btn-link  pull-left">Forgot Password ?</button>
+                            </a>
+
+                            <a type="" id="enter_button" class="btn btn-login btn-reg" onClick="main_login()">login</a>
+                            <div class="col-md-12" style="border: 1px solid #9da1ad; padding-bottom: 10px;">
+                                <div class="col-md-12">
+                                    <p style="text-align:center;">Login as :</p>
+                                </div>
+                                <div class="col-md-6 centerthing">
+                                    <div class="col-md-12">
+                                        <a style="text-align:center; border: 0px solid #9da1ad;" id="admin_login" class="btn col-md-5">Admin</a>
+                                        <a style="text-align:center; border: 0px solid #9da1ad;" id="doctor_login" class="btn col-md-5">Doctor</a>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <a style="text-align:center; border: 0px solid #9da1ad;" id="nurse_login" class="btn col-md-5">Nurse</a>
+                                        <a style="text-align:center; border: 0px solid #9da1ad;" id="patient_login" class="btn col-md-5">Patient</a>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6 centerthing">
+                                    <div class="col-md-12">
+                                        <a style="text-align:center; border: 0px solid #9da1ad;" id="lab_login" class="btn col-md-5">Laboratorist</a>
+                                        <a style="text-align:center; border: 0px solid #9da1ad;" id="acc_login" class="btn col-md-5">Accountant</a>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <a style="text-align:center; border: 0px solid #9da1ad;" id="rec_login" class="btn col-md-5">Receiptionist</a>
+                                        <a style="text-align:center; border: 0px solid #9da1ad;" id="phr_login" class="btn col-md-5">Pharmacist</a>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-12">
+                                    <a style="text-align:center; border: 0px solid #9da1ad;" id="gendoc_login" class="btn col-md-11">General Doctor</a>
+                                </div>
+
+
+
+                            </div>
+
+
+
+                        </div>-->
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Login modal end -->
+
+            <script>
+
+                $("#admin_login").on("click", function () {
+                    document.getElementById('e1').value = "admin@nextiinfo.com";
+                    document.getElementById('p1').value = "1234";
+                    document.getElementById('enter_button').onclick()
+                });
+
+                $("#doctor_login").on("click", function () {
+                    document.getElementById('e1').value = "doctordemo@nextiinfo.com";
+                    document.getElementById('p1').value = "1234";
+                    document.getElementById('enter_button').onclick()
+                });
+
+                //                $("#patient_login").on("click", function() {
+                //                    document.getElementById('e1').value="patientdemo@nextiinfo.com";
+                //                    document.getElementById('p1').value="1234";
+                //                    document.getElementById('enter_button').onclick()
+                //                });
+
+                $("#nurse_login").on("click", function () {
+                    document.getElementById('e1').value = "nursedemo@nextiinfo.com";
+                    document.getElementById('p1').value = "1234";
+                    document.getElementById('enter_button').onclick()
+                });
+
+                $("#acc_login").on("click", function () {
+                    document.getElementById('e1').value = "accountdemo@nextiinfo.com";
+                    document.getElementById('p1').value = "1234";
+                    document.getElementById('enter_button').onclick()
+                });
+
+                $("#rec_login").on("click", function () {
+                    document.getElementById('e1').value = "recptdemo@nextiinfo.com";
+                    document.getElementById('p1').value = "1234";
+                    document.getElementById('enter_button').onclick()
+                });
+
+                $("#lab_login").on("click", function () {
+                    document.getElementById('e1').value = "labdemo@nextiinfo.com";
+                    document.getElementById('p1').value = "1234";
+                    document.getElementById('enter_button').onclick()
+                });
+
+                $("#phr_login").on("click", function () {
+                    document.getElementById('e1').value = "phrmdemo@nextiinfo.com";
+                    document.getElementById('p1').value = "1234";
+                    document.getElementById('enter_button').onclick()
+                });
+
+                $("#gendoc_login").on("click", function () {
+                    document.getElementById('e1').value = "gdocdemo@nextiinfo.com";
+                    document.getElementById('p1').value = "1234";
+                    document.getElementById('enter_button').onclick()
+                });
+
+            </script>
+            <script type="text/javascript" src="/scripts/template/front/js/jquery-ui.min.js"></script>    
+            <script type="text/javascript" src="/scripts/template/front/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="/scripts/template/front/js/modules.js"></script>
+            <script type="text/javascript" src="/scripts/template/front/js/theme.js"></script>
+
+            <!-- REVOLUTION JS FILES --
+            <script type="text/javascript" src="/scripts/template/front/revolution/js/jquery.themepunch.tools.min.js"></script>
+            <script type="text/javascript" src="/scripts/template/front/revolution/js/jquery.themepunch.revolution.min.js"></script>
+        
+            <!-- SLIDER REVOLUTION EXTENSIONS (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) --
+            <script type="text/javascript" src="http://localhost/o2core/template/front/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+            <script type="text/javascript" src="/scripts/template/front/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+            <script type="text/javascript" src="/scripts/template/front/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+            <script type="text/javascript" src="/scripts/template/front/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+            <script type="text/javascript" src="/scripts/template/front/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+            <script type="text/javascript" src="/scripts/template/front/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+            <script type="text/javascript" src="/scripts/template/front/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+            <script type="text/javascript" src="/scripts/template/front/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+            <script type="text/javascript" src="/scripts/template/front/revolution/js/extensions/revolution.extension.video.min.js"></script>
+            <!-- END SLIDER REVOLUTION EXTENSIONS -->
+
+            <script src="/scripts/template/front/owl/owl-carousel/owl.carousel.js"></script>
+            <script>
+                $(document).ready(function () {
+
+                    /* ================ Revolution Slider. ================ */
+                    if ($('.tp-banner').length > 0) {
+                        $('.tp-banner').show().revolution({
+                            delay: 6000,
+                            startheight: 750,
+                            startwidth: 1008,
+                            hideThumbs: 1000,
+                            navigationType: 'none',
+                            touchenabled: 'on',
+                            onHoverStop: 'on',
+                            navOffsetHorizontal: 0,
+                            navOffsetVertical: 0,
+                            dottedOverlay: 'none',
+                            fullWidth: 'on',
+                            hideTimerBar: 'on'
+                        });
+                    }
+                    if ($('.tp-banner-full').length > 0) {
+                        $('.tp-banner-full').show().revolution({
+                            delay: 6000,
+                            hideThumbs: 1000,
+                            navigationType: 'none',
+                            touchenabled: 'on',
+                            onHoverStop: 'on',
+                            navOffsetHorizontal: 0,
+                            navOffsetVertical: 0,
+                            dottedOverlay: 'none',
+                            fullScreen: 'on',
+                            hideTimerBar: 'on'
+                        });
+                    }
+                    /*
+                     if($('.creativeitem-product').length > 0){
+                     $('.creativeitem-product').show().revolution({
+                     delay:6000,
+                     hideThumbs: 1000,
+                     navigationType: 'none',
+                     touchenabled: 'on',
+                     onHoverStop: 'on',
+                     navOffsetHorizontal: 0,
+                     navOffsetVertical: 0,
+                     dottedOverlay: 'none',
+                     fullScreen: 'on',
+                     hideTimerBar:'on',
+                     });
+                     }
+                     */
+                    var owl = $("#owl-demo");
+
+                    owl.owlCarousel({
+
+                        // Most important owl features
+                        items: 4,
+                        itemsCustom: false,
+                        itemsDesktop: [1199, 4],
+                        itemsDesktopSmall: [980, 3],
+                        itemsTablet: [768, 2],
+                        itemsTabletSmall: false,
+                        itemsMobile: [479, 1],
+                        singleItem: false,
+                        itemsScaleUp: false,
+
+                        //Basic Speeds
+                        slideSpeed: 200,
+                        paginationSpeed: 800,
+                        rewindSpeed: 1000,
+
+                        //Autoplay
+                        autoPlay: true,
+                        stopOnHover: true,
+
+                        // Navigation
+                        navigation: false,
+                        navigationText: ["prev", "next"],
+                        rewindNav: true,
+                        scrollPerPage: false,
+
+                        //Pagination
+                        pagination: false,
+                        paginationNumbers: false,
+
+                        // Responsive 
+                        responsive: true,
+                        responsiveRefreshRate: 200,
+                        responsiveBaseWidth: window,
+
+                        // CSS Styles
+                        baseClass: "owl-carousel",
+                        theme: "owl-theme",
+
+                        //Lazy load
+                        lazyLoad: false,
+                        lazyFollow: true,
+                        lazyEffect: "fade",
+
+                        //Auto height
+                        autoHeight: false,
+
+                        //JSON 
+                        jsonPath: false,
+                        jsonSuccess: false,
+
+                        //Mouse Events
+                        dragBeforeAnimFinish: true,
+                        mouseDrag: true,
+                        touchDrag: true,
+
+                        //Transitions
+                        transitionStyle: false,
+
+                        // Other
+                        addClassActive: false,
+
+                        //Callbacks
+                        beforeUpdate: false,
+                        afterUpdate: false,
+                        beforeInit: false,
+                        afterInit: false,
+                        beforeMove: false,
+                        afterMove: false,
+                        afterAction: false,
+                        startDragging: false,
+                        afterLazyLoad: false
+
+                    })
+                    // Custom Navigation Events
+                    $(".next").click(function () {
+                        owl.trigger('owl.next');
+                    })
+                    $(".prev").click(function () {
+                        owl.trigger('owl.prev');
+                    })
+                    $(".play").click(function () {
+                        owl.trigger('owl.play', 1000);
+                    })
+                    $(".stop").click(function () {
+                        owl.trigger('owl.stop');
+                    })
+
+
+                });
+            </script>
+
+
+            <script src="/scripts/template/front/owl/js/bootstrap-collapse.js"></script>
+            <script src="/scripts/template/front/owl/js/bootstrap-transition.js"></script>
+            <script src="/scripts/template/front/owl/js/bootstrap-tab.js"></script>
+
+            <script src="/scripts/template/front/owl/js/google-code-prettify/prettify.js"></script>
+            <script src="/scripts/template/front/owl/js/application.js"></script>
+
+            <!-- Slick Slider -->
+            <script type="text/javascript" src="/scripts/template/front/js/slick.min.js"></script>
+            <script type="text/javascript">
+                jQuery(document).ready(function () {
+                    "use strict";
+
+                    jQuery('.fullwidth_slider').show().revolution({
+                        sliderType: "standard",
+                        jsFileLocation: "revolution/js/",
+                        sliderLayout: "fullwidth",
+                        delay: 9000,
+                        gridwidth: 1170,
+                        gridheight: 650,
+                        navigation: {
+                            keyboardNavigation: "on",
+                            keyboard_direction: "horizontal",
+                            mouseScrollNavigation: "off",
+                            onHoverStop: "on",
+                            touch: {
+                                touchenabled: "on",
+                                swipe_threshold: 75,
+                                swipe_min_touches: 1,
+                                swipe_direction: "horizontal",
+                                drag_block_vertical: false
+                            },
+                            arrows: {
+                                style: "custom_gt3",
+                                enable: false,
+                                hide_onmobile: true,
+                                hide_onleave: true,
+                                left: {
+                                    h_align: "left",
+                                    v_align: "center",
+                                    h_offset: 50,
+                                    v_offset: 0
+                                },
+                                right: {
+                                    h_align: "right",
+                                    v_align: "center",
+                                    h_offset: 50,
+                                    v_offset: 0
+                                }
+                            },
+                            bullets: {
+                                style: "custom_gt3",
+                                enable: false,
+                                hide_onmobile: false,
+                                hide_onleave: true,
+                                direction: "horizontal",
+                                h_align: "center",
+                                v_align: "bottom",
+                                h_offset: 0,
+                                v_offset: 30,
+                                space: 10,
+                                tmp: ''
+                            }
+                        },
+                        fullScreenOffsetContainer: ""
+                    });
+
+                    jQuery(".carouselslider").slick({
+                        infinite: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        autoplay: true,
+                        autoplaySpeed: 3000,
+                        speed: 500,
+                        arrows: false,
+                        dots: true
+                    });
+                });
+
+                $(document).ready(function () {
+
+                    $(window).load(function () {
+
+                        $('#loadOverlay').fadeOut('slow');
+
+                    })
+
+                })
+
+            </script>
+
+            <script>
+                // Plugin invoke
+                $(document).ready(function () {
+                    $("#popup-2").slickModals({
+                        // Functionality
+                        popupType: "scrolled",
+                        delayTime: 1000,
+                        exitTopDistance: 40,
+                        scrollTopDistance: 400,
+                        setCookie: true,
+                        cookieDays: 0,
+                        cookieTriggerClass: "setCookie-1",
+                        cookieName: "slickModal-1",
+
+                        // Overlay options
+                        overlayBg: true,
+                        overlayBgColor: "rgba(0,0,0,0.85)",
+                        overlayTransition: "ease",
+                        overlayTransitionSpeed: "0.4",
+
+                        // Background effects
+                        bgEffect: "scale",
+                        blurBgRadius: "2px",
+                        scaleBgValue: "1",
+
+                        // Window options
+                        windowWidth: "500px",
+                        windowHeight: "300px",
+                        windowLocation: "center",
+                        windowTransition: "ease-in-out",
+                        windowTransitionSpeed: "0.4",
+                        windowTransitionEffect: "zoomIn",
+                        windowShadowOffsetX: "0",
+                        windowShadowOffsetY: "0",
+                        windowShadowBlurRadius: "20px",
+                        windowShadowSpreadRadius: "0",
+                        windowShadowColor: "rgba(0,0,0,0.3)",
+                        windowBackground: "rgba(255,255,255,1)",
+                        windowRadius: "12px",
+                        windowMargin: "30px",
+                        windowPadding: "30px",
+
+                        // Close and reopen button
+                        closeButton: "icon",
+                        reopenClass: "openSlickModal-2",
+                    });
+                });
+            </script>
+
+            <!-- JS for login and Others -->
+
+            <script>
+                $('.f-box > a').click(function () {
+                    $('html, body').animate({
+                        scrollTop: $($(this).attr('href')).offset().top
+                    }, 1000);
+                    return false;
+                });
+
+            </script>
+
+            <script type="text/javascript">
+                function subitaas() {
+                    var xmlhttp;
+                    var s_n = document.getElementById('s_n').value;
+                    var na = document.getElementById('n').value;
+                    var ea = document.getElementById('e').value;
+                    var ec = document.getElementById('c_e').value;
+                    //var typ = document.getElementById('type').value;
+                    ea = ea.replace("@", "_____");
+                    ec = ec.replace("@", "_____");
+
+                    var s_id = document.getElementById('s_id').value;
+                    var pa = document.getElementById('p').value;
+                    var pc = document.getElementById('c_p').value;
+
+                    if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+                        xmlhttp = new XMLHttpRequest();
+                    } else { // code for IE6, IE5
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    xmlhttp.onreadystatechange = function () {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                            document.getElementById('res').innerHTML = xmlhttp.responseText;
+                        }
+                    }
+                    xmlhttp.open("get", "<?php echo base_url() ?>front/add_account/" + ea + "/" + pa + "/" + na + "/" + s_n + "/" + s_id + "/" + ec + "/" + pc, true);
+                    //xmlhttp.open("get","<?php echo base_url() ?>front/add_account/"+pa+"/"+na+"/"+s_n+"/"+s_id+"/"+pc+"/"+typ,true);
+                    //xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                    //xmlhttp.send("email="+ea+"&password="+pa+"&name="+na+"&hms_name="+s_n+"&hms_id="+s_id);
+                    xmlhttp.send();
+                }
+
+                function main_login() {
+                    var xmlhttp;
+                    var ea = document.getElementById('e1').value;
+                    ea = ea.replace("@", "_____");
+                    var pa = document.getElementById('p1').value;
+                    var def = '1';
+
+                    if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+                        xmlhttp = new XMLHttpRequest();
+                    } else { // code for IE6, IE5
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    xmlhttp.onreadystatechange = function () {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                            if (xmlhttp.responseText == 'success') {
+                                //window.location.href('<?php echo base_url() ?>/login/mylogin/' + em +'/' + pa);
+                                window.location.replace("login/mylogin/" + def + "/" + ea + "/" + pa);
+                            } else
+                                document.getElementById('res2').innerHTML = xmlhttp.responseText;
+                        }
+                    }
+                    xmlhttp.open("get", "<?php echo base_url() ?>front/get_login/" + ea + "/" + pa, true);
+                    //xmlhttp.open("get","<?php echo base_url() ?>front/add_account/"+pa+"/"+na+"/"+s_n+"/"+s_id+"/"+pc+"/"+typ,true);
+                    //xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                    //xmlhttp.send("email="+ea+"&password="+pa+"&name="+na+"&hms_name="+s_n+"&hms_id="+s_id);
+                    xmlhttp.send();
+                }
+
+                function set_type(a) {
+                    document.getElementById('fr').removeAttribute('checked');
+                    document.getElementById('pr').removeAttribute('checked');
+                    //document.getElementById('hlf').removeAttribute('checked');
+                    document.getElementById('yr').removeAttribute('checked');
+                    document.getElementById(a).setAttribute('checked', 'checked');
+                    if (a == 'fr') {
+                        document.getElementById('type').value = 'free_30';
+                    } else if (a == 'pr') {
+                        document.getElementById('type').value = 'month_1';
+                    } else if (a == 'hlf') {
+                        document.getElementById('type').value = 'month_6';
+                    } else if (a == 'yr') {
+                        document.getElementById('type').value = 'month_12';
+                    }
+                }
+
+                function set_type_p(a) {
+                    document.getElementById('type').value = a;
+
+                }
+
+                function setit(id) {
+                    document.getElementById('abs').href = '<?php echo base_url() ?>hms/' + id;
+                }
+
+                // $(document).ready(function(){
+                //         $('input.input__field--kaede').typeahead({
+                //             name: 'typeahead',
+                //             remote:'<?php echo base_url() ?>/search/searchHMS?key=%QUERY',
+                //             minLength: 2,
+                //             limit : 10
+                //         });
+                //     });
+
+
+
+                $(document).ready(function () {
+                    $('#search').keyup(function () {
+                        var searchid = $(this).val();
+                        var base_url = '<?php echo base_url(); ?>';
+                        $.ajax({
+
+                            url: '<?php echo base_url(); ?>Search/searchHMS',
+                            data: {
+                                'searchid': searchid
+                            },
+                            type: 'POST',
+                            dataType: 'json',
+
+                            error: function () {
+                                alert("Sorry...Something goes Wrong");
+                            },
+                            success: function (data) {
+
+                                if (searchid.length > 0 && data.length > 0) {
+                                    $('#search_result').empty();
+                                    $('#search_result').show();
+                                    var count = 0;
+                                    $.each(data, function (key, value) {
+                                        $("#search_result").append('<li><a href="' + base_url + 'hms/' + data[count].hms_id + '/login">' + data[count].hms_name + '</a></li>');
+                                        count++;
+                                    });
+
+                                } else {
+                                    $('#search_result').empty();
+                                    $('#search_result').hide();
+                                }
+                            } // End of success function of ajax form
+                        }); // End of ajax call
+                    });
+                });
+
+            </script>
+
+            <!-- Js for login ends -->

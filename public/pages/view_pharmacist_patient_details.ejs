@@ -1,0 +1,152 @@
+<div class="row  nav-button-container tab-pane fade in active" role="tabpanel" id="patient-detailes">
+    <div class="col-sm-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Patients Details
+            </div>
+
+
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div class="noticeboard">
+
+            <div class="p-detailes">
+                <div class="table-adjusment">
+                    <form class="form-horizontal form-diagnosis">
+                        <div class="form-group">
+                            <label for="patient-id" class="control-label">ID :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['id'];?></span>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group col-md-12">
+                            <label for="patient-name" class="control-label col-md-2">Name :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['name'];?></span>
+                            </div>
+                        </div>
+						<div class="form-group col-md-12">
+                            <label for="patient-name" class="control-label col-md-2">Patient Id :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['patient_id'];?></span>
+                            </div>
+                        </div>
+						<div class="form-group col-md-12">
+                            <label for="patient-name" class="control-label col-md-2">Army no :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['army_no'];?></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="patient-dob" class="control-label col-md-2">Birthday :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['dob'];?></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="patient-address" class="control-label col-md-2">Present Address :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['present_address'];?></span>
+                            </div>
+                        </div>
+						<div class="form-group col-md-12">
+                            <label for="patient-address" class="control-label col-md-2">Present Address :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['present_address'];?></span>
+                            </div>
+                        </div>
+						<div class="form-group col-md-12">
+                            <label for="patient-address" class="control-label col-md-2">Rank :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['rank'];?></span>
+                            </div>
+                        </div>
+						<div class="form-group col-md-12">
+                            <label for="patient-address" class="control-label col-md-2">Name of spouse :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['present_address'];?></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="patient-phone" class="control-label col-md-2">Phone
+                            </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['phone_no'];?></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="alt-patient-phone" class="control-label col-md-2">Email
+                            </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['email'];?></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="patient-email" class="control-label col-md-2">CNE :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['cne'];?></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="patient-age" class="control-label col-md-2">Age :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['age'];?></span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-md-12">
+                            <label for="patient-sex" class="control-label col-md-2">Gender :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['sex'];?></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="patient-statuse" class="control-label col-md-2"> Martial Status :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['martial_status'];?></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="patient-blood-group" class="control-label col-md-2">Blood Group :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['blood_group'];?></span>
+                            </div>
+                        </div>
+						<div class="form-group col-md-12">
+                            <label for="patient-blood-group" class="control-label col-md-2">RE</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['re'];?></span>
+                            </div>
+                        </div>
+						<div class="form-group col-md-12">
+                            <label for="patient-blood-group" class="control-label col-md-2">Unit  </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['unit'];?></span>
+                            </div>
+                        </div>
+						
+                           <div class="form-group">
+                            <label for="alt-patient-phone" class="control-label"> Photo
+                            </label>
+                            <div class="  email-profile inline-block">
+							<?php 
+							
+							if ($patient_details['image_name'] == '')
+                                                            $image_url = 'others/uploads/doctor/default-doctor.png';
+                                                        else
+                                                            $image_url = 'others/uploads/patient/' . $patient_details['image_name'];
+							 ?>
+                                <span><img style="width:100px;" src="<?php echo base_url() . $image_url ?>"></span>
+                            </div>
+                        </div>
+
+                    </form>
+                    <!-- <button type="submit" class="btn btn-default pull-right" data-toggle="modal" data-id="3" data-target="#add-prescription"><i class="fa fa-plus"></i> Prescribe</button> -->
+                </div>
+            </div>
+        </div>
+    </div>

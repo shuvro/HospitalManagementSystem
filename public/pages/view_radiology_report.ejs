@@ -1,0 +1,324 @@
+<div class="row  nav-button-container fade in" role="tabpanel" id="manage-prescription">
+    <div class="col-xs-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Manage  Report
+
+            </div>
+            <div class="noticeboard-body">
+                <div>
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#prescription-list" aria-controls="prescription-list" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i> 
+                                 Report List                        </a></li>
+
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="prescription-list">
+
+                            <div class="table-responsive table-adjusment ">
+                                <table class="table table-hover" id="datatab_report">
+                                    <div class="table-header hidden">
+
+                                        <div class="input-group dept-input">
+                                            <span class="input-group-addon" id="patient-prescription"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                            <input type="text" id="Search_prescription" class="form-control" placeholder="Search" aria-describedby="patient-prescription" name="prescription">
+                                        </div>
+                                    </div>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th style="display:none">ID</th>
+                                            <th>Date</th>
+											 <th>Patient ID</th>
+											 <th>Army no</th>
+                                            <th>Patient name</th>
+                                            <th>Doctor</th>
+
+                                            <th>Action</th>
+
+                                        </tr>
+
+                                    </thead>
+                                    <tbody id="search_result">
+                                        <?php
+
+                                         $count = 1;
+                                        foreach ($diagnostic_reports as $row):
+
+                                            ?>
+
+                                            <tr>
+
+                                                <th scope="row">
+                                                    <?php echo $count++; ?>
+                                                </th>
+                                                <th style="display:none">
+                                                    <?php echo $row['prescription_id']; ?>
+                                                </th>
+
+                                                <td>
+                                                    <?php echo $row['app_date']; ?>
+                                                </td>
+												<td>
+                                                    <?php echo $row['patient_id']; ?>
+                                                </td>
+												<td>
+                                                    <?php echo $row['army_no']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['pname']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['username']; ?>
+                                                </td>
+
+                                                <td>
+                                                    <a type="button" class="btn btn-primary" href="<?php echo base_url(); ?>radiology/lab_test/<?php echo $row['prescription_id']; ?>"><i class="fa fa-plus" aria-hidden="true"></i>Make Report</a>
+
+                                                </td>
+
+                                            </tr>
+                                            <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="showDiagnostic" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width:120%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Prescription </h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-adjusment">
+                    <form class="form-horizontal form-diagnosis">
+                        <div class="form-group">
+                            <label for="doctor-name" class="control-label">Doctor :</label>
+                            <div class="email-profile inline-block">
+                                <span id="modal-doctor-name"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-name" class="control-label">Patient :</label>
+                            <div class="  email-profile inline-block">
+                                <span id="modal-patient-name"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="case-history" class="control-label">Case History :</label>
+                            <div class="  email-profile inline-block">
+                                <span id="modal-case-history"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="medication" class="control-label">Medication :</label>
+                            <div class="  email-profile inline-block">
+                                <span id="modal-medication"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="prescription-description" class="control-label">Description :</label>
+                            <div class="  email-profile inline-block">
+                                <span id="modal-description"> Severe Fever</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="prescription-date" class="control-label">Date :</label>
+                            <div class="  email-profile inline-block">
+                                <span id="modal-date"> 07/08/2016</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-header">
+                    <h4 class="modal-title">Diagnosis Report </h4>
+                </div>
+                <div class="table-responsive table-adjusment ">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Type</th>
+                                <th>Document Type</th>
+                                <th>Download</th>
+                                <th>Description</th>
+                                <th>Date</th>
+                                <th>Laboratorist</th>
+                                <th>Option</th>
+                            </tr>
+                        </thead>
+                        <tbody id="all_reports">
+                            <tr>
+                                <th scope="row"></th>
+                                <!--                                <td><img src="<?php echo base_url(); ?>others/images/x-ray.jpg" height="50px" width="107px">
+                                    <a href="<?php echo base_url() ?>/uploads/report/banner.jpg" download="<?php echo base64_encode('banner.jpg') ?>"><button class="btn btn-primary" style="margin-top: 10px;"><i class="fa fa-download" aria-hidden="true"></i>
+                                            Download</button></a>
+                                </td>-->
+                                <td>
+                                    <button class="btn  btn-danger btn-sm" onclick=" return ConfirmDelete()"><i class="fa fa-trash" aria-hidden="true"></i>
+                                    </button>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addDiagnostic" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times</button>
+                <h4 class="modal-title">Add Diagnosis Report </h4>
+            </div>
+            <div class="table-adjusment">
+                <div class="modal-body">
+                    <!--                <form class="form-horizontal">-->
+
+                    <input type="hidden" class="form-control dept-input" id="prescription_id" placeholder="X-ray,Blood test, etc" type="text" name="prescription_id" value="">
+                    <div class="form-group">
+                        <label for="report-type" class="control-label">Report Type</label>
+                        <div class=" ">
+
+                            <select class="form-control" name="report_type">
+                                <option>Plesase select Lab category</option>
+
+                                <option value=""></option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="doc-type" class="control-label">Document Type
+                        </label>
+                        <div class=" ">
+                            <select id="document-type" type="text" name="document_type" class="form-control dept-input">
+                                <option value="image">Image</option>
+                                <option value="pdf">PDF</option>
+                                <option value="doc">DOC</option>
+                                <option value="excel">EXCEL</option>
+                                <option value="others">Others</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="upload-doc" class="control-label">Upload Document</label>
+                        <div class=" ">
+                            <input class="form-control dept-input" id="upload-doc" name="userfile" type="file" accept="*">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description-diag" class="control-label">Comment</label>
+                        <div class=" ">
+                            <textarea class="form-control dept-input" id="description-diag" name="description" type="Text"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="submit_form" class="btn btn-primary">Add Diagnosis Report</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).on('click', '#getdata', function() {
+        var edit_id = $(this).closest('tr').children()[1].textContent;
+        $(".modal #prescription_id").val(edit_id);
+        var temp;
+        //alert(edit_id);
+        $.ajax({
+            url: '<?php echo base_url(); ?>Pathologist/get_reports',
+            data: {
+                'edit_id': edit_id
+            },
+            type: 'POST',
+            dataType: 'json',
+            error: function() {
+                alert("Data not found");
+            },
+            success: function(data) {
+                    //var obj = jQuery.parseJSON(data);
+                    //alert(obj['prescription_details']);
+                    // $(".modal #id").val(data[0].doctor_id);
+                    //var json = $.parseJSON(data);\
+                    // $("#total_reports").text(data.reports.length+' Reports');
+                    //alert(data.reports.length);
+                    for (var i = 0; i < data.reports.length; i++) {
+                        temp += '<tr><th scope="row">' + (i + 1) + '</th><td>' + data.reports[i].report_type + '</td><td>' + data.reports[i].document_type + '</td><td><img src="<?php echo base_url(); ?>others/images/x-ray.jpg" height="50px" width="107px"><a href="<?php echo base_url() ?>/uploads/report/' + data.reports[i].file_name + '" download="' + data.reports[i].file_name + '"><button class="btn btn-primary" style="margin-top: 10px;"><i class="fa fa-download" aria-hidden="true"></i>Download</button></a></td><td>' + data.reports[i].description + '</td><td>' + data.reports[i].timestamp + '</td><td>' + data.reports[i].laboratorist_name + '</td><td><button class="btn  btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button></td></tr>';
+                    }
+                    $("#all_reports").empty();
+                    $("#all_reports").append(temp);
+                    $("#modal-doctor-name").html(data.prescription_details[0].doctor_name);
+                    $("#modal-patient-name").html(data.prescription_details[0].patient_name);
+                    $("#modal-case-history").html(data.prescription_details[0].case_history);
+                    $("#modal-medication").html(data.prescription_details[0].medication);
+                    $("#modal-description").html(data.prescription_details[0].description);
+                    $("#modal-date").html(data.prescription_details[0].date);
+                    //   alert(edit_id);
+                    $("#addDiagnostic").modal("show");
+                } // End of success function of ajax form
+        }); // End of ajax call
+    });
+</script>
+
+<!--<script>
+        $(document).ready(function () {
+
+               // var table = $('#search_id').attr('name');
+                $('#Search_prescription').keyup(function () {
+                    var search_key = $(this).val();
+					 //alert(search_key);
+					  //alert(table);
+
+                    $.ajax({
+                        url: '<?php echo base_url();?>Search/Search_prescription_lab',
+                        data: {'search_key': search_key, 'pagination_number':1},
+                        type: 'POST',
+                        dataType: 'json',
+
+                        error: function () {
+                            alert("Sorry");
+                        //alert(pagination_number);
+                    },
+                    success: function (data) {
+                        //alert(data[0]);
+                    //alert(searchid);
+                    $('#search_result').empty();
+                    $("#pagination").empty();
+
+                    // var count = 0;
+                    // $.each(data, function(key, value) {
+                    //     $( "#search_result" ).append( '<tr><th scope="row">'+(count+1)+'</th><td style="display: none;">'+data[count].department_id+'</td><td>'+data[count].name+'</td><td>'+data[count].description+'</td><td><button class="btn btn-primary btn-sm" id="getdata" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td></tr>' );
+                    //     count++;
+                    // });
+                    //$( "#search_result" ).html( '<tr><td>'+data[0].department_id+'</td></tr>' );
+
+                    $("#search_result").append(data[0]);
+                    $("#pagination").append(data['pagination']);
+                } // End of success function of ajax form
+            }); // End of ajax call
+                });
+            });
+    </script>-->

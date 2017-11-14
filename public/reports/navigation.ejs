@@ -1,0 +1,352 @@
+<!-- Side bar -->
+        <div class="sidebar-background " id="perfect-scroll">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 sidebar-account">
+                <div class="profile-image col-xs-12">
+                    <a href="">
+                        <?php 
+                        $user_id= $this->session->userdata('user_id');
+                        //$ins_id= $this->session->userdata('ins_id');
+                        $image_name= $this->db->query("SELECT image_name as image_name FROM `tbl_user_information` WHERE user_id='$user_id'")->row()->image_name; 
+//                         ?>
+                            <?php if(empty($image_name)){
+                            echo'<img src="'.base_url().'others/uploads/doctor/admin.jpg" alt="image" class="mg-responsive">';
+							}else{
+
+                                    echo '<img src="'.base_url().'others/uploads/doctor/'.$image_name.'" class="mg-responsive">';
+                                  }
+							?>
+
+                                <span class="profile-status available profile-status-sidebar"></span>
+                    </a>
+                </div>
+                <div class="profile-details col-xs-12">
+                    <?php $hospital_name= $this->db->query("SELECT hospital_name as hospital_name FROM `tbl_settings`")->row()->hospital_name;  ?>
+                        <h3><a href=""><?php echo $hospital_name; ?></a> </h3>
+
+                        <p class="profile-title">
+                            <?php 
+                     if($this->session->userdata('user_type')=='admin')
+                        {
+							echo 'Admin';
+					    } elseif($this->session->userdata('user_type')=='pharmacist'){
+						     echo 'Pharmacist';
+						}elseif($this->session->userdata('user_type')=='receptionist'){
+						     echo 'Receptionist';
+						}elseif($this->session->userdata('user_type')=='doctor'){
+						     echo 'Doctor';
+						}elseif($this->session->userdata('user_type')=='pathologist'){
+						     echo 'Pathologist';
+							 
+						}elseif($this->session->userdata('user_type')=='radiology'){
+						     echo 'Radiology';
+							 
+						}elseif($this->session->userdata('user_type')=='pathology_technician'){
+						     echo 'Technician';
+							 
+						}
+						elseif($this->session->userdata('user_type')=='radiology_technician'){
+						     echo 'Technician';
+							 
+						}
+
+							?>
+                        </p>
+                </div>
+                <!--admin dashbord-->
+
+                <?php 
+                    if($this->session->userdata('user_type')=='admin')
+                        {
+                       echo '<div class="col-xs-12">
+                            <ul class="nav sidber-nav" role="tablist">
+                                <li class="active" role="presentation">
+                                    <a href="'.base_url().'admin/dashboard"><span class="glyphicon glyphicon-th" aria-hidden="true"></span><span class="unset-ui">Dashboard</span></a>
+                                </li>
+                                <li class="" role="presentation">
+                                    <a href="'.base_url().'admin/department"><i class="fa fa-sitemap" aria-hidden="true"></i><span class="unset-ui">Department</span></a>
+                                </li>
+
+                                <li role="presentation">
+                                    <a role="tab" data-toggle="collapse" href="#employe" aria-expanded="false" aria-controls="employe"><i class="fa fa-user " aria-hidden="true"></i><span class="unset-ui">Employee</span> <span class="sub-menu-icon"><i class="fa fa-angle-double-down" aria-hidden="true"></i></span></a>
+
+                                    <ul class="collapse" id="employe">
+                                        <li role="presentation">
+                                            <a href="'.base_url().'admin/doctor"><i class="fa fa-user-md" aria-hidden="true"></i><span class="unset-ui">Doctor</span></a>
+                                        </li>
+
+                                        <li>
+                                            <a href="'.base_url().'admin/pharmacist" aria-controls="pharmacist"><i class="fa fa-medkit" aria-hidden="true"></i><span class="unset-ui">Pharmacist</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="'.base_url().'admin/receptionist" aria-controls="lab"><i class="fa fa-user" aria-hidden="true"></i><span class="unset-ui">Receptionist</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="'.base_url().'admin/pathologist" aria-controls="lab"><i class="fa fa-flask" aria-hidden="true"></i><span class="unset-ui">Pathologist</span></a>
+                                        </li>
+
+ <li>
+                                            <a href="'.base_url().'admin/radiologist" aria-controls="lab"><i class="fa fa-flask" aria-hidden="true"></i><span class="unset-ui">Radiologist</span></a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <!--<li role="presentation">
+                                    <a role="tab" data-toggle="collapse" href="#shift" aria-expanded="false" aria-controls="shift"><i class="fa fa-adjust" aria-hidden="true"></i><span class="unset-ui">Shift</span><span class="sub-menu-icon"><i class="fa fa-angle-double-down" aria-hidden="true"></i></span></a>
+
+                                    <ul class="collapse" id="shift">
+                                        <li>
+                                            <a href="<?php echo base_url();?>admin/create_shift" aria-controls="creat-shift"><i class="fa fa-pencil-square" aria-hidden="true"></i><span class="unset-ui">Create Shift</span></a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url();?>admin/manage_shift" aria-controls="assign-shift"><i class="fa fa-puzzle-piece" aria-hidden="true"></i><span class="unset-ui">Assign Shift</span></a>
+                    </li>
+
+                    </ul>
+                    </li>-->
+
+                    <li class="" role="presentation">
+                        <a href="'.base_url().'admin/patient"><i class="fa fa-wheelchair" aria-hidden="true"></i><span class="unset-ui">Patient</span></a>
+                    </li>
+                    <!--<li role="presentation">
+                                    <a href="<?php echo base_url();?>admin/manage_attendance" aria-controls="attendance"><i class="fa fa-user-secret" aria-hidden="true"></i><span class="unset-ui">Attendance</span></a>
+                                </li>-->
+
+                    <li role="presentation">
+                        <a role="tab" data-toggle="collapse" href="#monitor-hospital" aria-expanded="false" aria-controls="monitor-hospital"><i class="fa fa-eye " aria-hidden="true"></i><span class="unset-ui">Monitor Hospital</span><span class="sub-menu-icon"><i class="fa fa-angle-double-down" aria-hidden="true"></i></span></a>
+
+                        <ul class="collapse" id="monitor-hospital">
+                            <li>
+                                <a href="'.base_url().'admin/appointment"><i class="fa fa-exchange" aria-hidden="true"></i><span class="unset-ui">Appointment</span></a>
+                            </li>
+                           
+
+                            <li>
+                                <a href="'.base_url().'admin/medicine"><i class="fa fa-medkit" aria-hidden="true"></i><span class="unset-ui">Medicine</span></a>
+                            </li>
+                           
+                                <li>
+                                    <a href="'.base_url().'admin/medicine_inventory"><i class="fa fa-calendar-minus-o" aria-hidden="true"></i><span class="unset-ui">Medicine Inventory</span></a>
+                                </li>
+								
+								 <li>
+                                    <a href="'.base_url().'admin/medicine_summary"><i class="fa fa-calendar-minus-o" aria-hidden="true"></i><span class="unset-ui">Medicine Summary</span></a>
+                                </li>
+								
+								
+								
+								
+								
+                        </ul>
+                    </li>
+
+                    <li role="presentation">
+                        <a role="tab" data-toggle="collapse" href="#settings" aria-expanded="false" aria-controls="settings"><i class="fa fa-wrench" aria-hidden="true"></i><span class="unset-ui">Settings</span><span class="sub-menu-icon"><i class="fa fa-angle-double-down" aria-hidden="true"></i></span></a>
+                        <ul class="collapse" id="settings">
+
+                            <li>
+                                <a href="'.base_url().'admin/notice_board"><i class="fa fa-table" aria-hidden="true"></i><span class="unset-ui">Noticeboard</span></a>
+                            </li>
+                            <li>
+                                <a href="'.base_url().'admin/system_settings"><i class="fa fa-cogs"></i><span class="unset-ui">System Settings</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--<li role="presentation">
+                            <a href="<?php echo base_url();?>admin/account_invoice"><i class="fa fa-credit-card" aria-hidden="true"></i><span class="unset-ui">Payments</span></a>
+                        </li>-->
+                    <li role="presentation">
+                        <a href="'.base_url().'admin/profile"><i class="fa fa-list" aria-hidden="true"></i><span class="unset-ui">Profile</span></a>
+                    </li>
+
+                    </ul>
+            </div>'; } ?>
+
+            <!--Rece dashbord-->
+            <?php 
+                    if($this->session->userdata('user_type')=='receptionist')
+                        {
+                       echo '<div class="col-xs-12">
+                            <ul class="nav sidber-nav" role="tablist">
+                                <li class="active" role="presentation">
+                                    <a href="'.base_url().'Receptionist/dashboard"><span class="glyphicon glyphicon-th" aria-hidden="true"></span><span class="unset-ui">Dashboard</span></a>
+                                </li>
+
+                                <li class="" role="presentation">
+                                    <a href="'.base_url().'receptionist/patient"><i class="fa fa-wheelchair" aria-hidden="true"></i><span class="unset-ui">Patient</span></a>
+                                </li>
+
+                                <li role="presentation">
+                                    <a href="'.base_url().'receptionist/profile"><i class="fa fa-list" aria-hidden="true"></i><span class="unset-ui">Profile</span></a>
+                                </li>
+                            </ul>
+                        </div>';
+						}
+						?>
+                <!--Doctor dashbord-->
+
+                <?php 
+                    if($this->session->userdata('user_type')=='doctor')
+                        {
+                       echo '
+						<div class="col-xs-12">
+                            <ul class="nav sidber-nav" role="tablist">
+                                <li class="active" role="presentation">
+                                    <a href="'.base_url().'doctor/dashboard"><span class="glyphicon glyphicon-th" aria-hidden="true"></span><span class="unset-ui">Dashboard</span></a>
+                                </li>
+                               <li class="" role="presentation">
+                                    <a href="'.base_url().'doctor/appointment"><i class="fa fa-exchange" aria-hidden="true"></i><span class="unset-ui">Appointment</span></a>
+                                </li>
+							    
+                                <li class="" role="presentation">
+                                    <a href="'.base_url().'doctor/patient"><i class="fa fa-wheelchair" aria-hidden="true"></i><span class="unset-ui">Patient</span></a>
+                                </li>
+								
+
+								<li role="presentation">
+                                    <a href="'.base_url().'doctor/profile"><i class="fa fa-list" aria-hidden="true"></i><span class="unset-ui">Profile</span></a>
+                                </li>
+
+                            </ul>
+                        </div>';
+						} ?>
+
+                    <!--Pathologist dashbord-->
+                    <?php 
+                    if($this->session->userdata('user_type')=='pathologist')
+                        {
+                       echo '
+						<div class="col-xs-12">
+                            <ul class="nav sidber-nav" role="tablist">
+                                <li class="active" role="presentation">
+                                    <a href="'.base_url().'Pathologist/dashboard"><span class="glyphicon glyphicon-th" aria-hidden="true"></span><span class="unset-ui">Dashboard</span></a>
+                                </li>
+
+                                <li class="" role="presentation">
+                                    <a href="'.base_url().'Pathologist/report"><i class="fa fa-stethoscope" aria-hidden="true"></i><span class="unset-ui">Diagnosis Report</span></a>
+                                </li>
+
+                                <li role="presentation">
+                                    <a href="'.base_url().'Pathologist/profile"><i class="fa fa-list" aria-hidden="true"></i><span class="unset-ui">Profile </span></a>
+                                </li>
+
+                            </ul>
+                        </div>';
+						} ?>
+                        <!--pharmacist dashbord-->
+                        <?php 
+                    if($this->session->userdata('user_type')=='pharmacist')
+                        {
+                       echo '
+						<div class="col-xs-12">
+                            <ul class="nav sidber-nav" role="tablist">
+                                <li class="active" role="presentation">
+                                    <a href="'.base_url().'pharmacist/dashboard"><span class="glyphicon glyphicon-th" aria-hidden="true"></span><span class="unset-ui">Dashboard</span></a>
+                                </li>
+
+								<li class="" role="presentation">
+                                    <a href="'.base_url().'pharmacist/category"><i class="fa fa-plus-square" aria-hidden="true"></i><span class="unset-ui">Medicine Category</span></a>
+                                </li>
+
+                              <li class="" role="presentation">
+                                    <a href="'.base_url().'pharmacist/type"><i class="fa fa-medkit" aria-hidden="true"></i><span class="unset-ui"> Medicine Type</span></a>
+                                </li>
+
+
+								<li class="" role="presentation">
+                                    <a href="'.base_url().'pharmacist/medicine"><i class="fa fa-medkit" aria-hidden="true"></i><span class="unset-ui">Manage Medicine</span></a>
+                                </li>
+
+                              
+							
+
+                                <li role="presentation">
+                                    <a href="'.base_url().'pharmacist/prescription"><i class="fa fa-stethoscope" aria-hidden="true"></i><span class="unset-ui">Provide Medicine</span></a>
+                                </li>
+								
+								<li role="presentation">
+                        <a role="tab" data-toggle="collapse" href="#settings" aria-expanded="false" aria-controls="settings"><i class="fa fa-medkit" aria-hidden="true"></i><span class="unset-ui">Demand medicine</span><span class="sub-menu-icon"><i class="fa fa-angle-double-down" aria-hidden="true"></i></span></a>
+                        <ul class="collapse" id="settings">
+
+                            <li>
+                               <a href="'.base_url().'pharmacist/demand_medicine"><i class="fa fa-stethoscope" aria-hidden="true"></i><span class="unset-ui">Add Demand Medicine</span></a>
+                            </li>
+                            <li>
+                                <a href="'.base_url().'pharmacist/demand_medicine_list"><i class="fa fa-cogs"></i><span class="unset-ui">Demand Medicine List</span></a>
+                            </li>
+                        </ul>
+                    </li>
+								
+								<li role="presentation">
+                                    <a href="'.base_url().'pharmacist/profile"><i class="fa fa-list" aria-hidden="true"></i><span class="unset-ui">Profile </span></a>
+                                </li>
+ 
+                            </ul>
+                        </div>';
+						}
+						?>
+                           
+						   
+						    <!--Rece dashbord-->
+            <?php 
+                    if(($this->session->userdata('user_type')=='radiology') || ($this->session->userdata('user_type')=='radiology_technician'))
+                        {
+                       echo '<div class="col-xs-12">
+                            <ul class="nav sidber-nav" role="tablist">
+                                <li class="active" role="presentation">
+                                    <a href="'.base_url().'radiology/dashboard"><span class="glyphicon glyphicon-th" aria-hidden="true"></span><span class="unset-ui">Dashboard</span></a>
+                                </li>
+
+                                <li class="" role="presentation">
+                                    <a href="'.base_url().'radiology/report"><i class="fa fa-stethoscope" aria-hidden="true"></i><span class="unset-ui">Radiology Reports</span></a>
+                                </li>
+
+                                <li role="presentation">
+                                    <a href="'.base_url().'radiology/profile"><i class="fa fa-list" aria-hidden="true"></i><span class="unset-ui">Profile</span></a>
+                                </li>
+                            </ul>
+                        </div>';
+						}
+						?>
+						    <!--Technician Pathologist dashbord-->
+                    <?php 
+                    if($this->session->userdata('user_type')=='pathology_technician')
+                        {
+                       echo '
+						<div class="col-xs-12">
+                            <ul class="nav sidber-nav" role="tablist">
+                                <li class="active" role="presentation">
+                                    <a href="'.base_url().'pathology_technician/dashboard"><span class="glyphicon glyphicon-th" aria-hidden="true"></span><span class="unset-ui">Dashboard</span></a>
+                                </li>
+
+                                <li class="" role="presentation">
+                                    <a href="'.base_url().'pathology_technician/report"><i class="fa fa-stethoscope" aria-hidden="true"></i><span class="unset-ui">Diagnosis Report</span></a>
+                                </li>
+
+                                <li role="presentation">
+                                    <a href="'.base_url().'pathology_technician/profile"><i class="fa fa-list" aria-hidden="true"></i><span class="unset-ui">Profile </span></a>
+                                </li>
+
+                            </ul>
+                        </div>';
+						} ?>
+						   
+						   
+						
+						   
+                            <footer class="nav-foot">
+                                <p>2017 © <span>OPTINFER</span></p>
+                            </footer>
+                            <!-- Side bar Tabs-->
+
+        </div>
+    </div>
+</div>
+</div>
+
+        <div class="main-content">
+
+           
+            <div class="container-fluid tab-content">
+               

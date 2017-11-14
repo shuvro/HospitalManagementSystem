@@ -1,0 +1,426 @@
+</div>
+
+            <!--<div class="alert alert-success" id="success-alert">
+                Login <strong>Success!</strong>.
+            </div>-->
+
+            <script type="text/javascript" src="<?php echo base_url();?>others/js/incomec.js"></script>
+            <script type="text/javascript" src="<?php echo base_url();?>others/js/incomec-category.js"></script>
+            <script type="text/javascript" src="<?php echo base_url();?>others/js/expanse-category.js"></script>
+
+            <script type="text/javascript" src="<?php echo base_url();?>others/js/monthly.js"></script>
+            <script src="<?php echo base_url();?>others/js/perfect-scrollbar.js"></script>
+            <!-- <script src="<?php echo base_url();?>others/js/jquery.mCustomScrollbar.js"></script> -->
+            <script type="text/javascript" src="<?php echo base_url();?>others/js/typeahead.min.js"></script>
+
+            <script>
+                $('#perfect-scroll').perfectScrollbar();
+            </script>
+
+            <script type="text/javascript">
+                $(window).load(function() {
+
+                    $('#mycalendar').monthly({
+                        mode: 'event',
+                        //xmlUrl: 'events.xml'
+                        xmlUrl: '<?php echo base_url();?>others/events.xml'
+                    });
+
+                    $('#mycalendar2').monthly({
+                        mode: 'picker',
+                        target: '#patient-birth-date',
+                        setWidth: '250px',
+                        startHidden: true,
+                        showTrigger: '#patient-birth-date',
+                        stylePast: true,
+                        disablePast: true
+                    });
+                    $('#mycalendar3').monthly({
+                        mode: 'picker',
+                        target: '#notice-date',
+                        setWidth: '250px',
+                        startHidden: true,
+                        showTrigger: '#notice-date',
+                        stylePast: true,
+                        disablePast: true
+                    });
+                    $('#mycalendar4').monthly({
+                        mode: 'picker',
+                        target: '#apo-date',
+                        setWidth: '250px',
+                        startHidden: true,
+                        showTrigger: '#apo-date',
+                        stylePast: true,
+                        disablePast: true
+                    });
+
+                    $('#mycalendar5').monthly({
+                        mode: 'picker',
+                        target: '#dis-date',
+                        setWidth: '250px',
+                        startHidden: true,
+                        showTrigger: '#dis-date',
+                        stylePast: true,
+                        disablePast: true
+                    });
+                    $('#mycalendar8').monthly({
+                        mode: 'picker',
+                        target: '#operation-date',
+                        setWidth: '250px',
+                        startHidden: true,
+                        showTrigger: '#operation-date',
+                        stylePast: true,
+                        disablePast: true
+                    });
+
+                    $('#mycalendar13').monthly({
+                        mode: 'picker',
+                        target: '#shift-date',
+                        setWidth: '250px',
+                        startHidden: true,
+                        showTrigger: '#shift-date',
+                        stylePast: true,
+                        disablePast: true
+                    });
+                    $('#mycalendar14').monthly({
+                        mode: 'picker',
+                        target: '#add-shift-date',
+                        setWidth: '250px',
+                        startHidden: true,
+                        showTrigger: '#add-shift-date',
+                        stylePast: true,
+                        disablePast: true
+                    });
+                    $('#mycalendar15').monthly({
+                        mode: 'picker',
+                        target: '#emp-attendance',
+                        setWidth: '250px',
+                        startHidden: true,
+                        showTrigger: '#emp-attendance',
+                        stylePast: true,
+                        disablePast: true
+                    });
+                    $('#mycalendarAll').monthly({
+                        mode: 'picker',
+                        target: '#date',
+                        setWidth: '250px',
+                        startHidden: true,
+                        showTrigger: '#date',
+                        stylePast: true,
+                        disablePast: false
+                    });
+                    $('#mycalendarAll2').monthly({
+                        mode: 'picker',
+                        target: '#date2',
+                        setWidth: '250px',
+                        startHidden: true,
+                        showTrigger: '#date2',
+                        stylePast: true,
+                        disablePast: false
+                    });
+
+                    switch (window.location.protocol) {
+                        case 'http:':
+                        case 'https:':
+                            // running on a server, should be good.
+                            break;
+                        case 'file:':
+
+                    }
+
+                });
+
+                $(document).ready(function() {
+                    $("#btn-sideber").click(function() {
+                        $(".sidebar-background").toggleClass("less-width");
+                        $(".main-content").toggleClass("less-margin");
+                        $(".unset-ui").toggleClass("invigible");
+                        $(".nav-foot").toggleClass("less-width-foooter");
+                    });
+
+                });
+
+                $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
+                    $("#success-alert").alert('close');
+                });
+
+                $('button.button').click(function() {
+                    $('span', this).toggle(100);
+                });
+
+                function ConfirmDelete() {
+                    var x = confirm("Are you sure you want to delete?");
+                    if (x)
+                        return true;
+                    else
+                        return false;
+                }
+                var test = 990;
+
+                //////// for Search Anything////////
+                $(document).ready(function() {
+
+                    var table = $('#search').attr('name');
+                    $('#search').keyup(function() {
+                        var search_key = $(this).val();
+                        //alert(search_key);
+                        //alert(table);
+
+                        $.ajax({
+                            url: '<?php echo base_url();?>Search/search_' + table,
+                            data: {
+                                'search_key': search_key,
+                                'table': table,
+                                'pagination_number': 1
+                            },
+                            type: 'POST',
+                            dataType: 'json',
+
+                            error: function() {
+                                //alert("Sorry Something Goes Wrong");
+                                //alert(pagination_number);
+                            },
+                            success: function(data) {
+                                    //alert(data[0]);
+                                    //alert(searchid);
+                                    $('#search_result').empty();
+                                    $("#pagination").empty();
+
+                                    // var count = 0;
+                                    // $.each(data, function(key, value) {
+                                    //     $( "#search_result" ).append( '<tr><th scope="row">'+(count+1)+'</th><td style="display: none;">'+data[count].department_id+'</td><td>'+data[count].name+'</td><td>'+data[count].description+'</td><td><button class="btn btn-primary btn-sm" id="getdata" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td></tr>' );
+                                    //     count++;
+                                    // });
+                                    //$( "#search_result" ).html( '<tr><td>'+data[0].department_id+'</td></tr>' );
+
+                                    $("#search_result").append(data[0]);
+                                    $("#pagination").append(data['pagination']);
+                                } // End of success function of ajax form
+                        }); // End of ajax call
+                    });
+                });
+
+                $(document).on('click', '#pagination-number', function() {
+                    var table = $('#search').attr('name');
+                    var search_key = $('#search').val();
+                    var pagination_number = $(this).text();
+                    //alert(search_key);
+
+                    $.ajax({
+
+                        url: '<?php echo base_url();?>Search/search_' + table,
+                        data: {
+                            'search_key': search_key,
+                            'table': table,
+                            'pagination_number': pagination_number
+                        },
+                        type: 'POST',
+                        dataType: 'json',
+
+                        error: function() {
+                            //alert("Sorry Something Goes Wrong");
+                        },
+                        success: function(data) {
+                                //alert(data[0]);
+                                //alert(searchid);
+                                $('#search_result').empty();
+                                $("#pagination").empty();
+
+                                $("#search_result").append(data[0]);
+                                $("#pagination").append(data['pagination']);
+                            } // End of success function of ajax form
+                    }); // End of ajax call
+                });
+            </script>
+            <script>
+                //jQuery(document).ready(function($) {
+                //$(".clickable-row").click(function() {
+                $(document).on('click', '.clickable-row', function() {
+                    window.document.location = $(this).data("href");
+                });
+            </script>
+            <!--<script>
+        $(document).ready(function() {
+            $('.candidate').DataTable({
+
+                initComplete: function() {
+                    this.api().columns().every(function() {
+
+                    });
+                },
+                language: {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search..."
+                }
+            });
+
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('#preview').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $("#photo").change(function() {
+                readURL(this);
+            });
+
+        });
+
+    </script>-->
+            <script type="text/javascript">
+                function my_filter(td_number, value) {
+                    table.column(td_number).search(value);
+                    table.draw();
+                }
+            </script>
+
+            <script type="text/javascript">
+                $('.selectpicker').selectpicker({
+                    style: 'btn-default',
+                    size: 5
+                });
+            </script>
+             </script>
+    
+    <script type="text/javascript">
+     $(document).ready(function(){
+    $('#datatab').DataTable();
+});  
+</script>
+<script type="text/javascript"> 
+$(document).ready(function(){
+    $('#datatab2').DataTable();
+    //"deferRender": true;
+});  
+
+    </script>
+    <script type="text/javascript"> 
+$(document).ready(function(){
+    $('#datatab3').DataTable();
+});  
+
+    </script>
+    <script type="text/javascript"> 
+$(document).ready(function(){
+    $('#datatab4').DataTable();
+});  
+
+    </script>
+    
+        </div>
+    </div>
+</body>
+
+<!-----------HIDDEN MODAL FORM - COMMON IN ALL PAGES ------>
+<div id="modal-form" class="modal hide fade">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <div id="modal-tablesLabel" style="color:#fff; font-size:16px;">&nbsp; </div>
+    </div>
+    <div class="modal-body" id="modal-body">loading data..</div>
+    <div class="modal-footer">
+        <button class="btn btn-gray" onclick="custom_print('frame1')">Print</button>
+        <button class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+</div>
+<!-----------HIDDEN MODAL DELETE CONFIRMATION - COMMON IN ALL PAGES ------>
+<div id="modal-delete" class="modal hide fade" style="height:140px;">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h6 id="modal-tablesLabel"> <i class="icon-info-sign"></i></h6>
+    </div>
+    <div class="modal-delete-body" id="modal-body-delete">Delete data ?</div>
+    <div class="modal-footer">
+        <a href="" id="delete_link" class="btn btn-red">Confirm</a>
+        <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+    </div>
+</div>
+
+<script>
+    function modal(param1, param2, param3) {
+        document.getElementById('modal-body').innerHTML =
+            '<iframe id="frame1" src="<?php echo base_url();?>modal/popup/' + param1 + '/' + param2 + '/' + param3 + '" width="100%" height="400" frameborder="0"></iframe>';
+
+        document.getElementById('modal-tablesLabel').innerHTML = param1.replace("_", " ");
+    }
+
+    function modal_delete(param1) {
+        document.getElementById('delete_link').href = param1;
+    }
+
+    /////////////PRINT A DIV FUNCTION////////////////
+
+    function custom_print(div_id) {
+        var mywindow = window.open('', 'my div', 'height=400,width=600');
+        mywindow.document.write(document.getElementById(div_id).contentWindow.document.body.innerHTML);
+        mywindow.print();
+        mywindow.close();
+        return true;
+    }
+</script>
+
+
+<script type="text/javascript">
+                    $(document).ready(function() {
+
+                        $("#photo_logo").change(function() {
+                            input = this;
+                            if (input.files && input.files[0]) {
+                                var reader = new FileReader();
+
+                                reader.onload = function(e) {
+                                    $('#preview_logo').attr('src', e.target.result);
+                                }
+
+                                reader.readAsDataURL(input.files[0]);
+                            }
+                        });
+                        $("#photo_background").change(function() {
+                            input = this;
+                            if (input.files && input.files[0]) {
+                                var reader = new FileReader();
+
+                                reader.onload = function(e) {
+                                    $('#preview_background').attr('src', e.target.result);
+                                }
+
+                                reader.readAsDataURL(input.files[0]);
+                            }
+                        });
+
+                    });
+                </script>
+
+
+<script type="text/javascript">
+    
+$(document).on("keypress", '#addrec', function (e) {
+    var code = e.keyCode || e.which;
+    console.log(code);
+    if (code == 13) {
+        console.log('Inside');
+        e.preventDefault();
+        return false;
+    }
+});
+</script>
+<script type="text/javascript">
+    
+$(document).ready(function(){
+    $( "div.print" ).addClass( "pull-left" );
+    $("div.print i").css({ 'color': "red" });
+    $("div.print i").css({ 'font-size': "30px" });
+    $("div.print").detach().prependTo("div.tab-content");
+  //  $("div.tab-content").prependTo("div.table-adjusment");
+    //$('div.print').eq(1).remove();
+    
+});
+</script>>
+
+</html>

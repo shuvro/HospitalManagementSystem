@@ -1,0 +1,82 @@
+<div class="col-md-12 col-sm-12">
+<div class="noticeboard">
+                <div>
+                    <div style="" class="table-responsive table-adjusment ">
+                        <table class="table table-hover">
+
+                            
+                            <div class="table-header ">
+                                <div class="input-group dept-input table-head">
+                                    <i class="fa fa-exchange" aria-hidden="true"></i>&nbsp; &nbsp;
+                                    <?php 
+                                        if($this->session->userdata('department_id')=='15')
+                                            echo 'Sign & Symptom';
+                                        else
+                                            echo 'General Physical Examination';
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                
+                                    <div class="form-group">
+                                        <label for="patient-name" class="control-label">Appearance :</label>
+                                        <div class="email-profile inline-block">
+                                            <input type="text" class="form-control" name="appearance" id="bp" value="<?php echo $appearance;?>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="patient-name" class="control-label">Pulse :</label>
+                                            <div class="email-profile inline-block">
+                                                <input type="text" class="form-control" name="pulse" id="temperature" value="<?php echo $pulse;?>">
+                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="patient-name" class="control-label">BP :</label>
+                                            <div class="email-profile inline-block">
+                                                <input type="text" class="form-control" name="bp" id="disease" value="<?php echo $bp;?>">
+                                            </div>
+                                    </div>
+                                   
+                                                                   
+
+                                                                                                                
+                            </div>
+                            <div class="col-md-6">
+                                
+                                <div class="form-group">
+                                     <label for="patient-name" class="control-label">Respiration :</label>
+                                         <div class="email-profile inline-block">
+                                                <input type="text" class="form-control" name="respiration" id="bp" value="<?php echo $respiration;?>">
+                                        </div>
+                                </div>            
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Temp :</label>
+                                        <div class="email-profile inline-block">
+                                            <input type="text" class="form-control" name="temperature" id="pulse" value="<?php echo $temperature;?>">
+                                        </div>
+                                </div>
+                                                                         
+                                 <div class="form-group">
+                                        <label for="patient-name" class="control-label">Others :</label>
+                                            <div class="email-profile inline-block">
+                                                <input type="text" class="form-control" name="others" id="temperature" value="<?php echo $others;?>">
+                                            </div>
+                                </div>                                                  
+                                                                                    
+                                                                                        
+
+                                                                                                       
+                                                                                                            
+                                                                                                            
+
+                            </div>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="">
+
+                </div>
+            </div>
+
+            </div>

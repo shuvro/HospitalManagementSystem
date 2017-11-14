@@ -1,0 +1,264 @@
+<div class="row  nav-button-container fade in" role="tabpanel" id="manage-prescription">
+    <div class="col-xs-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Manage Report
+
+            </div>
+            <div class="noticeboard-body">
+                <div>
+
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#prescription-list" aria-controls="prescription-list" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i> 
+                               Widal Test              	</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                  
+						<?php 
+                    if($this->session->userdata('user_type')=='pathology_technician')
+                        {
+						?>
+                            <form id="addrec" action="<?php echo base_url(); ?>LabTest/blood_for_hbs/" method="POST" enctype="multipart/form-data">
+                            
+							 <input type="hidden" name="pres_no" value="<?php echo $this->uri->segment(4)?>">
+							 <input type="hidden" name="lab_test_no" value="<?php echo $this->uri->segment(3)?>">
+							 
+							  <?php }else{ ?>
+                            
+							<form id="addrec" action="<?php echo base_url(); ?>LabTest_update/blood_for_hbs" method="POST" enctype="multipart/form-data">
+                            
+							 <input type="hidden" name="pres_no" value="<?php echo $this->uri->segment(4)?>">
+							 <input type="hidden" name="lab_test_no" value="<?php echo $this->uri->segment(3)?>">
+							  <input type="hidden" name="test_id" value="<?php echo $cardiac_enzyme['test_id'];?>">
+							
+							 <?php } ?>
+                              
+                                <div class="table-responsive table-adjusment">
+                                <?php if(!isset($cardiac_enzyme) && $this->session->userdata('user_type')!='doctor'){
+							               echo  '<div class="form-group pull-right">
+
+                                                        <label class="fileContainer btn btn-primary waves-effect btn-browse waves-effect waves-effect">
+                                                            <i class="fa fa-upload" aria-hidden="true"></i> Click to Upload Document
+                                                            <input type="file" style="display: none;" name = "userfile">
+                                                        </label>
+                                                        
+                                                        
+
+                                                    </div>';
+                                           } else{
+                                           echo '<div class="col-sm-12 pull-right">
+                                     <div class="form-group pull-right">
+                                                        
+                                                            
+                                            <a href="https://docs.google.com/viewer?url='.base_url().'others/uploads/report/'.$file_name['file_name'].'" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>Download</a>	
+         
+
+                                                    </div>
+                                </div>';
+                                           }
+                                                  ?>
+
+                    <!-- Nav tabs -->
+                    
+
+
+                    <!-- Tab panes -->
+                    <div id="print" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="prescription-list">
+                            
+                                    <table class="table table-hover">
+                                 
+                                    <div>
+                        <h3 style="font-size: 20px"><CENTER><b>Combined Military Hospital, Rangpur</b></CENTER></h3>
+                                                        <h4 style="font-size: 16px"><CENTER><b>Clinical Pathology Report</b></CENTER></h4>
+                        <!-- <h5 style="color: blue"><center><b>Tel:Mil:887123,Ext.6604,6616,Civ:9836600</b></center></h5>
+                        <h5 style="color: blue"><center><b>Fax:88-02-9836804,e-mail:something@test.com,Website:www.army.mil.bd</b></center></h5> -->
+                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <div class="form-group col-md-6">
+                                                    <div>
+                                                        <label class="col-md-3">Voucher No:</label>
+                                                        <input class="col-md-9" type="text" name="voucher_no" value="<?php if(isset($cardiac_enzyme)){echo $cardiac_enzyme['vouchar_no'];}?>" disabled="disabled">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-6" style="padding-left: 5px">
+                                                    <div>
+                                                        <label class="col-md-3">Report No:</label>
+                                                        <input class="col-md-9" type="text" name="report_no" value="<?php if(isset($cardiac_enzyme)){echo $cardiac_enzyme['report_no'];}?>" disabled="disabled">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <div>
+                                                        <label>Date:</label>
+                                                        <input type="text" id="date" name="test_date" value="<?php if(isset($cardiac_enzyme)){echo $cardiac_enzyme['date'];}?>">
+														<div class="monthly" id="mycalendarAll"></div> 
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <div>
+                                                        <label>Del. Date</label>
+                                                        <input type="text" id="date2" name="delivery_date" value="<?php if(isset($cardiac_enzyme)){echo $cardiac_enzyme['delivery_date'];}?>">                                 <div class="monthly" id="mycalendarAll2"></div> 
+                                                    </div>
+                                                </div>
+                                                
+                                                <br>
+                                                <br>
+                                                <div class="form-group col-md-12">
+                                                    <div>
+                                         
+                                                        <label class="col-md-2">Patient Name: </label>
+                                                        <input class="col-md-6" type="text" name="patient_name" value="<?php if(isset($user_info)){echo $user_info['name'];}?>" disabled="disabled">
+
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <div class="form-group col-md-7">
+                                                    <div>
+                                                        <label>Referred By :</label>
+                                                        <input type="text" name="patient_name" value="CMH">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-5">
+                                                    <div class="form-group col-md-6">
+                                                        <div>
+                                                            <label>Age :</label>
+                                                            <input type="text" name="patient_age" value="<?php if(isset($user_info)){echo $user_info['age'];}?>" disabled="disabled">
+                                                        </div> 
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <div>
+
+                                                            <label>Sex :</label>
+                                                            <input type="text" name="patient_sex" value="<?php if(isset($user_info)){echo $user_info['sex'];}?>" disabled="disabled">
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <div class="form-group col-md-4">
+                                                    <div>
+                                                        <label class="col-md-2">Sample:</label>
+                                                        <input class="col-md-10" type="text" name="sample_name" value="Serum">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-8">
+                                                    <div class="col-md-10">
+                                                        <label class="col-md-3">Lab. No: </label>
+                                                        <input class="col-md-9" type="text" name="lab_no" value="<?php if(isset($cardiac_enzyme)){echo $cardiac_enzyme['lab_no'];}?>" disabled="disabled">
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <br>
+
+                                                <div class="form-group col-md-12">
+                                                    <div>
+                                                        <label>Tests :</label>
+                                                        <input type="text" name="test_names" value="HBS Test">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </table>
+                                    <div class="col-md-12">
+                                        <div class="noticeboard">
+                                            <div>
+                                                <div class="table-responsive table-adjusment ">
+                                                    <table class="table table-hover col-md-12">
+                                                        <div class="table-header ">
+
+                                                            <div class="input-group dept-input table-head">
+                                                                <span> <label>Widal Test</label>
+                                                                </span>
+                                                            </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="form-group col-sm-6">
+                                                                    <label class="control-label col-md-3"><strong>TO</strong></label>
+                                                                    <div class="email-profile inline-block col-md-4" >
+                                                                        <input type="text" class="form-control" id="cpk" name="to" value="<?php if(isset($cardiac_enzyme)){echo $cardiac_enzyme['to_to'];}?>">
+                                                                    </div>
+                                                                </div> 
+                                                                <div class="form-group col-sm-6">
+                                                                    <label class="control-label col-md-3"><strong>TH</strong></label>
+                                                                    <div class="email-profile inline-block col-md-4" >
+                                                                        <input type="text" class="form-control" id="cpk" name="th" value="<?php if(isset($cardiac_enzyme)){echo $cardiac_enzyme['th'];}?>">
+                                                                    </div>
+                                                                </div>                                                              
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="form-group col-sm-6">
+                                                                    <label class="control-label col-md-3"><strong>AO</strong></label>
+                                                                    <div class="email-profile inline-block col-md-4" >
+                                                                        <input type="text" class="form-control" id="cpk" name="ao" value="<?php if(isset($cardiac_enzyme)){echo $cardiac_enzyme['ao'];}?>">
+                                                                    </div>
+                                                                </div> 
+                                                                <div class="form-group col-sm-6">
+                                                                    <label class="control-label col-md-3"><strong>AH</strong></label>
+                                                                    <div class="email-profile inline-block col-md-4" >
+                                                                        <input type="text" class="form-control" id="cpk" name="ah" value="<?php if(isset($cardiac_enzyme)){echo $cardiac_enzyme['ah'];}?>">
+                                                                    </div>
+                                                                </div>                                                              
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="form-group col-sm-6">
+                                                                    <label class="control-label col-md-3"><strong>BO</strong></label>
+                                                                    <div class="email-profile inline-block col-md-4" >
+                                                                        <input type="text" class="form-control" id="cpk" name="bo" value="<?php if(isset($cardiac_enzyme)){echo $cardiac_enzyme['bo'];}?>">
+                                                                    </div>
+                                                                </div> 
+                                                                <div class="form-group col-sm-6">
+                                                                    <label class="control-label col-md-3"><strong>BH</strong></label>
+                                                                    <div class="email-profile inline-block col-md-4" >
+                                                                        <input type="text" class="form-control" id="cpk" name="bh" value="<?php if(isset($cardiac_enzyme)){echo $cardiac_enzyme['bh'];}?>">
+                                                                    </div>
+                                                                </div>                                                              
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                
+                                                                                                                              
+                                                            </div>
+                                                            </table>
+                                                        </div>
+                                                        
+                                                </div>
+                                            
+                                            <div class="btn-group pull-right"><?php if(!isset($cardiac_enzyme) && $this->session->userdata('user_type')!='doctor')
+                                   echo  '<button type="Submit" class="btn btn-success pull-left print" style="padding: 16px,12px">
+                                        <strong>SUBMIT</strong></button>'; ?>
+										<?php if($this->session->userdata('user_type')=='pathologist')
+                                   echo  '<button type="Submit" class="btn btn-success pull-left print" style="padding: 16px,12px">
+                                        <strong>SUBMIT</strong></button>'; ?>
+										</div>
+                                                </div>
+                                                
+                                            </form>
+                                            </table>
+                                            </div>
+                                             <div class="col-xs-12 table-footer table-foot" style="margin-top:20px;">
+                                      
+
+                                                <div class="btn-group pull-right print" role="group" aria-label="">
+                                                <a href="<?php echo base_url()?>printing/report_printing/<?php echo $this->uri->segment(2);?>/<?php echo $this->uri->segment(3);?>/<?php echo $this->uri->segment(4);?>" target="_blank"><button type="button" class="btn btn-default"><i class="fa fa-print" aria-hidden="true"></i></button></a>
+                                                </div>
+													
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            

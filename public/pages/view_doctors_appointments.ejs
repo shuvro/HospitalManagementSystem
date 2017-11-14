@@ -1,0 +1,134 @@
+<div class="row  nav-button-container fade in" role="tabpanel" id="manage-appointment">
+    <div class="col-xs-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Manage appointment
+            </div>
+            <div class="noticeboard-body">
+                <div>
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#appointment-list" aria-controls="appointment-list" role="tab" data-toggle="tab">
+                                <i class="fa fa-align-justify"></i>Appointment List</a></li>
+                        <li style="display: none"role="presentation"><a href="#add-appointment" aria-controls="add-appointment" role="tab" data-toggle="tab">
+                                <i class="fa fa-plus"></i>Add Appointment</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="appointment-list">
+                            <div class="table-responsive table-adjusment ">
+                                <table class="table table-hover" id="datatab">
+                                    <!--<div class="table-header ">
+                                        <div class="input-group dept-input">
+                                            <span class="input-group-addon" id="patient-doc"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                            <input type="text" id="appointment" class="form-control" placeholder="Search By paitent" aria-describedby="patient-doc" name="appointment">
+                                        </div>
+                                    </div>-->
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                           
+                                            <th>Date</th>
+                                           
+                                            <th>Patient</th>
+											<th>Serial No</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody id="search_result">
+									 <?php foreach ($appointment as $row): ?>
+									 
+									<tr>
+                                       <?php if ($row['user_type']==2)
+									   
+									   {
+									   ?>
+                                        <th scope="row" style="background:#CCCCCC"><?php echo $row['patient_id']; ?></th>
+										
+										
+                                        <th scope="row" style="background:#CCCCCC"><?php echo $row['app_date']; ?></th>
+                                        
+                                        <td style="cursor: pointer; background:#CCCCCC" class='clickable-row' data-href='<?php echo base_url(); ?>doctor/patient_details/<?php echo $row['patient_id']; ?>'><?php echo $row['name']; ?></td>
+                                       <th scope="row" style="background:#CCCCCC"><?php echo $row['serial_id']; ?></th>
+									  
+									   <?php }else{ ?>
+									    <th scope="row"><?php echo $row['patient_id']; ?></th>
+										
+										
+                                        <th scope="row"><?php echo $row['app_date']; ?></th>
+                                        
+                                        <td style="cursor: pointer" class='clickable-row' data-href='<?php echo base_url(); ?>doctor/patient_details/<?php echo $row['patient_id']; ?>'><?php echo $row['name']; ?></td>
+                                       <th scope="row"><?php echo $row['serial_id']; ?></th>
+									   <?php } ?>
+									   
+                                        </tr>
+                                    <?php endforeach; ?>
+
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Edit Patient Details </h4>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="table-adjusment">
+                                            <input type="hidden" class="form-control dept-input" id="appointment_id" name="appointment_id">
+                                            <div class="form-group">
+                                                <label for="doctor-name" class="control-label">Doctor</label>
+                                                <div class="  email-profile">
+                                                    <span></span>
+                                                    <input type="hidden" name="doctor_id" value=""  />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="patient-name" class="control-label">Patient</label>
+                                                <div class=" ">
+                                                    <input type="hidden" name="hidden_patient_id" id="hidden_patient_id"/>
+                                                    <select id="patient-name" name="patient_id" type="text" class="form-control dept-input" disabled="">
+
+                                                        <option value=""></option>
+
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="apo-date" class="control-label">Date</label>
+                                                <div class=" " style="">
+                                                    <input type="text" class="form-control dept-input" id="date" value="../../...." name="apo-date" required>
+                                                    <div class="monthly" id="mycalendarAll"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="apo-time" class="control-label">Time</label>
+                                                <div class=" " style="">
+                                                    <input type="text" class="form-control dept-input" id="time" value="" name="app-time" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary btn-modal">Save changes</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>

@@ -1,0 +1,76 @@
+<div class="row  nav-button-container fade in" role="tabpanel" id="manage-prescription">
+    <div class="col-xs-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Manage Prescription
+
+            </div>
+            <div class="noticeboard-body">
+                <div>
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#prescription-list" aria-controls="prescription-list" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i> 
+                                Lab Test List                    	</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="prescription-list">
+
+                            <div class="table-responsive table-adjusment ">
+                                <table class="table table-hover" >
+                                    <div class="table-header hidden">
+
+                                        <div class="input-group dept-input">
+                                            <span class="input-group-addon" id="patient-prescription"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                            <input type="text" class="form-control" placeholder="Search" aria-describedby="patient-prescription">
+                                        </div>
+                                    </div>
+                                    <thead>
+                                        <tr>
+                                            
+                                            <th>Lab Test Name</th>
+                                            <th style="display:none">Lab Category</th>
+                                           
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+									<?php 
+                                  
+                                    foreach($lab_test as $row){?>
+                                        <tr>
+										
+                                        
+										<?php if($row['status'] ==0){?>
+										<?php 
+                    if($this->session->userdata('user_type')=='pathology_technician')
+                        {
+						?>
+                                      <td style="cursor: pointer" class="clickable-row" data-href="<?php echo base_url(); ?>reports/<?php echo str_replace(' ', '_', $row['lab_test_name']); ?>/<?php echo $row['pl_id']; ?>/<?php echo $row['prescription_id']; ?>"><?php echo $row['lab_test_name']; ?></td>';
+										<?php } ?>
+									
+										
+										<?php }else{ ?>
+										
+										<td style="color:#FF0000"class="clickable-row" data-href="<?php echo base_url(); ?>reports/<?php echo str_replace(' ', '_', $row['lab_test_name']); ?>/<?php echo $row['pl_id']; ?>/<?php echo $row['prescription_id']; ?>"><?php echo $row['lab_test_name']; ?></td>
+										<?php } ?>
+                                        </tr>
+                                     <?php } ?>
+                                    </tbody>
+                                </table>
+                                <div class="col-xs-12 table-footer hidden">
+                                    <div class="btn-group pull-right" role="group" aria-label="">
+                                        <button type="button" class="btn btn-default"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                                        <button type="button" class="btn btn-default">1</button>
+                                        <button type="button" class="btn btn-default"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

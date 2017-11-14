@@ -1,0 +1,575 @@
+ <div class="row  nav-button-container tab-pane fade in active" role="tabpanel" id="patient-detailes">
+    <div class="col-sm-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Patients Details
+            </div>
+
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="noticeboard">
+
+            <div class="p-detailes">
+                <div class="table-adjusment">
+                    <form class="form-horizontal form-diagnosis">
+                        <div class="form-group">
+                            <label for="patient-name" class="control-label">Name :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['name']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-name" class="control-label">Patient Id :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['patient_id']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-name" class="control-label">Army No :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['army_no']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-address" class="control-label">Rank :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['rank']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-blood-group" class="control-label">Unit :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['unit']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="alt-patient-phone" class="control-label">Email
+                            </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['email']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-age" class="control-label">Age :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['age']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-sex" class="control-label">Gender :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['sex']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-statuse" class="control-label"> Martial Status :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['martial_status']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-blood-group" class="control-label">Blood Group :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['blood_group']; ?></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="noticeboard-header bottom-header">
+                <i class="fa fa-user-md" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- form start for everything in the form-->
+    <form action="<?php echo base_url(); ?>DoctorEdit/edit_prescription" method="POST">
+        <input type="hidden" class="form-control" name="patient_id" value="<?php echo $patient_details['patient_id']; ?>">
+        <input type="hidden" class="form-control" name="p_id" value="<?php echo $prescription['prescription_id']; ?>">
+        <input type="hidden" class="form-control" name="app_id" value="<?php echo $prescription['app_id']; ?>">
+        <div class="col-sm-4">
+            <div class="noticeboard">
+                <div>
+                    <div style="min-height: 401px;" class="table-responsive table-adjusment ">
+                        <table class="table table-hover">
+                            <div class="table-header ">
+                                <div class="input-group dept-input table-head">
+                                    <i class="fa fa-exchange" aria-hidden="true"></i>&nbsp; &nbsp;Vitals
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="patient-name" class="control-label">BP :</label>
+                                <div class="email-profile inline-block">
+                                    <input type="text" value="<?php echo $prescription['bp']; ?>" class="form-control" id="pwd" name="bp">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="patient-name" class="control-label">Pulse :</label>
+                                <div class="email-profile inline-block">
+                                    <input type="text" value="<?php echo $prescription['pulse']; ?>" class="form-control" id="pwd" name="pulse">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="patient-name" class="control-label">Temperature :</label>
+                                <div class="email-profile inline-block">
+                                    <input type="text" value="<?php echo $prescription['temperature']; ?>" class="form-control" name="temperature" id="temperature">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="patient-name" class="control-label">Disease :</label>
+                                <div class="email-profile inline-block">
+                                    <input type="text" value="<?php echo $prescription['disease']; ?>" class="form-control" id="pwd" name="disease">
+                                </div>
+                            </div>
+                        </table>
+                    </div>
+                </div>
+
+				
+                <div style="height: 400px; overflow: auto;" class="">
+
+
+                    <div class="noticeboard">
+                        <div>
+                            <div class="table-responsive table-adjusment ">
+                                <table class="table table-hover">
+                                    <tbody id="new2">
+                                        <div class="table-header ">
+
+                                            <div class="input-group table-head">
+                                                <i class="fa fa-tint" aria-hidden="true"></i>&nbsp; &nbsp;Lab Tests
+                                                <button class="btn pull-right" id="btn2"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                            </div>
+                                        </div>
+
+                                        <thead>
+                                            <tr>
+                                                <th style="text-align: center;">Sl.</th>
+                                                <th style="display:none">Sl.</th>
+                                                <th style="text-align: center;">Lab Test</th>
+                                            </tr>
+
+                                        </thead>
+
+                                        <tr style="display:none">
+                                            <td>
+                                                <input type="text" id="lab_length" value="">
+                                            </td>
+                                        </tr>
+                                        <?php
+                                    $count = 1;
+                                    //$length = count($prescribed_medicine);
+                                    foreach ($lab as $key):
+                                        ?>
+                                            <tr>
+                                                <td>
+                                                    <?php echo $count++; ?>
+                                                </td>
+                                                <td style="display:none">
+                                                    <input type="hidden" value="<?php echo $key['pl_id']; ?>" class="form-control" id="pim_id" name="pres_id[]">
+
+                                                </td>
+                                                <td style="border-left: 1px solid grey;">
+                                                    <input type="text" value="<?php echo $key['lab_test_name']; ?>" class="form-control lab_class" id="lab_test" name="lab_test[]">
+                                                </td>
+
+                                            </tr>
+                                            <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="noticeboard">
+                <div>
+                    <div style="min-height: 400px;" class="table-responsive table-adjusment ">
+                        <table class="table table-hover">
+                            <div class="table-header ">
+                                <div class="input-group dept-input table-head">
+                                    <i class="fa fa-th-list" aria-hidden="true"></i>&nbsp; &nbsp;Disposal
+                                </div>
+                            </div>
+                            <thead>
+                                <tr>
+                                    <th>Select Type</th>
+                                    <th>Type Input</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <select name="selected_disposal" class="form-control">
+                                            <option value="<?php echo $prescription['disposal_type']; ?>" selected>
+                                                <?php echo $prescription['disposal_type']; ?>
+                                            </option>
+                                            <option value="SIQ">SIQ </option>
+                                            <option value="M&D">M & D</option>
+                                            <option value="Sick Leave">Sick Leave</option>
+											<option value="Attnc">Attnc</option>
+											<option value="Attnb">Attnb</option>
+                                            <option value="PT Parade Excuse">PT Parade Excuse </option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <div class="email-profile inline-block">
+                                            <input type="text" name="disposal_value" value="<?php echo $prescription['disposal']; ?>" class="form-control" id="pwd">
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+                <div>
+                    <div style="min-height: 401px;" class="table-responsive table-adjusment">
+                        <table class="table table-hover">
+                            <div class="table-header ">
+
+                                <div class="input-group dept-input table-head">
+                                    <i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp; &nbsp;Reference
+                                </div>
+                            </div>
+                            <thead>
+                                <tr>
+                                    <th>Department</th>
+                                    <th>Doctor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <select id="select_department" type="text" class="form-control dept-input" name="select_department">
+                                            <option value="<?php echo $refer['department_id']; ?>">
+                                                <?php echo $refer['department_name']; ?>
+                                            </option>
+
+                                            <?php
+                                        foreach ($department as $row):?>
+                                                <option value="<?php echo $row['department_id']; ?>">
+                                                    <?php echo $row['department_name']; ?>
+                                                </option>
+
+                                                <?php endforeach; ?>
+
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="doctor-list" type="text" class="form-control dept-input" name="doctor_id">
+                                            <option value="<?php echo $refer['doctor_id']; ?>">
+                                                <?php echo $refer['name']; ?>
+                                            </option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="noticeboard">
+                <div>
+                    <div class="table-responsive table-adjusment">
+                        <table class="table table-hover">
+                            <div class="table-header ">
+                                <div class="input-group table-head">
+                                    <i class="fa fa-stethoscope" aria-hidden="true"></i>&nbsp; &nbsp;Medication
+                                    <button class="btn pull-right" id="btn1"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">Sr.</th>
+                                    <th style="text-align: center;">Medicine</th>
+                                    <th style="text-align: center;">Dose</th>
+                                    <th style="text-align: center;">Duration</th>
+                                    <th style="text-align: center;">Remarks</th>
+                                </tr>
+                            </thead>
+                            <tbody id="new">
+                                <tr style="display: none">
+                                    <td>
+                                        <input type="text" id="length" value="1">
+                                </tr>
+                                <?php
+                            $count = 1;
+                            //$length = count($prescribed_medicine);
+                            foreach ($medicines as $key):
+                                ?>
+                                    <tr>
+                                        <td style="border-left: 1px solid grey;">
+                                            <?php echo $count++; ?>
+                                        </td>
+                                        <td style="border-left: 1px solid grey;">
+                                            <input type="text" value="<?php echo $key['med_name']; ?>" class="form-control medicine_class" id="medicine" name="medicine[]">
+                                        </td>
+                                        <td style="border-left: 1px solid grey;">
+                                            <input type="text" value="<?php echo $key['dose']; ?>" class="form-control dose" id="dose" name="dose[]">
+                                        </td>
+                                        <td style="border-left: 1px solid grey;">
+                                            <input type="text" value="<?php echo $key['duration']; ?>" class="form-control duration" id="duration" name="duration[]">
+                                        </td>
+                                        <td style="border-left: 1px solid grey;">
+                                            <input type="text" value="<?php echo $key['remarks']; ?>" class="form-control remarks" id="remarks" name="remarks[]">
+                                        </td>
+                                        <td>
+                                            <input type="hidden" class="form-control" name="pm_id[]" value="<?php echo $key['pm_id']; ?>" />
+                                        </td>
+                                        <td style="color:red; text-align: center;" class="col-md-1"><a style="color:red;" href="javascript:void(0);" class="remove_row"><i
+                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                        </td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div style="min-height:267px;" class="table-responsive table-adjusment ">
+                    <table class="table table-hover">
+                        <div class="table-header ">
+
+                            <div class="input-group dept-input table-head">
+                                <i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp; &nbsp;Comment
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="email-profile">
+                                <textarea style="max-width: 100%;" type="text" name="comment" class="form-control" id="pwd" placeholder="Type your Comment Here">
+                                    <?php echo $prescription['comment']; ?>
+                                </textarea>
+                            </div>
+                        </div>
+                    </table>
+                    <div class="col-xs-12 table-footer table-foot">
+
+                        <div style="padding: 5px;" class="pull-right">
+                            <button style="margin: 0; background-color: #a4ffa4;" type="submit" class="btn btn-info">
+                                <strong>Submit</strong></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+        </div>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script type="text/javascript">
+    $('#select_department').on('change', function() {
+        var selected = $(this).val();
+        //alert(selected);
+
+        $.ajax({
+            url: '<?php echo base_url();?>ReceptionistGet/dept_doctor/' + selected,
+            //data: {'selected': selected},
+            type: 'GET',
+            dataType: 'json',
+            error: function() {
+                //alert("Sorry...Something goes Wrong");
+            },
+            success: function(data) {
+
+                    $('#doctor-list').empty();
+
+                    for (var i = 0; i < data.length; i++) {
+                        $("#doctor-list").append("<option value='" + data[i]['user_id'] + "'>" + data[i]['name'] + "</option>");
+                    }
+                } // End of success function of ajax form
+        }); // End of ajax call
+    });
+</script>
+<script type="text/javascript">
+    $(document).on('click', '#prescribe', function() {
+        var edit_id = $(this).closest('tr').children()[1].textContent;
+        $('#appointment_id').val(edit_id);
+        //alert(edit_id);
+        $("#add-prescription").modal("show");
+    });
+
+    $(document).on('click', '#details', function() {
+
+        var edit_id = $(this).closest('tr').children()[1].textContent;
+        //alert(edit_id);
+
+        //         $(".modal #prescription_id").val(edit_id);
+        var temp;
+        //    $("#appointment_modal").modal("show");
+
+        $.ajax({
+
+            url: '<?php echo base_url(); ?>receptionist/get_reports',
+            data: {
+                'edit_id': edit_id
+            },
+            type: 'POST',
+            dataType: 'json',
+
+            error: function() {
+                alert("Nothing Prescribe");
+            },
+
+            success: function(data) {
+                    if (data.reports.length > 0) {
+                        for (var i = 0; i < data.reports.length; i++) {
+                            temp += '<tr><th scope="row">' + (i + 1) + '</th><td>' + data.reports[i].report_type + '</td><td><img src="<?php echo base_url(); ?>others/images/x-ray.jpg" height="50px" width="107px"><a href="https://docs.google.com/viewer?url=<?php echo base_url() ?>/uploads/report/' + data.reports[i].file_name + '" target="_blank"><button class="btn btn-primary" style="margin-top: 10px;"><i class="fa fa-download" aria-hidden="true"></i>Download</button></a></td><td>' + data.reports[i].description + '</td><td>' + data.reports[i].timestamp + '</td><td>' + data.reports[i].laboratorist_name + '</td></tr>';
+                        }
+
+                        $("#all_reports").empty();
+                        $("#all_reports").append(temp);
+                    } else {
+                        $("#all_reports").empty();
+                        $("#all_reports").append('No Reports');
+                    }
+                    $("#medication").html(data.prescription_details[0].medication);
+                    $("#doctor-advise").html(data.prescription_details[0].advise);
+                    $("#appointment_modal").modal("show");
+
+                } // End of success function of ajax form
+        }); // End of ajax call
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        var id = document.getElementById('length').value;
+        id++;
+        //alert(id);
+        $("#btn1").bind('click', function() {
+            $("#new").append('<tr>' +
+                '<td style="border-left: 1px solid grey;">' + id + '</td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="medicine[]" class="form-control medicine_class" id="medicine"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="dose[]" class="form-control dose" id="dose"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="duration[]" class="form-control duration" id="duration"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="remarks[]" class="form-control remarks" id="remarks"></td>' +
+                '<td><input type="hidden" class="form-control" name="pm_id[]" value="" /></td>' +
+                '<td style="color:red; text-align: center;" class="col-md-1">' +
+                '<a style="color:red;" href="javascript:void(0);" class="remove_row">' +
+                '<i class="fa fa-times" aria-hidden="true"></i></a>' +
+                '</td>' +
+                '</tr>');
+            id++;
+            return false;
+        });
+        $("#new").on('click', '.remove_row', function() {
+            $(this).parent().parent().remove();
+            id--;
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        var id = document.getElementById("lab_length").value;
+        id++;
+        $("#btn2").bind('click', function() {
+
+            $("#new2").append('<tr>' +
+                '<td style="border-left: 1px solid grey;">' + id + '</td>' +
+                '<td style="display:none"><input type="hidden" name="pres_id[]" class="form-control" id="pim_id"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="lab_test[]" class="form-control lab_class" id="lab_test"></td>' +
+                '<td style="color:red; text-align: center;" class="col-md-1">' +
+                '<a style="color:red;" href="javascript:void(0);" class="remove_row">' +
+                '<i class="fa fa-times" aria-hidden="true"></i></a>' +
+                '</td>' +
+                '</tr>');
+            id++;
+            return false;
+        });
+        $("#new2").on('click', '.remove_row', function() {
+            $(this).parent().parent().remove();
+            id--;
+        });
+    });
+</script>
+<script type="text/javascript">
+    var dose = [
+        "0+0+1",
+        "1+0+1",
+        "0+1+0",
+        "1+1+1",
+        "1+0+0",
+        "1+1+0",
+        "0+1+1"
+    ];
+    var duration = [
+        "3 Days",
+        "7 Days",
+        "14 Days",
+        "30 Days",
+        "60 Days",
+        "90 Days"
+    ];
+    var remarks = [
+        "Before meal",
+        "After meal",
+        "With food",
+        "Without food"
+    ];
+    $("#new").on("click", function() {
+        $(".medicine_class").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: '<?php echo base_url(); ?>doctor/get_med_hint',
+                    method: "POST",
+                    data: {
+                        med: request.term
+                    },
+                    dataType: "json",
+                    error: function() {
+                        alert('someThing Goes Wrong');
+                    },
+                    success: function(data) {
+                        response(data);
+                    }
+                });
+            },
+        });
+        $(".dose").autocomplete({
+            source: dose
+        });
+        $(".remarks").autocomplete({
+            source: remarks
+        });
+        $(".duration").autocomplete({
+            source: duration
+        });
+    });
+</script>
+<script type="text/javascript">
+    $("#new2").on("click", function() {
+        $(".lab_class").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: '<?php echo base_url(); ?>doctor/get_lab_hint',
+                    method: "POST",
+                    data: {
+                        test: request.term
+                    },
+                    dataType: "json",
+                    error: function() {
+                        alert('someThing Goes Wrong');
+                    },
+                    success: function(data) {
+                        response(data);
+                    }
+                });
+            },
+        });
+    });
+</script>

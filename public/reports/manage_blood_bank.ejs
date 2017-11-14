@@ -1,0 +1,120 @@
+<div class="row  nav-button-container fade in" role="tabpanel" id="view-blood-bank">
+    <div class="col-xs-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> View Blood Bank
+            </div>
+            <div class="noticeboard-body">
+                <div>
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+
+                        <li role="presentation" class="active"><a href="#blood-bank" aria-controls="blood-bank" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i>
+                                Blood Bank                    	</a></li>
+
+
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="blood-bank">
+
+                            <div class="table-responsive table-adjusment ">
+                                <table class="table table-hover"  id="datatab">
+                                    <div class="table-header hidden">
+
+                                        <div class="input-group dept-input">
+                                            <span class="input-group-addon" id="search-blood-bank"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                            <input type="text" id="Search_blood_bank" class="form-control" placeholder="Search" aria-describedby="search-blood-bank" name="blood_bank">
+                                        </div>
+                                    </div>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Blood Group</th>
+                                            <th>Status</th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody id="Search_result_blood">
+                                        <?php $count = 1;
+                                        foreach($blood_bank as $row): ?>
+
+                                        <tr>
+                                            <th scope="row"><?php echo $count++; ?></th>
+                                            <td><?php echo $row['blood_group']; ?></td>
+                                            <td><?php echo $row['status']; ?></td>
+
+
+                                        </tr>
+ <?php endforeach;?>
+
+
+                                    </tbody>
+
+                                </table>
+                                <div class="col-xs-12 table-footer hidden">
+
+
+                                    <div class="btn-group pull-right" role="group" aria-label="">
+                                        <button type="button" class="btn btn-default"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                                        <button type="button" class="btn btn-default">1</button>
+                                        <button type="button" class="btn btn-default"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+        $(document).ready(function () {
+
+               // var table = $('#search_id').attr('name');
+                $('#Search_blood_bank').keyup(function () {
+                    var search_key = $(this).val();
+					 //alert(search_key);
+					  //alert(table);
+					 
+
+                    $.ajax({
+                        url: '<?php echo base_url();?>Search/Search_blood_bank',
+                        data: {'search_key': search_key, 'pagination_number':1},
+                        type: 'POST',
+                        dataType: 'json',
+
+                        error: function () {
+                            alert("Sorry");
+                        //alert(pagination_number);
+                    },
+                    success: function (data) {
+                        //alert(data[0]);
+                    //alert(searchid);
+                    $('#Search_result_blood').empty();
+                    $("#pagination").empty();
+
+                    // var count = 0;
+                    // $.each(data, function(key, value) {
+                    //     $( "#search_result" ).append( '<tr><th scope="row">'+(count+1)+'</th><td style="display: none;">'+data[count].department_id+'</td><td>'+data[count].name+'</td><td>'+data[count].description+'</td><td><button class="btn btn-primary btn-sm" id="getdata" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td></tr>' );
+                    //     count++;
+                    // });
+                    //$( "#search_result" ).html( '<tr><td>'+data[0].department_id+'</td></tr>' );
+                    
+                    $("#Search_result_blood").append(data[0]);
+                    $("#pagination").append(data['pagination']);
+                } // End of success function of ajax form
+            }); // End of ajax call
+                });
+            });
+    </script>

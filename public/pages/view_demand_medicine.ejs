@@ -1,0 +1,103 @@
+<div class="row  nav-button-container fade in" role="tabpanel" id="bed-allotment">
+    <div class="col-xs-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>Demand Medicine
+
+            </div>
+            <div class="table-responsive table-adjusment ">
+			 <form id="addrec" action="<?php echo base_url(); ?>PharmacistAdd/add_demand" method="post" enctype="multipart/form-data">
+                <table class="table table-hover">
+                    <div class="table-header ">
+
+                        <div class="input-group table-head">
+                            <i class="fa fa-stethoscope" aria-hidden="true"></i>&nbsp; &nbsp;Medication
+                            <button type="button" class="btn pull-right" id="syr"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+
+                    <div id="medicine" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;">Sl.</th>
+                                <th style="text-align: center;">Medicine</th>
+                                <th style="text-align: center;">Qty</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="syr2">
+                            <tr style="display: none">
+                                <td>
+                                    <input type="text" id="medicine_name" value="1">
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </div>
+                </table>
+
+                <div class="form-group" style="padding-left: 1000px;padding-top: 20px;">
+                    <div class="">
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
+                </div>
+			</form>	
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(document).ready(function() {
+        var id = document.getElementById('medicine_name').value;
+      //alert(id);
+        $("#syr").bind('click', function() {
+
+            $("#syr2").append('<tr>' +
+                '<td style="border-left: 1px solid grey;">' + id + '</td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="medicine_name[]" class="form-control medicine_class" id="medicine"></td>' +
+
+                '<td style="border-left: 1px solid grey;"><input type="text" name="quantity[]" class="form-control duration" id="duration"></td>' +
+                '<td style="color:red; text-align: center;" class="col-md-1">' +
+                '<a style="color:red;" href="javascript:void(0);" class="remove_row">' +
+                '<i class="fa fa-times" aria-hidden="true"></i></a>' +
+                '</td>' +
+                '</tr>');
+            id++;
+            return false;
+        });
+        $("#syr2").on('click', '.remove_row', function() {
+            $(this).parent().parent().remove();
+            id--;
+        });
+    });
+	</script>
+	<script>
+    $("#syr2").on("click", function() {
+	 
+        $(".medicine_class").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: '<?php echo base_url(); ?>pharmacist/get_med_hint',
+                    method: "POST",
+                    data: {
+                        med: request.term
+                    },
+                    dataType: "json",
+                    error: function() {
+                        alert('someThing Goes Wrong');
+                    },
+                    success: function(data) {
+                        response(data);
+                    }
+                });
+            },
+        });
+
+    });
+</script>

@@ -1,0 +1,194 @@
+ <!--  containt tab for manage-noticeboard-->
+                <div class="row  nav-button-container fade in" role="tabpanel" id="manage-noticeboard">
+                    <div class="col-xs-12">
+                        <div class="noticeboard">
+                            <div class="noticeboard-header content-header">
+                                <i class="fa fa-info-circle" aria-hidden="true"></i> Manage Noticeboard
+                            </div>
+                            <div class="noticeboard-body">
+                                <div>
+
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#noticeboard-list" aria-controls="noticeboard-list" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i> 
+                                                Noticeboard List                    	</a></li>
+                                        <li role="presentation"><a href="#add-noticeboard" aria-controls="add-noticeboard" role="tab" data-toggle="tab"><i class="fa fa-plus"></i>
+                                                Add Noticeboard                    	</a></li>
+
+                                    </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade in active" id="noticeboard-list">
+
+                                            <div class="table-responsive table-adjusment ">
+                                                <table class="table table-hover" id="datatab">
+                                                    <div class="table-header hidden">
+
+                                                        <div class="input-group dept-input">
+                                                            <span class="input-group-addon" id="search-noticeboard"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                                            <input type="text" id="serach_notice" class="form-control" placeholder="Search" aria-describedby="search-noticeboard" name="noticeboard">
+                                                        </div>
+                                                    </div>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ID</th>
+															
+                                                            <th>Title</th>
+                                                            <th>Notice</th>
+                                                            
+                                                            <th>Options</th>
+
+                                                        </tr>
+
+                                                    </thead>
+                                                    <tbody id="">
+                                                         <?php foreach($notice as $row):?>
+                                                        <tr>
+                                                            <th scope="row"><?php echo $row['notice_id'];?></th>
+                                                            
+                                                            <td><?php echo $row['notice_tittle'];?></td>
+                                                            <td><?php echo $row['notice'];?></td>
+                                                            
+
+                                                            <td>
+                                                                <button class="btn btn-primary btn-sm" id="getdata" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                                                <a href=""><button class="btn  btn-danger btn-sm" onclick=" return ConfirmDelete()"><i class="fa fa-trash" aria-hidden="true"></i>
+                                                                    </button></a>
+                                                            </td>
+
+                                                        </tr>
+
+                                                    <?php endforeach; ?>
+
+                                                    </tbody>
+
+                                                </table>
+                                                
+                                            </div>
+
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="add-noticeboard">
+                                            <div class="table-adjusment">
+                                                <!--<form class="form-horizontal">-->
+                                                  <form action="<?php echo base_url(); ?>add/add_notice" method="post" enctype="multipart/form-data">
+                                                    <div class="form-group col-md-12">
+                                                        <label for="notice-title" class="control-label col-md-2">Title</label>
+                                                        <div class="email-profile inline-block col-md-10">
+                                                            <input type="text" class="form-control dept-input" id="notice-title" placeholder="" name="notice_title" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label for="notice-description" class="control-label col-md-2">Notice</label>
+                                                        <div class="email-profile inline-block col-md-10  ">
+                                                            <input type="text" class="form-control dept-input" id="notice-description" placeholder="" name="notice" required>
+                                                        </div>
+                                                    </div>
+                                                    
+
+                                                    <div class="form-group">
+                                                        <div class=" ">
+                                                            <button type="submit" class="btn btn-default">Add Noticeboard</button>
+                                                        </div>
+                                                    </div>
+													</form>
+                                                <!--</form>-->
+                                                  
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+<!-- Modal -->
+   <div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+
+            <div class="modal-content">
+            
+                
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit Notice Details </h4>
+                </div>
+				<form action="<?php echo base_url(); ?>AdminEdit/edit_notice" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="table-adjusment">
+                    
+
+                                <input type="hidden" class="form-control dept-input" id="id" name="notice_id">
+
+                                               
+                                                   <div class="form-group">
+                                                        <label for="notice-title" class="control-label">Title</label>
+                                                        <div class=" ">
+                                                            <input type="text" class="form-control dept-input" id="notice-title" placeholder="Title" name="notice_title">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="notice-description" class="control-label">Notice</label>
+                                                        <div class=" ">
+                                                            <input type="text" class="form-control dept-input" id="notice-description" placeholder="Notice Description" name="notice">
+                                                        </div>
+                                                    </div>
+                                                   
+
+                                    <div class="modal-footer">
+                        <button type="" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary btn-modal">Save changes</button>
+                    </div>
+                    
+    
+                                </div>
+
+                            </div>
+               </form>
+
+                </div>
+            </div>
+        </div>
+  <script type="text/javascript">
+
+            $(document).on('click','#getdata', function(){
+        var edit_id= $(this).closest('tr').children()[0].textContent;
+        var infoModal = $('#view-modal');
+       // $("#view-modal").modal("show");
+        $.ajax({
+
+            url: '<?php echo base_url();?>AdminGet/get_notice',
+            data: {'edit_id': edit_id},
+            type:'POST',
+            dataType: 'json',
+
+            error: function(){
+                alert("Data not found");        
+            },
+
+            success:function(data){    
+             //alert(edit_id);
+                 $(".modal #id").val(data[0].notice_id);
+                $(".modal #notice-title").val(data[0].notice_tittle);
+                $(".modal #notice-description").val(data[0].notice);
+               
+                $("#view-modal").modal("show");
+
+                          } // End of success function of ajax form
+                          }); // End of ajax call
+});
+
+        </script>
+		
+		

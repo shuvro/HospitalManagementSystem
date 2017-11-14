@@ -1,0 +1,92 @@
+<div class="row  nav-button-container fade in" role="tabpanel" id="petient">
+    <div class="col-xs-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Manage Patient
+
+            </div>
+            <div class="noticeboard-body">
+                <div>
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#patient-list" aria-controls="patient-list" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i> 
+                                Patient List                        </a></li>
+
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="patient-list">
+
+                            <div class="table-responsive table-adjusment ">
+                                <table class="table table-hover" id="datatab">
+                                    <div class="table-header hidden">
+
+                                        <div class="input-group dept-input">
+                                            <span class="input-group-addon" id="patient-doc"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                            <input type="text" id="search_patient" class="form-control" placeholder="Search" aria-describedby="patient-doc" name="patient">
+                                        </div>
+                                    </div>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Rank</th>
+                                            <th>Unit</th>
+                                            <th>Name</th>
+                                            <th>Age</th>
+                                            <th>Sex</th>
+                                            <th>Blood Group</th>
+                                            <th>Mobile</th>
+
+
+                                        </tr>
+
+                                    </thead>
+                                    <tbody id="search_result">
+                                        <?php foreach ($appointment as $row): ?>
+										<?php if ($row['status']==0)
+									   
+									   {
+									   ?>
+                                        <th scope="row" style="background:#CCCCCC"><?php echo $row['patient_id']; ?></th>
+
+                                        <td style="background:#CCCCCC"><?php echo $row['rank']; ?></td>
+                                        <td style="background:#CCCCCC"><?php echo $row['unit']; ?></td>
+                                        <td style="cursor: pointer; background:#CCCCCC" class='clickable-row' data-href='<?php echo base_url(); ?>doctor/patient_details/<?php echo $row['patient_id']; ?>'><?php echo $row['name']; ?></td>
+                                        <td style="background:#CCCCCC"><?php echo $row['age']; ?></td>
+                                        <td style="background:#CCCCCC"><?php echo $row['sex']; ?></td>
+                                        <td style="background:#CCCCCC"><?php echo $row['blood_group']; ?></td>
+                                        <td style="background:#CCCCCC"><?php echo $row['phone_no']; ?></td>
+                                      <?php } else{ ?>
+                                     <th scope="row"><?php echo $row['patient_id']; ?></th>
+
+                                        <td><?php echo $row['rank']; ?></td>
+                                        <td><?php echo $row['unit']; ?></td>
+                                        <td style="cursor: pointer" class='clickable-row' data-href='<?php echo base_url(); ?>doctor/patient_details/<?php echo $row['patient_id']; ?>'><?php echo $row['name']; ?></td>
+                                        <td><?php echo $row['age']; ?></td>
+                                        <td><?php echo $row['sex']; ?></td>
+                                        <td><?php echo $row['blood_group']; ?></td>
+                                        <td><?php echo $row['phone_no']; ?></td>
+										 <?php } ?>
+
+                                        </tr>
+                                    <?php endforeach; ?>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

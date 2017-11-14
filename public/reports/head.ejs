@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="<?php echo base_url();?>others/css/bootstrap.min.css" rel="stylesheet" media="screen, print">
+
+    <link href="<?php echo base_url();?>others/css/style-admin.css" rel="stylesheet" media="screen, print">
+        <link href="<?php echo base_url();?>others/css/print.css" rel="stylesheet" media="print">
+
+    <link href="<?php echo base_url();?>others/css/googleapis.css" rel='stylesheet' type='text/css' media="screen, print">
+    <!--<link rel="stylesheet" href="<?php echo base_url();?>others/css/font-awesome.min.css" media="screen, print">-->
+	
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" media="screen, print">
+	
+    <link href="<?php echo base_url();?>others/css/googleapisRobo.css" rel="stylesheet" type="text/css" media="screen, print">
+    <link rel="stylesheet" href="<?php echo base_url();?>others/css/monthly.css" media="screen, print">
+    <link rel="stylesheet" href="<?php echo base_url();?>others/css/bootstrap-select.min.css" media="screen, print">
+    <link rel="stylesheet" href="<?php echo base_url();?>others/css/jquery-ui.css" media="screen, print">
+    <link rel="stylesheet" href="<?php echo base_url();?>others/css/jquery.dataTables.min.css" media="screen, print">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="<?php echo base_url();?>others/js/jquery.min.js"></script>
+    <script src="<?php echo base_url();?>others/js/jquery.dataTables.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+    <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+    <script src="<?php echo base_url();?>others/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url();?>others/js/typeahead.min.js"></script>
+    <link href="<?php echo base_url();?>others/css/typeahead.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="<?php echo base_url();?>others/css/jquery.mCustomScrollbar.css" /> -->
+    <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['gauge']}]}"></script>
+    <link rel="stylesheet" href="<?php echo base_url();?>others/css/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="<?php echo base_url();?>others/css/scroller.dataTables.min.css" />
+
+    <style>
+    @media only screen {
+        #perfect-scroll {
+            overflow: hidden;
+            position: absolute;
+        }
+        .print_logo {
+            min-width: 120px;
+        }
+    }
+    table.dataTable thead th {
+    padding: 10px 0px;
+    border-bottom: 1px solid #111;
+}
+    </style>
+    <!-- cdn for modernizr, if you haven't included it already -->
+    <script src="<?php echo base_url();?>others/js/modernizr-custom.js"></script>
+    <!-- for google graph -->
+    <script type="text/javascript" src="<?php echo base_url();?>others/js/loader.js"></script>
+    <!-- polyfiller file to detect and load polyfills -->
+    <script src="<?php echo base_url();?>others/js/polyfiller.js"></script>
+    <script>
+        webshims.setOptions('waitReady', false);
+        webshims.setOptions('forms-ext', {
+            types: 'date'
+        });
+        webshims.polyfill('forms forms-ext');
+    </script>
+    <script src="<?php echo base_url();?>others/js/bootstrap-select.min.js"></script>
+
+    <title> <?php 
+                      if($this->session->userdata('user_type')=='admin')
+                        {
+							echo 'Admin Dashboard';
+					    } elseif($this->session->userdata('user_type')=='pharmacist'){
+						     echo 'Pharmacist Dashboard';
+						}elseif($this->session->userdata('user_type')=='receptionist'){
+						     echo 'Receptionist Dashboard';
+						}elseif($this->session->userdata('user_type')=='doctor'){
+						     echo 'Doctor Dashboard';
+						}elseif($this->session->userdata('user_type')=='pathologist'){
+						     echo 'Pathologist Dashboard';
+						}
+						elseif($this->session->userdata('user_type')=='radiology'){
+						     echo 'Radiology Dashboard';
+						}
+						elseif($this->session->userdata('user_type')=='pathology_technician'){
+						     echo 'Pathology Technician Dashboard';
+						}
+						elseif($this->session->userdata('user_type')=='radiology_technician'){
+						     echo 'Radiology Technician Dashboard';
+						}
+						?>
+	</title>
+</head>
+
+<body>
+    <div>
+        <!-- header -->
+
+        <div class="container-fluid admin-header">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="logo-box">
+                       <?php 
+                        $user_id= $this->session->userdata('user_id');
+                        //$ins_id= $this->session->userdata('ins_id');
+                        $image= $this->db->query("SELECT logo_name as image_name FROM `tbl_settings`")->row()->image_name; 
+//                         ?>
+                        <a href="<?php echo base_url();?>admin/dashboard">
+						 <?php if(empty($image)){
+                            echo'<img src="<?php echo base_url()?>others/images/rangpur_logo.png" max-width="150px" height="40px" />';
+							}else{
+
+                                    echo '<img src="'.base_url().'others/uploads/system/'.$image.'" max-width="150px" height="40px">';
+                                  }
+							?>
+                                 '
+							
+                        </a>
+                    </div>
+                    <div class="menu-icon hidden-xs">
+                        <button id="btn-sideber" class="btn btn-sideber "><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></button>
+                    </div>
+                    <div class="pull-left page-title">
+                        <span class="line"></span>
+                        <h1 class="ng-binding"><?php 
+                      if($this->session->userdata('user_type')=='admin')
+                        {
+							echo 'Admin Dashboard';
+					    } elseif($this->session->userdata('user_type')=='pharmacist'){
+						     echo 'Pharmacist Dashboard';
+						}elseif($this->session->userdata('user_type')=='receptionist'){
+						     echo 'Receptionist Dashboard';
+						}elseif($this->session->userdata('user_type')=='doctor'){
+						     echo 'Doctor Dashboard';
+						}elseif($this->session->userdata('user_type')=='pathologist'){
+						     echo 'Pathologist Dashboard';
+						}
+						elseif($this->session->userdata('user_type')=='radiology'){
+						     echo 'Radiology Dashboard';
+						}elseif($this->session->userdata('user_type')=='pathology_technician'){
+						     echo 'Pathology Technician Dashboard';
+						}elseif($this->session->userdata('user_type')=='radiology_technician'){
+						     echo 'Radiology Technician Dashboard';
+						}
+						?></h1>
+                        <span class="hide-shadow"></span>
+                    </div>
+
+                    <div class="right-menus pull-right">
+
+                        <div class="language-menu centerthing dropdown">
+
+                            <a data-toggle="dropdown" href="#" class="clearfix dropdown-toggle">
+                                <i class="fa fa-language" aria-hidden="true"></i>
+                            </a>
+                            <ul role="menu" class="dropdown-menu fadeInUp">
+                                <li><a href="#"><span class="user-nav-icon"><i class="fa fa-flag"></i></span><span class="user-nav-label"> English(US)</span></a>
+                                </li>
+                                <li><a href="#"><span class="user-nav-icon"><i class="fa fa-flag"></i></span><span class="user-nav-label"> English(UK)</span></a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                        <div class="user-nav account-menu centerthing">
+                            <ul>
+                                <li class="dropdown">
+                                    <a data-toggle="dropdown" href="#" class="clearfix dropdown-toggle">
+									<?php 
+                        $user_id= $this->session->userdata('user_id');
+                        //$ins_id= $this->session->userdata('ins_id');
+                        $image_name= $this->db->query("SELECT image_name as image_name FROM `tbl_user_information` WHERE user_id='$user_id'")->row()->image_name; 
+//                         ?>
+
+                                  
+                                  <?php if(empty($image_name)){
+                            echo'<img src="'.base_url().'others/uploads/doctor/admin.jpg" alt="image" class="user-thumb">';
+							}else{
+
+                                    echo '<img src="'.base_url().'others/uploads/doctor/'.$image_name.'" class="user-thumb">';
+                                  }
+							?>
+
+                                        
+                                        <span class="profile-status available"></span>
+                                    </a>
+                                    <ul role="menu" class="dropdown-menu fadeInUp">
+									<?php 
+                      if($this->session->userdata('user_type')=='admin')
+                        {
+							echo ' <li><a href="'.base_url().'admin/profile"><span class="user-nav-icon"><i class="fa fa-briefcase"></i></span><span class="user-nav-label">My Account</span></a>
+                                        </li>
+                                        <li><a style="display: none" href="'.base_url().'admin/dashboard"><span class="user-nav-icon"><i class="fa fa-cogs"></i></span><span class="user-nav-label">Settings</span></a>';
+					    } 
+						if($this->session->userdata('user_type')=='doctor')
+                        {
+							echo ' <li><a href="'.base_url().'doctor/profile"><span class="user-nav-icon"><i class="fa fa-briefcase"></i></span><span class="user-nav-label">My Account</span></a>
+                                        </li>
+                                        ';
+					    } 
+						if($this->session->userdata('user_type')=='receptionist')
+                        {
+							echo ' <li><a href="'.base_url().'receptionist/profile"><span class="user-nav-icon"><i class="fa fa-briefcase"></i></span><span class="user-nav-label">My Account</span></a>
+                                        </li>
+                                        ';
+					    } 
+						if($this->session->userdata('user_type')=='pharmacist')
+                        {
+							echo ' <li><a href="'.base_url().'pharmacist/profile"><span class="user-nav-icon"><i class="fa fa-briefcase"></i></span><span class="user-nav-label">My Account</span></a>
+                                        </li>
+                                        ';
+					    } 
+						if($this->session->userdata('user_type')=='pathologist')
+                        {
+							echo ' <li><a href="'.base_url().'pathologist/profile"><span class="user-nav-icon"><i class="fa fa-briefcase"></i></span><span class="user-nav-label">My Account</span></a>
+                                        </li>
+                                        ';
+					    } 
+						if($this->session->userdata('user_type')=='radiology')
+                        {
+							echo ' <li><a href="'.base_url().'radiology/profile"><span class="user-nav-icon"><i class="fa fa-briefcase"></i></span><span class="user-nav-label">My Account</span></a>
+                                        </li>
+                                        ';
+					    } 
+						
+						if($this->session->userdata('user_type')=='pathology_technician')
+                        {
+							echo ' <li><a href="'.base_url().'technician/profile"><span class="user-nav-icon"><i class="fa fa-briefcase"></i></span><span class="user-nav-label">My Account</span></a>
+                                        </li>
+                                        ';
+					    } 
+						
+						
+						?>
+                                       
+                                        </li>
+                                        <li><a href="<?php echo base_url();?>logout/index"><span class="user-nav-icon"><i class="fa fa-lock"></i></span><span class="user-nav-label">Logout</span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>

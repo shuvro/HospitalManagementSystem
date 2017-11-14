@@ -1,0 +1,1197 @@
+<style>
+    input[type="radio"] {
+        -webkit-appearance: checkbox;
+        /* Chrome, Safari, Opera */
+        -moz-appearance: checkbox;
+        /* Firefox */
+        -ms-appearance: checkbox;
+        /* not currently supported */
+    }
+
+    table thead tr th {
+        text-align: center;
+    }
+</style>
+<div class="row  nav-button-container fade in" role="tabpanel" id="manage-prescription">
+    <div class="col-xs-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Manage Report
+
+            </div>
+            <div class="noticeboard-body">
+                <div class="container-fluid">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#prescription-list" aria-controls="prescription-list" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i>
+                                Anaesthesia Record </a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+
+                    <div class="tab-content">
+
+                        <div role="tabpanel" class="tab-pane fade in active" id="prescription-list">
+
+                             <form action="<?php echo base_url(); ?>LabTest/anaesthsia_report_test/" method="POST" enctype="multipart/form-data">
+
+                            <input type="hidden" name="prescription_id" value="<?php echo $this->uri->segment(4) ?>">
+                            <input type="hidden" name="lab_test_no" value="<?php echo $this->uri->segment(3) ?>">
+
+                            <div class="table-responsive table-adjusment " style="overflow-x: hidden; width: 100%;">
+                                <?php if (!isset($anaesthesia_report) && $this->session->userdata('user_type') != 'doctor') {
+                                    echo '<div class="form-group pull-right">
+
+                                                        <label class="fileContainer btn btn-primary waves-effect btn-browse waves-effect waves-effect">
+                                                            <i class="fa fa-upload" aria-hidden="true"></i> Click to Upload Document
+                                                            <input type="file" style="display: none;" name="userfile">
+                                                        </label>
+
+                                                    </div>';
+                                } else {
+                                    echo '<div class="col-sm-12 pull-right">
+                                                 <div class="form-group pull-right">
+
+                                                                       <a href="https://docs.google.com/viewer?url=' . base_url() . 'others/uploads/report/' . $file_name['file_name'] . '" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>Download</a>          
+
+                                                  </div>
+                                               </div>';
+                                }
+                                ?>
+
+                                <div id="print" class="tab-content">
+
+                                    <div role="tabpanel" class="tab-pane fade in active" id="prescription-list">
+
+                                     
+
+                                        <table class="table table-hover">
+                                            <div class="col-sm-12">
+                                                <h3 style="font-size: 20px"><CENTER><b>Combined Military Hospital, Rangpur</b></CENTER></h3>
+                                                        <h4 style="font-size: 16px"><CENTER><b>Clinical Pathology Report</b></CENTER></h4>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-body">
+                                                    <div class="form-group col-md-6">
+                                                        <div>
+                                                            <label class="col-md-3">Voucher No:</label>
+                                                            <input class="col-md-9" type="text" name="voucher_no" value="<?php if (isset($anaesthesia_report)) {
+                                                                echo $anaesthesia_report['vouchar_no'];
+                                                            } ?>" disabled="disabled">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-6" style="padding-left: 5px">
+                                                        <div>
+                                                            <label class="col-md-3">Report No:</label>
+                                                            <input class="col-md-9" type="text" name="report_no" value="<?php if (isset($anaesthesia_report)) {
+                                                                echo $anaesthesia_report['report_no'];
+                                                            } ?>" disabled="disabled">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <div>
+                                                            <label>Date:</label>
+                                                            <input type="text" id="date" name="test_date" value="<?php if (isset($anaesthesia_report)) {
+                                                                echo $anaesthesia_report['date'];
+                                                            } ?>">
+															<div class="monthly" id="mycalendarAll"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <div>
+                                                            <label>Del. Date</label>
+                                                            <input type="text" id="date2" name="delivery_date" value="<?php if (isset($anaesthesia_report)) {
+                                                                echo $anaesthesia_report['delivery_date'];
+                                                            } ?>">
+															<div class="monthly" id="mycalendarAll2"></div>
+                                                        </div>
+                                                    </div>
+
+                                                    <br>
+                                                    <br>
+                                                    <div class="form-group col-md-12">
+                                                        <div>
+                                                            <label class="col-md-2">Patient Name: </label>
+                                                            <input class="col-md-6" type="text" name="patient_name" value="<?php if (isset($anaesthesia_report)) {
+                                                                echo $anaesthesia_report['name'];
+                                                            } ?>" disabled="disabled">
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <br>
+                                                    <div class="form-group col-md-7">
+                                                        <div>
+                                                            <label>Referred By :</label>
+                                                            <input type="text" name="patient_name" value="CMH" disabled="disabled" class="control-">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-5">
+                                                        <div class="form-group col-md-6">
+                                                            <div>
+                                                                <label>Age :</label>
+                                                                <input type="text" name="patient_age" value="<?php if (isset($anaesthesia_report)) {
+                                                                    echo $anaesthesia_report['age'];
+                                                                } ?>" disabled="disabled">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <div>
+
+                                                                <label>Sex :</label>
+                                                                <input type="text" name="patient_sex" value="<?php if (isset($anaesthesia_report)) {
+                                                                    echo $anaesthesia_report['sex'];
+                                                                } ?>" disabled="disabled">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-body">
+                                                    <div class="form-group col-md-6">
+                                                        <div>
+                                                            <label class="col-md-2">Sample:</label>
+                                                            <input class="col-md-10" type="text" name="sample_name" value="Anaesthesia Record">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <div class="col-md-10">
+                                                            <label class="col-md-2">Lab. No: </label>
+                                                            <input class="col-md-10" type="text" name="lab_no" value="<?php if (isset($anaesthesia_report)) {
+                                                                echo $anaesthesia_report['lab_no'];
+                                                            } ?>" disabled="disabled">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label class="col-sm-1">Surgery:</label>
+                                                        <input class="col-sm-7" type="text" name="surgery" value="<?php if (isset($anaesthesia_report)) {
+                                                            echo $anaesthesia_report['surgery'];
+                                                        } ?>">
+                                                        <div class="col-sm-3" style="width: 220px;">
+                                                            <label>
+                                                                <input type="radio" name="surgery_radio" value="Routine" <?php if(isset($anaesthesia_report['surgery_radio'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == 'Routine')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> Routine
+                                                            </label> &nbsp;
+                                                            <label>
+                                                                <input type="radio" name="surgery_radio" value="Emergency" <?php if(isset($anaesthesia_report['surgery_radio'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == 'Emergency')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> Emergency</label>
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <div>
+                                                            <label class="col-sm-1">Surgeon :</label>
+                                                            <input class="col-sm-11" type="text" name="surgeon" value="<?php if (isset($anaesthesia_report)) {
+                                                                echo $anaesthesia_report['surgeon'];
+                                                            } ?>">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label class="col-sm-1">Lines: </label>
+                                                        <label class="col-sm-1" style="width: 60px;">Venous (
+                                                        </label>
+                                                        <div class="col-sm-3" style="width: 170px;">
+                                                            <label style="">
+                                                                <input type="radio" name="lines_radio" value="Peripheral" <?php if(isset($anaesthesia_report['lines_radio'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == 'Peripheral')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> Peripheral
+                                                            </label> &nbsp;
+                                                            <label>
+                                                                <input type="radio" name="lines_radio" value="Central" <?php if(isset($anaesthesia_report['lines_radio'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == 'Central')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> Central
+                                                            </label> &nbsp;
+                                                        </div>
+                                                        <input class="col-sm-3" type="text" name="liness" value="<?php if (isset($anaesthesia_report)) {
+                                                            echo $anaesthesia_report['liness'];
+                                                        } ?>">
+                                                        <label class="col-sm-1" style="width: 20px;">) /
+                                                        </label>
+                                                        <label class="col-sm-1" style="width: 60px;">Arterial</label>
+                                                        <input class="col-sm-3" type="text" name="arterial" value="<?php if (isset($anaesthesia_report)) {
+                                                            echo $anaesthesia_report['arterial'];
+                                                        } ?>">
+                                                        <div class="col-sm-12" style="margin-left: 85px;">
+                                                            <label>
+                                                                <input type="radio" name="arterial_radio" value="NG_tube" <?php if(isset($anaesthesia_report['arterial_radio'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == 'NG_tube')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> NG tube
+                                                            </label> &nbsp;
+                                                            <label>
+                                                                <input type="radio" name="arterial_radio" value="Urinary_Catheter" <?php if(isset($anaesthesia_report['arterial_radio'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == 'Urinary_Catheter')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> Urinary Catheter
+                                                            </label> &nbsp;
+                                                            <label>
+                                                                <input type="radio" name="arterial_radio" value="Surgical_Drain" <?php if(isset($anaesthesia_report['arterial_radio'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == 'Surgical_Drain')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> Surgical Drain
+                                                            </label> &nbsp;
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <div>
+                                                            <label class="col-sm-2">Premed (+Adjuvants) :
+                                                            </label>
+                                                            <input class="col-sm-10" type="text" name="premed" value="<?php if (isset($anaesthesia_report)) {
+                                                                echo $anaesthesia_report['premed'];
+                                                            } ?>">
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <br>
+                                                </div>
+                                            </div>
+                                        </table>
+                                        <div class="col-md-12">
+                                            <div class="noticeboard">
+                                                <div>
+                                                    <div class="table-responsive table-adjustment" style="padding-bottom: 50px">
+                                                        <table class="table table-hover col-sm-6">
+                                                            <div class="table-header ">
+                                                                <div class="input-group dept-input table-head">
+                                                                    <span> <label>Anaesthetic Technique:</label></span>
+                                                                </div>
+                                                            </div>
+
+                                                            <table class="table-bordered col-sm-12" style="text-align: center;">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th style="border-bottom: none; padding-top: 10px;">
+                                                                        GA
+                                                                    </th>
+                                                                    <th>Cont</th>
+                                                                    <th>Spont</th>
+                                                                    <th>ETT(O)(N)</th>
+                                                                    <th>LMA</th>
+                                                                    <th>Mask</th>
+                                                                    <th>Bains</th>
+                                                                    <th>Circle</th>
+                                                                    <th></th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th style="border-top: none;"></th>
+                                                                    <th colspan="12" style="text-align: left;">
+                                                                        Ventilation →
+                                                                        <label>
+                                                                            <input type="radio" name="ventilation" value="Manual" <?php if(isset($anaesthesia_report['ventilation'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == 'Manual')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> Manual
+                                                                        </label> &nbsp;
+                                                                        <label>
+                                                                            <input type="radio" name="ventilation" value="Auto" <?php if(isset($anaesthesia_report['ventilation'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == 'Auto')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> Auto
+                                                                        </label> &nbsp;
+                                                                        <label>-Vt</label>
+                                                                        <input type="text" name="vt" style="width: 60px; margin-left: 5px;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['vt'];
+                                                                        } ?>">
+                                                                        <label>ml</label>
+                                                                        <label style="width:20px;"></label>
+                                                                        <label style="width:30px;">Rate</label>
+                                                                        <input type="text" name="rate" style="width: 60px; margin-left: 5px;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['rate'];
+                                                                        } ?>">
+                                                                        <label>/min</label>
+                                                                    </th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td colspan="1" style="text-align: center; border-bottom: none;">
+                                                                        Regional
+                                                                    </td>
+                                                                    <td colspan="2"></td>
+                                                                    <td colspan="2" style="text-align: center">
+                                                                        Spinal
+                                                                    </td>
+                                                                    <td style="text-align: center">Epidural</td>
+                                                                    <td style="text-align: center">Caudal</td>
+                                                                    <td colspan="2" style="text-align: center">
+                                                                        Brachial PI Block
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="1" style="text-align: center; border-top: none; border-bottom: none;"></td>
+                                                                    <td colspan="2">
+                                                                        <label>
+                                                                            <input type="radio" name="regional_check" value="Space" <?php if(isset($anaesthesia_report['regional_check'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == 'Space')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> Space
+                                                                        </label> &nbsp;
+                                                                        <label>
+                                                                            <input type="radio" name="regional_check" value="Side" <?php if(isset($anaesthesia_report['regional_check'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == 'Side')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> Side
+                                                                        </label> &nbsp;</td>
+                                                                    <td colspan="2" style="text-align: center">
+                                                                        <input type="text" name="spinal_needle" style=" margin-left: 5px;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['spinal_needle'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td style="text-align: center">
+                                                                        <input type="text" name="spinal_drugs" style=" margin-left: 5px;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['spinal_drugs'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td style="text-align: center">
+                                                                        <input type="text" name="epidural_needle" style=" margin-left: 5px;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['epidural_needle'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td colspan="2" style="text-align: center">
+                                                                        <input type="text" name="index" style=" margin-left: 5px;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['epidural_drugs'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="1" style="text-align: center; border-top: none; border-bottom: none;"></td>
+                                                                    <td colspan="2">
+                                                                        <label>Needle (*cath)</label> &nbsp;
+                                                                    </td>
+                                                                    <td colspan="2" style="text-align: center">
+                                                                        <input type="text" name="caudal_needle" style=" margin-left: 5px;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['caudal_needle'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td style="text-align: center">
+                                                                        <input type="text" name="caudal_drugs" style=" margin-left: 5px;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['caudal_drugs'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td style="text-align: center">
+                                                                        <input type="text" name="brachial_needle" style=" margin-left: 5px;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['brachial_needle'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td colspan="2" style="text-align: center">
+                                                                        <input type="text" name="brachial_drugs" style=" margin-left: 5px;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['brachial_drugs'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="1" style="text-align: center; border-top: none; border-bottom: none;"></td>
+                                                                    <td colspan="2">
+                                                                        <label>Drugs</label> &nbsp;</td>
+                                                                    <td colspan="2" style="text-align: center">
+                                                                        <input type="text" name="brachial" style=" margin-left: 5px;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['brachial'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td style="text-align: center">
+                                                                        <input type="text" name="caudal" style=" margin-left: 5px;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['caudal'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td style="text-align: center">
+                                                                        <input type="text" name="epidural" style=" margin-left: 5px;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['epidural'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td colspan="2" style="text-align: center">
+                                                                        <input type="text" name="spinal" style=" margin-left: 5px;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['spinal'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="1" style="text-align: center;">
+                                                                        TIVA
+                                                                    </td>
+                                                                    <td colspan="2" style="border-bottom: none;">
+                                                                        <label>Others</label> &nbsp;</td>
+                                                                    <td colspan="12" style="text-align: center; border-bottom: none;">
+                                                                        <input type="text" name="others" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['others'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="1" style="text-align: center;">
+                                                                        Mon An Care
+                                                                    </td>
+                                                                    <td colspan="2" style="border-top: none;"></td>
+                                                                    <td colspan="12" style="border-top: none;"></td>
+                                                                </tr>
+
+                                                                </tbody>
+                                                            </table>
+
+                                                            <br>
+                                                            <div class="col-sm-12" style="margin-top: 20px;">
+                                                                <div class="form-group col-md-12">
+                                                                    <label class="col-sm-2">Patients Position: </label>
+                                                                    <div class="col-sm-6" style="width: 350px;">
+                                                                        <label style="">
+                                                                            <input type="radio" name="patients_position_radio" value="Supine" <?php if(isset($anaesthesia_report['arterial_radio'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == 'Urinary_Catheter')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> Supine
+                                                                        </label> &nbsp;
+                                                                        <label>
+                                                                            <input type="radio" name="patients_position_radio" value="Prone" <?php if(isset($anaesthesia_report['patients_position_radio'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == 'Prone')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> Prone
+                                                                        </label> &nbsp;
+                                                                        <label>
+                                                                            <input type="radio" name="patients_position_radio" value="Lithotony" <?php if(isset($anaesthesia_report['patients_position_radio'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == 'Lithotony')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>  Lithotony
+                                                                        </label> &nbsp;
+                                                                        <label>
+                                                                            <input type="radio" name="patients_position_radio" value="Laternal" <?php if(isset($anaesthesia_report['patients_position_radio'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == 'Laternal')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?> /> Laternal (R/L) /</label> &nbsp;
+                                                                    </div>
+                                                                    <input class="col-sm-3" type="text" name="patients_position" value="<?php if (isset($anaesthesia_report)) {
+                                                                        echo $anaesthesia_report['patients_position'];
+                                                                    } ?>">
+
+                                                                </div>
+                                                            </div>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="noticeboard">
+                                                <div>
+                                                    <div class="table-responsive table-adjustment" style="padding-bottom: 20px">
+                                                        <table class="table table-hover col-sm-6">
+                                                            <div class="table-header ">
+                                                                <div class="input-group dept-input table-head">
+                                                                    <span> <label>Monitoring:</label></span>
+                                                                </div>
+                                                            </div>
+
+                                                            <table class="table-bordered col-sm-12" style="text-align: center;">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th style="border-bottom: none; padding-top: 10px;">Events</th>
+                                                                    <th>Time <label>
+                                                                            <input type="radio" value="10" name="events" <?php if(isset($anaesthesia_report['events'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == '10')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> 10
+                                                                        </label> &nbsp;
+                                                                        <label>
+                                                                            <input type="radio" value="20" name="events" <?php if(isset($anaesthesia_report['events'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == '20')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> 20
+                                                                        </label> &nbsp;
+                                                                        <label>
+                                                                            <input type="radio" value="30" name="events" <?php if(isset($anaesthesia_report['events'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == '30')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> 30
+                                                                        </label> &nbsp;
+                                                                        <label>Min</label>
+                                                                    </th>
+                                                                    <th>HR/Min</th>
+                                                                    <th>BP mm og Hg</th>
+                                                                    <th>SPO2(%)</th>
+                                                                    <th>ECG</th>
+                                                                    <th>ETCOG2 (mm of Hg)</th>
+                                                                    <th>Temp.</th>
+                                                                    <th>Drugs Given</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td style="border-bottom: none; padding-top: 10px;">Induction</td>
+                                                                    <td><input type="text" name="induction_radio" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['induction_radio'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td><input type="text" name="induction_hr" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['induction_hr'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="induction_bp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['induction_bp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="induction_spo" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['induction_spo'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="induction_ecg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['induction_ecg'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="induction_etcog" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['induction_etcog'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="induction_temp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['induction_temp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="induction_drugs_given" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['induction_drugs_given'];
+                                                                        } ?>"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border-bottom: none; padding-top: 10px;">Intubation</td>
+                                                                    <td><input type="text" name="intubation_radio" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['intubation_radio'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td><input type="text" name="intubation_hr" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['intubation_hr'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="intubation_bp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['intubation_bp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="intubation_spo" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['intubation_spo'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="intubation_ecg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['intubation_ecg'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="intubation_etcog" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['intubation_etcog'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="intubation_temp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['intubation_temp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="intubation_drugs_given" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['intubation_drugs_given'];
+                                                                        } ?>"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border-bottom: none; padding-top: 10px; border-bottom: none;">O2 / N20</td>
+                                                                    <td><input type="text" name="o_radio" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['o_radio'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td><input type="text" name="o_bp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['o_bp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="o_hr" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['o_hr'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="o_spo" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['o_spo'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="o_ecg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['o_ecg'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="o_etcog" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['o_etcog'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="o_temp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['o_temp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="o_drugs_given" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['o_drugs_given'];
+                                                                        } ?>"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border-bottom: none; padding-top: 10px; border-top:none; border-bottom: none;"></td>
+                                                                    <td><input type="text" name="nop_radio" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['nop_radio'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td><input type="text" name="nop_hr" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['nop_hr'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="nop_bp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['nop_bp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="nop_spo" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['nop_spo'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="nop_ecg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['nop_ecg'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="nop_etcog" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['nop_etcog'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="nop_temp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['nop_temp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="nop_drugs_given" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['nop_drugs_given'];
+                                                                        } ?>"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border-bottom: none; padding-top: 10px; border-top:none; border-bottom: none;"></td>
+                                                                    <td><input type="text" name="maintain_radio" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['maintain_radio'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td><input type="text" name="maintain_hr" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['maintain_hr'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="maintain_bp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['maintain_bp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="maintain_spo" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['maintain_spo'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="maintain_ecg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['maintain_ecg'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="maintain_etcgo" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['maintain_etcgo'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="maintain_temp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['maintain_temp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="maintain_drugs_given" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['maintain_drugs_given'];
+                                                                        } ?>"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border-bottom: none; padding-top: 10px; border-top:none; border-bottom: none;"><b>Maintenance</b></td>
+                                                                    <td><input type="text" name="halo_radio" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['halo_radio'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td><input type="text" name="halo_hr" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['halo_hr'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="halo_bp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['halo_bp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="halo_spo" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['halo_spo'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="halo_ecg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['halo_ecg'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="halo_etcog" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['halo_etcog'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="halo_temp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['halo_temp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="halo_drugs_given" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['halo_drugs_given'];
+                                                                        } ?>"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border-bottom: none; padding-top: 10px; border-top:none; border-bottom: none;"></td>
+                                                                    <td><input type="text" name="iso_radio" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['iso_radio'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td><input type="text" name="iso_hr" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['iso_hr'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="iso_bp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['iso_bp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="iso_spo" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['iso_spo'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="iso_ecg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['iso_ecg'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="iso_etcg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['iso_etcg'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="iso_temp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['iso_temp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="iso_drugs_given" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['iso_drugs_given'];
+                                                                        } ?>"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border-bottom: none; padding-top: 10px; border-top:none; border-bottom: none;"></td>
+                                                                    <td><input type="text" name="sevo_radio" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_radio'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td><input type="text" name="sevo_hr" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_hr'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_bp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_bp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_spo" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_spo'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_ecg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_ecg'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_etcgo" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_etcgo'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_temp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_temp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_drugs_given" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_drugs_given'];
+                                                                        } ?>"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border-bottom: none; padding-top: 10px; border-top:none; border-bottom: none;"></td>
+                                                                    <td><input type="text" name="sevo_a_radio" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_a_radio'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td><input type="text" name="sevo_a_hr" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_a_hr'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_a_bp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_a_bp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_a_spo" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_a_spo'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_a_ecg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_a_ecg'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_a_etcg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_a_etcg'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_a_temp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_a_temp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_a_drugs_given" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_a_drugs_given'];
+                                                                        } ?>"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border-bottom: none; padding-top: 10px; border-top:none; border-bottom: none;"></td>
+                                                                    <td><input type="text" name="sevo_b_radio" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_b_radio'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td><input type="text" name="sevo_b_hr" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_b_hr'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_b_bp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_b_bp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_b_spo" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_b_spo'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_b_ecg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_b_ecg'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_b_etcg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_b_etcg'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_b_temp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_b_temp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_b_drugs_given" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_b_drugs_given'];
+                                                                        } ?>"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border-bottom: none; padding-top: 10px; border-top:none; border-bottom: none;">Halo/Iso</td>
+                                                                    <td><input type="text" name="sevo_c_radio" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_c_radio'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td><input type="text" name="sevo_c_hr" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_c_hr'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_c_bp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_c_bp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_c_spo" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_c_spo'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_c_ecg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_c_ecg'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_c_etcg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_c_etcgo'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_c_temp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_c_temp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_c_drugs_given" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_c_drugs_given'];
+                                                                        } ?>"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border-bottom: none; padding-top: 10px; border-top:none; border-bottom: none;">Sevo (%)</td>
+                                                                    <td><input type="text" name="sevo_d_radio" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_d_radio'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td><input type="text" name="sevo_d_hr" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_d_hr'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_d_bp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_d_bp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_d_spo" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_d_spo'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_d_ecg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_d_ecg'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_d_etcg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_d_etcg'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_d_temp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_d_temp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="sevo_d_drugs_given" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['sevo_d_drugs_given'];
+                                                                        } ?>"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border-bottom: none; padding-top: 10px; border-top:none; border-bottom: none;"></td>
+                                                                    <td><input type="text" name="reversal_radio" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['reversal_radio'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td><input type="text" name="reversal_hr" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['reversal_hr'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="reversal_bp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['reversal_bp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="reversal_spo" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['reversal_spo'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="reversal_ecg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['reversal_ecg'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="reversal_etcg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['reversal_etcg'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="reversal_temp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['reversal_temp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="reversal_drug_given" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['reversal_drug_given'];
+                                                                        } ?>"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border-bottom: none; padding-top: 10px; border-top:none; border-bottom: none;">(Reversal Extubation)</td>
+                                                                    <td><input type="text" name="transfer_radio" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['transfer_radio'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td><input type="text" name="transfer_hr" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['transfer_hr'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="transfer_bp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['transfer_bp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="transfer_spo" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['transfer_spo'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="transfer_ecg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['transfer_ecg'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="transfer_etcg" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['transfer_etcg'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="transfer_temp" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['transfer_temp'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="transfer_drug" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['transfer_drug'];
+                                                                        } ?>"></td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td colspan="12" style="text-align: left; padding: 5px;">
+                                                                        Important Points:
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th style="padding-top: 10px; text-align: center;">Duration of Anaes</th>
+                                                                    <th colspan="2" style="padding-top: 10px; text-align: center;">Infusion/Transfusion</th>
+                                                                    <th colspan="2" style="padding-top: 10px; text-align: center;">Blood Loss</th>
+                                                                    <th style="padding-top: 10px; text-align: center;">Urine Output</th>
+                                                                    <th colspan="2" style="padding-top: 10px; text-align: center;">Perop Inv (eg RBS)</th>
+                                                                    <th style="padding-top: 10px; text-align: center;">Recovery Score</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border-bottom: none; padding-top: 10px; border-top:none; border-bottom: none;"><input class="form-control" type="text" name="duration_infusion" style="padding: 0;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['duration_infusion'];
+                                                                        } ?>">min</td>
+                                                                    <td colspan="2"><input type="text" name="duration_blood" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['duration_blood'];
+                                                                        } ?>">
+                                                                    </td>
+                                                                    <td colspan="2"><input type="text" name="duration_urine" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['duration_urine'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="duration_perop" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['duration_perop'];
+                                                                        } ?>"></td>
+                                                                    <td colspan="2"><input type="text" name="duration_recovery" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['duration_recovery'];
+                                                                        } ?>"></td>
+                                                                    <td><input type="text" name="min_infusion" style=" margin-left: 5px; width: 90%;" value="<?php if (isset($anaesthesia_report)) {
+                                                                            echo $anaesthesia_report['min_infusion'];
+                                                                        } ?>"></td>
+                                                                </tr>
+
+                                                                </tbody>
+                                                            </table>
+
+                                                            <br>
+                                                            <div class="col-sm-12" style="margin-top: 20px;">
+                                                                <div class="form-group col-md-12">
+                                                                    <label class="col-sm-3">Anaesthetic Compilations & its management (if any) </label>
+                                                                    <input class="col-sm-8" type="text" name="anaaesthetic_compilations" value="<?php if (isset($anaesthesia_report)) {
+                                                                        echo $anaesthesia_report['anaaesthetic_compilations'];
+                                                                    } ?>">
+
+                                                                </div>
+                                                            </div>
+
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="noticeboard">
+                                                <div>
+                                                    <div class="table-responsive table-adjusment">
+                                                        <table class="table table-hover col-md-6">
+                                                            <div class="table-header ">
+
+                                                                <div class="input-group dept-input table-head">
+                                                                                <span> <label>Postop Advice:</label></span>
+                                                                </div>
+
+                                                                    <div class="form-group  col-sm-12">
+                                                                        <label for="" class="control-label col-sm-2"><strong>★ O2 Inhalation</strong> </label>
+                                                                        <div class="email-profile inline-block col-sm-1">
+                                                                            <input type="text" class="form-control" name="inhalation" value="<?php if(isset($anaesthesia_report)){echo $anaesthesia_report['inhalation'];}?>">
+                                                                        </div>
+                                                                        <label class="col-sm-1 control-label">L/min by</label>
+                                                                        <div class="control-label col-sm-5" style="width: 255px;">
+                                                                            <label ><input type="radio" name="inhalation_radio" value="Mask" <?php if(isset($anaesthesia_report['inhalation_radio'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == 'Mask')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> Mask</label> &nbsp;
+                                                                            <label ><input type="radio" name="inhalation_radio" value="Cannula" <?php if(isset($anaesthesia_report['inhalation_radio'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == 'Cannula')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> N. Cannula</label> &nbsp;
+                                                                            <label ><input type="radio" name="inhalation_radio" value="Piece" <?php if(isset($anaesthesia_report['inhalation_radio'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == 'Piece')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> T-Piece /</label> &nbsp;
+                                                                        </div>
+                                                                        <div class="email-profile inline-block col-sm-3">
+                                                                            <input type="text" class="form-control" name="piece" style="margin-left: -20px;" value="<?php if(isset($anaesthesia_report)){echo $anaesthesia_report['piece'];}?>">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group col-sm-12">
+                                                                        <label for="" class="control-label col-sm-2"><strong>★ Position -</strong> </label>
+                                                                        <div class="control-label col-sm-3" style="width: 175px;">
+                                                                            <label ><input type="radio" name="position_radio" value="Supine" <?php if(isset($anaesthesia_report['position_radio'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == 'Supine')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> Supine /</label> &nbsp;
+                                                                            <label ><input type="radio" name="position_radio" value="Lateral" <?php if(isset($anaesthesia_report['position_radio'])){
+                                                                                        foreach ($anaesthesia_report as $key) {
+                                                                                            if($key == 'Lateral')
+                                                                                                echo 'checked';
+                                                                                        }
+                                                                                    }?>> Lateral /</label> &nbsp;
+                                                                        </div>
+                                                                        <label class="control-label">* Oropharyngeal Suction SOS</label>
+                                                                        <div class="email-profile inline-block col-sm-3">
+                                                                            <input type="text" class="form-control" name="oropharyngeal" style="margin-left: -20px;" value="<?php if(isset($anaesthesia_report)){echo $anaesthesia_report['oropharyngeal'];}?>">
+                                                                        </div>
+                                                                    </div>
+                                                                <div class="form-group  col-sm-12">
+                                                                    <label for="" class="control-label col-sm-2"><strong>★ NPO for</strong> </label>
+                                                                    <div class="email-profile inline-block col-sm-10">
+                                                                        <input type="text" class="form-control" name="npo_for" value="<?php if(isset($anaesthesia_report)){echo $anaesthesia_report['npo_for'];}?>">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group  col-sm-12">
+                                                                    <label for="" class="control-label col-sm-2"><strong>★ IV Fluid</strong> </label>
+                                                                    <div class="email-profile inline-block col-sm-10">
+                                                                        <input type="text" class="form-control" name="fluid" value="<?php if(isset($anaesthesia_report)){echo $anaesthesia_report['fluid'];}?>">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group  col-sm-12">
+                                                                    <label for="" class="control-label col-sm-2"><strong>★ Analgesia</strong> </label>
+                                                                    <div class="email-profile inline-block col-sm-10">
+                                                                        <input type="text" class="form-control" name="analgesia" value="<?php if(isset($anaesthesia_report)){echo $anaesthesia_report['analgesia'];}?>">
+                                                                    </div>
+                                                                    <div class="email-profile inline-block col-sm-12">
+                                                                        <input type="text" class="form-control" name="consultant" value="<?php if(isset($anaesthesia_report)){echo $anaesthesia_report['consultant'];}?>">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group  col-sm-6">
+                                                                    <label for="" class="control-label col-sm-3"><strong>Consultant (Name & Sign)</strong> </label>
+                                                                    <div class="email-profile inline-block col-sm-6">
+                                                                        <input type="text" class="form-control" name="consultant_name" value="<?php if(isset($anaesthesia_report)){echo $anaesthesia_report['consultant_name'];}?>">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group  col-sm-6">
+                                                                    <label for="" class="control-label col-sm-3"><strong>Anaethesiologist (Name & Sign)</strong> </label>
+                                                                    <div class="email-profile inline-block col-sm-6">
+                                                                        <input type="text" class="form-control" name="anaethesiologist_name" value="<?php if(isset($anaesthesia_report)){echo $anaesthesia_report['anaethesiologist_name'];}?>">
+                                                                    </div>
+                                                                </div>
+																
+                                                            <div class="pull-right">
+                                                                <?php if(!isset($anaesthesia_report) && $this->session->userdata('user_type')!='doctor')
+                                                echo  '<button type="Submit" class="btn btn-success pull-left print" style="padding: 16px 12px">
+                                        <strong>SUBMIT</strong></button>'; ?>
+                                                            </div>
+
+                                                            </div>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>                                            
+                                        <div class="col-xs-12 table-footer table-foot" style="margin-top:20px;">
+
+                                            <div class="btn-group pull-right print" role="group" aria-label="">
+                                                <a href="<?php echo base_url() ?>printing/report_printing/<?php echo $this->uri->segment(2); ?>/<?php echo $this->uri->segment(3); ?>/<?php echo $this->uri->segment(4); ?>" target="_blank">
+                                                    <button type="button" class="btn btn-default"><i class="fa fa-print" aria-hidden="true"></i></button>
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+							
+							</form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <script>
+    function printFunction() {
+        var divContents = $("#print").html();
+        var printWindow = window.open('', '', 'height=1500,width=1500');
+        printWindow.document.write('<html><head>' +
+            '<link href="<?php echo base_url(); ?>others/css/bootstrap.min.css" rel="stylesheet">' +
+            '<link href="<?php echo base_url(); ?>others/css/style-admin.css" rel="stylesheet">' +
+            '<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">' +
+            '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">' +
+            '<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" type="text/css">' +
+            '<link rel="stylesheet" href="<?php echo base_url(); ?>others/css/monthly.css">' +
+            '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.min.css">' +
+            '<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">' +
+            '<link href="<?php echo base_url(); ?>others/css/typeahead.css" rel="stylesheet">' +
+            '<link rel="stylesheet" href="<?php echo base_url(); ?>others/css/perfect-scrollbar.css"/><title></title>' +
+            '<style type="text/css">.print {display: none;}</style>');
+        printWindow.document.write('</head><body >');
+        printWindow.document.write(divContents);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
+    }
+</script> -->
+<script>
+    var base_url = '<?php echo base_url();?>';
+
+    function myFunction() {
+        var x = document.getElementById("myFile");
+        var txt = "";
+        if ('files' in x) {
+            if (x.files.length == 0) {
+                txt = "Select one or more files.";
+            } else {
+                for (var i = 0; i < x.files.length; i++) {
+                    txt += "<br><strong>" + (i + 1) + ". file</strong><br>";
+                    var file = x.files[i];
+                    if ('name' in file) {
+                        txt += "name: " + file.name + "<br>";
+                    }
+                    if ('size' in file) {
+                        txt += "size: " + file.size + " bytes <br>";
+                    }
+                }
+            }
+        } else {
+            if (x.value == "") {
+                txt += "Select one or more files.";
+            } else {
+                txt += "The files property is not supported by your browser!";
+                txt += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead.
+            }
+        }
+        document.getElementById("demo").innerHTML = txt;
+    }
+</script>

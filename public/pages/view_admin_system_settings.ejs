@@ -1,0 +1,114 @@
+<!--  containt tab for system-settings-->
+                <div class="row  nav-button-container fade in" role="tabpanel" id="system-settings">
+                    <div class="col-xs-12">
+                        <div class="noticeboard">
+                            <div class="noticeboard-header content-header">
+                                <i class="fa fa-info-circle" aria-hidden="true"></i> System Settings
+
+                            </div>
+                            <div class="noticeboard-body">
+                                <div>
+
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+
+                                        <li role="presentation" class="active"><a href="#add-system-setting" aria-controls="add-system-setting" role="tab" data-toggle="tab"><i class="fa fa-plus"></i>
+                                                System Settings                    	</a></li>
+
+                                    </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+
+                                        <div role="tabpanel" class="tab-pane fade in active" id="add-system-setting">
+                                            <div class="table-adjusment">
+                                                <!--<form class="form-horizontal">-->
+                                                <?php 
+                                                foreach($settings as $row):
+                                                    ?>
+
+                                 <form action="<?php echo base_url(); ?>AdminEdit/update_settings" method="post" enctype="multipart/form-data">
+                                                    <div class="form-group">
+                                                        <label for="hospital-name" class="control-label">Hospital Name</label>
+                                                        <div class=" ">
+                                                            <input type="text" class="form-control dept-input" id="hospital-name"  placeholder="Name Of Hospital" name="hms_name" value="<?php echo $row['hospital_name'];?>">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="system-logo" class="control-label">Logo</label>
+                                                        <div class="controls">
+														<?php 
+                                                            if ($row['logo_name'] == '')
+                                                            $image_url = 'others/uploads/doctor/default-doctor.png';
+                                                        else
+                                                            $image_url = 'others/uploads/system/' . $row['logo_name'];
+															?>
+                                                            <img id="preview_logo" src="<?php echo base_url() . $image_url ?>"  style="max-height:100px; max-width:200px;"/>
+                                                            
+                                                            <img src="" style="max-height:100px; max-width:200px;" />
+                                                            <input type="file" id="photo_logo" class="" name="photo" accept="image/*">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                        <label for="system-logo" class="control-label">Change Hospital Background Image</label>
+                                                        <div class="controls">
+                                                            <?php 
+                                                            if ($row['background_name'] == '')
+                                                            $background_url = 'others/uploads/doctor/default-doctor.png';
+                                                        else
+                                                            $background_url = 'others/uploads/system/' . $row['background_name'];
+															?>
+                                                            <img id="preview_background" src="<?php echo base_url() . $background_url ?>"  style="max-height:100px; max-width:200px;"/>
+                                                           
+                                                            <img src=""  style="max-height:100px; max-width:200px;"/>
+                                                            <br>
+                                                            <input type="file" id="photo_background" class="" name="background" accept="image/*">
+                                                        </div>
+                                                    </div>
+
+
+                                                    
+                                                          
+                                                    <!--<div class="form-group">
+                                                        <label for="system-acc-type" class="control-label">Account Type (Changeable Once)</label>
+                                                        <div class=" ">
+
+                                                            <select id="system-acc-type" type="text" class="form-control dept-input" placeholder="Select Plan">
+                                                                <option>Choose</option>
+                                                                <option value="Free_30">Free_30</option>
+                                                                <option value="Month_3">Month_3</option>
+                                                                <option value="Month_6">Month_6</option>
+                                                                <option value="Month_12">Month_12</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>-->
+                                                        
+
+                                                    <div class="form-group">
+                                                        <div class=" ">
+                                                            <button type="submit" class="btn btn-default ">Save</button>
+                                                        </div>
+                                                    </div>
+													</form>
+													 <?php endforeach;?>
+                                                <!--</form>-->
+                                                
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                

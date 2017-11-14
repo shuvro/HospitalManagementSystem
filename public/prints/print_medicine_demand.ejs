@@ -1,0 +1,70 @@
+<style>
+    body {
+        font-family: Raleway;
+    }
+    table thead tr th{
+        border-bottom: 1px solid #000;
+        border-top: 1px solid #000;
+        font-size: 13px;
+    }
+    table tr td{
+        font-size: 12px;
+    }
+    h4, h5, h6 {
+        text-height: 0px;
+    }
+</style>
+<section>
+    <div>
+        <div>
+            <div style="border-bottom: 1px solid #000;">
+                <div>
+                    
+                </div>
+                <div style="margin-top: -10%; margin-left: 10%;">
+                    <h4>Combined Military Hospital </h4>
+                </div>
+                <div style="margin-top: -4%; margin-left: 10%;">
+                    <h5>Rangpur</h5>
+                </div>
+                <div style="margin-left: 75%; margin-top: -4%; width: 300px;">
+                    <span><b>Print On: </b><?php echo date('Y-m-d'); ?></span>
+                </div>
+            </div>
+            <div style="width: 100%; text-align: center; text-decoration: underline;">
+                <h2>   Medicine Demand List</h2>
+				 
+            </div>
+			
+            <div style="width: 100%; text-align: center; text-decoration: none; margin-top: -10px;">
+                
+                <span><b>Date</b> from <?php echo $form; ?> to <?php echo $to; ?></span>
+                <div>
+                    <table style="border: 1px solid #000; text-align: center; width: 100%; margin-top: 3%;">
+                        
+                        <thead>
+                            <tr>
+                                <th>SL.</th>
+                                <th>Medicine name</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                             <?php 
+							  $count = 1;
+							 
+							 foreach($medicine_demand as $row):?>
+							   
+                                <tr>
+                                    <td><?php echo $count++; ?></td>
+                                    <td><?php echo $row['medicine_name']; ?></td>
+                                    <td><?php echo $row['quantity']; ?></td>
+                                </tr>
+                          <?php endforeach; ?>
+						  
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </section>
+            </section>

@@ -1,0 +1,496 @@
+<div class="row nav-button-container tab-pane fade in active" role="tabpanel" id="patient-detailes">
+<<<<<<< HEAD
+    <div id="print">
+        <div class="col-sm-12 centerthing">
+            <div class="noticeboard">
+                <div class="noticeboard-header content-header">
+                    <img src="<?php echo base_url()?>others/images/rangpur_logo.png" style="max-width: 120px;" alt="logo_cmh">
+                    <h3>Rangpur Combined Military Hospital </h3>
+
+<div id="print">
+    <div class="col-sm-12 centerthing">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <img src="<?php echo base_url()?>others/images/rangpur_logo.png" style="max-width: 120px;" alt="logo_cmh">
+                <h3>Combined Military Hospital,Rangpur </h3>
+
+                    <!-- <h4>CMH, Rangpur Cantonment , Combined Military Hospital</h4>
+                    <h4>Rangpur, Rajshahi Division - 5400</h4> -->
+                    <!--                <i class="fa fa-info-circle" aria-hidden="true"></i> Patients Detailes-->
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 centerthing">
+            <div class="noticeboard">
+                <div class="table-adjusment">
+                    <div class="form-group">
+                        <label for="patient-id" class="control-label">Prescription ID :</label>
+                        <div class="email-profile inline-block">
+                            <span><?php echo $prescription['prescription_id']; ?></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 noticeboard">
+            <div class="col-sm-4" style="padding-left: 30px">
+                <div class="form-group">
+                    <label for="patient-id" class="control-label">ID :</label>
+                    <div class="  email-profile inline-block">
+                        <span><?php echo $patient_details['patient_id']; ?></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="patient-name" class="control-label">Name :</label>
+                    <div class="  email-profile inline-block">
+                        <span><?php echo $patient_details['name']; ?></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="patient-dob" class="control-label">Army No :</label>
+                    <div class="  email-profile inline-block">
+                        <span><?php echo $patient_details['army_no']; ?></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-4" style="padding-left: 30px">
+                <div class="form-group">
+                    <label for="patient-address" class="control-label">Rank :</label>
+                    <div class="  email-profile inline-block">
+                        <span><?php echo $patient_details['rank']; ?></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="patient-phone" class="control-label">Unit
+                    </label>
+                    <div class="  email-profile inline-block">
+                        <span><?php echo $patient_details['unit']; ?></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="patient-email" class="control-label">Age :</label>
+                    <div class="  email-profile inline-block">
+                        <span><?php echo $patient_details['age']; ?></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="patient-age" class="control-label">Gender :</label>
+                    <div class="  email-profile inline-block">
+                        <span><?php echo $patient_details['sex']; ?></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="patient-sex" class="control-label">Blood Group :</label>
+                    <div class="  email-profile inline-block">
+                        <span><?php echo $patient_details['blood_group']; ?></span>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive table-adjusment ">
+                <table class="table table-hover">
+                    <div class="table-header ">
+
+                        <div class="input-group table-head">
+                            <i class="fa fa-stethoscope" aria-hidden="true"></i>&nbsp; &nbsp;Heath Condition
+                            <!--                        <button class="btn pull-right" id="btn1"><i class="fa fa-plus" aria-hidden="true"></i></button>-->
+                        </div>
+                    </div>
+                    <thead>
+                        <tr>
+
+                            <th style="text-align: center;">BP</th>
+                            <th style="text-align: center;">Pulse</th>
+                            <th style="text-align: center;">Temperature</th>
+                            <th style="text-align: center;">Disease</th>
+                            <th style="text-align: center;">Disposal.</th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="new">
+
+                        <tr>
+
+                            <td style="border-left: 1px solid grey;">
+                                <input type="text" value="<?php echo $prescription['bp'];?>" class="form-control medicine_class" id="medicine" name="medicine[]">
+                            </td>
+                            <td style="border-left: 1px solid grey;">
+                                <input type="text" value="<?php echo $prescription['pulse'];?>" class="form-control dose" id="dose" name="dose[]">
+                            </td>
+                            <td style="border-left: 1px solid grey;">
+                                <input type="text" value="<?php echo $prescription['temperature'];?>" class="form-control duration" id="duration" name="duration[]">
+                            </td>
+                            <td style="border-left: 1px solid grey;">
+                                <input type="text" value="<?php echo $prescription['disease'];?>" class="form-control remarks" id="remarks" name="remarks[]">
+                            </td>
+                            <td style="border-left: 1px solid grey;">
+                                <input type="text" value="<?php echo $prescription['disposal_type'];?>-<?php echo $prescription['disposal'];?>" class="form-control remarks" id="remarks" name="remarks[]">
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="table-responsive table-adjusment ">
+                <table class="table table-hover">
+                    <div class="table-header ">
+
+                        <div class="input-group table-head">
+                            <i class="fa fa-stethoscope" aria-hidden="true"></i>&nbsp; &nbsp;Medication
+                            <!--                        <button class="btn pull-right" id="btn1"><i class="fa fa-plus" aria-hidden="true"></i></button>-->
+                        </div>
+                    </div>
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Sr.</th>
+                            <th style="text-align: center;">Medicine</th>
+                            <th style="text-align: center;">Dose</th>
+                            <th style="text-align: center;">Duration</th>
+                            <th style="text-align: center;">Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody id="new">
+                        <?php
+                    $count = 1;
+                    foreach ($medicines as $key):
+                ?>
+                            <tr>
+                                <td style="border-left: 1px solid grey;">
+                                    <?php echo $count++;?>
+                                </td>
+                                <td style="border-left: 1px solid grey;">
+                                    <input type="text" value="<?php echo $key['med_name'];?>" class="form-control medicine_class" id="medicine" name="medicine[]">
+                                </td>
+                                <td style="border-left: 1px solid grey;">
+                                    <input type="text" value="<?php echo $key['dose'];?>" class="form-control dose" id="dose" name="dose[]">
+                                </td>
+                                <td style="border-left: 1px solid grey;">
+                                    <input type="text" value="<?php echo $key['duration'];?>" class="form-control duration" id="duration" name="duration[]">
+                                </td>
+                                <td style="border-left: 1px solid grey;">
+                                    <input type="text" value="<?php echo $key['remarks'];?>" class="form-control remarks" id="remarks" name="remarks[]">
+                                </td>
+                            </tr>
+                            <?php
+                    endforeach;
+                ?>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+        <div class="col-sm-12 noticeboard" style="border-top: 1px dashed black">
+
+            <div class="col-sm-4" style="padding-left: 30px">
+                <div class="form-group">
+                    <label for="patient-id" class="control-label">ID :</label>
+                    <div class="  email-profile inline-block">
+                        <span><?php echo $patient_details['patient_id']; ?></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="patient-name" class="control-label">Name :</label>
+                    <div class="  email-profile inline-block">
+                        <span><?php echo $patient_details['name']; ?></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="patient-dob" class="control-label">Army No :</label>
+                    <div class="  email-profile inline-block">
+                        <span><?php echo $patient_details['army_no']; ?></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-4" style="padding-left: 30px">
+                <div class="form-group">
+                    <label for="patient-address" class="control-label">Rank :</label>
+                    <div class="  email-profile inline-block">
+                        <span><?php echo $patient_details['rank']; ?></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="patient-phone" class="control-label">Unit
+                    </label>
+                    <div class="  email-profile inline-block">
+                        <span><?php echo $patient_details['unit']; ?></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="patient-email" class="control-label">Age :</label>
+                    <div class="  email-profile inline-block">
+                        <span><?php echo $patient_details['age']; ?></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="patient-age" class="control-label">Gender :</label>
+                    <div class="  email-profile inline-block">
+                        <span><?php echo $patient_details['sex']; ?></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="patient-sex" class="control-label">Blood Group :</label>
+                    <div class="  email-profile inline-block">
+                        <span><?php echo $patient_details['blood_group']; ?></span>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive table-adjusment ">
+                <table class="table table-hover">
+                    <div class="table-header ">
+
+                        <div class="input-group table-head">
+                            <i class="fa fa-tint" aria-hidden="true"></i>&nbsp; &nbsp;Lab Tests
+                            <!--                            <button class="btn pull-right" id="btn2"><i class="fa fa-plus" aria-hidden="true"></i></button>-->
+                        </div>
+                    </div>
+
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Sl.</th>
+                            <th style="text-align: center;">Lab Test</th>
+                        </tr>
+
+                    </thead>
+                    <tbody id="new2">
+                        <?php
+                                $count = 1;
+                                //$length = count($prescribed_medicine);
+                                foreach ($lab as $key):
+                                ?>
+                            <tr>
+                                <td style="border-left: 1px solid grey;">
+                                    <?php echo $count++;?>
+                                </td>
+
+                                <td style="border-left: 1px solid grey;">
+                                    <input type="text" value="<?php echo $key['lab_test_name'];  ?>" class="form-control lab_class" id="lab_test" name="lab_test[]">
+                                </td>
+
+                            </tr>
+                            <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 noticeboard" style="border-top: 1px dashed black">
+        <div class="col-sm-4" style="padding-left: 30px">
+            <div class="form-group">
+                <label for="patient-id" class="control-label">ID :</label>
+                <div class="  email-profile inline-block">
+                    <span><?php echo $patient_details['patient_id']; ?></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="patient-name" class="control-label">Name :</label>
+                <div class="  email-profile inline-block">
+                    <span><?php echo $patient_details['name']; ?></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="patient-dob" class="control-label">Army No :</label>
+                <div class="  email-profile inline-block">
+                    <span><?php echo $patient_details['army_no']; ?></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-4" style="padding-left: 30px">
+            <div class="form-group">
+                <label for="patient-address" class="control-label">Rank :</label>
+                <div class="  email-profile inline-block">
+                    <span><?php echo $patient_details['rank']; ?></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="patient-phone" class="control-label">Unit
+                </label>
+                <div class="  email-profile inline-block">
+                    <span><?php echo $patient_details['unit']; ?></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="patient-email" class="control-label">Age :</label>
+                <div class="  email-profile inline-block">
+                    <span><?php echo $patient_details['age']; ?></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="patient-age" class="control-label">Gender :</label>
+                <div class="  email-profile inline-block">
+                    <span><?php echo $patient_details['sex']; ?></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="patient-sex" class="control-label">Blood Group :</label>
+                <div class="  email-profile inline-block">
+                    <span><?php echo $patient_details['blood_group']; ?></span>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive table-adjusment ">
+            <table class="table table-hover">
+                <div class="table-header ">
+
+                    <div class="input-group table-head">
+                        <i class="fa fa-stethoscope" aria-hidden="true"></i>&nbsp; &nbsp;Medication
+                        <!--                        <button class="btn pull-right" id="btn1"><i class="fa fa-plus" aria-hidden="true"></i></button>-->
+                    </div>
+                </div>
+                <thead>
+                    <tr>
+                        <th style="text-align: center;" class="col-sm-1">Sr.</th>
+                        <th style="text-align: center;" class="col-sm-6">Medicine</th>
+
+                    </tr>
+                </thead>
+                <tbody id="new">
+                    <?php 
+                    $count=1;
+                    foreach ($medicines as $key):
+                ?>
+                        <tr>
+                            <td style="border-left: 1px solid grey;">
+                                <?php echo $count++;?>
+                            </td>
+                            <td style="border-left: 1px solid grey;">
+                                <input type="text" value="<?php echo $key['med_name']?>" class="form-control medicine_class" id="medicine" name="medicine[]">
+                            </td>
+
+                        </tr>
+                        <?php endforeach; ?>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+    <div class="col-xs-12 table-footer table-foot">
+
+        <div class="btn-group pull-right print" role="group" aria-label="">
+            <button type="button" class="btn btn-default" onclick="printFunction()"><i class="fa fa-print" aria-hidden="true"></i></button>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Modal -->
+
+<script type="text/javascript">
+    $(document).on('click', '#prescribe', function() {
+        var edit_id = $(this).closest('tr').children()[1].textContent;
+        $('#appointment_id').val(edit_id);
+        //alert(edit_id);
+        $("#add-prescription").modal("show");
+    });
+
+    $(document).on('click', '#details', function() {
+
+        var edit_id = $(this).closest('tr').children()[1].textContent;
+        //alert(edit_id);
+
+        //         $(".modal #prescription_id").val(edit_id);
+        var temp;
+        //    $("#appointment_modal").modal("show");
+
+        $.ajax({
+
+            url: '<?php echo base_url();?>receptionist/get_reports',
+            data: {
+                'edit_id': edit_id
+            },
+            type: 'POST',
+            dataType: 'json',
+
+            error: function() {
+                alert("Nothing Prescribe");
+            },
+
+            success: function(data) {
+                    //var obj = jQuery.parseJSON(data);
+                    //alert(obj['prescription_details']);
+                    // $(".modal #id").val(data[0].doctor_id);
+                    //var json = $.parseJSON(data);\
+                    // $("#total_reports").text(data.reports.length+' Reports');
+                    if (data.reports.length > 0) {
+                        for (var i = 0; i < data.reports.length; i++) {
+                            temp += '<tr><th scope="row">' + (i + 1) + '</th><td>' + data.reports[i].report_type + '</td><td><img src="<?php echo base_url();?>others/images/x-ray.jpg" height="50px" width="107px"><a href="https://docs.google.com/viewer?url=<?php echo base_url()?>/uploads/report/' + data.reports[i].file_name + '" target="_blank"><button class="btn btn-primary" style="margin-top: 10px;"><i class="fa fa-download" aria-hidden="true"></i>Download</button></a></td><td>' + data.reports[i].description + '</td><td>' + data.reports[i].timestamp + '</td><td>' + data.reports[i].laboratorist_name + '</td></tr>';
+                        }
+
+                        $("#all_reports").empty();
+                        $("#all_reports").append(temp);
+                    } else {
+                        $("#all_reports").empty();
+                        $("#all_reports").append('No Reports');
+                    }
+
+                    $("#medication").html(data.prescription_details[0].medication);
+                    $("#doctor-advise").html(data.prescription_details[0].advise);
+                    //$("#appointment_id").html(data.prescription_details[0].appointment_id);
+                    //   alert(edit_id);
+
+                    $("#appointment_modal").modal("show");
+
+                } // End of success function of ajax form
+        }); // End of ajax call
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        var id = 2;
+        $("#btn1").bind('click', function() {
+            $("#new").append('<tr>' +
+                '<td style="border-left: 1px solid grey;">' + id + '</td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="medicine[]" class="form-control medicine_class" id="medicine"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="dose[]" class="form-control dose" id="dose"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="duration[]" class="form-control duration" id="duration"></td>' +
+                '<td style="border-left: 1px solid grey;"><input type="text" name="remarks[]" class="form-control remarks" id="remarks"></td>' +
+                '</tr>');
+            id++;
+            return false;
+        });
+    });
+</script>
+<script>
+    function printFunction() {
+        var divContents = $("#print").html();
+        var printWindow = window.open('', '', 'height=1500,width=1366');
+        printWindow.document.write('<html><head>' +
+            '<link href="<?php echo base_url(); ?>others/css/bootstrap.min.css" rel="stylesheet">' +
+            '<link href="<?php echo base_url(); ?>others/css/style-admin.css" rel="stylesheet">' +
+            '<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">' +
+            '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">' +
+            '<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" type="text/css">' +
+            '<link rel="stylesheet" href="<?php echo base_url(); ?>others/css/monthly.css">' +
+            '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.min.css">' +
+            '<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">' +
+            '<link href="<?php echo base_url(); ?>others/css/typeahead.css" rel="stylesheet">' +
+            '<link rel="stylesheet" href="<?php echo base_url(); ?>others/css/perfect-scrollbar.css"/><title></title>' +
+            '<style type="text/css">.print {display: none;}</style>');
+        printWindow.document.write('</head><body >');
+        printWindow.document.write(divContents);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
+    }
+</script>

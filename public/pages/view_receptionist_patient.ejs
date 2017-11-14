@@ -1,0 +1,470 @@
+<div class="row  nav-button-container fade in" role="tabpanel" id="petient">
+    <div class="col-xs-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Manage Patient
+
+            </div>
+            <div class="noticeboard-body">
+                <div>
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#patient-list" aria-controls="patient-list" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i> 
+                            Patient List                    	</a></li>
+							<li role="presentation"><a href="#add-paitents" aria-controls="add-receptionist" role="tab" data-toggle="tab"><i class="fa fa-plus"></i>
+                                                Add Patient                    	</a></li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade in active" id="patient-list">
+
+                                <div class="table-responsive table-adjusment ">
+                                <table class="table table-hover" id="datatab">
+   <thead>
+                                                    <tr>
+                                                        <th style="display:none">ID</th>
+														<th width="130px;">Patient ID</th>
+														<th>Army No.</th>
+                                                        <th>Patient Name</th>
+														<th>Rank</th>
+                                                        
+                                                        <th>Options</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <?php foreach($patient as $row):?>
+													<?php
+                            
+							
+							                       if ($row['image_name'] == '')
+                                                            $image_url = 'others/uploads/patient/doctor-2.jpg';
+                                                        else
+                                                            $image_url = 'others/uploads/patient/' . $row['image_name'];
+                            ?>
+                                                    <tr>
+									
+                                                        <th style="display:none"><?php echo $row['id'];?></th>
+                                                     <td> <?php echo $row['patient_id'];?></td>
+													 <td><?php echo $row['army_no'];?></td>
+                                                        <td style="cursor: pointer" class='clickable-row' data-href='<?php echo base_url(); ?>receptionist/patient_details/<?php echo $row['patient_id']; ?>'><?php echo $row['name'];?></td>
+                                                        
+                                                        <td><?php echo $row['rank'];?></td>
+														
+														
+														
+														
+														
+                                                        <td>
+														<!--<a href="<?php echo base_url();?>admin/patient_details/<?php echo $row['patient_id'];?>"><button class="btn btn-primary btn-sm"  type="button"><i class="fa fa-user" aria-hidden="true"></i></button> </a>-->
+                                                         <button class="btn btn-primary btn-sm" id="getdata" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button> 
+
+                                                                                </td>
+                                                 </tr>
+                                           <?php endforeach; ?>
+                                         </tbody>
+
+
+                                     </table>
+
+                                
+                            </div>
+
+                        </div>
+						<div role="tabpanel" class="tab-pane fade" id="add-paitents">
+                                            <div class="table-adjusment">
+                        <!--                                                <form class="form-horizontal">-->
+                        <form id="addrec" action="<?php echo base_url(); ?>ReceptionistAdd/add_paitents" method="post" enctype="multipart/form-data">
+                        <div class="form-group col-md-12">
+                            <label for="doc-name" class="control-label col-md-2">Patient Name</label>
+                            <div class="email-profile inline-block col-md-10 ">
+                                <input type="text" class="form-control dept-input" id="doc-name" placeholder="" name="name" required>
+                            </div>
+                        </div>
+						<div class="form-group col-md-12">
+                            <label for="doc-name" class="control-label col-md-2">Father's Name</label>
+                            <div class="email-profile inline-block col-md-10 ">
+                                <input type="text" class="form-control dept-input" id="doc-name" placeholder="" name="fname">
+                            </div>
+                        </div>
+						<div class="form-group col-md-12">
+                            <label for="doc-name" class="control-label col-md-2">Mother's Name</label>
+                            <div class="email-profile inline-block col-md-10  ">
+                                <input type="text" class="form-control dept-input" id="doc-name" placeholder="" name="mname">
+                            </div>
+                        </div>
+						<div class="form-group col-md-12">
+                            <label for="doc-name" class="control-label col-md-2">Patient ID</label>
+                            <div class=" email-profile inline-block col-md-10">
+                                <input type="text" class="form-control dept-input" id="doc-name" placeholder="" name="patient_id" required>
+                            </div>
+                        </div>
+						<div class="form-group col-md-12">
+                            <label for="doc-name" class="control-label col-md-2">Army No.</label>
+                            <div class=" email-profile inline-block col-md-10">
+                                <input type="text" class="form-control dept-input" id="doc-name" placeholder="" name="army_no" required>
+                            </div>
+                        </div>
+						<div class="form-group col-md-12">
+                            <label for="doc-name" class="control-label col-md-2">Date of Birth</label>
+                            <div class="email-profile inline-block col-md-10 ">
+                                <input type="text" class="form-control dept-input" id="date" placeholder="" name="dob">
+								<div class="monthly" id="mycalendarAll"></div>
+                            </div>
+                        </div>
+                        <div class="form-group" style="display:none">
+                            <label for="doc-email" class="control-label">Age</label>
+                            <div class="email-profile inline-block col-md-10  ">
+                                <input type="text" class="form-control dept-input" id="age" placeholder="" name="age">
+								
+                            </div>
+                        </div>
+						<div class="form-group col-md-12">
+                            <label for="doc-email" class="control-label col-md-2">Sex</label>
+                            <div class="email-profile inline-block col-md-10  ">
+							<select id="doc-profile" type="text" class="form-control dept-input" name = "sex">
+								<option value="" selected="selected" disabled="disabled">Select Sex </option>
+								
+                                    <option value="male">Male</option>
+									<option value="female">Female</option>
+                                 
+                                    </select>
+                                
+                            </div>
+                        </div>
+						<div class="form-group col-md-12">
+                            <label for="doc-email" class="control-label col-md-2">Blood Group</label>
+                            <div class="email-profile inline-block col-md-10  ">
+							<select id="patient-blood-group" type="text" class="form-control dept-input" name="blood_group" >
+							<option value="" selected="selected" disabled="disabled">Select Blood Group </option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                                
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="doc-address" class="control-label col-md-2">Martial Status</label>
+                            <div class="email-profile inline-block col-md-10  ">
+                                <select id="doc-profile" type="text" class="form-control dept-input" name = "martial_status">
+								<option value="" selected="selected" disabled="disabled">Select Martial Status</option>
+								
+                                    <option value="married">Married</option>
+									<option value="unmarried">Unmarried</option>
+                                 
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="doc-phone" class="control-label col-md-2">Phone</label>
+                            <div class="email-profile inline-block col-md-10  ">
+                                <input type="number" class="form-control dept-input" placeholder="" name="phone" >
+                            </div>
+                        </div>
+						<div class="form-group col-md-12">
+                            <label for="doc-phone" class="control-label col-md-2">Email</label>
+                            <div class="email-profile inline-block col-md-10  ">
+                                <input type="text" class="form-control dept-input" placeholder="" name="email" >
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="doc-department" class="control-label col-md-2">Name of Spouse</label>
+                            <div class="email-profile inline-block col-md-10  ">
+                                 <input type="text" class="form-control dept-input" placeholder="" name="name_of_spouse" >
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="doc-profile" class="control-label col-md-2">Parmanent Address</label>
+                                <div class=" email-profile inline-block col-md-10 ">
+                                    <input type="text" class="form-control dept-input" id="doc-profile" placeholder="" name="parmanent_address">
+                                </div>
+                            </div>
+							<div class="form-group col-md-12">
+                                <label for="doc-profile" class="control-label col-md-2">Present Address</label>
+                                <div class="email-profile inline-block col-md-10 ">
+                                    <input type="text" class="form-control dept-input" id="doc-profile" placeholder="" name="present_address">
+                                </div>
+                            </div>
+							<div class="form-group col-md-12">
+                                <label for="doc-profile" class="control-label col-md-2">CNE</label>
+                                <div class="email-profile inline-block col-md-10  ">
+                                    <input type="text" class="form-control dept-input" id="doc-profile" placeholder="" name="Cne">
+                                </div>
+                            </div>
+							<div class="form-group col-md-12">
+                                <label for="doc-profile" class="control-label col-md-2">RE</label>
+                                <div class=" email-profile inline-block col-md-10 ">
+                                    <input type="text" class="form-control dept-input" id="doc-profile" placeholder="" name="re">
+                                </div>
+                            </div>
+							<div class="form-group col-md-12">
+                                <label for="doc-profile" class="control-label col-md-2">NOK</label>
+                                <div class="email-profile inline-block col-md-10  ">
+                                    <input type="text" class="form-control dept-input" id="doc-profile" placeholder="" name="nok">
+                                </div>
+                            </div>
+							<div class="form-group col-md-12">
+                                <label for="doc-profile" class="control-label col-md-2">Rank</label>
+                                <div class="email-profile inline-block col-md-10  ">
+                                    <input type="text" class="form-control dept-input" id="doc-profile" placeholder="" name="rank">
+                                </div>
+                            </div>
+							<div class="form-group col-md-12">
+                                <label for="doc-profile" class="control-label col-md-2">Unit</label>
+                                <div class="email-profile inline-block col-md-10  ">
+                                    <input type="text" class="form-control dept-input" id="doc-profile" placeholder="" name="unit">
+                                </div>
+                            </div>
+							<div class="form-group col-md-12">
+                                <label for="doc-profile" class="control-label col-md-2">Photo</label>
+                                <div class="email-profile inline-block col-md-10 ">
+                                                            
+                                                            <img id="preview_background" src=""  style="max-height:100px; max-width:200px;"/>
+                                                           
+                                                            <img src=""  style="max-height:100px; max-width:200px;"/>
+                                                            <br>
+                                                            <input type="file" id="photo_background" class="" name="photo" accept="image/*">
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="padding-left: 700px;">
+                                <div class="">
+                                    <button type="submit" class="btn btn-default">Add Patient</button>
+                                </div>
+                            </div>
+							</form>
+                           
+                        </div>
+
+                                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+
+            <form action="<?php echo base_url(); ?>ReceptionistEdit/edit_Patient" method="post" enctype="multipart/form-data">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Edit Patient Details </h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-adjusment">
+
+
+                    <input type="hidden" class="form-control dept-input" id="id" name="id" >
+
+
+                    <div class="form-group col-md-12">
+                        <label for="patient-name" class="control-label col-md-2">Name</label>
+                        <div class="email-profile inline-block col-md-6   ">
+                            <input type="text" class="form-control dept-input" id="patient-name" placeholder=" Name" name="name" >
+                        </div>
+                    </div>
+					
+					<div class="form-group col-md-12">
+                        <label for="patient-name" class="control-label col-md-2">Father Name</label>
+                        <div class="email-profile inline-block col-md-6  ">
+                            <input type="text" class="form-control dept-input" id="patient-fname" placeholder="Father Name" name="fname" >
+                        </div>
+                    </div>
+					
+					<div class="form-group col-md-12">
+                        <label for="patient-name" class="control-label col-md-2">Mother Name</label>
+                        <div class="email-profile inline-block col-md-6  ">
+                            <input type="text" class="form-control dept-input" id="patient-mname" placeholder="Mother Name" name="mname" >
+                        </div>
+                    </div>
+					<div class="form-group col-md-12">
+                        <label for="patient-name" class="control-label col-md-2">Paitent ID</label>
+                        <div class="email-profile inline-block col-md-6  ">
+                            <input type="text" class="form-control dept-input" id="patient-id" placeholder=" Name" name="patient_id">
+                        </div>
+                    </div>
+					<div class="form-group col-md-12">
+                            <label for="doc-name" class="control-label col-md-2">Army No</label>
+                            <div class="email-profile inline-block col-md-6  ">
+                                <input type="text" class="form-control dept-input" id="army_no" placeholder="Army no" name="army_no">
+                            </div>
+                        </div>
+                    <div class="form-group col-md-12">
+                        <label for="patient-email" class="control-label col-md-2">Email</label>
+                        <div class="email-profile inline-block col-md-6  ">
+                            <input type="text" class="form-control dept-input" id="patient-email" placeholder="Email" name="email" >
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="patient-address" class="control-label col-md-2">Permanent Address</label>
+                        <div class="email-profile inline-block col-md-6  ">
+                            <input type="text" class="form-control dept-input" id="patient-Permanent-address" placeholder="Address" name="Permanent_address">
+                        </div>
+                    </div>
+					<div class="form-group col-md-12">
+                        <label for="patient-address" class="control-label col-md-2">Present Address</label>
+                        <div class="email-profile inline-block col-md-6  ">
+                            <input type="text" class="form-control dept-input" id="patient-present-address" placeholder="Address" name="present_address" >
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="patient-phone" class="control-label col-md-2">Phone</label>
+                        <div class=" email-profile inline-block col-md-6 ">
+                            <input type="tel" class="form-control dept-input" id="patient-phone" placeholder="Phone" name="phone">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="patient-occupation" class="control-label col-md-2">Name of Spouse</label>
+                        <div class="email-profile inline-block col-md-6  ">
+                            <input type="text" class="form-control dept-input" id="patient-spouse" placeholder="Name of spouse" name="spouse" >
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="patient-marital-status" class="control-label col-md-2">Marital Status</label>
+                        <div class="email-profile inline-block col-md-6  ">
+                          <input type="text" class="form-control dept-input" id="patient-marital-status" placeholder="Marital Status" name="marital_status" >
+                            
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="patient-sex" class="control-label col-md-2">Sex</label>
+                        <div class="email-profile inline-block col-md-6  ">
+                           <input type="text" class="form-control dept-input" id="patient-sex" placeholder="sex" name="sex" >
+                            
+                        </div>
+                    </div>
+					<div class="form-group col-md-12">
+                            <label for="doc-name" class="control-label col-md-2">Date of Birth</label>
+                            <div class="email-profile inline-block col-md-6  ">
+                                <input type="text" class="form-control dept-input" id="date2" placeholder="Date of Birth" name="dob2">
+								<div class="monthly" id="mycalendarAll2"></div>
+                            </div>
+                        </div>
+                    
+                    <div class="form-group col-md-12" style="display:none">
+                        <label for="patient-age" class="control-label col-md-2">Age</label>
+                        <div class="email-profile inline-block col-md-6  ">
+                            <input type="number" class="form-control dept-input" id="patient-age" name="age">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="patient-blood-group" class="control-label col-md-2">Blood Group</label>
+                        <div class="email-profile inline-block col-md-6  ">
+                           <input type="text" class="form-control dept-input" id="patient-blood-group" name="blood_group">
+                            
+                        </div>
+                    </div>   
+                    <div class="form-group col-md-12">
+                        <label for="patient-age" class="control-label col-md-2">CNE</label>
+                        <div class="email-profile inline-block col-md-6  ">
+                            <input type="text" class="form-control dept-input" id="patient-cne" name="cne">
+                        </div>
+                    </div>
+					<div class="form-group col-md-12">
+                        <label for="patient-age" class="control-label col-md-2">NOK</label>
+                        <div class="email-profile inline-block col-md-6  ">
+                            <input type="text" class="form-control dept-input" id="patient-nok" name="nok">
+                        </div>
+                    </div>
+					<div class="form-group col-md-12">
+                        <label for="patient-age" class="control-label col-md-2">Rank</label>
+                        <div class="email-profile inline-block col-md-6  ">
+                            <input type="text" class="form-control dept-input" id="patient-rank" name="rank">
+                        </div>
+                    </div>
+					<div class="form-group col-md-12">
+                        <label for="patient-age" class="control-label col-md-2">Unit</label>
+                        <div class="email-profile inline-block col-md-6  ">
+                            <input type="text" class="form-control dept-input" id="patient-unit" name="unit">
+                        </div>
+                    </div>
+					<div class="form-group col-md-12">
+                            <label for="doc-profile" class="control-label col-md-2">Photo</label>
+                            <div class="email-profile inline-block col-md-6  ">
+							<span id='modal_photo'></span>
+                                <input type="file" class="form-control dept-input" id="patient-photo" placeholder="army-no" name="photo_name">
+                            </div>
+                        </div>
+                    <div class="modal-footer">
+                        <button type="" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary btn-modal">Save changes</button>
+                    </div>
+                   
+
+                </div>
+
+            </div>
+           </form>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).on('click', '#getdata', function() {
+        var edit_id = $(this).closest('tr').children()[0].textContent;
+        var infoModal = $('#view-modal');
+        //alert(edit_id);
+        // $("#view-modal").modal("show");
+        $.ajax({
+
+            url: '<?php echo base_url();?>AdminGet/get_patients',
+            data: {
+                'edit_id': edit_id
+            },
+            type: 'POST',
+            dataType: 'json',
+
+            error: function() {
+                alert("Data not found");
+            },
+
+            success: function(data) {
+                $(".modal #id").val(data[0].id);
+                $(".modal #patient-name").val(data[0].name);
+                $(".modal #patient-fname").val(data[0].father_name);
+                $(".modal #patient-mname").val(data[0].mother_name);
+                $(".modal #army_no").val(data[0].army_no);
+                $(".modal #patient-id").val(data[0].patient_id);
+                $(".modal #patient-email").val(data[0].email);
+                $(".modal #patient-rank").val(data[0].rank);
+                $(".modal #patient-spouse").val(data[0].name_of_spouse);
+                $(".modal #patient-unit").val(data[0].unit);
+                $(".modal #patient-Permanent-address").val(data[0].parmanent_address);
+                $(".modal #patient-present-address").val(data[0].present_address);
+                $(".modal #patient-sex").val(data[0].sex);
+                $(".modal #date2").val(data[0].dob);
+                $(".modal #patient-marital-status").val(data[0].martial_status);
+                $(".modal #patient-phone").val(data[0].phone_no);
+                $(".modal #patient-blood-group").val(data[0].blood_group);
+                $(".modal #patient-age").val(data[0].age);
+                $(".modal #patient-nok").val(data[0].nok);
+                $(".modal #patient-cne").val(data[0].cne);
+                $(".modal #patient-rank").val(data[0].rank);
+                if (data.image_name == '') {
+                    data.image_name = 'default.png';
+                }
+                $("#modal_photo").html('<img style="border:1px solid #000000;" height="100" width="auto" src="' + '<?php echo base_url(); ?>others/uploads/patient/' + data[0].image_name + '">');
+
+                // alert(edit_id);
+                $("#view-modal").modal("show");
+
+            } // End of success function of ajax form
+        }); // End of ajax call
+    });
+</script>
+

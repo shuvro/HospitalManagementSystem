@@ -1,0 +1,338 @@
+<div class="row  nav-button-container fade in" role="tabpanel" id="manage-prescription">
+    <div class="col-xs-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Manage Report
+
+            </div>
+            <div class="noticeboard-body">
+                <div>
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#prescription-list" aria-controls="prescription-list" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i> 
+                                Urine Profile Report                    	</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                   
+                        
+                            <form action="<?php echo base_url(); ?>laboratorist/urine_data_insert/<?php echo $this->uri->segment(3)."/".$this->uri->segment(4); ?>" method="POST">
+                             
+
+                                <div class="table-responsive table-adjusment ">
+                                <div class="col-sm-12 pull-right">
+                                                     <div class="form-group pull-right">
+                                                        <label class="fileContainer btn btn-primary waves-effect btn-browse waves-effect waves-effect">
+                                                            <i class="fa fa-upload" aria-hidden="true"></i> Click to Upload Document
+                                                            <input type="file" style="display: none;">
+                                                        </label>
+                                                        <!--<input type="file" class="btn-default" accept="application/pdf, application/msword" id="myFile" multiple size="50" onchange="myFunction()">-->
+                                                        
+
+                                                    </div>
+                                                </div>
+                                    <table class="table table-hover">
+                                    
+                                     <div>
+                        <h3 style="font-size: 20px"><CENTER><b>Combined Military Hospital, Rangpur</b></CENTER></h3>
+                                                        <h4 style="font-size: 16px"><CENTER><b>Clinical Pathology Report</b></CENTER></h4>
+                        <!-- <h5 style="color: blue"><center><b>Tel:Mil:887123,Ext.6604,6616,Civ:9836600</b></center></h5>
+                        <h5 style="color: blue"><center><b>Fax:88-02-9836804,e-mail:something@test.com,Website:www.army.mil.bd</b></center></h5> -->
+                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <div class="form-group col-md-6">
+                                                    <div>
+                                                        <label class="col-md-3">Voucher No:</label>
+                                                        <input class="col-md-9" type="text" name="voucher_no" value="<?php if(isset($urine_profile)){echo $urine_profile['voucher_no'];} ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-6" style="padding-left: 5px">
+                                                    <div>
+                                                        <label class="col-md-3">Report No:</label>
+                                                        <input class="col-md-9" type="text" name="report_no" value="<?php if(isset($urine_profile)){echo $urine_profile['report_no'];} ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <div>
+                                                        <label>Date:</label>
+                                                        <input type="text" name="test_date" value="<?php if(isset($urine_profile)){echo $urine_profile['test_date'];} ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <div>
+                                                        <label>Del. Date</label>
+                                                        <input type="text" name="delivery_date" value="<?php if(isset($urine_profile)){echo $urine_profile['delivery_date'];} ?>">
+                                                    </div>
+                                                </div>
+                                                
+                                                <br>
+                                                <br>
+                                                <div class="form-group col-md-12">
+                                                    <div>
+                                                        <label>Patient Name: </label>
+                                                        <input type="text" name="patient_name" value="<?php echo $patient_detail['name'] ?>">
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <div class="form-group col-md-7">
+                                                    <div>
+                                                        <label>Referred By :</label>
+                                                        <input type="text" name="patient_name" value="CMH">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-5">
+                                                    <div class="form-group col-md-6">
+                                                        <div>
+                                                            <label>Age :</label>
+                                                            <input type="text" name="patient_age" value="<?php echo $patient_detail['age'] ?>">
+                                                        </div> 
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <div>
+
+                                                            <label>Sex :</label>
+                                                            <input type="text" name="patient_sex" value="<?php echo $patient_detail['sex'] ?>">
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <div class="form-group col-md-4">
+                                                    <div>
+                                                        <label>Sample:</label>
+                                                        <input type="text" name="sample_name" value="Urine">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-8">
+                                                    <div class="col-md-10">
+                                                        <label class="col-md-3">Lab. No: </label>
+                                                        <input class="col-md-9" type="text" name="lab_no" value="<?php if(isset($urine_profile)){echo $urine_profile['lab_no'];} ?>">
+                                                    </div>
+                                                </div>
+                                             
+                                                <div class="form-group col-md-12">
+                                                    <div>
+                                                        <label>Tests :</label>
+                                                        <input type="text" name="test_names" value="Urine Profile">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </table>
+                                    <div class="col-md-6">
+                                        <div class="noticeboard">
+                                            <div>
+                                                <div class="table-responsive table-adjusment ">
+                                                    <table class="table table-hover col-md-6">
+                                                        <div class="table-header ">
+
+                                                            <div class="input-group dept-input table-head">
+                                                                <span> <label>Physical and Chemical Examination</label>
+                                                                </span>
+                                                            </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label  for="patient-name" class="control-label col-md-4"><strong>Color :</strong></label>
+                                                                <div class="email-profile inline-block">
+                                                                    <input type="text" class="form-control" id="colour" name="colour" value="<?php if(isset($urine_profile)){echo $urine_profile['colour'];} ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="patient-name" class="control-label col-md-4"><strong>Turbidity :</strong> </label>
+                                                                <div class="email-profile inline-block">
+                                                                    <input type="text" class="form-control" id="turbidity" name="turbidity" value="<?php if(isset($urine_profile)){echo $urine_profile['turbidity'];} ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="patient-name" class="control-label col-md-4"><strong>Specific Gravity :</strong></label>
+                                                                <div class="email-profile inline-block">
+                                                                    <input type="text" class="form-control" id="specific_gravity" name="specific_gravity" value="<?php if(isset($urine_profile)){echo $urine_profile['specific_gravity'];} ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="patient-name" class="control-label col-md-4"><strong>pH :</strong></label>
+                                                                <div class="email-profile inline-block">
+                                                                    <input type="text" class="form-control" id="ph" name="ph" value="<?php if(isset($urine_profile)){echo $urine_profile['ph'];} ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="patient-name" class="control-label col-md-4"><strong>Protein :</strong></label>
+                                                                <div class="email-profile inline-block">
+                                                                    <input type="text" class="form-control" id="protein" name="protein" value="<?php if(isset($urine_profile)){echo $urine_profile['protein'];} ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="patient-name" class="control-label col-md-4"><strong>Glucose :</strong></label>
+                                                                <div class="email-profile inline-block">
+                                                                    <input type="text" class="form-control" id="glucose" name="glucose" value="<?php if(isset($urine_profile)){echo $urine_profile['glucose'];} ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="patient-name" class="control-label col-md-4"><strong>Urobilinogen :</strong></label>
+                                                                <div class="email-profile inline-block">
+                                                                    <input type="text" class="form-control" id="urobilonogen" name="urobilinogen" value="<?php if(isset($urine_profile)){echo $urine_profile['urobilinogen'];} ?>">
+                                                                </div>
+                                                            </div>
+                                                           
+                                                            
+                                                            <div class="form-group">
+                                                                <label for="patient-name" class="control-label col-md-4"><strong>Bilirubin :</strong></label>
+                                                                <div class="email-profile inline-block">
+                                                                    <input type="text" class="form-control" id="bilirubin" name="bilirubin" value="<?php if(isset($urine_profile)){echo $urine_profile['bilirubin'];} ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="patient-name" class="control-label col-md-4"><strong>Ketone Bodies :</strong></label>
+                                                                <div class="email-profile inline-block">
+                                                                    <input type="text" class="form-control" id="ketone_bodies" name="ketone_bodies" value="<?php if(isset($urine_profile)){echo $urine_profile['ketone_bodies'];} ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="patient-name" class="control-label col-md-4"><strong>Blood :</strong></label>
+                                                                <div class="email-profile inline-block">
+                                                                    <input type="text" class="form-control" id="blood" name="blood" value="<?php if(isset($urine_profile)){echo $urine_profile['blood'];} ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="patient-name" class="control-label col-md-4"><strong>Nitrite :</strong></label>
+                                                                <div class="email-profile inline-block">
+                                                                    <input type="text" class="form-control" id="nitrite" name="nitrite" value="<?php if(isset($urine_profile)){echo $urine_profile['nitrite'];} ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="patient-name" class="control-label col-md-4"><strong>Leucocyte Esterase :</strong></label>
+                                                                <div class="email-profile inline-block">
+                                                                    <input type="text" class="form-control" id="leucocyte_esterase" name="leucocyte_esterase" value="<?php if(isset($urine_profile)){echo $urine_profile['leucocyte_esterase'];} ?>">
+                                                                    </div>
+                                                            </div>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                        <div class="noticeboard">
+                                            <div>
+                                                <div class="table-responsive table-adjusment" style="padding-bottom: 171px;">
+                                                    <table class="table table-hover col-md-6">
+                                                        <div class="table-header ">
+
+                                                            <div class="input-group dept-input table-head">
+                                                                <span> <label>Flow Cytometry/Micorscopy</label>
+                                                                </span>
+                                                            </div>
+                                                            </div>
+
+                                                                            <div class="form-group">
+                                                                                <label for="patient-name" class="control-label col-md-4"><strong>WBCs :</strong></label>
+                                                                                <div class="email-profile inline-block">
+                                                                                    <input type="text" class="form-control" id="wbcs" name="wbcs" value="<?php if(isset($urine_profile)){echo $urine_profile['wbcs'];} ?>">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="patient-name" class="control-label col-md-4"><strong>RBCs :</strong></label>
+                                                                                <div class="email-profile inline-block">
+                                                                                    <input type="text" class="form-control" id="rbcs" name="rbcs" value="<?php if(isset($urine_profile)){echo $urine_profile['rbcs'];} ?>">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="patient-name" class="control-label col-md-4"><strong>Epithelial Cells :</strong></label>
+                                                                                <div class="email-profile inline-block">
+                                                                                    <input type="text" class="form-control" id="epithelial_cells" name="epithelial_cells" value="<?php if(isset($urine_profile)){echo $urine_profile['epithelial_cells'];} ?>">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="patient-name" class="control-label col-md-4"><strong>Casts :</strong></label>
+                                                                                <div class="email-profile inline-block">
+                                                                                    <input type="text" class="form-control" id="casts" name="casts" value="<?php if(isset($urine_profile)){echo $urine_profile['casts'];} ?>">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="patient-name" class="control-label col-md-4"><Strong>Crystals :</Strong></label>
+                                                                                <div class="email-profile inline-block">
+                                                                                    <input type="text" class="form-control" id="crystals" name="crystals" value="<?php if(isset($urine_profile)){echo $urine_profile['crystals'];} ?>">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="patient-name" class="control-label col-md-4"><strong>Spermatozoa :</strong></label>
+                                                                                <div class="email-profile inline-block">
+                                                                                    <input type="text" class="form-control" id="supermatozoa" name="spermatozoa" value="<?php if(isset($urine_profile)){echo $urine_profile['spermatozoa'];} ?>">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="patient-name" class="control-label col-md-4"><strong>Mucus :</strong></label>
+                                                                                <div class="email-profile inline-block">
+                                                                                    <input type="text" class="form-control" id="mucus" name="mucus" value="<?php if(isset($urine_profile)){echo $urine_profile['mucus'];} ?>">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="patient-name" class="control-label col-md-4"><strong>Yeast like cells :</strong></label>
+                                                                                <div class="email-profile inline-block">
+                                                                                    <input type="text" class="form-control" id="yeast" name="yeast" value="<?php if(isset($urine_profile)){echo $urine_profile['yeast'];} ?>">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="patient-name" class="control-label col-md-4"><strong>Others :</strong></label>
+                                                                                <div class="email-profile inline-block">
+                                                                                    <input type="text" class="form-control" id="others" name="others" value="<?php if(isset($urine_profile)){echo $urine_profile['others'];} ?>">
+                                                                                </div>
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                        
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div><button type="Submit" class="btn btn-success pull-left print" style="padding: 16px,12px">
+                                                <strong>SUBMIT</strong></button></div>
+                                            </form>
+                                             <div class="col-xs-12 table-footer table-foot" style="margin-top:20px;">
+
+
+                                                <div class="btn-group pull-right print" role="group" aria-label="">
+                                                <button type="button" class="btn btn-default" onclick="printFunction()"><i class="fa fa-print" aria-hidden="true"></i></button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+        
+        function printFunction() {
+        var divContents = $("#print").html();
+            var printWindow = window.open('', '', 'height=1800,width=1500');
+            printWindow.document.write('<html><head>'+
+                '<link href="<?php echo base_url(); ?>others/css/bootstrap.min.css" rel="stylesheet">'+
+'<link href="<?php echo base_url(); ?>others/css/style-admin.css" rel="stylesheet">'+
+'<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">'+
+'<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">'+
+'<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" type="text/css">'+
+'<link rel="stylesheet" href="<?php echo base_url(); ?>others/css/monthly.css">'+
+'<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.min.css">'+
+'<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">'+
+'<link href="<?php echo base_url(); ?>others/css/typeahead.css" rel="stylesheet">'+
+'<link rel="stylesheet" href="<?php echo base_url(); ?>others/css/perfect-scrollbar.css"/><title></title>'+
+'<style type="text/css">.print {display: none;}</style>');
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+    </script>

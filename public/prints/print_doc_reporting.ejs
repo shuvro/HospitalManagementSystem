@@ -1,0 +1,110 @@
+<style>
+    body {
+        font-family: Raleway;
+    }
+    table thead tr th{
+        border-bottom: 1px solid #000;
+        border-top: 1px solid #000;
+        font-size: 13px;
+    }
+    table tr td{
+        font-size: 12px;
+    }
+    h4, h5, h6 {
+        text-height: 0px;
+    }
+</style>
+<section>
+    <div>
+        <div>
+            <div style="border-bottom: 1px solid #000;">
+                <div>
+                    
+                </div>
+                <div style="margin-top: -10%; margin-left: 10%;">
+                    <h4>Combined Military Hospital </h4>
+                </div>
+                <div style="margin-top: -4%; margin-left: 10%;">
+                    <h5>Rangpur</h5>
+                </div>
+                <div style="margin-left: 75%; margin-top: -4%; width: 300px;">
+                    <span><b>Print On: </b><?php echo date('Y-m-d'); ?></span>
+                </div>
+            </div>
+            <div style="width: 100%; text-align: center; text-decoration: underline;">
+                <h1>   Appointment  list</h1>
+				 <h3>   Doctor : <?php if(isset($name)) echo $name; ?> 
+				 
+				 </h3>
+            </div>
+			
+            <div style="width: 100%; text-align: center; text-decoration: none; margin-top: -10px;">
+                
+                <span><b>Date</b> from <?php echo $form; ?> to <?php echo $to; ?></span>
+                <div>
+				<table style="width: 100%;">
+				<tbody>
+				
+				<tr>
+				<td style="border: 1px solid #000; background:#469b57">Total Appointment = <?php echo $total_appointment; ?></td>
+				<td style="border: 1px solid #000; background:#469b8b">Total Prescribed = <?php echo $total_prescribed  ; ?> </td>
+				<td style="border: 1px solid #000; background:#f92c0c; color:#fff">Total Not Prescribed = <?php echo $not_prescribed ?></td>
+				</tr>
+				
+				</tbody>
+				</table>
+				
+                    <table style="border: 1px solid #000; text-align: center; width: 100%; margin-top: 3%;">
+                        <thead>
+                            <tr>
+                                <th style="width: 100px; background:#466c9b">SL.</th>
+                                
+                                <th style="background:#466c9b">Patients name</th>
+                                <th style="background:#466c9b">App date</th>
+								<th style="background:#466c9b">Status</th>
+								
+                            </tr>
+                        </thead>
+                        <tbody>
+                             <?php 
+							  $count = 1;
+							 foreach($app_report as $row):
+							 
+							 ?>
+							   <?php if($row['status'] ==0){ ?>
+                                <tr>
+                                    <td style="background:#f92c0c; color:#fff"><?php echo $count++; ?></td>
+                                    <td style="background:#f92c0c; color:#fff"><?php echo $row['pname']; ?></td>
+                                    <td style="background:#f92c0c; color:#fff"><?php echo $row['app_date']; ?></td>
+									<td style="background:#f92c0c; color:#fff"><?php if($row['status'] ==0){ echo ("Not Prescribed");?>
+									  <?php }else{ ?>
+									 <?php echo "Prescribed"; } ?>  
+									
+									
+									
+									
+									</td>
+                                </tr>
+								<?php }else{ ?>
+								 <tr>
+                                    <td style="background:#469b8b"><?php echo $count++; ?></td>
+                                    <td style="background:#469b8b"><?php echo $row['pname']; ?></td>
+                                    <td style="background:#469b8b"><?php echo $row['app_date']; ?></td>
+									<td style="background:#469b8b"><?php if($row['status'] ==0){ echo ("Not Prescribed");?>
+									  <?php }else{ ?>
+									 <?php echo "Prescribed"; } ?>  
+									
+									
+									
+									
+									</td>
+                                </tr>
+								<?php } ?>
+                          <?php endforeach; ?>
+						  
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </section>
+            </section>

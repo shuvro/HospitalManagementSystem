@@ -1,0 +1,893 @@
+<style>
+    @font-face {
+        font-family: Raleway;
+        src: url(../fonts/Raleway-Light.ttf);
+    }
+    input[type="radio"] {
+        -webkit-appearance: checkbox;
+        /* Chrome, Safari, Opera */
+        -moz-appearance: checkbox;
+        /* Firefox */
+        appearance: checkbox;
+        -ms-appearance: checkbox;
+        /* not currently supported */
+    }
+
+    body {
+        font-family: 'Raleway', sans-serif;
+        overflow-x: hidden;
+        font-weight: 300;
+        font-size: 16px;
+        font-style: normal;
+        scrollbar-face-color: #b46868;
+        color: #455a64;
+        background: #F0F0F0;
+    }
+    
+    .centerthing {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+    
+    table {
+        border: none;
+        border-color: transparent;
+        outline: 0;
+    }
+    
+    table thead th {
+        font-size: 13px;
+        border-bottom: 1px solid #474747;
+    }
+    
+    table tr {
+        font-size: 12px;
+    }
+    
+    table td {
+        font-size: 13px;
+    }
+    
+    .form-control {
+        border: none;
+        border-color: transparent;
+        outline: 0;
+        font-size: 15px;
+        width: 150px;
+    }
+    .footer_print {
+     position:fixed;
+     bottom : 0;
+     height:60px;
+     margin-top : 40px;
+     text-align: center ;
+     font-size: 10px ;
+     font-family: 'Lato' ;
+     }
+</style>
+
+<div class="row nav-button-container tab-pane fade in active" role="tabpanel" id="patient-detailes">
+    <div id="print" style="height: 92%;">
+        <div class="col-sm-12 centerthing">
+            <div class="noticeboard">
+                <div class="noticeboard-header content-header">
+                    <img src="<?php echo base_url()?>others/images/rangpur_logo.png" style="max-width: 80px;" alt="logo_cmh">
+                    <h3 style="font-size: 15px;">Combined Military Hospital, Rangpur </h3>
+                    <h4 style="border: 1px solid #000; width: 100%;">CLINICAL PATHOLOGY REPORT</h4>
+                </div>
+
+            </div>
+        </div>
+        
+        <div style="margin-top: -2%;">
+            <div>
+                <div class="" style="font-size: 10px;">
+                    <div class="form-group">
+                        <label for="patient-id" class="control-label">Date :</label>
+                        <span><?php echo date('Y-m-d H:m:s') ?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <div style="padding-bottom: 20px;">
+                    <table style="border: 1px solid #000; width: 100%;">
+                        <thead>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="3" for="voucher_no"><b>Voucher No.</b>
+                                    <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['vouchar_no'];}?>
+                                </td>
+                                <td colspan="3" for="del-date"><b>Del Date:</b>
+                                    <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['delivery_date'];}?>
+                                </td>
+                                <td colspan="3" for="report-no"><b>Report No.</b>
+                                    <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['report_no'];}?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="12" for="patient-name"><b>Name: </b>
+                                    <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['name'];}?>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="3" for=""><b>Referred By </b> CMH
+                                </td>
+                                <td colspan="3" for="patient-address" class="control-label"><b>Age: </b>
+                                    <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['age'];}?>
+                                </td>
+                                <td colspan="3" for="patient-name"><b>Gender: </b>
+                                    <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['sex'];}?>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <table style="border: 1px solid #000; width: 100%; margin-top: -2%;">
+                        <thead>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="6" for="sample"><b>Sample </b>
+                                    <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['sample'];}?>
+                                </td>
+                                <td colspan="6" for="lab" class="control-label"><b>Lab No.</b>
+                                    <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['lab_no'];}?>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td colspan="6" for="sample"><b>Unit </b>
+                                    <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['sample'];}?>
+                                </td>
+                                <td colspan="6" for="lab" class="control-label"><b>Ward</b>
+                                    <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['lab_no'];}?>
+                                </td>
+                                <td colspan="6" for="lab" class="control-label"><b>Weight</b>
+                                    <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['weight'];}?>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td colspan="6" for="sample"><b>Disease</b>
+                                    <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['disease'];}?>
+                                </td>
+                                <td colspan="6" for="lab" class="control-label"><b>Test</b>
+                                    Anaesthesia Checkup
+                                </td>
+                                <td colspan="6" for="lab" class="control-label"><b>Proposed Surgery</b>
+                                    <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['proposed_surgery'];}?>
+                                </td>
+
+                            </tr>
+                            
+
+                        </tbody>
+                    </table>
+                    <br>
+                    <table width="100%" style="border: 1px solid #000;">
+                    <thead>
+                        <tr>
+                            <th width="100%">History</th>
+                            
+                        </tr>
+                        
+                    </thead>        
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table>
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                              <td>
+                                                  <label for="" class="control-label col-sm-2"><strong>★ Co-morbidity</strong> </label>
+                                                  <label>
+                                                                                <input type="checkbox" name="morbidity[]" value="DM" <?php if(isset($morbidity)){
+                                                                                        foreach ($morbidity as $key) {
+                                                                                            if($key == 'DM')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?> > DM</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="morbidity[]" value="HTN" <?php if(isset($morbidity)){
+                                                                                        foreach ($morbidity as $key) {
+                                                                                            if($key == 'HTN')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?> > HTN</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="morbidity[]" value="IHD" <?php if(isset($morbidity)){
+                                                                                        foreach ($morbidity as $key) {
+                                                                                            if($key == 'IHD')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> IHD</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="morbidity[]" value="Br_Asthma" <?php if(isset($morbidity)){
+                                                                                        foreach ($morbidity as $key) {
+                                                                                            if($key == 'IHD')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> Br Asthma</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="morbidity[]" value="COPD" <?php if(isset($morbidity)){
+                                                                                        foreach ($morbidity as $key) {
+                                                                                            if($key == 'COPD')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> COPD</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="morbidity[]" value="CKD" <?php if(isset($morbidity)){
+                                                                                        foreach ($morbidity as $key) {
+                                                                                            if($key == 'CKD')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> CKD /</label>
+                                              </td>
+                                              <td>
+                                                  <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['co_morbidity_for'];}?> for
+                                                  <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['co_morbidity_yr'];}?> year
+                                              </td>
+                                          </tr>  
+                                          <tr>
+                                              <td>
+                                                  <label for="" class="control-label col-sm-2"><strong>★ Treatment history</strong> </label>
+                                                  <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['treatment_history'];}?>
+                                              </td>
+                                              
+                                          </tr>
+                                          <tr>
+                                          <td>
+                                              <label for="" class="control-label col-sm-2"><strong>★ Drug allergy</strong> </label>
+                                              <label>
+                                                                                <input type="checkbox" name="drug_allergy_check" value="no" <?php if(isset($anaesthesia_checkup['drug_allergy_check'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'no')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> No</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="drug_allergy_check" value="yes" <?php if(isset($anaesthesia_checkup['drug_allergy_check'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'yes')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>>Yes</label>
+                                                                                    <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['drug_allergy'];}?>
+                                          </td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <label for="" class="control-label col-sm-2"><strong>★ Addiction</strong> </label>
+                                                  <label>
+                                                                                <input type="checkbox" name="addiction_check[]" value="Smoking" <?php if(isset($addiction_check)){
+                                                                                        foreach ($addiction_check as $key) {
+                                                                                            if($key == 'Smoking')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> Smoking</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="addiction_check[]" value="Alcohol" <?php if(isset($addiction_check)){
+                                                                                        foreach ($addiction_check as $key) {
+                                                                                            if($key == 'Alcohol')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> Alcohol</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="addiction_check[]" value="Drug" <?php if(isset($addiction_check)){
+                                                                                        foreach ($addiction_check as $key) {
+                                                                                            if($key == 'Drug')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> Drug</label>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <label for="" class="control-label col-sm-4"><strong>★ Previous Anaesthesia event (if any)</strong> </label>
+                                                  <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['previous_anaesthesia'];}?>
+                                              </td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <label for="" class="control-label col-sm-2"><strong>★ LMP (if any)</strong> </label>
+                                                  <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['lmp'];}?>
+                                              </td>
+                                          </tr>
+                                             
+                                            
+                                        </tbody>
+                                    </table>
+                                </td>
+
+                                
+                                </tr>
+                        </tbody>
+                    </table>
+                    <table width="100%" style="border: 1px solid #000;">
+                    <thead>
+                        <tr>
+                            <th width="100%">Exam Findings</th>
+                            
+                        </tr>
+                        
+                    </thead>        
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table>
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                        <td>
+                                          <label for="" class="control-label col-sm-3"><strong>★ Level of consciousness</strong> </label>
+                                          <label>
+                                                                                <input type="checkbox" name="level_of_consciousne_checkss[]" value="conscious" <?php if(isset($level_of_consciousne)){
+                                                                                        foreach ($level_of_consciousne as $key) {
+                                                                                            if($key == 'conscious')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> conscious</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="level_of_consciousne_checkss[]" value="confuse" <?php if(isset($level_of_consciousne)){
+                                                                                        foreach ($level_of_consciousne as $key) {
+                                                                                            if($key == 'confuse')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> confuse</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="level_of_consciousne_checkss[]" value="drowsy" <?php if(isset($level_of_consciousne)){
+                                                                                        foreach ($level_of_consciousne as $key) {
+                                                                                            if($key == 'drowsy')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> drowsy</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="level_of_consciousne_checkss[]" value="comatose" <?php if(isset($level_of_consciousne)){
+                                                                                        foreach ($level_of_consciousne as $key) {
+                                                                                            if($key == 'comatose')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> comatose</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="level_of_consciousne_checkss[]" value="gcs" <?php if(isset($level_of_consciousne)){
+                                                                                        foreach ($level_of_consciousne as $key) {
+                                                                                            if($key == 'gcs')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> gcs</label>/15
+                                             
+                                            </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="" class="control-label col-sm-2"><strong>★ Body built</strong> </label>
+                                                    <label>
+                                                                                <input type="checkbox" name="body_built[]" value="obese" <?php if(isset($body_built)){
+                                                                                        foreach ($body_built as $key) {
+                                                                                            if($key == 'obese')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?> > obese</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="body_built[]" value="good" <?php if(isset($body_built)){
+                                                                                        foreach ($body_built as $key) {
+                                                                                            if($key == 'good')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?> > good</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="body_built[]" value="average" <?php if(isset($body_built)){
+                                                                                        foreach ($body_built as $key) {
+                                                                                            if($key == 'average')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?> > average</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="body_built[]" value="below average" <?php if(isset($body_built)){
+                                                                                        foreach ($body_built as $key) {
+                                                                                            if($key == 'below average')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?> > below average</label>
+                                                </td>
+                                                </tr>
+                                                <tr>
+                                                <td>
+                                                    <label for="" class="control-label col-sm-2"><strong>★ General</strong> </label>
+                                                    <label>
+                                                                                <input type="checkbox" name="general_check[]" value="Anaemia" <?php if(isset($general_check)){
+                                                                                        foreach ($general_check as $key) {
+                                                                                            if($key == 'Anaemia')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> Anaemia</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="general_check[]" value="Jaundice" <?php if(isset($general_check)){
+                                                                                        foreach ($general_check as $key) {
+                                                                                            if($key == 'Jaundice')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> Jaundice</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="general_check[]" value="dehydration" <?php if(isset($general_check)){
+                                                                                        foreach ($general_check as $key) {
+                                                                                            if($key == 'dehydration')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> dehydration</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="general_check[]" value="oedema" <?php if(isset($general_check)){
+                                                                                        foreach ($general_check as $key) {
+                                                                                            if($key == 'oedema')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> oedema</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="general_check[]" value="Cyanosis" <?php if(isset($general_check)){
+                                                                                        foreach ($general_check as $key) {
+                                                                                            if($key == 'Cyanosis')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> Cyanosis</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="general_check[]" value="fever" <?php if(isset($general_check)){
+                                                                                        foreach ($general_check as $key) {
+                                                                                            if($key == 'fever')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> fever</label>
+                                                                                    <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['general'];}?>
+                                                </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label for="" class="control-label col-md-1"><strong>★ Index</strong></label>
+                                                        <label for="" class="control-label col-sm-1" style="width: 20px; text-transform: none;"> &nbsp;Pulse-</label>
+                                                        <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['index_plus'];}?>
+                                                        <label for="" class="control-label col-sm-1" style="width: 50px; text-transform: none;"> &nbsp;/min &nbsp;</label>
+                                                        <label for="" class="control-label col-sm-1" style="width: 40px; text-transform: none; font-weight: bold;"> &nbsp;BP -</label>
+                                                        <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['index_bp'];}?>mm of Hg
+                                                        <label for="" class="control-label col-sm-1" style="width: 60px; text-transform: none; font-weight: bold;"> &nbsp;Heart -</label>
+                                                        <label>
+                                                                                <input type="radio" name="index_check" value="S1S2"> S1S2</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="radio" name="index_check" value="Murmur"> Murmur</label> 
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label for="" class="control-label col-md-1"><strong>★ Resp</strong></label>
+                                                        <label for="" class="control-label col-sm-1" style="width: 90px; text-transform: none;"> &nbsp;N/SOB. Rate</label>
+                                                        <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['resp'];}?>/min
+                                                        <label for="" class="control-label col-sm-1" style="width: 70px; text-transform: none; font-weight: bold;"> &nbsp;Lungs -</label>
+                                                        <label>
+                                                                                <input type="checkbox" name="lungs" value="Clear" <?php if(isset($anaesthesia_checkup['lungs'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'Clear')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> Clear</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="lungs" value="Rhonchi" <?php if(isset($anaesthesia_checkup['lungs'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'Rhonchi')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> Rhonchi</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="lungs" value="Creps" <?php if(isset($anaesthesia_checkup['lungs'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'Creps')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> Creps</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label for="" class="control-label col-sm-1"><strong>★ Airway -</strong> </label>
+                                                        <label for="" class="control-label col-sm-1">Neck -</label>
+                                                        <label>
+                                                                                <input type="checkbox" name="airway[]" value="Short" <?php if(isset($airway)){
+                                                                                        foreach ($airway as $key) {
+                                                                                            if($key == 'Short')
+                                                                                                 echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> Short</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="airway[]" value="Restricted_Movement" <?php if(isset($airway)){
+                                                                                        foreach ($airway as $key) {
+                                                                                            if($key == 'Restricted_Movement')
+                                                                                                 echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> Restricted Movement</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="airway[]" value="N_Oral_Opening_N" <?php if(isset($airway)){
+                                                                                        foreach ($airway as $key) {
+                                                                                            if($key == 'N_Oral_Opening_N')
+                                                                                                 echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> N. Oral Opening -N</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="airway[]" value="1" <?php if(isset($airway)){
+                                                                                        foreach ($airway as $key) {
+                                                                                            if($key == '1')
+                                                                                                 echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> ↓</label>
+                                                                                    <tr>
+                                                                                    <td>
+                                                                                        <label for="" class="control-label col-sm-3">Thyromental Distance-</label>
+                                                                                        <label>
+                                                                                <input type="checkbox" name="thyromental_distance[]" value="N" <?php if(isset($thyromental_distance)){
+                                                                                        foreach ($thyromental_distance as $key) {
+                                                                                            if($key == 'N')
+                                                                                                 echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> N</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="thyromental_distance[]" value="1" <?php if(isset($thyromental_distance)){
+                                                                                        foreach ($thyromental_distance as $key) {
+                                                                                            if($key == '1')
+                                                                                                 echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> ↓</label>
+                                                                                    </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                    <td>
+                                                                                        <label for="" class="control-label col-sm-1">Teeth -</label>
+                                                                                        <label>
+                                                                                <input type="checkbox" name="teeth[]" value="N" <?php if(isset($teeth)){
+                                                                                        foreach ($teeth as $key) {
+                                                                                            if($key == 'N')
+                                                                                                 echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> N</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="teeth[]" usemap="Loose" <?php if(isset($teeth)){
+                                                                                        foreach ($teeth as $key) {
+                                                                                            if($key == 'Loose')
+                                                                                                 echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> Loose</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="teeth[]" value="Absent" <?php if(isset($teeth)){
+                                                                                        foreach ($teeth as $key) {
+                                                                                            if($key == 'Absent')
+                                                                                                 echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> Absent</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="teeth[]" value="Denture" <?php if(isset($teeth)){
+                                                                                        foreach ($teeth as $key) {
+                                                                                            if($key == 'Denture')
+                                                                                                 echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> Denture</label>
+                                                                                    </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                             <label for="" class="control-label col-sm-3">Mallampati - class</label>
+                                                                                             <label>
+                                                                                <input type="checkbox" name="mallampati" value="I" <?php if(isset($anaesthesia_checkup['mallampati'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'I')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> I</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="mallampati" value="II" <?php if(isset($anaesthesia_checkup['mallampati'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'II')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> II</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="mallampati" value="III" <?php if(isset($anaesthesia_checkup['mallampati'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'III')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> III</label> &nbsp;
+                                                                            <label>
+                                                                                <input type="checkbox" name="mallampati" value="IV" <?php if(isset($anaesthesia_checkup['mallampati'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'IV')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> IV</label>
+                                                                                        </td>
+                                                                                    </tr>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label for="" class="control-label col-sm-3"><strong>★ Others (Important findings)</strong> </label>
+                                                        <?php if(isset($others)){echo $anaesthesia_checkup['others'];}?>
+                                                    </td>
+                                                </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </td>
+
+
+                                
+                                </tr>
+                        </tbody>
+                    </table>
+                    <table width="100%" style="border: 1px solid #000;">
+                    <thead>
+                        <tr>
+                            <th width="100%">Lab Findings</th>
+                            
+                        </tr>
+                        
+                    </thead>        
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table>
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <table class="table-bordered col-sm-12" style="text-align: center;">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th>Inv</th>
+                                                                                            <th>Result</th>
+                                                                                            <th>Inv</th>
+                                                                                            <th>Result</th>
+                                                                                            <th>Inv</th>
+                                                                                            <th>Result</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td>Hb% (gm%)</td>
+                                                                                            <td>
+                                                                                                <input type="text" name="hb_result" value="<?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['hb_result'];}?>">
+                                                                                            </td>
+                                                                                            <td>S. Creatinine (meq/L.)</td>
+                                                                                            <td>
+                                                                                                <input type="text" name="s_creatinine" value="<?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['s_creatinine'];}?>">
+                                                                                            </td>
+                                                                                            <td>Platele Count</td>
+                                                                                            <td>
+                                                                                                <input type="text" name="platele_count" value="<?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['platele_count'];}?>">
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td>PCV (%)</td>
+                                                                                            <td>
+                                                                                                <input type="text" name="pcv_result" value="<?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['pcv_result'];}?>">
+                                                                                            </td>
+                                                                                            <td>S. Bilirubin (meq/dl.)</td>
+                                                                                            <td>
+                                                                                                <input type="text" name="s_bilirubin" value="<?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['s_bilirubin'];}?>">
+                                                                                            </td>
+                                                                                            <td>BT, CT (min)</td>
+                                                                                            <td>
+                                                                                                <input type="text" name="bt_ct" value="<?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['bt_ct'];}?>">
+                                                                                            </td>
+                                                                                        </tr>
+
+                                                                                        <tr>
+                                                                                            <td>Blood Group</td>
+                                                                                            <td>
+                                                                                                <input type="text" name="blood_group_result" value="<?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['blood_group_result'];}?>">
+                                                                                            </td>
+                                                                                            <td>AST & ALT (IU)</td>
+                                                                                            <td>
+                                                                                                <input type="text" name="ast" value="<?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['ast'];}?>">
+                                                                                            </td>
+                                                                                            <td>PT, APTT (sec)</td>
+                                                                                            <td>
+                                                                                                <input type="text" name="pt_aptt" value="<?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['pt_aptt'];}?>">
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td>RBS/FBS</td>
+                                                                                            <td>
+                                                                                                <input type="text" name="rbs" value="<?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['rbs'];}?>">
+                                                                                            </td>
+                                                                                            <td>S. Na+ (meq/L.)</td>
+                                                                                            <td>
+                                                                                                <input type="text" name="sna" value="<?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['sna'];}?>">
+                                                                                            </td>
+                                                                                            <td>INR</td>
+                                                                                            <td>
+                                                                                                <input type="text" name="inr" value="<?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['inr'];}?>">
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td>B. Urea/ BUN</td>
+                                                                                            <td>
+                                                                                                <input type="text" name="b_urea" value="<?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['b_urea'];}?>">
+                                                                                            </td>
+                                                                                            <td>S.K+ (meq/L)</td>
+                                                                                            <td>
+                                                                                                <input type="text" name="sk" value="<?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['sk'];}?>">
+                                                                                            </td>
+                                                                                            <td>CXR</td>
+                                                                                            <td>
+                                                                                                <input type="text" name="cxr" value="<?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['cxr'];}?>">
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td>Urine R/E</td>
+                                                                                            <td>
+                                                                                                <input type="text" name="urine" value="<?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['urine'];}?>">
+                                                                                            </td>
+                                                                                            <td>S. Cl- (meq/L)</td>
+                                                                                            <td>
+                                                                                                <input type="text" name="scl" value="<?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['scl'];}?>">
+                                                                                            </td>
+                                                                                            <td>ECG</td>
+                                                                                            <td>
+                                                                                                <input type="text" name="ecg" value="<?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['ecg'];}?>">
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td>Other (eg.echo)</td>
+                                                                                            <td colspan="5">
+                                                                                                <input style="width: 100%; height: 30px;" type="text" name="others" value="<?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['others'];}?>">
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                        </table>
+                                        </td>
+                                        </tr>
+                                        </tbody>
+                                        </table>
+<table width="100%" style="border: 1px solid #000;">
+                    <thead>
+                        
+                        
+                    </thead>        
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table>
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                              <td>
+                                              <label for="" class="control-label col-sm-3"><strong>Accepted -</strong> for <b>GA</b> in <b>ASA </b> gr-</label>
+                                              <label>
+                                                                        <input type="radio" name="accepted_gr" value="I" <?php if(isset($anaesthesia_checkup['accepted_gr'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'I')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> I</label> &nbsp;
+                                                                    <label>
+                                                                        <input type="radio" name="accepted_gr" value="II" <?php if(isset($anaesthesia_checkup['accepted_gr'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'II')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> II</label> &nbsp;
+                                                                    <label>
+                                                                        <input type="radio" name="accepted_gr" value="III" <?php if(isset($anaesthesia_checkup['accepted_gr'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'III')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> III</label> &nbsp;
+                                                                    <label> 
+                                                                        <input type="radio" name="accepted_gr" value="IV" <?php if(isset($anaesthesia_checkup['accepted_gr'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'IV')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> IV</label> &nbsp;
+                                                                    <label>
+                                                                        <input type="radio" name="accepted_gr" value="V" <?php if(isset($anaesthesia_checkup['accepted_gr'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'V')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> V</label> &nbsp;
+                                                                    <label>
+                                                                        <input type="radio" name="accepted_gr" value="VI" <?php if(isset($anaesthesia_checkup['accepted_gr'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'VI')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> VI</label>
+                                                                                    <label for="" class="control-label col-sm-1" style="width: 30px;"><strong> / (E)</strong></label>
+                                                                                    <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['accepted_or'];}?>
+                                                                                    <label for="" class="control-label col-sm-1" style="width: 30px;">Or - </label>
+                                                                                    <label>
+                                                                        <input type="radio" name="deferred" value="Deferred" <?php if(isset($anaesthesia_checkup['deferred'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'Deferred')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> Deferred</label> &nbsp;
+                                                                    <label>
+                                                                        <input type="radio" name="deferred" value="Referred" <?php if(isset($anaesthesia_checkup['deferred'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'Referred')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> Referred</label>
+                                              </td>
+                                              </tr>
+                                              <tr>
+                                                  <td>
+                                                      <label class="control-label col-sm-2"><strong>NYHA class -</strong></label>
+                                                      <label>
+                                                                        <input type="radio" name="nyha_class" value="I" <?php if(isset($anaesthesia_checkup['nyha_class'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'I')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> I</label> &nbsp;
+                                                                    <label>
+                                                                        <input type="radio" name="nyha_class" value="II" <?php if(isset($anaesthesia_checkup['nyha_class'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'II')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> II</label> &nbsp;
+                                                                    <label>
+                                                                        <input type="radio" name="nyha_class" value="III" <?php if(isset($anaesthesia_checkup['nyha_class'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'III')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> III</label> &nbsp;
+                                                                    <label>
+                                                                        <input type="radio" name="nyha_class" value="V" <?php if(isset($anaesthesia_checkup['nyha_class'])){
+                                                                                        foreach ($anaesthesia_checkup as $key) {
+                                                                                            if($key == 'V')
+                                                                                                echo 'checked="checked"';
+                                                                                        }
+                                                                                    }?>> IV</label>
+                                                  </td>
+                                              </tr>
+                                              <tr>
+                                                  <td>
+                                                      <label for="" class="control-label col-sm-3"><strong>Preop Advice -</strong> (With special notes for Anaesthesiologist) :</label>
+                                                      <?php if(isset($anaesthesia_checkup)){echo $anaesthesia_checkup['preop_advice'];}?>
+                                                  </td>
+                                              </tr>
+                                              </tbody>
+                                              </table>
+                                              </td>
+                                              </tr>
+                                              </tbody>
+                                              </table>
+
+                    
+
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    

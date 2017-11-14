@@ -1,0 +1,570 @@
+<div class="row  nav-button-container tab-pane fade in active" role="tabpanel" id="patient-detailes">
+    <div class="col-sm-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Patient Details
+            </div>
+
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="noticeboard">
+
+            <div class="p-detailes">
+                <div class="table-adjusment">
+                    <form class="form-horizontal form-diagnosis">
+                        <div class="form-group">
+                            <label for="patient-id" class="control-label">ID </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['id']; ?></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="patient-name" class="control-label">Name </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['name']; ?></span>
+                            </div>
+                        </div>
+						
+						<!--<div class="form-group">
+                            <label for="patient-name" class="control-label">Father Name :</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['father_name'];?></span>
+                            </div>
+                        </div>-->
+						
+						<div class="form-group">
+                            <label for="Patient-name" class="control-label"> Parent's Name </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php 
+                                if($patient_details['parents']!='')
+                                {
+                                    echo '<span>'. $patient_details['parents'] .'</span>';
+                                }
+                                else
+                                {
+                                    echo '<span>' . $patient_details['father_name'].','.$patient_details['mother_name'].'</span>';
+                                }
+                            ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-name" class="control-label">Patient ID </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['patient_id']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-dob" class="control-label">Birthday </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['dob']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-address" class="control-label">Present Address </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['present_address']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-address" class="control-label">Parmanent Address </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['parmanent_address']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-address" class="control-label">Rank </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['rank']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-address" class="control-label">Name of Spouse </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['name_of_spouse']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-phone" class="control-label">Phone
+                            </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['phone_no']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="alt-patient-phone" class="control-label">Email
+                            </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['email']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-email" class="control-label">CNE</label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['cne']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-age" class="control-label">Age </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['age']; ?></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="patient-sex" class="control-label">Gender </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['sex']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-statuse" class="control-label"> Martial Status </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['martial_status']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-blood-group" class="control-label">Blood Group </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['blood_group']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-blood-group" class="control-label">RE </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['re']; ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-blood-group" class="control-label">Unit </label>
+                            <div class="  email-profile inline-block">
+                                <span><?php echo $patient_details['unit']; ?></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="alt-patient-phone" class="control-label"> Photo
+                            </label>
+                            <div class="  email-profile inline-block">
+                                <?php
+                                if ($patient_details['image_name'] == '')
+                                    $image_url = 'others/uploads/doctor/default-doctor.png';
+                                else
+                                    $image_url = 'others/uploads/patient/' . $patient_details['image_name'];
+                                ?>
+                                <span><img style="width:100px;" src="<?php echo base_url() . $image_url ?>"></span>
+                            </div>
+                        </div>
+
+                    </form>
+                    <!-- <button type="submit" class="btn btn-default pull-right" data-toggle="modal" data-id="3" data-target="#add-prescription"><i class="fa fa-plus"></i> Prescribe</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="noticeboard">
+            <div>
+                <div class="table-responsive table-adjusment ">
+                    <table class="table table-hover" id="datatab">
+                        <div class="table-header ">
+
+                            <div class="input-group dept-input table-head">
+                                <i class="fa fa-exchange" aria-hidden="true"></i>&nbsp; &nbsp;Appointment
+                                <button type="" class="btn pull-right add-btn" data-toggle="modal" data-id="3" data-target="#add-appoinment"><i class="fa fa-plus"></i> </button>
+                            </div>
+                        </div>
+                        <thead>
+                            <tr>
+                                <th style="display:none">Date</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Doctor Name</th>
+                                
+                                <th>Option</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($patient_appoinment as $row): ?>
+
+                                <tr id="">
+
+                                    <td style="display:none"><?php echo $row['app_id']; ?></td>
+                                    <td><?php echo $row['app_date']; ?></td>
+                                    <td><?php echo $row['app_time']; ?></td>
+                                    <td><?php echo $row['name']; ?></td>
+                                    
+                                    <td><a href="<?php echo base_url(); ?>receptionist/print_rec/<?php echo $row['app_id']; ?>"><button type="button" class="btn btn-success btn-block" id='btn' value='Print' >
+                                                <span class="glyphicon glyphicon-print"></span>
+                                            </button></a></td>
+
+
+                                </tr>
+                            <?php endforeach; ?>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="table-responsive table-adjusment" style="display:none">
+                    <table class="table table-hover" id="datatab2">
+                        <div class="table-header ">
+
+                            <div class="input-group dept-input table-head">
+                                <i class="fa fa-bed" aria-hidden="true"></i>&nbsp; &nbsp;Bed Allotment
+                                <button type="" class="btn pull-right add-btn" data-toggle="modal" data-id="3" data-target="#add-bed"><i class="fa fa-plus"></i> </button>
+                            </div>
+                        </div>
+                        <thead>
+                            <tr>
+                                <th>Bed No</th>
+                                <th>Bed Type</th>
+                                <th>Add. Date</th>
+                                <th>Dis. Date</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <th scope="row">1</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="table-responsive table-adjusment" style="display:none">
+                    <table class="table table-hover" id="datatab3">
+                        <div class="table-header ">
+
+                            <div class="input-group dept-input table-head">
+                                <i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp; &nbsp;Operation
+                                <button type="" class="btn pull-right add-btn" data-toggle="modal" data-id="3" data-target="#"><i class="fa fa-plus"></i> </button>
+                            </div>
+                        </div>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+
+                                <th>Doctor</th>
+
+                            </tr>
+
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <th scope="row">01/02/2016</th>
+                                <td>Doc. MZI Hafij</td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row">01/02/2016</th>
+                                <td>Doc. MZI Hafij</td>
+
+                            </tr>
+                            <tr>
+                                <th scope="row">01/02/2016</th>
+                                <td>Doc. MZI Hafij</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal add bed allotment-->
+<div class="modal fade" id="add-bed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Bed Allotment </h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="table-responsive table-adjusment ">
+
+                    <div class="form-group">
+                        <label for="bed-number" class="control-label">Bed-Number</label>
+                        <div class=" ">
+
+                            <select id="bed-number" type="text" class="form-control dept-input" name="bed_id">
+
+                                <option value=""></option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <input type="hidden" class="form-control dept-input" id="id" name="patient_id" value="">
+                    <div class="form-group">
+                        <label for="patient-name" class="control-label">Patient</label>
+                        <div class=" ">
+                            <input type="text" class="form-control dept-input" id="patient-name" value="" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="allotment-date" class="control-label">Allotment Time</label>
+                        <div class=" " style="">
+                            <input type="text" class="form-control dept-input" id="apo-date" value="" name="allotment_timestamp" required>
+                            <div class="monthly " id="mycalendar4"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="discharge-date" class="control-label">Discharge Time</label>
+                        <div class=" " style="">
+                            <input type="text" class="form-control dept-input" id="dis-date" value="" name="discharge_timestamp" required>
+                            <div class="monthly " id="mycalendar5"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class=" ">
+                            <button type="submit" class="btn btn-default ">Add Bed Allotment</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- MODAL FOR ADD APPOINMENT -->
+<div class="modal fade" id="add-appoinment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Appoinment</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="table-responsive table-adjusment "  style="min-height: 450px;">
+                    <form action="<?php echo base_url(); ?>ReceptionistAdd/add_appointment" method="post" enctype="multipart/form-data">
+                        <div class="form-group col-md-12">
+                            <label for="doc-depertment" class="control-label col-md-2">Depertment</label>
+                            <div class="email-profile inline-block col-md-6 ">
+
+                                <input type="hidden" id="patient-id" value="<?php echo $patient_details['patient_id']; ?>" name="patient_id">
+                                <input type="hidden" id="patient-id" value="<?php echo $patient_details['id']; ?>" name="id">
+                                <select id="select_department" type="text" class="form-control dept-input" name="department_id" required="">
+                                    <option selected disabled>Choose Department</option>
+
+                                    <?php foreach ($department as $row): ?>
+                                        <option value="<?php echo $row['department_id']; ?>">
+                                            <?php echo $row['department_name']; ?>
+                                        </option>
+                                    <?php endforeach; ?>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="doc-name" class="control-label col-md-2">Doctors</label>
+                            <div class="email-profile inline-block col-md-6 ">
+
+                                <select id="doctor-list" type="text" class="form-control dept-input" name="doctor_id">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="patient-birth-date" class="control-label col-md-2">Appointment Date</label>
+                            <div class=" email-profile inline-block col-md-6">
+                                <input type="text" class="form-control dept-input" id="date" placeholder="" name="app_date" required="">
+                                <div class="monthly" id="mycalendarAll"></div>
+                            </div>
+                        </div>
+                        <!--                        <div class="form-group">
+                                                    <label for="app-time" class="control-label">Description</label>
+                                                    <div>
+                                                        <input class="form-control dept-input" id="app-des" value="" type="text" name="app_des" required="">
+                                                    </div>
+                                                </div>-->
+                        <div class="form-group">
+                            <div class=" ">
+                                <button type="submit" class="btn btn-default pull-right ">Add Appoinment</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="appointment_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Lab Report</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="table-responsive table-adjusment ">
+
+                    <table class="table table-hover">
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+
+                                <th>lab test name</th>
+                                <th>Download</th>
+
+                            </tr>
+
+                        </thead>
+                        <tbody id="all_reports">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="print" style="display: none; ">
+    <div class="tab-content table-content">
+        <div role="tabpanel" class="card tab-pane fade in active" id="add-category">
+            <div class="card-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3" >
+                            <div id='DivIdToPrint'>
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-md-offset-1">
+                                        <address>
+                                            <strong>Rangpur CMH</strong>
+                                            <br>
+
+                                            <br>
+                                            Rangpur
+                                            <br>
+                                            <abbr title="Phone">P:</abbr> (213) 484-6829
+                                        </address>
+                                    </div>
+
+                                </div>
+                                <div class="row" class="col-xs-6 col-sm-6 col-md-6 col-md-offset-1">
+                                    <div class="text-center">
+                                        <h3>Sl Receipt</h3>
+                                    </div>
+                                    </span>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-md-offset-1">
+                                        <div>
+                                            <label>Doctor</label>
+                                            <span>dsa</span>
+                                        </div>
+                                        <div>
+                                            <label>Date</label>
+                                            <span>12 oct,2017</span>
+                                        </div>
+                                        <div>
+                                            <label>Time</label>
+                                            <span>1-pm</span>
+                                        </div>
+                                        <div>
+                                            <label>SL No.</label>
+                                            <span>10</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            </td>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('#select_department').on('change', function () {
+        var selected = $(this).val();
+        //alert(selected);
+
+        $.ajax({
+            url: '<?php echo base_url(); ?>ReceptionistGet/dept_doctor/' + selected,
+            //data: {'selected': selected},
+            type: 'GET',
+            dataType: 'json',
+            error: function () {
+                alert("Sorry...Something goes Wrong");
+            },
+            success: function (data) {
+
+                $('#doctor-list').empty();
+
+                for (var i = 0; i < data.length; i++) {
+                    $("#doctor-list").append("<option value='" + data[i]['user_id'] + "'>" + data[i]['name'] + "</option>");
+                }
+            } // End of success function of ajax form
+        }); // End of ajax call
+    });
+
+
+
+
+
+</script>
+<script>
+
+    function printFunction() {
+        var divContents = $("#print").html();
+        var printWindow = window.open('', '', 'height=1500,width=1500');
+        printWindow.document.write('<html><head>' +
+                '<link href="<?php echo base_url(); ?>others/css/bootstrap.min.css" rel="stylesheet">' +
+                '<link href="<?php echo base_url(); ?>others/css/style-admin.css" rel="stylesheet">' +
+                '<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">' +
+                '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">' +
+                '<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" type="text/css">' +
+                '<link rel="stylesheet" href="<?php echo base_url(); ?>others/css/monthly.css">' +
+                '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.min.css">' +
+                '<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">' +
+                '<link href="<?php echo base_url(); ?>others/css/typeahead.css" rel="stylesheet">' +
+                '<link rel="stylesheet" href="<?php echo base_url(); ?>others/css/perfect-scrollbar.css"/><title></title>' +
+                '<style type="text/css">.print {display: none;}</style>');
+        printWindow.document.write('</head><body >');
+        printWindow.document.write(divContents);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
+    }
+</script>
+

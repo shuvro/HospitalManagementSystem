@@ -1,0 +1,271 @@
+<!--  containt tab for Nurse-->
+                <div class="row  nav-button-container fade in" role="tabpanel" id="nurse">
+                    <div class="col-xs-12">
+                        <div class="noticeboard">
+                            <div class="noticeboard-header content-header">
+                                <i class="fa fa-info-circle" aria-hidden="true"></i> Manage Lab Test
+                            </div>
+                            <div class="noticeboard-body">
+                                <div>
+
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#test-list" aria-controls="nurse-list" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i>
+                                                Test List                    	</a></li>
+                                        <li role="presentation"><a href="#add-test" aria-controls="add-nurse" role="tab" data-toggle="tab"><i class="fa fa-plus"></i>
+                                                Add Test                    	</a></li>
+
+                                    </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade in active" id="test-list">
+
+                                            <div class="table-responsive table-adjusment">
+                                                <table class="table table-hover" id="datatab">
+                                                    <div class="table-header hidden">
+
+                                                        <div class="input-group dept-input">
+                                                            <span class="input-group-addon" id="search-nurse"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                                            <input id="Search_test" type="text" class="form-control" placeholder="Search" aria-describedby="search-nurse" name="lab_tests">
+                                                        </div>
+                                                    </div>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Lab test ID</th>
+															<th style="display:none">ID</th>
+                                                            <th>Lab Test Name</th>
+                                                            <th>Lab Test Description</th>
+                                                            <th>Lab Test Cost</th>
+                                                            <th>Options</th>
+
+                                                        </tr>
+
+                                                    </thead>
+                                                    
+                                                    <tbody id="search_result">
+                                                        <?php $count = 1;foreach($lab_test as $row):?>
+                                                        <tr>
+                                                            <th scope="row"><?php echo $count++;?></th>
+                                                            <td style="display: none;"><?php echo $row['lab_test_id'] ?></td>
+                                                            <td><?php echo $row['lab_test_name'];?></td>
+                                                            <td><?php echo $row['lab_test_description']?></td>
+                                                            <td><?php echo $row['lab_test_cost']?></td>
+
+                                                            <td>
+                                                                <button title="Edit" class="btn btn-primary btn-sm" id="getdata" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+
+
+                                                                <a href="<?php echo base_url();?>laboratorist/manage_test/delete/<?php echo $row['lab_test_id'];?>"><button title="Delete" class="btn  btn-danger btn-sm" onclick="return ConfirmDelete()"><i class="fa fa-trash" aria-hidden="true"></i>
+                                                                </button></a>
+                                                            </td>
+
+                                                        </tr>
+                                                <?php endforeach;?>
+
+                                                    </tbody>
+
+                                                </table>
+                                                <div class="col-xs-12 table-footer hidden">
+                                    <div class="btn-group pull-right" role="group" aria-label="">
+                                        <button type="button" class="btn btn-default"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                                        <button type="button" class="btn btn-default">1</button>
+                                        <button type="button" class="btn btn-default"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="add-test">
+                                            <div class="table-adjusment">
+<!--                                                <form class="form-horizontal">-->
+                                                    <?php echo form_open('laboratorist/manage_test/create/' , array('class' => 'form-horizontal validatable'));?>
+                                                    <div class="form-group">
+                                                        <label for="nurse-name" class="control-label">Test Name</label>
+                                                        <div class=" ">
+                                                            <input type="text" class="form-control dept-input" id="nurse-name" placeholder="Test Name" name="name" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="nurse-address" class="control-label">Lab test category</label>
+                                                        <div class=" ">
+                                                            <!--<input type="text" class="form-control dept-input" id="nurse-address" placeholder="Description" name="address" required>-->
+															<select class="form-control" name="lab_cat">
+															  <option>Plesase select Lab category</option>
+															  <?php foreach($category_list as $row): ?>
+															  <option value="<?php echo $row['lab_category_id']?>"><?php echo $row['lab_name']?></option>
+															  <?php endforeach; ?>
+															  </select>
+															
+                                                        </div>
+                                                    </div>
+													<div class="form-group">
+                                                        <label for="nurse-address" class="control-label">Test Description</label>
+                                                        <div class=" ">
+                                                            <input type="text" class="form-control dept-input" id="nurse-address" placeholder="Description" name="description" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="nurse-phone" class="control-label">Test Cost</label>
+                                                        <div class=" ">
+                                                            <input type="number" class="form-control dept-input" id="nurse-phone" placeholder="Cost" name="Cost" required>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group">
+                                                        <div class=" ">
+                                                            <button type="submit" class="btn btn-default">Add Test</button>
+                                                        </div>
+                                                    </div>
+<!--                                                </form>-->
+                                                     <?php echo form_close();?>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+
+<!-- Modal -->
+   <div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+
+            <div class="modal-content">
+            
+                <?php echo form_open('laboratorist/manage_test/edit/do_update/', array('class' => 'form-horizontal')); ?>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit Lab Test Details </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="table-adjusment">
+                    
+
+                                <input type="hidden" class="form-control dept-input" id="id" name="id">
+
+
+                                <div class="form-group">
+                                                        <label for="nurse-name" class="control-label">Lab Test Name</label>
+                                                        <div class=" ">
+                                                            <input type="text" class="form-control dept-input" id="lab_name" placeholder="Nurse Name" name="name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="nurse-email" class="control-label">Lab Test Description</label>
+                                                        <div class=" ">
+                                                            <input type="text" class="form-control dept-input" id="lab_description" placeholder="Email" name="lab_description">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="nurse-address" class="control-label">Lab Cost</label>
+                                                        <div class=" ">
+                                                            <input type="text" class="form-control dept-input" id="lab_cost" placeholder="Address" name="lab_cost">
+                                                        </div>
+                                                    </div>
+                                                      
+
+                                    <div class="modal-footer">
+                        <button type="" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary btn-modal">Save changes</button>
+                    </div>
+                    <?php echo form_close(); ?>
+    
+                                </div>
+
+                            </div>
+        
+
+                </div>
+            </div>
+        </div>
+
+
+    <script type="text/javascript">
+
+            $(document).on('click','#getdata', function(){
+        var edit_id= $(this).closest('tr').children()[1].textContent;
+        var infoModal = $('#view-modal');
+       // $("#view-modal").modal("show");
+        $.ajax({
+
+            url: '<?php echo base_url();?>laboratorist/edit_lab_test',
+            data: {'edit_id': edit_id},
+            type:'POST',
+            dataType: 'json',
+
+            error: function(){
+                alert("Data not found");        
+            },
+
+            success:function(data){    
+                 $(".modal #id").val(data[0].lab_test_id);
+                $(".modal #lab_name").val(data[0].lab_test_name);
+                $(".modal #lab_description").val(data[0].lab_test_description);
+                $(".modal #lab_cost").val(data[0].lab_test_cost);
+                //$(".modal #nurse-phone").val(data[0].phone);
+                $("#view-modal").modal("show");
+
+                          } // End of success function of ajax form
+                          }); // End of ajax call
+});
+
+
+
+        </script>
+		
+		<script>
+        $(document).ready(function () {
+
+               // var table = $('#search_id').attr('name');
+                $('#Search_test').keyup(function () {
+                    var search_key = $(this).val();
+					// alert(search_key);
+					  //alert(table);
+					 
+
+                    $.ajax({
+                        url: '<?php echo base_url();?>Search/Search_lab_tests',
+                        data: {'search_key': search_key, 'pagination_number':1},
+                        type: 'POST',
+                        dataType: 'json',
+
+                        error: function () {
+                            //alert("Sorry");
+                        //alert(pagination_number);
+                    },
+                    success: function (data) {
+                        //alert(data[0]);
+                    //alert(searchid);
+                    $('#search_result').empty();
+                    $("#pagination").empty();
+
+                    // var count = 0;
+                    // $.each(data, function(key, value) {
+                    //     $( "#search_result" ).append( '<tr><th scope="row">'+(count+1)+'</th><td style="display: none;">'+data[count].department_id+'</td><td>'+data[count].name+'</td><td>'+data[count].description+'</td><td><button class="btn btn-primary btn-sm" id="getdata" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td></tr>' );
+                    //     count++;
+                    // });
+                    //$( "#search_result" ).html( '<tr><td>'+data[0].department_id+'</td></tr>' );
+                    
+                    $("#search_result").append(data[0]);
+                    $("#pagination").append(data['pagination']);
+                } // End of success function of ajax form
+            }); // End of ajax call
+                });
+            });
+    </script> 

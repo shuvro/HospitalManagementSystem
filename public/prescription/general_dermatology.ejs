@@ -1,0 +1,142 @@
+<div class="col-md-12 col-sm-12">
+<div class="noticeboard">
+                <div>
+                    <div style="" class="table-responsive table-adjusment ">
+                        <table class="table table-hover">
+
+                            <input type="hidden" class="form-control" name="patient_id" value="<?php echo $patient_details['patient_id']; ?>">
+                            <input type="hidden" class="form-control" name="app_id" value="<?php echo $this->uri->segment(3); ?>">
+
+                            <div class="table-header ">
+                                <div class="input-group dept-input table-head">
+                                    <i class="fa fa-exchange" aria-hidden="true"></i>&nbsp; &nbsp;
+                                    <?php 
+                                        if($this->session->userdata('department_id')=='15')
+                                            echo 'Sign & Symptom';
+                                        else
+                                            echo 'General Physical Examination';
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                
+                                    <div class="form-group">
+                                        <label for="patient-name" class="control-label">Appearance :</label>
+                                        <div class="email-profile inline-block">
+                                            <input type="text" class="form-control" name="appearance" id="bp" value="<?php if(isset($prescription_fav)){echo $prescription_fav['appearance'];}?>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="patient-name" class="control-label">Anaemia :</label>
+                                            <div class="email-profile inline-block">
+                                                <input type="text" class="form-control" name="anaemia" id="pulse" value="<?php if(isset($prescription_fav)){echo $prescription_fav['anaemia'];}?>">
+                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="patient-name" class="control-label">Jaundice :</label>
+                                            <div class="email-profile inline-block">
+                                                <input type="text" class="form-control" name="jaundice" id="temperature" value="<?php if(isset($prescription_fav)){echo $prescription_fav['jaundice'];}?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="patient-name" class="control-label">Cyanosis :</label>
+                                                <div class="email-profile inline-block">
+                                                    <input type="text" class="form-control" name="cyanosis" id="disease" value="<?php if(isset($prescription_fav)){echo $prescription_fav['cyanosis'];}?>">
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="patient-name" class="control-label">Clubbing :</label>
+                                            <div class="email-profile inline-block">
+                                                <input type="text" class="form-control" name="clubbing" id="bp" value="<?php if(isset($prescription_fav)){echo $prescription_fav['clubbing'];}?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label for="patient-name" class="control-label">Koilonychia :</label>
+                                                <div class="email-profile inline-block">
+                                                    <input type="text" class="form-control" name="koilonychia" id="pulse" value="<?php if(isset($prescription_fav)){echo $prescription_fav['koilonychia'];}?>">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                    <label for="patient-name" class="control-label">Leuconychia :</label>
+                                                    <div class="email-profile inline-block">
+                                                        <input type="text" class="form-control" name="leuconychia" id="temperature" value="<?php if(isset($prescription_fav)){echo $prescription_fav['leuconychia'];}?>">
+                                                    </div>
+                                                </div>
+                                        <div class="form-group">
+                                        <label for="patient-name" class="control-label">Oedema :</label>
+                                        <div class="email-profile inline-block">
+                                            <input type="text" class="form-control" name="oedema" id="bp" value="<?php if(isset($prescription_fav)){echo $prescription_fav['oedema'];}?>">
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    
+                                   
+                                                                   
+
+                                                                                                                
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Skin Condition :</label>
+                                    <div class="email-profile inline-block">
+                                        <input type="text" class="form-control" name="skin_condition" id="temperature" value="<?php if(isset($prescription_fav)){echo $prescription_fav['skin_condition'];}?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Hair Distribution :</label>
+                                    <div class="email-profile inline-block">
+                                        <input type="text" class="form-control" name="hair_distribution" id="disease" value="<?php if(isset($prescription_fav)){echo $prescription_fav['hair_distribution'];}?>">
+                                    </div>
+                                </div>
+                            
+                            <div class="form-group">
+                                        <label for="patient-name" class="control-label">Pulse :</label>
+                                            <div class="email-profile inline-block">
+                                                <input type="text" class="form-control" name="pulse" id="temperature" value="<?php if(isset($prescription_fav)){echo $prescription_fav['pulse'];}?>">
+                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="patient-name" class="control-label">BP :</label>
+                                            <div class="email-profile inline-block">
+                                                <input type="text" class="form-control" name="bp" id="disease" value="<?php if(isset($prescription_fav)){echo $prescription_fav['bp'];}?>">
+                                            </div>
+                                    </div>
+                                
+                                <div class="form-group">
+                                     <label for="patient-name" class="control-label">Respiration :</label>
+                                         <div class="email-profile inline-block">
+                                                <input type="text" class="form-control" name="respiration" id="bp" value="<?php if(isset($prescription_fav)){echo $prescription_fav['respiration'];}?>">
+                                        </div>
+                                </div>            
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Temp :</label>
+                                        <div class="email-profile inline-block">
+                                            <input type="text" class="form-control" name="temperature" id="pulse" value="<?php if(isset($prescription_fav)){echo $prescription_fav['temperature'];}?>">
+                                        </div>
+                                </div>
+                                                                         
+                                 <div class="form-group">
+                                        <label for="patient-name" class="control-label">Others :</label>
+                                            <div class="email-profile inline-block">
+                                                <input type="text" class="form-control" name="others" id="temperature" value="<?php if(isset($prescription_fav)){echo $prescription_fav['others'];}?>">
+                                            </div>
+                                </div>                                                  
+                                                                                    
+                                                                                        
+
+                                                                                                       
+                                                                                                            
+                                                                                                            
+
+                            </div>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="">
+
+                </div>
+            </div>
+
+            </div>

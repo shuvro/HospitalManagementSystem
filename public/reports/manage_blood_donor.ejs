@@ -1,0 +1,369 @@
+<div class="row  nav-button-container fade in" role="tabpanel" id="add-blood-donor">
+    <div class="col-xs-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Manage Blood Donor
+
+            </div>
+            <div class="noticeboard-body">
+                <div>
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#blood-donor-list" aria-controls="bed-allotment" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i> <strong>
+                                Blood Donor List         </strong>           	</a></li>
+
+                        <li role="presentation"><a href="#add-donor" aria-controls="add-donor" role="tab" data-toggle="tab"><i class="fa fa-plus"></i>
+                                Add Blood Donor                    	</a></li>
+
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="blood-donor-list">
+
+                            <div class="table-responsive table-adjusment ">
+                                <table class="table table-hover"  id="datatab">
+                                    <div class="table-header hidden">
+
+                                        <div class="input-group dept-input">
+                                            <span class="input-group-addon" id="search-blood-donor"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                            <input type="text" id="search_blood_donor" class="form-control" placeholder="Search" aria-describedby="search-blood-donor" name="blood_donor"> 
+                                        </div>
+                                    </div>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+											<th style="display:none">ID</th>
+                                            <th>Name</th>
+                                            <th>Age</th>
+                                            <th>Sex</th>
+                                            <th>Blood Group</th>
+                                            <th>Last Donation Date</th>
+                                            <th>Option</th>
+
+                                        </tr>
+
+                                    </thead>
+                                    <tbody id="search_result_blodd">
+                                        <?php $count = 1;
+                                        foreach ($blood_donors as $row): ?>
+
+                                            <tr>
+                                                <th scope="row"><?php echo $count++; ?></th>
+
+                                                <td style="display: none;"><?php echo $row['blood_donor_id'] ?></td>
+                                                <td><?php echo $row['name']; ?></td>
+                                                <td><?php echo $row['age']; ?></td>
+                                                <td><?php echo $row['sex']; ?></td>
+                                                <td><?php echo $row['blood_group']; ?></td>
+                                                <td><?php echo $row['last_donation_timestamp']; ?></td>
+                                                <td>
+                                                    <button title="Edit" class="btn btn-primary btn-sm" id="getdata" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+
+                                                    <a href="<?php echo base_url(); ?>laboratorist/manage_blood_donor/delete/<?php echo $row['blood_donor_id']; ?>"><button title="Delete" class="btn  btn-danger btn-sm" onclick=" return ConfirmDelete()"><i class="fa fa-trash" aria-hidden="true"></i>
+                                                        </button></a>
+                                                </td>
+
+                                            </tr>
+
+
+<?php endforeach; ?>
+
+                                    </tbody>
+
+                                </table>
+                                <div class="col-xs-12 table-footer">
+
+
+                                    <div class="btn-group pull-right" role="group" aria-label="">
+                                        <button type="button" class="btn btn-default"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                                        <button type="button" class="btn btn-default">1</button>
+                                        <button type="button" class="btn btn-default"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane fade" id="add-donor">
+                            <div class="table-adjusment">
+                                <!--<form class="form-horizontal">-->
+<?php echo form_open('laboratorist/manage_blood_donor/create/', array('class' => 'form-horizontal validatable')); ?>
+
+                                <div class="form-group">
+                                    <label for="blood-donor-name" class="control-label">Name</label>
+                                    <div class=" ">
+                                        <input type="text" class="form-control dept-input" id="blood-donor-name" placeholder="Name" name="name" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="blood-donor-email" class="control-label">Email</label>
+                                    <div class=" ">
+                                        <input type="email" class="form-control dept-input" id="blood-donor-email" placeholder="Email" name="email" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="blood-donor-address" class="control-label">Address</label>
+                                    <div class=" ">
+                                        <input type="text" class="form-control dept-input" id="blood-donor-address" placeholder="Address" name="address" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="blood-donor-phone" class="control-label">Phone</label>
+                                    <div class=" ">
+                                        <input type="number" class="form-control dept-input" id="blood-donor-phone" placeholder="Phone" name="phone" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="blood-donor-sex" class="control-label">Sex</label>
+                                    <div class=" ">
+
+                                        <select id="blood-donor-sex" type="text" class="form-control dept-input" name="sex">
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="others">Do Not Mention</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="blood-donor-age" class="control-label">Age</label>
+                                    <div class=" ">
+                                        <input type="number" class="form-control dept-input" id="blood-donor-age" name="age" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="blood-donor-blood-group" class="control-label">Blood Group</label>
+                                    <div class=" ">
+
+                                        <select id="blood-donor-blood-group" type="text" class="form-control dept-input" name="blood_group">
+                                            <option value="A+">A+</option>
+                                            <option value="A-">A-</option>
+                                            <option value="B+">B+</option>
+                                            <option value="B-">B-</option>
+                                            <option value="AB+">AB+</option>
+                                            <option value="AB-">AB-</option>
+                                            <option value="O+">O+</option>
+                                            <option value="O-">O-</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-donation-time" class="control-label">Last Donation Date</label>
+                                    <div class=" ">
+                                        <input type="datetime" class="form-control dept-input" id="date" value="../../...." name="last_donation_timestamp" required>
+                                        <div class="monthly" id="mycalendarAll"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class=" ">
+                                        <button type="submit" class="btn btn-default ">Add Donor</button>
+                                    </div>
+                                </div>
+<?php echo form_close(); ?>      
+                                <!--</form>-->
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="view-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+
+<?php echo form_open('laboratorist/manage_blood_donor/edit/do_update/', array('class' => 'form-horizontal')); ?>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Edit Blood Donor Details </h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-adjusment">
+
+
+                    <input type="hidden" class="form-control dept-input" id="id" name="blood_donor_id">
+
+
+                    <div class="form-group">
+                        <label for="blood-donor-name" class="control-label">Name</label>
+                        <div class=" ">
+                            <input type="text" class="form-control dept-input" id="blood-donor-name" placeholder=" Name" name="name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="blood-donor-email" class="control-label">Email</label>
+                        <div class=" ">
+                            <input type="email" class="form-control dept-input" id="blood-donor-email" placeholder="Email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="blood-donor-address" class="control-label">Address</label>
+                        <div class=" ">
+                            <input type="text" class="form-control dept-input" id="blood-donor-address" placeholder="Address" name="address" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="blood-donor-phone" class="control-label">Phone</label>
+                        <div class=" ">
+                            <input type="number" class="form-control dept-input" id="blood-donor-phone" placeholder="Phone" name="phone" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="blood-donor-sex" class="control-label">Sex</label>
+                        <div class=" ">
+
+                            <select id="blood-donor-sex" type="text" class="form-control dept-input" name="sex">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="others">Do Not Mention</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="blood-donor-age" class="control-label">Age</label>
+                        <div class=" ">
+                            <input type="number" class="form-control dept-input" id="blood-donor-age" name="age" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="blood-donor-blood-group" class="control-label">Blood Group</label>
+                        <div class=" ">
+
+                            <select id="blood-donor-blood-group" type="text" class="form-control dept-input" name="blood_group">
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-donation" class="control-label">Date</label>
+                        <div class=" ">
+                            <input type="date" class="form-control dept-input" id="last-date" name="last-date" required>
+                        </div>
+                        <div class="monthly" id="mycalendarAll"></div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary btn-modal">Save changes</button>
+                    </div>
+<?php echo form_close(); ?>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+    $(document).on('click', '#getdata', function () {
+        var edit_id = $(this).closest('tr').children()[1].textContent;
+//        var infoModal = $('#view-modal');
+        // $("#view-modal").modal("show");
+        $.ajax({
+
+            url: '<?php echo base_url();?>laboratorist/edit_blood_donor/',
+            data: {'edit_id': edit_id},
+            type: 'POST',
+            dataType: 'json',
+
+            error: function () {
+                alert("Data not found");
+            },
+
+            success: function (data) {
+//                alert(edit_id);
+                $(".modal #id").val(data[0].blood_donor_id);
+                $(".modal #blood-donor-name").val(data[0].name);
+                $(".modal #blood-donor-email").val(data[0].email);
+                $(".modal #blood-donor-address").val(data[0].address);
+                $(".modal #blood-donor-phone").val(data[0].phone);
+                $(".modal #blood-donor-sex").val(data[0].sex);
+                $(".modal #blood-donor-age").val(data[0].age);
+                $(".modal #blood-donor-blood-group").val(data[0].blood_group);
+                $(".modal #last-date").val(data[0].last_donation_timestamp);
+                $("#view-modal").modal("show");
+
+            } // End of success function of ajax form
+        }); // End of ajax call
+    });
+
+</script> 
+
+<script>
+        $(document).ready(function () {
+
+               // var table = $('#search_id').attr('name');
+                $('#search_blood_donor').keyup(function () {
+                    var search_key = $(this).val();
+					 //alert(search_key);
+					  //alert(table);
+					 
+
+                    $.ajax({
+                        url: '<?php echo base_url();?>Search/Search_blood_donor',
+                        data: {'search_key': search_key, 'pagination_number':1},
+                        type: 'POST',
+                        dataType: 'json',
+
+                        error: function () {
+                            alert("Sorry");
+                        //alert(pagination_number);
+                    },
+                    success: function (data) {
+                        //alert(data[0]);
+                    //alert(searchid);
+                    $('#search_result_blodd').empty();
+                    $("#pagination").empty();
+
+                    // var count = 0;
+                    // $.each(data, function(key, value) {
+                    //     $( "#search_result" ).append( '<tr><th scope="row">'+(count+1)+'</th><td style="display: none;">'+data[count].department_id+'</td><td>'+data[count].name+'</td><td>'+data[count].description+'</td><td><button class="btn btn-primary btn-sm" id="getdata" type="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td></tr>' );
+                    //     count++;
+                    // });
+                    //$( "#search_result" ).html( '<tr><td>'+data[0].department_id+'</td></tr>' );
+                    
+                    $("#search_result_blodd").append(data[0]);
+                    $("#pagination").append(data['pagination']);
+                } // End of success function of ajax form
+            }); // End of ajax call
+                });
+            });
+    </script>
+

@@ -1,0 +1,1975 @@
+<style>
+    @font-face {
+        font-family: Raleway;
+        src: url(../fonts/Raleway-Light.ttf);
+    }
+    
+    body {
+        font-family: 'Raleway', sans-serif;
+        overflow-x: hidden;
+        font-weight: 300;
+        font-size: 16px;
+        font-style: normal;
+        scrollbar-face-color: #b46868;
+        color: #455a64;
+        background: #F0F0F0;
+    }
+    
+    .centerthing {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+    
+    table {
+        border: none;
+        border-color: transparent;
+        outline: 0;
+    }
+    
+    table thead th {
+        font-size: 13px;
+        border-bottom: 1px solid #474747;
+    }
+    
+    table tr {
+        font-size: 12px;
+    }
+    
+    table td {
+        font-size: 13px;
+    }
+    
+    .form-control {
+        border: none;
+        border-color: transparent;
+        outline: 0;
+        font-size: 15px;
+        width: 150px;
+    }
+</style>
+<div class="row nav-button-container tab-pane fade in active" role="tabpanel" id="patient-detailes">
+<div >
+    <div id="print">
+        <div class="col-sm-12 centerthing">
+            <div class="noticeboard">
+                <div class="noticeboard-header content-header">
+                    <!-- <img src="<?php echo base_url()?>others/images/rangpur_logo.png" style="max-width: 80px;" alt="logo_cmh"> -->
+                    <h3 style="font-size: 15px;">Combined Military Hospital, Rangpur </h3>
+                    <!-- <h4>CMH, Rangpur Cantonment , Combined Military Hospital</h4>
+                    <h4>Rangpur, Rajshahi Division - 5400</h4> -->
+                    <!--                <i class="fa fa-info-circle" aria-hidden="true"></i> Patients Detailes-->
+                </div>
+
+            </div>
+        </div>
+        <div style="margin-left: 80%;">
+            <div>
+                <div class="" style="font-size: 10px;">
+                    <div class="form-group">
+                        <label for="patient-id" class="control-label">Pr. ID :</label>
+                        <span><?php echo $prescription['prescription_id']; ?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: -2%;">
+            <div>
+                <div class="" style="font-size: 10px;">
+                    <div class="form-group">
+                        <label for="patient-id" class="control-label">Date :</label>
+                        <span><?php echo $prescription['prescribe_time']; ?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <div style="padding-bottom: 20px;">
+                    <table style="border: 1px solid #000; width: 100%;">
+                        <thead>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="12" for="patient-name"><b>Name: </b>
+                                    <?php echo $patient_details['name'] ;?> </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="1" for="patient-id"><b> Patient ID: </b>
+                                    <?php echo $patient_details['patient_id'];?>
+                                </td>
+                                <td colspan="1" for="patient-address" class="control-label"><b>Rank: </b>
+                                    <?php echo $patient_details['rank']; ?>
+                                </td>
+                                <td colspan="2" for="patient-dob"><b>Army No: </b>
+                                    <?php echo $patient_details['army_no']; ?>
+                                </td>
+                                <td colspan="3" for="patient-phone" class="control-label"><b>Unit: </b>
+                                    <?php echo $patient_details['unit'];?>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td for="patient-address" class="control-label"><b>Age: </b>
+                                    <?php echo $patient_details['age'];?>
+                                </td>
+                                <td for="patient-name"><b>Gender: </b>
+                                    <?php echo $patient_details['sex'];?>
+                                </td>
+                                <td for="patient-dob"><b>Blood Group: </b>
+                                    <?php echo $patient_details['blood_group'];?>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    
+                    <?php 
+                        if($prescription['cheif_complaint']!='')
+                        {
+                    ?>
+                    <table style="border: 1px solid #000; width: 100%; margin-top: 2%;">
+                        <thead>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Chief Complaints :</b>
+                                    <?php echo $prescription['cheif_complaint'];?>
+                                </td>
+                             
+                            </tr>
+
+                            
+                            
+                        </tbody>
+                    </table>
+                    <?php
+                        }
+                    ?>
+                    <?php
+                        if($prescription['drug_history']!='')
+                        {
+                    ?>
+                    <table style="border: 1px solid #000; width: 100%; margin-top: 2%;">
+                        <thead>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Drug History :</b>
+                                    <?php echo $prescription['drug_history'];?>
+
+
+                                </td>
+                             
+                            </tr>
+                        </tbody>
+                    </table>
+                    <?php
+                        }
+                    ?>
+                    <?php
+                        if($prescription['appearance']!=''|| $prescription['decubitus']!='' || $prescription['cooperation']!='' || $prescription['bodybuilt']!='' || $prescription['nutritional_status']!=''|| $prescription['anaemia']!='' || $prescription['jaundice']!='' || $prescription['cyanosis']!='' || $prescription['clubbing']!=''|| $prescription['koilonychia']!='' || $prescription['leuconychia']!='' || $prescription['oedema']!='' || $prescription['dehydration']!=''|| $prescription['skin_condition']!='' || $prescription['hair_distribution']!='' || $prescription['deformities']!='' || $prescription['lymph_node']!=''|| $prescription['pulse']!='' || $prescription['bp']!='' || $prescription['respiration']!='' ||  $prescription['temperature']!=''|| $prescription['others']!='')
+                            {
+                    ?>
+                    <table style="border: 1px solid #000; width: 100%; margin-top: 2%;">
+                        <thead>
+                            
+                        </thead>
+                        <tbody>
+                        <?php
+                            if($prescription['appearance']!=''|| $prescription['decubitus']!='' || $prescription['cooperation']!='' || $prescription['bodybuilt']!='')
+                            {
+                        ?>
+                            <tr>
+                                <?php
+                                    if($prescription['appearance']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-id"><b>Appearance: </b>
+                                    <?php echo $prescription['appearance'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['decubitus']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Decubitus: </b>
+                                    <?php echo $prescription['decubitus'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['cooperation']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-id"><b>Cooperation: </b>
+                                    <?php echo $prescription['cooperation'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['bodybuilt']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Bodybuilt: </b>
+                                    <?php echo $prescription['bodybuilt'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                            </tr>
+                        <?php
+                            }
+                        ?>
+                        <?php
+                            if($prescription['nutritional_status']!=''|| $prescription['anaemia']!='' || $prescription['jaundice']!='' || $prescription['cyanosis']!='')
+                            {
+                        ?>
+
+                            <tr>
+                                <?php
+                                    if($prescription['nutritional_status']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-id"><b>Nutritional Status: </b>
+                                    <?php echo $prescription['nutritional_status'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['anaemia']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Anaemia: </b>
+                                    <?php echo $prescription['anaemia'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['jaundice']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-id"><b>Jaundice: </b>
+                                    <?php echo $prescription['jaundice'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['cyanosis']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Cyanosis: </b>
+                                    <?php echo $prescription['cyanosis'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                            </tr>
+                        <?php
+                            }
+                        ?>
+                        <?php
+                            if($prescription['clubbing']!=''|| $prescription['koilonychia']!='' || $prescription['leuconychia']!='' || $prescription['oedema']!='')
+                            {
+                        ?>
+                            <tr>
+                                <?php
+                                    if($prescription['clubbing']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-id"><b>Clubbing : </b>
+                                    <?php echo $prescription['clubbing'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['koilonychia']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Koilonychia: </b>
+                                    <?php echo $prescription['koilonychia'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['leuconychia']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-id"><b>Leuconychia: </b>
+                                    <?php echo $prescription['leuconychia'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['oedema']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Oedema : </b>
+                                    <?php echo $prescription['oedema'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                            </tr>
+                        <?php
+                            }
+                        ?>
+                        <?php
+                            if($prescription['dehydration']!=''|| $prescription['skin_condition']!='' || $prescription['hair_distribution']!='' || $prescription['deformities']!='')
+                            {
+                        ?>
+                            <tr>
+                                <?php
+                                    if($prescription['dehydration']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-id"><b>Dehydration: </b>
+                                    <?php echo $prescription['dehydration'];?>
+                                </td>
+                                 <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['skin_condition']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Skin Condition: </b>
+                                    <?php echo $prescription['skin_condition'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['hair_distribution']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-id"><b>Hair Distribution: </b>
+                                    <?php echo $prescription['hair_distribution'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['deformities']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Deformities: </b>
+                                    <?php echo $prescription['deformities'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                            </tr>
+                        <?php
+                            }
+                        ?>
+                        <?php
+                            if($prescription['lymph_node']!=''|| $prescription['pulse']!='' || $prescription['bp']!='' || $prescription['respiration']!='')
+                            {
+                        ?>
+                            <tr>
+                                <?php
+                                    if($prescription['lymph_node']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-id"><b>Lymph Node: </b>
+                                    <?php echo $prescription['lymph_node'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['pulse']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Pulse: </b>
+                                    <?php echo $prescription['pulse'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['bp']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-id"><b>BP: </b>
+                                    <?php echo $prescription['bp'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['respiration']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Respiration: </b>
+                                    <?php echo $prescription['respiration'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                            </tr>
+                        <?php
+                            }
+                        ?>
+                         <?php
+                            if($prescription['temperature']!=''|| $prescription['others']!='')
+                            {
+                        ?>
+                            <tr>
+                                <?php
+                                    if($prescription['temperature']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-id"><b>Temp : </b>
+                                    <?php echo $prescription['temperature'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['others']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Others: </b>
+                                    <?php echo $prescription['others'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                            </tr>
+                        <?php
+                            }
+                        ?>
+                        </tbody>
+                    </table>
+                    <?php
+                        }
+                    ?>
+                    
+                    <table style="border: 1px solid #000; width: 100%; margin-top: 2%;">
+                        <thead>
+                            
+                        </thead>
+                        <tbody>
+                        
+                        <?php
+                            if($prescription['var']!=''|| $prescription['val']!='' || $prescription['eyelid']!='' || $prescription['eyelash']!='')
+                            {
+                        ?>
+
+                            <tr>
+                                <?php
+                                    if($prescription['var']!='')
+                                    {
+                                ?>
+
+                                <td colspan="2" for="patient-id"><b>VAR </b>
+                                    <?php echo $prescription['var'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['val']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-address" class="control-label"><b>VAL: </b>
+                                    <?php echo $prescription['val'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['eyelid']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-id"><b>Eyelid: </b>
+                                    <?php echo $prescription['eyelid'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['eyelash']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Eyelash: </b>
+                                    <?php echo $prescription['eyelash'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                            </tr>
+                        <?php
+                            }
+                        ?>
+                        <?php
+                            if($prescription['cornea']!=''|| $prescription['conjunctiva']!='' || $prescription['anterior_seg']!='' || $prescription['lens']!='')
+                            {
+                        ?>
+                            <tr>
+                                <?php
+                                    if($prescription['cornea']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-id"><b>Cornea : </b>
+                                    <?php echo $prescription['cornea'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['conjunctiva']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Conjunctiva: </b>
+                                    <?php echo $prescription['conjunctiva'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['anterior_seg']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-id"><b>Anterior Segment: </b>
+                                    <?php echo $prescription['anterior_seg'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['lens']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Lens : </b>
+                                    <?php echo $prescription['lens'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                            </tr>
+                        <?php
+                            }
+                        ?>
+                        <?php
+                            if($prescription['fundus']!=''|| $prescription['orbit']!='' || $prescription['lacrimal_gland']!='' || $prescription['retina']!='')
+                            {
+                        ?>
+                            <tr>
+                                <?php
+                                    if($prescription['fundus']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-id"><b>Fundus: </b>
+                                    <?php echo $prescription['fundus'];?>
+                                </td>
+                                 <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['orbit']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Orbit: </b>
+                                    <?php echo $prescription['orbit'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['lacrimal_gland']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-id"><b>Lacrimal Gland: </b>
+                                    <?php echo $prescription['lacrimal_gland'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['retina']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Retina: </b>
+                                    <?php echo $prescription['retina'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                            </tr>
+                        <?php
+                            }
+                        ?>
+                        <?php
+                            if($prescription['vitreous']!=''|| $prescription['optic_disc']!='' || $prescription['iris']!='' || $prescription['pupil']!='')
+                            {
+                        ?>
+                            <tr>
+                                <?php
+                                    if($prescription['vitreous']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-id"><b>Vitreous: </b>
+                                    <?php echo $prescription['vitreous'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['optic_disc']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Optic Disc: </b>
+                                    <?php echo $prescription['optic_disc'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['iris']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-id"><b>Iris: </b>
+                                    <?php echo $prescription['iris'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['pupil']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Pupil: </b>
+                                    <?php echo $prescription['pupil'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                            </tr>
+                        <?php
+                            }
+                        ?>
+                         <?php
+                            if($prescription['posterior_seg']!=''|| $prescription['eye_others']!='')
+                            {
+                        ?>
+                            <tr>
+                                <?php
+                                    if($prescription['posterior_seg']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-id"><b>Posterior Segment: </b>
+                                    <?php echo $prescription['posterior_seg'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['eye_others']!='')
+                                    {
+                                ?>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Others: </b>
+                                    <?php echo $prescription['eye_others'];?>
+                                </td>
+                                <?php
+                                    }
+                                ?>
+                            </tr>
+                        <?php
+                            }
+                        ?>
+                        </tbody>     
+                    </table>
+                    
+                    <?php
+                        if($prescription['past_history']!='')
+                        {
+                    ?>
+                    <table style="border: 1px solid #000; width: 100%; margin-top: 2%;">
+                        <thead>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Past History :</b>
+                                
+                                        <?php echo $prescription['past_history'];?>
+                                </td>
+                             
+                            </tr>
+
+                            
+                            
+                        </tbody>
+                    </table>
+                    <?php
+                        }
+                    ?>
+                    <?php
+                        if($prescription['diagnosis']!='')
+                        {
+                    ?>
+                    <table style="border: 1px solid #000; width: 100%; margin-top: 2%;">
+                        <thead>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Diagnosis : </b>
+                                    <?php echo $prescription['diagnosis'];?>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <?php
+                        }
+                    ?>
+                    <?php
+                        if((isset($lab) && count($lab)>0) || isset($prescription['lab_test_others']) || isset($prescription['rad_lab_others']))
+                        {
+                    ?>
+                    <table style="border: 1px solid #000; width: 100%; margin-top: 5px;">
+
+                        <thead>
+                            <tr>
+                                <th>Sl.</th>
+                                <th style="text-align: left; padding-left: 50px;">Investigation</th>
+                            </tr>
+
+                        </thead>
+                        <tbody id="new2">
+                            <?php
+                                $count = 1;
+                                //$length = count($prescribed_medicine);
+                                foreach ($lab as $key):
+                                ?>
+                                <tr class="centerthing">
+                                    <td style="font-size: 12px; width: 20px; border-right: 1px solid #474747;">
+                                        <?php echo $count++;?>
+                                    </td>
+
+                                    <td style="font-size: 12px; padding-left: 50px;">
+                                        <span><?php echo $key['lab_test_name'];?></span>
+										
+                                    </td>
+
+                                </tr>
+                                <?php endforeach; ?>
+								<?php 
+									if(isset($prescription['lab_test_others']) && $prescription['lab_test_others']!='')
+									{
+								?>
+								<tr class="centerthing">
+								 <td style="font-size: 12px; width: 20px; border-right: 1px solid #474747;">
+								 		 <?php if($count>1) echo $count++; else { echo $count; $count++;}?>
+								 </td>
+								<td style="font-size: 12px; padding-left: 50px;">
+									<span><?php echo $prescription['lab_test_others'];?></span>
+								</td>
+								
+								</tr>
+								<?php } ?>
+								<?php 
+									if(isset($prescription['rad_lab_others']) && $prescription['rad_lab_others']!='')
+									{
+								?>
+								<tr class="centerthing">
+								 <td style="font-size: 12px; width: 20px; border-right: 1px solid #474747;">
+								 		 <?php if($count>1) echo $count++; else { echo $count; }?>
+								 </td>
+								<td style="font-size: 12px; padding-left: 50px;">
+									<span><?php echo $prescription['rad_lab_others'];?></span>
+								</td>
+								</tr>
+							 	<?php } ?>
+                        </tbody>
+                    </table>
+                    <?php
+                        }
+                    ?>
+					
+					
+                   
+                    
+                    <?php
+                        if($prescription['heart']!='' || $prescription['lung']!='' || $prescription['liver']!='' || $prescription['spleen']!='' || $prescription['systemic_others']!='')
+                        {
+                    ?>
+                    <table style="border: 1px solid #000; width: 100%; margin-top: 2%;">
+                        <thead>
+                        <tr>
+                            <td style="border-bottom:  1px solid #000; width: 100%">Systemic Examination (Medicine) </td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                if($prescription['heart']!='')
+                                {
+                            ?>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Heart: </b>
+                                    <?php echo $prescription['heart'];?>
+                                </td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                            <?php
+                                if($prescription['lung']!='')
+                                {
+                            ?>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Lung: </b>
+                                    <?php echo $prescription['lung'];?>
+                                </td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                            <?php
+                                if($prescription['liver']!='')
+                                {
+                            ?>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Liver: </b>
+                                    <?php echo $prescription['liver'];?>
+                                </td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                            <?php
+                                if($prescription['spleen']!='')
+                                {
+                            ?>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Spleen: </b>
+                                    <?php echo $prescription['spleen'];?>
+                                </td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                            <?php
+                                if($prescription['systemic_others']!='')
+                                {
+                            ?>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Others: </b>
+                                    <?php echo $prescription['systemic_others'];?>
+                                </td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                        </tbody>
+                    </table>
+                    <?php
+                        }
+                    ?>
+                     <?php
+                        if($prescription['skin']!='' || $prescription['mucous_mem']!='' || $prescription['hair']!='' || $prescription['nail']!='' )
+                        {
+                    ?>
+                    <table style="border: 1px solid #000; width: 100%; margin-top: 2%;">
+                        <thead>
+                        <tr>
+                            <td style="border-bottom:  1px solid #000; width: 100%">General & Systemic Examination (Dermatology) </td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                if($prescription['skin']!='')
+                                {
+                            ?>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Skin: </b>
+                                    <?php echo $prescription['skin'];?>
+                                </td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                            <?php
+                                if($prescription['mucous_mem']!='')
+                                {
+                            ?>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Mucous Membrane: </b>
+                                    <?php echo $prescription['mucous_mem'];?>
+                                </td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                            <?php
+                                if($prescription['hair']!='')
+                                {
+                            ?>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Hair: </b>
+                                    <?php echo $prescription['hair'];?>
+                                </td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                            <?php
+                                if($prescription['nail']!='')
+                                {
+                            ?>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Nail: </b>
+                                    <?php echo $prescription['nail'];?>
+                                </td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                            
+                            
+                        </tbody>
+                    </table>
+                    <?php
+                        }
+                    ?>
+
+                    <?php
+                        if($prescription['higher_psychic_func']!='' || $prescription['cranial_nerve']!='' || $prescription['sensory_system']!='' || $prescription['motor_sys']!='' || $prescription['cerebellar_func']!='' || $prescription['sign_of_meningeal']!='' || $prescription['psy_others']!='')
+                        {
+                    ?>
+                    <table style="border: 1px solid #000; width: 100%; margin-top: 2%;">
+                        <thead>
+                        <tr>
+                            <td style="border-bottom:  1px solid #000; width: 100%">Systemic Examination (Psychiatry) </td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                         <h3><u><b>Nervous System Exam</b></u></h3>
+                            <?php
+                                if($prescription['higher_psychic_func']!='')
+                                {
+                            ?>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Higher Psychic Function : </b>
+                                    <?php echo $prescription['higher_psychic_func'];?>
+                                </td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                            <?php
+                                if($prescription['cranial_nerve']!='')
+                                {
+                            ?>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Cranial Nerves :  </b>
+                                    <?php echo $prescription['cranial_nerve'];?>
+                                </td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                            <?php
+                                if($prescription['sensory_system']!='')
+                                {
+                            ?>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Sensory System: </b>
+                                    <?php echo $prescription['sensory_system'];?>
+                                </td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                            <?php
+                                if($prescription['motor_sys']!='')
+                                {
+                            ?>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Motor System : </b>
+                                    <?php echo $prescription['motor_sys'];?>
+                                </td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                            <?php
+                                if($prescription['cerebellar_func']!='')
+                                {
+                            ?>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Cerebellar Function:</b>
+                                    <?php echo $prescription['cerebellar_func'];?>
+                                </td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                            <?php
+                                if($prescription['sign_of_meningeal']!='')
+                                {
+                            ?>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Signs of Meningeal Irritation :</b>
+                                    <?php echo $prescription['sign_of_meningeal'];?>
+                                </td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                            <?php
+                                if($prescription['psy_others']!='')
+                                {
+                            ?>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Others:</b>
+                                    <?php echo $prescription['psy_others'];?>
+                                </td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                        </tbody>
+                    </table>
+                    <?php
+                        }
+                    ?>
+                    <?php
+                        if($prescription['appearance_mse']!=''|| $prescription['eye_to_eye_con']!='' || $prescription['gaze']!='' || $prescription['posture']!='' || $prescription['co_operation']!=''|| $prescription['behavior']!='' || $prescription['orientation']!=''  || $prescription['rate_quantity']!=''|| $prescription['flow_of_speech']!='' || $prescription['diff_with_speaking']!='' || $prescription['content_of_speech']!='' || $prescription['mood']!=''|| $prescription['delusion']!='' || $prescription['obsession']!='' || $prescription['compulsion']!='' || $prescription['hallucination']!=''|| $prescription['iiiusion']!='' || $prescription['memory']!='' || $prescription['att_n_con']!='' ||  $prescription['insight']!=''|| $prescription['psy_others_2']!='')
+                            {
+                    ?>
+                    <table style="border: 1px solid #000; width: 100%; margin-top: 2%;">
+                        <thead>
+                            
+                        </thead>
+                        <tbody>
+                        
+                            
+                        <tr>
+                        <td>
+                            <h3><b><u>MSE</u></b></h3>
+                            </td>
+                        </tr>
+                                <?php
+                                    if($prescription['appearance_mse']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-id"><b>Appearance : </b>
+                                    <?php echo $prescription['appearance_mse'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['eye_to_eye_con']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Eye to eye contact: </b>
+                                    <?php echo $prescription['eye_to_eye_con'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['gaze']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-id"><b>Gaze : </b>
+                                    <?php echo $prescription['gaze'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                                
+                       
+                                <?php
+                                    if($prescription['posture']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Posture: </b>
+                                    <?php echo $prescription['posture'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['co_operation']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-id"><b>Co-operation : </b>
+                                    <?php echo $prescription['co_operation'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['behavior']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Behavior: </b>
+                                    <?php echo $prescription['behavior'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                          
+                            <?php
+                                    if($prescription['orientation']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-id"><b>Orientation to time, place, person: </b>
+                                    <?php echo $prescription['orientation'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+
+                                <?php
+                                if($prescription['rate_quantity']!=''|| $prescription['flow_of_speech']!='' || $prescription['diff_with_speaking']!='' || $prescription['content_of_speech']!='')
+                                    {
+                                ?> 
+                                <tr>
+                                    <td>
+                                        <h4><b><u>Speech</u></b></h4>
+                                    </td>
+                                </tr>
+                               
+                                <tr >
+                                <td colspan="2" for="patient-id" style="padding-left: 20px;"><b>a. Rate & quantity : </b>
+                                    <?php echo $prescription['rate_quantity'];?>
+                                </td>
+                                </tr>
+                                
+                                <tr>
+                                <td colspan="2" for="patient-address" class="control-label" style="padding-left: 20px;"><b>b. Flow of speech : </b>
+                                    <?php echo $prescription['flow_of_speech'];?>
+                                </td>
+                                </tr>
+                                
+                                <tr>
+                                <td colspan="2" for="patient-id" style="padding-left: 20px;"><b>c. Difficulties with speaking: </b>
+                                    <?php echo $prescription['diff_with_speaking'];?>
+                                </td>
+                                </tr>
+                               
+                                <tr>
+                                <td colspan="2" for="patient-address" class="control-label" style="padding-left: 20px;"><b>d. Content of speech: </b>
+                                    <?php echo $prescription['content_of_speech'];?>
+                                </td>
+                                </tr>
+                                
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['mood']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-id"><b>Mood:</b>
+                                    <?php echo $prescription['mood'];?>
+                                </td>
+                                </tr>
+                                 <?php
+                                    }
+                                ?>
+                                
+                             <?php
+                                if($prescription['delusion']!=''|| $prescription['obsession']!='' || $prescription['compulsion']!='')
+                                {
+                             ?>   
+                            
+                                <tr><td><h4><b><u>Thought Disturbances</u></b></h4></td></tr>
+                            
+                                <tr>
+                                <td colspan="2" for="patient-address" class="control-label" style="padding-left: 20px;"><b>a. Delusion : </b>
+                                    <?php echo $prescription['delusion'];?>
+                                </td>
+                                </tr>
+                               
+                                <tr>
+                                <td colspan="2" for="patient-id" style="padding-left: 20px;"><b>b. Obsession: </b>
+                                    <?php echo $prescription['obsession'];?>
+                                </td>
+                                </tr>
+                                
+                                <tr>
+                                <td colspan="2" for="patient-address" class="control-label" style="padding-left: 20px;"><b>c. Compulsion : </b>
+                                    <?php echo $prescription['compulsion'];?>
+                                </td>
+                                </tr>
+                                
+                            <?php
+                                }
+                            ?>
+                            <?php
+                                if( $prescription['hallucination']!='' || $prescription['iiiusion']!='')
+                                {
+                             ?>
+                            <tr>
+                            <td>
+                            <h4><b><u>Perceptual Disturbance</u></b></h4>
+                            </td>
+                            </tr>
+                                <tr>
+                                <td colspan="2" for="patient-id" style="padding-left: 20px;"><b>a. Hallucination : </b>
+                                    <?php echo $prescription['hallucination'];?>
+                                </td>
+                                </tr>
+                               
+                                <tr>
+                                <td colspan="2" for="patient-address" class="control-label" style="padding-left: 20px;"><b>b. Illusion: </b>
+                                    <?php echo $prescription['iiiusion'];?>
+                                </td>
+                                </tr>
+                                
+                            <?php
+                                }
+                            ?>
+                                <?php
+                                    if($prescription['memory']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-id"><b>Memory: </b>
+                                    <?php echo $prescription['memory'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['att_n_con']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Attention & concentration: </b>
+                                    <?php echo $prescription['att_n_con'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                            
+                                <?php
+                                    if($prescription['insight']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-id"><b>Insight : </b>
+                                    <?php echo $prescription['insight'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['psy_others_2']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-address" class="control-label"><b>Others: </b>
+                                    <?php echo $prescription['psy_others_2'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                                
+                            
+                        </tbody>
+                    </table>
+                    <?php
+                        }
+                    ?>
+
+                    <?php
+                        if($prescription['ent_eac']!=''|| $prescription['ent_tm']!='' || $prescription['ent_rinne']!='' || $prescription['ent_weber']!='' || $prescription['ent_abc']!=''|| $prescription['ent_facial']!='' || $prescription['ent_others']!=''  || $prescription['entanterior']!=''|| $prescription['ent_posterior']!='' || $prescription['ent_nasal']!='' || $prescription['ent_nasendoscopy']!='' || $prescription['ent_tranillumination']!=''|| $prescription['ent_others_nose']!='' || $prescription['ent_indirect']!='' || $prescription['ent_fiber']!='')
+                            {
+                    ?>
+                    <table style="border: 1px solid #000; width: 100%; margin-top: 2%;">
+                    <tbody>
+                    <tr>
+                    <?php
+                        if($prescription['ent_eac']!=''|| $prescription['ent_tm']!='' || $prescription['ent_rinne']!='' || $prescription['ent_weber']!='' || $prescription['ent_abc']!=''|| $prescription['ent_facial']!='' || $prescription['ent_others']!='')
+                        {
+                     ?> 
+                    <td>
+                    <table style="border: 1px solid #000; width: 100%; margin-top: 2%;">
+                        <thead>
+                            
+                        </thead>
+                        <tbody>
+                        
+                            
+                        <tr>
+                        <td>
+                            <h3><b><u>Systemic Examination (Ear)</u></b></h3>
+                            </td>
+                        </tr>
+                        <?php 
+                        	if($prescription['ent_eac']!='' || $prescription['ent_tm']!='')
+                        	{
+                        ?>
+                        <tr>
+                        <td>
+                            <h4><b><u>1.  Otoscopic/Otoendoscopic/Miscroscopic examination:</u></b></h4>
+                            </td>
+                        </tr>
+                                
+                                <tr>
+                                <td colspan="2" for="patient-id" style="padding-left: 5px;"><b>a. EAC : </b>
+                                    <?php echo $prescription['ent_eac'];?>
+                                </td>
+                                </tr>
+                               
+                                <tr>
+                                <td colspan="2" for="patient-address" class="control-label" style="padding-left: 5px;"><b>b. TM :</b>
+                                    <?php echo $prescription['ent_tm'];?>
+                                </td>
+                                </tr>
+                                
+                            <?php
+                                }
+                            ?>
+
+                                <?php
+                                    if($prescription['ent_rinne']!='' || $prescription['ent_weber']!='' || $prescription['ent_abc']!='')
+                                    {
+                                ?>
+                                <tr>
+                        <td>
+                            <h4><b><u>2.  Tuning Fork Test:</u></b></h4>
+                            </td>
+                        </tr>
+                                <tr>
+                                <td colspan="2" for="patient-id" style="padding-left: 5px;"><b>a.  Rinne:  </b>
+                                    <?php echo $prescription['ent_rinne'];?>
+                                </td>
+                                </tr>
+
+                                <tr>
+                                <td colspan="2" for="patient-address" class="control-label" style="padding-left: 5px;"><b>b.  Weber: </b>
+                                    <?php echo $prescription['ent_weber'];?>
+                                </td>
+                                </tr>
+                                
+                                <tr>
+                                <td colspan="2" for="patient-id" style="padding-left: 5px;"><b>c.  ABC: </b>
+                                    <?php echo $prescription['ent_abc'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['ent_facial']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-address" class="control-label"><b>3.  Facial N test: </b>
+                                    <?php echo $prescription['ent_facial'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                          
+                            <?php
+                                    if($prescription['ent_others']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-id"><b>4. Others:  </b>
+                                    <?php echo $prescription['ent_others'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+   
+                        </tbody>
+                        
+                        </table>
+
+                     
+
+                        </td>
+
+                        <?php
+                            }
+                     	?>
+
+ 					<?php 
+                    	if($prescription['entanterior']!=''|| $prescription['ent_posterior']!='' || $prescription['ent_nasal']!='' || $prescription['ent_nasendoscopy']!='' || $prescription['ent_tranillumination']!=''|| $prescription['ent_others_nose']!='' || $prescription['ent_indirect']!='' || $prescription['ent_fiber']!='')
+                    	{
+
+                    ?>
+                        <td>
+
+                   
+                    <table style="border: 1px solid #000; width: 100%; margin-top: 2%;">
+                        <thead>
+                            
+                        </thead>
+                        <tbody>
+                        
+                          <?php 
+                          	if($prescription['entanterior']!=''|| $prescription['ent_posterior']!='' || $prescription['ent_nasal']!='' || $prescription['ent_nasendoscopy']!='' || $prescription['ent_tranillumination']!=''|| $prescription['ent_others_nose']!='')
+                          	{
+                          ?>  
+                        <tr>
+                        <td>
+                            <h3><b><u>Systemic Examination (Nose & PNS)</u></b></h3>
+                            </td>
+                        </tr>
+                        
+                                <?php
+                                    if($prescription['entanterior']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-id"><b>1.   Anterior Rhinoscopy:</b>
+                                    <?php echo $prescription['entanterior'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['ent_posterior']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-address" class="control-label"><b>2.   Posterior Rhinoscopy:</b>
+                                    <?php echo $prescription['ent_posterior'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['ent_nasal']!='')
+                                    {
+                                ?>
+                                
+                                <tr>
+                                <td colspan="2" for="patient-id" ><b>3.   Nasal Probing: </b>
+                                    <?php echo $prescription['ent_nasal'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                                
+                           
+                        
+                       
+                                <?php
+                                    if($prescription['ent_nasendoscopy']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-address" class="control-label"><b>4.   Nasendoscopy: </b>
+                                    <?php echo $prescription['ent_nasendoscopy'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['ent_tranillumination']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-id"><b>5.   Tranillumination Test: </b>
+                                    <?php echo $prescription['ent_tranillumination'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['ent_others_nose']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-address" class="control-label"><b>6.   Others: </b>
+                                    <?php echo $prescription['ent_others_nose'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                            <?php
+                                }
+                            ?>
+                       <?php 
+
+                       if($prescription['ent_indirect']!='' || $prescription['ent_fiber']!='')
+                       {
+                       ?>
+
+                       <tr>
+                            <td>
+                            	<h3><b><u>Systemic Examination (Throat & Neck)</u></b></h3>
+                            </td>
+                       </tr>
+                            <?php
+                                    if($prescription['ent_indirect']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-id"><b>1.  Indirect Laryngoscope:  </b>
+                                    <?php echo $prescription['ent_indirect'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($prescription['ent_fiber']!='')
+                                    {
+                                ?>
+                                <tr>
+                                <td colspan="2" for="patient-id"><b>2.   Fiber Optic Laryngoscope:  </b>
+                                    <?php echo $prescription['ent_fiber'];?>
+                                </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+  							<?php
+                                }
+                            ?>
+                        </tbody>
+                        
+                        </table>
+                       
+
+
+                        </td>
+ 						<?php
+                        	}
+                        ?>
+                        
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <?php
+                        }
+                    ?>
+                    <?php
+                        if(isset($medicines) && count($medicines)>0)
+                        {
+                    ?>
+                    <table style="border: 1px solid #000;  width: 100%; margin-top: 1%;">
+                        <thead>
+                            <tr>
+                                <th>Sl.</th>
+                                <th>Medicine</th>
+                                <th>Dose</th>
+                                <th>Duration</th>
+                                <th>Remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody id="new">
+                                <?php
+                                    $count = 1;
+                                foreach ($medicines as $key):
+                                ?>
+                                <tr>
+                                    <td style="font-size: 12px;">
+                                        <?php echo $count++;?>
+                                    </td>
+                                    <td style="border-left: 1px solid grey; font-size: 12px;">
+                                        <span><?php echo $key['med_name'];?></span>
+                                    </td>
+                                    <td style="border-left: 1px solid grey; font-size: 12px;">
+                                        <span><?php echo $key['dose'];?></span>
+                                    </td>
+                                    <td style="border-left: 1px solid grey; font-size: 12px;">
+                                        <span><?php echo $key['duration'];?></span>
+                                    </td>
+                                    <td style="border-left: 1px solid grey; font-size: 12px;">
+                                        <span><?php echo $key['remarks'];?></span>
+                                    </td>
+                                </tr>
+                                <?php
+                                    endforeach;
+                                ?>
+                        </tbody>
+                    </table>
+                     <?php
+                        }
+                    ?>
+
+                    <?php
+                        if($prescription['past_investigation']!='')
+                        {
+                    ?>
+
+                    <table style="border: 1px solid #000; width: 100%; margin-top: 2%;">
+                        <thead>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="2" for="patient-id"><b>Past Investigation </b>
+                                    <?php echo $prescription['past_investigation'];?>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <?php
+                        }
+                    ?>
+
+                    
+                    
+
+                    <br>
+                    <div style="font-size: 12px;">
+                        <?php
+                            if($prescription['name']!='')
+                            {
+                        ?>
+                        <b>Doctor : </b> <span><?php echo $prescription['name'];?>(<?php echo $prescription['department_name'];?>)</span>
+                        <br>
+                        <?php
+                            }
+                        ?>
+                        <?php
+                            if($prescription['disposal_type']!='')
+                            {
+                        ?>
+                        <b>Disposal: </b> <span><?php echo $prescription['disposal_type'];?>-<?php echo $prescription['disposal'];?></span>
+                        <br>
+                        <?php
+                            }
+                        ?>
+                        <?php
+                            if($prescription['comment']!='')
+                            {
+                        ?>
+                        <b>Advices: </b> <span><?php echo $prescription['comment'];?></span>
+                        <br>
+                        <?php
+                            }
+                        ?>
+                    </div>
+
+                    <div style="border-top: 1px solid #000; width: 250px; margin-left: 80%;">
+                        
+                    </div>
+                
+                </div>
+                
+            </div>
+        </div>
+
+        <?php
+            if($prescription['right_eye_sph_1']!='' || $prescription['right_eye_cyl_1']!='' || $prescription['right_eye_axis_1']!='' || $prescription['right_eye_va_1']!='' || $prescription['left_eye_sph_1']!='' || $prescription['left_eye_cyl_1']!='' || $prescription['left_eye_axis_1']!='' || $prescription['left_eye_va_1']!='' || $prescription['right_eye_sph_2']!='' || $prescription['right_eye_cyl_2']!='' || $prescription['right_eye_axis_2']!='' || $prescription['right_eye_va_2']!='' || $prescription['left_eye_sph_2']!='' || $prescription['left_eye_cyl_2']!='' || $prescription['left_eye_axis_2']!='' || $prescription['left_eye_va_2']!='' || $prescription['ipd']!='' || $prescription['lenss']!='' || $prescription['instruction']!='' || $prescription['distance']!='')
+            {
+        ?>
+        <div class="col-sm-12 centerthing" style="border-top: 1px dashed black">
+        <br>
+        <div class="noticeboard">
+                <div class="noticeboard-header content-header">
+                    
+                    <h3 style="font-size: 15px; margin-top:0px;  margin-bottom:3px;">DEPARTMENT OF OPHTHALMOLOGY </h3>
+                    <h4 style="font-size: 13px; margin-top:0px;  margin-bottom:3px;">Combined  Military Hospital, Rangpur </h4>
+                    <h4 style="font-size: 13px; margin-top:0px;  margin-bottom:10px;">SPECTACLE  PRESCRIPTION </h3>
+                    <!-- <h4>CMH, Rangpur Cantonment , Combined Military Hospital</h4>
+                    <h4>Rangpur, Rajshahi Division - 5400</h4> -->
+                    <!--                <i class="fa fa-info-circle" aria-hidden="true"></i> Patients Detailes-->
+                </div>
+                <table style="border: 1px solid #000; width: 100%;">
+                        <thead>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="12" for="patient-name"><b>Name: </b>
+                                    <?php echo $patient_details['name'] ;?> </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="1" for="patient-id"><b> Patient ID: </b>
+                                    <?php echo $patient_details['patient_id'];?>
+                                </td>
+                                <td colspan="1" for="patient-address" class="control-label"><b>Rank: </b>
+                                    <?php echo $patient_details['rank']; ?>
+                                </td>
+                                <td colspan="2" for="patient-dob"><b>Army No: </b>
+                                    <?php echo $patient_details['army_no']; ?>
+                                </td>
+                                <td colspan="3" for="patient-phone" class="control-label"><b>Unit: </b>
+                                    <?php echo $patient_details['unit'];?>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td for="patient-address" class="control-label"><b>Age: </b>
+                                    <?php echo $patient_details['age'];?>
+                                </td>
+                                <td for="patient-name"><b>Gender: </b>
+                                    <?php echo $patient_details['sex'];?>
+                                </td>
+                                <td for="patient-dob"><b>Blood Group: </b>
+                                    <?php echo $patient_details['blood_group'];?>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+       <br>
+                <table width="100%" style="border: 1px solid black; padding: 0px; text-align: center;">
+                    <thead>
+                        <tr>
+                        
+                        <th colspan="4">Rght Eye (OD)</th>
+                    
+                        <th></th>
+                                            
+                        <th colspan="4">Left Eye (OS)</th>
+                        
+                      </tr>
+                    </thead>
+                      <tr style="padding: 0px;">
+                        <th style="border-bottom: 1px solid #000;border-right: 1px solid #000;">SPH </th>
+                        <th style="border-bottom: 1px solid #000;border-right: 1px solid #000;">CYL</th>
+                        <th style="border-bottom: 1px solid #000;border-right: 1px solid #000;">AXIS</th>
+                        <th style="border-bottom: 1px solid #000;border-right: 1px solid #000;">VA</th>
+                        <th></th>
+                        <th style="border-bottom: 1px solid #000;border-right: 1px solid #000;border-left: 1px solid #000;">SPH</th>
+                        <th style="border-bottom: 1px solid #000;border-right: 1px solid #000;">CYL</th>
+                        <th style="border-bottom: 1px solid #000;border-right: 1px solid #000;">AXIS</th>
+                        <th style="border-bottom: 1px solid #000;border-right: 1px solid #000;">VA</th>
+                      </tr>
+                      <tr>
+                        <td style="border-bottom: 1px solid #000;border-right: 1px solid #000;"><?php echo $prescription['right_eye_sph_1'];?></td>
+                        <td style="border-bottom: 1px solid #000;border-right: 1px solid #000;"><?php echo $prescription['right_eye_cyl_1'];?> </td>
+                        <td style="border-bottom: 1px solid #000;border-right: 1px solid #000;"><?php echo $prescription['right_eye_axis_1'];?></td>
+                        <td style="border-bottom: 1px solid #000;border-right: 1px solid #000;"><?php echo $prescription['right_eye_va_1'];?></td>
+                        <td style="border-bottom: 1px solid #000;">DV</td>
+                        <td style="border-bottom: 1px solid #000;border-right: 1px solid #000;border-left: 1px solid #000"><?php echo $prescription['left_eye_sph_1'];?></td>
+                        <td style="border-bottom: 1px solid #000;border-right: 1px solid #000;"><?php echo $prescription['left_eye_cyl_1'];?> </td>
+                        <td style="border-bottom: 1px solid #000;border-right: 1px solid #000;"><?php echo $prescription['left_eye_axis_1'];?></td>
+                        <td style="border-bottom: 1px solid #000;border-right: 1px solid #000;"><?php echo $prescription['left_eye_va_1'];?></td>
+                        
+                      </tr>
+                      <tr>
+                        
+                        <td style="border-bottom: 1px solid #000;border-right: 1px solid #000;"><?php echo $prescription['right_eye_sph_2'];?></td>
+                        <td style="border-bottom: 1px solid #000;border-right: 1px solid #000;"><?php echo $prescription['right_eye_cyl_2'];?></td>
+                        <td style="border-bottom: 1px solid #000;border-right: 1px solid #000;"><?php echo $prescription['right_eye_axis_2'];?></td>
+                        <td style="border-bottom: 1px solid #000;border-right: 1px solid #000;"><?php echo $prescription['right_eye_va_2'];?></td>
+                        <td style="border-bottom: 1px solid #000;">NV</td>
+                        <td style="border-bottom: 1px solid #000;border-right: 1px solid #000;border-left: 1px solid #000"><?php echo $prescription['left_eye_sph_2'];?></td>
+                        <td style="border-bottom: 1px solid #000;border-right: 1px solid #000;"><?php echo $prescription['left_eye_cyl_2'];?> </td>
+                        <td style="border-bottom: 1px solid #000;border-right: 1px solid #000;"><?php echo $prescription['left_eye_axis_2'];?></td>
+                        <td style="border-bottom: 1px solid #000;border-right: 1px solid #000;"><?php echo $prescription['left_eye_va_2'];?></td>
+                        
+                      </tr>
+                      
+                </table>
+<table style=" width: 100%;">
+                <thead>
+                <th>
+                </th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><u>Remarks:</u></td>
+                </tr>
+                    <tr>
+                        <td colspan="12" for="patient-name" style="font-size: 12px;"><b>I.P.D : </b>
+                         <?php echo $prescription['ipd'];?> mm
+                            </td> 
+                            
+                    </tr>
+
+                    <tr>
+                        <td colspan="12" for="patient-id" style="font-size: 12px;"><b>Lens: </b>
+                            <?php echo $prescription['lenss'];?>
+                        </td>
+                        
+
+                    </tr>
+                    <tr>
+                        <td colspan="12" for="patient-id" style="font-size: 12px;"><b>Instruction:</b>
+                            <?php echo $prescription['instruction'];?>
+                        </td>
+                        
+
+                    </tr>
+                    <tr>
+                        <td colspan="10" for="patient-id" style="font-size: 12px;"><b> </b>
+                            <?php echo $prescription['distance'];?>
+                        </td>
+                        
+
+                    </tr>
+                    
+
+                </tbody>
+            </table>
+            <p style="font-size: 12px;">** Please Preserve This For Future  Reference **</p>
+            </div>
+            <div style="border-top: 1px solid #000; width: 250px; margin-left: 80%;">
+                        <br>
+                    </div>
+
+        </div>
+
+        <?php
+            }
+        ?>
+        <?php
+            if(isset($medicines) && count($medicines)>0)
+            {
+        ?>
+        <div class="table" style="border-top: 1px dashed black">
+            <br>
+            <div style="margin-left: 80%;">
+            <div>
+                <div class="" style="font-size: 10px;">
+                    <div class="form-group">
+                        <label for="patient-id" class="control-label">Pr. ID :</label>
+                        <span><?php echo $prescription['prescription_id']; ?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: -2%;">
+            <div>
+                <div class="" style="font-size: 10px;">
+                    <div class="form-group">
+                        <label for="patient-id" class="control-label">Date :</label>
+                        <span><?php echo date('Y-m-d H:i:s') ?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <table style="border: 1px solid #000; width: 100%;">
+                <thead>
+
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="12" for="patient-name"><b>Name: </b>
+                            <?php echo $patient_details['name'] ;?></td>
+                        <!-- <td></td> -->
+                    </tr>
+
+                    <tr>
+                        <td colspan="1" for="patient-id"><b>ID: </b>
+                            <?php echo $patient_details['patient_id'];?>
+                        </td>
+                        <td colspan="1" for="patient-address" class="control-label"><b>Rank: </b>
+                            <?php echo $patient_details['rank']; ?>
+                        </td>
+                        <td colspan="2" for="patient-dob"><b>Army No: </b>
+                            <?php echo $patient_details['army_no']; ?>
+                        </td>
+                        <td colspan="3" for="patient-phone" class="control-label"><b>Unit: </b>
+                            <?php echo $patient_details['unit'];?>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+            <div>
+                <table style="border: 1px solid #000; width: 100%; margin-top: 1%;">
+
+                    <thead>
+                        <tr>
+                            <th>Sl.</th>
+                            <th style="text-align: left; padding-left: 50px;">Medicine</th>
+							<th style="text-align: left; padding-left: 50px;">Dose</th>
+							<th style="text-align: left; padding-left: 50px;">Duration</th>
+							<th style="text-align: left; padding-left: 50px;">Remarks</th>
+                        </tr>
+
+                    </thead>
+                    <tbody id="new">
+                        <?php 
+                            $count=1;
+                            foreach ($medicines as $key):
+                        ?>
+                            <tr class="centerthing">
+                                <td style="font-size: 12px; width: 20px; border-right: 1px solid #474747;">
+                                    <?php echo $count++;?>
+                                </td>
+
+                                <td style="font-size: 12px; padding-left: 50px; ">
+                                    <span><?php echo $key['med_name']?></span>
+                                </td>
+                                <td style="border-left: 1px solid grey; font-size: 12px;">
+                                    <span><?php echo $key['dose'];?></span>
+                                </td>
+                                <td style="border-left: 1px solid grey; font-size: 12px;">
+                                    <span><?php echo $key['duration'];?></span>
+                                </td>
+                                <td style="border-left: 1px solid grey; font-size: 12px;">
+                                    <span><?php echo $key['remarks'];?></span>
+                                </td>
+
+                            </tr>
+                            <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <br>
+        <br>
+                    <div style="border-top: 1px solid #000; width: 250px; margin-left: 80%;">
+                        <br>
+                    </div>
+
+        <?php
+            }
+        ?>
+
+    </div>
+    <div class="footer_print">
+                <p>Copyright &copy; Optinfer Limited </p>
+        </div>
+</div>

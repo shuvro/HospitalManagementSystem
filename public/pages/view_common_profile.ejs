@@ -1,0 +1,145 @@
+<div class="row  nav-button-container fade in" role="tabpanel" id="profile">
+                <div class="col-xs-12">
+                    <div class="noticeboard">
+                        <div class="noticeboard-header content-header">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i> Manage Profile
+
+                        </div>
+                        <div class="noticeboard-body">
+                            <div>
+
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs" role="tablist">
+
+                                    <li role="presentation" class="active"><a href="#manage-profile" aria-controls="manage-profile" role="tab" data-toggle="tab"><i class="fa fa-plus"></i>
+					               Manage Profile                    	</a></li>
+
+                                </ul>
+
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+
+                                    <div role="tabpanel" class="tab-pane fade in active" id="manage-profile">
+                                        <div class="table-adjusment">
+                                            <form action="<?php echo base_url();?>AdminEdit/uddate_profile" method="post" enctype="multipart/form-data">
+											
+                                         <input type="hidden" class="form-control dept-input" id="profile-name" placeholder="" name="user_id" value="<?php echo $this->session->userdata('user_id')?>" >
+                                                <div class="form-group col-md-12">
+                                                    <label for="profile-name" class="control-label col-md-2">Name</label>
+                                                    <div class="email-profile inline-block col-md-10  ">
+                                                        <input type="text" class="form-control dept-input" id="profile-name" placeholder="" name="name" value="<?php echo $profile['name']; ?>" >
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label for="profile-email" class="control-label col-md-2">Email</label>
+                                                    <div class=" email-profile inline-block col-md-10 ">
+                                                        <input type="text" class="form-control dept-input" id="profile-name" placeholder="" name="email" value="<?php echo $profile['email']; ?>" disabled="disabled">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label for="profile-address" class="control-label col-md-2">Address</label>
+                                                    <div class="email-profile inline-block col-md-10  ">
+                                                        <input type="text" class="form-control dept-input" id="profile-address" placeholder="Address" name="address" value="<?php echo $profile['address']; ?>" >
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label for="profile-phone" class="control-label col-md-2">Phone</label>
+                                                    <div class="email-profile inline-block col-md-10  ">
+                                                        <input type="number" class="form-control dept-input" id="profile-phone" placeholder="Phone" name="phone" value="<?php echo $profile['phone_no']; ?>" >
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label for="system-logo" class="control-label">Change Profile Image</label>
+                                                        <div class="controls">
+												<?php if(empty($profile['image_name'])){
+												echo'<img src="'.base_url().'others/uploads/doctor/admin.jpg" alt="image" style="max-height:100px; max-width:200px;">';
+												}else{
+			
+												echo '<img src="'.base_url().'others/uploads/doctor/'.$profile['image_name'].'"style="max-height:100px; max-width:200px;" id="preview_logo">';
+											  } 
+											  ?>
+                                                 <input type="file" class="" name="photo_name" id="photo_logo">
+                                                        </div>
+                                                    </div>
+                                                <div class="form-group">
+                                                    <div class=" ">
+                                                        <button type="submit" class="btn btn-default ">Update Profile</button>
+                                                    </div>
+                                                </div>
+                                            
+                                            </form>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="noticeboard">
+                        <div class="noticeboard-header content-header">
+
+
+                        </div>
+                        <div class="noticeboard-body">
+                            <div>
+
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs" role="tablist">
+
+                                    <li role="presentation" class="active"><a href="#manage-profile-password" aria-controls="manage-profile-password" role="tab" data-toggle="tab"><i class="fa fa-lock"></i>
+					Change Password                   	</a></li>
+
+                                </ul>
+
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+
+                                    <div role="tabpanel" class="tab-pane fade in active" id="manage-profile-password">
+                                        <div class="table-adjusment">
+                                            <!--<form class="form-horizontal">-->
+                                          <form action="<?php echo base_url();?>AdminEdit/uddate_password" method="post" enctype="multipart/form-data">
+                                         <input type="hidden" class="form-control dept-input" id="profile-name" placeholder="" name="user_id" value="<?php echo $this->session->userdata('user_id')?>" >
+                                
+                                                <div class="form-group col-md-12">
+                                                    <label for="profile-password" class="control-label col-md-2">Password</label>
+                                                    <div class="email-profile inline-block col-md-10  ">
+                                                        <input type="password" class="form-control dept-input" id="profile-password" placeholder="Password" required name="password" value="" autocomplete="off">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label for="profile-new-password" class="control-label col-md-2">New Password</label>
+                                                    <div class="email-profile inline-block col-md-10   ">
+                                                        <input type="password" class="form-control dept-input" id="profile-new-password" placeholder="New Password" required name="new_password" value="" autocomplete="off">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label for="profile-confirm-new-password" class="control-label col-md-2">Confirm New Passsword</label>
+                                                    <div class="email-profile inline-block col-md-10   ">
+                                                        <input type="password" class="form-control dept-input" id="profile-confirm-new-password" placeholder="Confirm New Password" required name="confirm_new_password" value="" autocomplete="off">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class=" ">
+                                                        <button type="submit" class="btn btn-default ">Update Password</button>
+                                                    </div>
+                                                </div>
+											</form>	
+                                           
+                                            <!--</form>-->
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>

@@ -1,0 +1,204 @@
+<style>
+    @font-face {
+        font-family: Raleway;
+        src: url(../fonts/Raleway-Light.ttf);
+    }
+    
+    body {
+        font-family: 'Raleway', sans-serif;
+        overflow-x: hidden;
+        font-weight: 300;
+        font-size: 16px;
+        font-style: normal;
+        scrollbar-face-color: #b46868;
+        color: #455a64;
+        background: #F0F0F0;
+    }
+    
+    .centerthing {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+    
+    table {
+        border: none;
+        border-color: transparent;
+        outline: 0;
+    }
+    
+    table thead th {
+        font-size: 13px;
+        border-bottom: 1px solid #474747;
+    }
+    
+    table tr {
+        font-size: 12px;
+    }
+    
+    table td {
+        font-size: 13px;
+    }
+    
+    .form-control {
+        border: none;
+        border-color: transparent;
+        outline: 0;
+        font-size: 15px;
+        width: 150px;
+    }
+    .footer_print {
+     position:fixed;
+     bottom : 0;
+     height:60px;
+     margin-top : 40px;
+     text-align: center ;
+     font-size: 10px ;
+     font-family: 'Lato' ;
+     }
+</style>
+
+<div class="row nav-button-container tab-pane fade in active" role="tabpanel" id="patient-detailes">
+    <div id="print" style="height: 92%;">
+        <div class="col-sm-12 centerthing">
+            <div class="noticeboard">
+                <div class="noticeboard-header content-header">
+                    <img src="<?php echo base_url()?>others/images/rangpur_logo.png" style="max-width: 80px;" alt="logo_cmh">
+                    <h3 style="font-size: 15px;">Combined Military Hospital, Rangpur </h3>
+                    <h4 style="border: 1px solid #000; width: 100%;">CLINICAL PATHOLOGY REPORT</h4>
+                </div>
+
+            </div>
+        </div>
+        
+        <div style="margin-top: -2%;">
+            <div>
+                <div class="" style="font-size: 10px;">
+                    <div class="form-group">
+                        <label for="patient-id" class="control-label">Date :</label>
+                        <span><?php echo date('Y-m-d H:m:s') ?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <div style="padding-bottom: 20px;">
+                    <table style="border: 1px solid #000; width: 100%;">
+                        <thead>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="3" for="voucher_no"><b>Voucher No.</b>
+                                    <?php if(isset($serum_calcium)){echo $serum_calcium['vouchar_no'];}?>
+                                </td>
+                                <td colspan="3" for="del-date"><b>Del Date:</b>
+                                    <?php if(isset($serum_calcium)){echo $serum_calcium['delivery_date'];}?>
+                                </td>
+                                <td colspan="3" for="report-no"><b>Report No.</b>
+                                    <?php if(isset($serum_calcium)){echo $serum_calcium['report_no'];}?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="12" for="patient-name"><b>Name: </b>
+                                    <?php if(isset($serum_calcium)){echo $serum_calcium['name'];}?>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="3" for=""><b>Referred By </b> CMH
+                                </td>
+                                <td colspan="3" for="patient-address" class="control-label"><b>Age: </b>
+                                    <?php if(isset($serum_calcium)){echo $serum_calcium['age'];}?>
+                                </td>
+                                <td colspan="3" for="patient-name"><b>Gender: </b>
+                                    <?php if(isset($serum_calcium)){echo $serum_calcium['sex'];}?>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <table style="border: 1px solid #000; width: 100%; margin-top: -2%;">
+                        <thead>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="6" for="sample"><b>Sample </b>
+                                    Serum
+                                </td>
+                                <td colspan="6" for="lab" class="control-label"><b>Lab No.</b>
+                                    <?php if(isset($serum_calcium)){echo $serum_calcium['lab_no'];}?>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td colspan="6" for="lab" class="control-label"><b>Tests</b> Serum Calcium
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <br>
+                    <table width="100%" style="border: 1px solid #000;">
+                    <thead>
+                        <tr>
+                            <th width="100%">Serum Calcium Test</th>
+                            
+                        </tr>
+                        
+                    </thead>        
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table>
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="3" for="sample"><b>Serum Calcium </b>
+                                                </td>
+                                                <td colspan="6" for="sample">
+                                                    <?php if(isset($serum_calcium)){echo $serum_calcium['serum_calcium'];}?> m mol/L
+                                                    <?php if(isset($serum_calcium)){echo $serum_calcium['normal'];}?> mg/dl
+                                                    
+                                                </td>
+                                             </tr>
+                                             <tr>
+                                                <td colspan="3" for="sample"><b>Normal</b>
+                                                </td>
+                                                <td colspan="6" for="sample">
+                                                    2.1-2.6 m mol/L 8.1-10.4 mg/dl
+                                                    
+                                                </td>
+                                             </tr>
+                                             
+                                            
+                                             
+                                            
+                                        </tbody>
+                                    </table>
+                                </td>
+
+                                
+                                </tr>
+                        </tbody>
+                    </table>
+
+                    <p style="padding-left: 550px;padding-top: 50px">
+                     __________________   
+                    </p>
+
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer_print">
+                <p>Copyright &copy; Optinfer Limited </p>
+    </div>
+</div>
+
+    

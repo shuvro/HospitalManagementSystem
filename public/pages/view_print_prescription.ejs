@@ -1,0 +1,408 @@
+<div class="row nav-button-container tab-pane fade in active" role="tabpanel" id="patient-detailes">
+    <div id="print">
+        <div class="col-sm-12 col-md-12 centerthing">
+            <div class="noticeboard">
+                <div class="noticeboard-header content-header">
+                    <img class="print_logo" src="<?php echo base_url()?>others/images/rangpur_logo.png" alt="logo_cmh">
+                    <span class="print_header">
+                    <h3>Rangpur Combined Military Hospital </h3>
+                    <h4>CMH, Rangpur Cantonment , Combined Military Hospital</h4>
+                    <h4>Rangpur, Rajshahi Division - 5400</h4>
+                    </span>
+                    <!--                <i class="fa fa-info-circle" aria-hidden="true"></i> Patients Detailes-->
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 centerthing">
+            <div class="noticeboard">
+                <div class="table-adjusment">
+                    <div class="form-group">
+                        <label for="patient-id" class="control-label">Prescription ID :</label>
+                        <div class="email-profile inline-block">
+                            <span><?php echo $prescription['prescription_id']; ?></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12">
+            <div class="noticeboard">
+
+                <div class="p-detailes">
+                    <div class="table-adjusment">
+                        <form class="form-horizontal form-diagnosis">
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="patient-id" class="control-label">ID :</label>
+                                    <div class="  email-profile inline-block">
+                                        <span><?php echo $patient_details['patient_id']; ?></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="patient-name" class="control-label">Name :</label>
+                                    <div class="  email-profile inline-block">
+                                        <span><?php echo $patient_details['name']; ?></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-dob" class="control-label">Army No :</label>
+                                    <div class="  email-profile inline-block">
+                                        <span><?php echo $patient_details['army_no']; ?></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-address" class="control-label">Rank :</label>
+                                    <div class="  email-profile inline-block">
+                                        <span><?php echo $patient_details['rank']; ?></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-phone" class="control-label">Unit
+                                    </label>
+                                    <div class="  email-profile inline-block">
+                                        <span><?php echo $patient_details['unit']; ?></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="alt-patient-phone" class="control-label">Email
+                                    </label>
+                                    <div class="  email-profile inline-block">
+                                        <span><?php echo $patient_details['email']; ?></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="patient-email" class="control-label">Age :</label>
+                                    <div class="  email-profile inline-block">
+                                        <span><?php echo $patient_details['age']; ?></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-age" class="control-label">Gender :</label>
+                                    <div class="  email-profile inline-block">
+                                        <span><?php echo $patient_details['sex']; ?></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-occapation" class="control-label">Martial Status :</label>
+                                    <div class="  email-profile inline-block">
+                                        <span><?php echo $patient_details['martial_status']; ?></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patient-sex" class="control-label">Blood Group :</label>
+                                    <div class="  email-profile inline-block">
+                                        <span><?php echo $patient_details['blood_group']; ?></span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                    </div>
+                </div>
+
+                <div class="noticeboard-header bottom-header" style="text-align: right">
+                    <i class="fa fa-user-md" aria-hidden="true"></i> &nbsp; &nbsp;
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-12 noticeboard">
+            <div class="table-responsive table-adjusment ">
+                <table class="table table-hover">
+                    <div class="table-header ">
+
+                        <div class="input-group table-head">
+                            <i class="fa fa-stethoscope" aria-hidden="true"></i>&nbsp; &nbsp;Medication
+                            <!--                        <button class="btn pull-right" id="btn1"><i class="fa fa-plus" aria-hidden="true"></i></button>-->
+                        </div>
+                    </div>
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Sr.</th>
+                            <th style="text-align: center;">Medicine</th>
+                            <th style="text-align: center;">Dose</th>
+                            <th style="text-align: center;">Duration</th>
+                            <th style="text-align: center;">Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody id="new">
+                        <tr style="display: none">
+                            <td>
+                                <input type="text" id="length" value="1">
+                        </tr>
+                        <?php
+                                $count = 1;
+                                //$length = count($prescribed_medicine);
+                                foreach ($medicines as $key):
+                                ?>
+                            <tr>
+                                <td style="border-left: 1px solid grey;">
+                                    <?php echo $count++; ?>
+                                </td>
+                                <td style="border-left: 1px solid grey;">
+                                    <input type="text" value="<?php echo $key['med_name'];  ?>" class="form-control medicine_class" id="medicine" name="medicine[]">
+                                </td>
+                                <td style="border-left: 1px solid grey;">
+                                    <input type="text" value="<?php echo $key['dose'];  ?>" class="form-control dose" id="dose" name="dose[]">
+                                </td>
+                                <td style="border-left: 1px solid grey;">
+                                    <input type="text" value="<?php echo $key['duration'];  ?>" class="form-control duration" id="duration" name="duration[]">
+                                </td>
+                                <td style="border-left: 1px solid grey;">
+                                    <input type="text" value="<?php echo $key['remarks'];  ?>" class="form-control remarks" id="remarks" name="remarks[]">
+                                </td>
+                                <td>
+                                    <input type="hidden" class="form-control" name="pm_id[]" value="<?php echo $key['pm_id'];  ?>" />
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="noticeboard">
+                <div class="table-responsive table-adjusment ">
+                    <table class="table table-hover">
+                        <div class="table-header ">
+
+                            <div class="input-group table-head">
+                                <i class="fa fa-tint" aria-hidden="true"></i>&nbsp; &nbsp;Lab Tests
+                                <!--                            <button class="btn pull-right" id="btn2"><i class="fa fa-plus" aria-hidden="true"></i></button>-->
+                            </div>
+                        </div>
+
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;">Sl.</th>
+                                <th style="text-align: center;">Lab Test</th>
+                            </tr>
+
+                        </thead>
+                        <tbody id="new2">
+                            <?php
+                                $count = 1;
+                                //$length = count($prescribed_medicine);
+                                foreach ($lab as $key):
+                                ?>
+                                <tr>
+                                    <td style="border-left: 1px solid grey;">
+                                        <?php echo $count++;?>
+                                    </td>
+
+                                    <td style="border-left: 1px solid grey;">
+                                        <input type="text" value="<?php echo $key['lab_test_name'];  ?>" class="form-control lab_class" id="lab_test" name="lab_test[]">
+                                    </td>
+
+                                </tr>
+                                <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <!--<div class="noticeboard">
+            <div class="table-responsive table-adjusment ">
+                <table class="table table-hover">
+                    <div class="table-header ">
+
+                        <div class="input-group table-head">
+                            <i class="fa fa-user-md" aria-hidden="true"></i>&nbsp; &nbsp; Refer To
+
+                        </div>
+                    </div>
+
+                    <tbody id="new2">
+                    <tr>
+                        <td style="border-left: 1px solid grey;"><input type="text" value="" class="form-control lab_class" id="lab_test" name="lab_test[]"></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>-->
+        </div>
+        <div class="col-sm-12">
+            <div class="noticeboard">
+                <div>
+                    <div class="table-responsive table-adjusment ">
+                        <table class="table table-hover">
+                            <div class="table-header ">
+
+                                <div class="input-group dept-input table-head">
+                                    <i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp; &nbsp;Specialist Comment
+                                </div>
+                            </div>
+                            <tbody>
+                                <td style="border-left: 1px solid grey;">
+                                    <input type="text" value="<?php echo $prescription['comment']; ?>" class="form-control lab_class" id="lab_test" name="lab_test[]">
+                                </td>
+
+                            </tbody>
+
+                        </table>
+                        <div class="col-xs-12 table-footer table-foot">
+
+                            <div class="btn-group pull-right print">
+                                <button type="button" class="btn btn-default" onclick="printFunction()"><i class="fa fa-print" aria-hidden="true"></i></button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="appointment_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Medication Details</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive table-adjusment ">
+                        <p id="medication"></p>
+                        <!-- <table class="table table-hover"> -->
+                        <!--                    <thead>-->
+                        <!--                        <tr>-->
+                        <!--                            <th>SL</th>-->
+                        <!--                            <th>Medicine Name</th>-->
+                        <!--                            <th>Times/day</th>-->
+                        <!--                        </tr>-->
+                        <!--                    </thead>-->
+                        <!--                    <tbody>-->
+                        <!--                        <tr>-->
+                        <!--                            <td>1</td>-->
+                        <!--                            <td>Napa Extra</td>-->
+                        <!--                            <td>1+0+1</td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr>-->
+                        <!--                            <td>2</td>-->
+                        <!--                            <td>Prolert</td>-->
+                        <!--                            <td>1+0+0</td>-->
+                        <!--                        </tr>-->
+                        <!--                    </tbody>-->
+                        <!-- </table> -->
+                    </div>
+                    <div class="modal-header">
+
+                        <h4 class="modal-title">Lab Report </h4>
+                    </div>
+                    <div class="table-responsive table-adjusment ">
+
+                        <table class="table table-hover">
+
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Report</th>
+
+                                    <th>Download</th>
+                                    <th>Description</th>
+                                    <th>Date</th>
+                                    <th>Laboratorist</th>
+
+                                </tr>
+
+                            </thead>
+                            <tbody id="all_reports">
+                                <!-- <tr>
+                            <th scope="row">1</th>
+                            <td>X-ray</td>
+                            <td class="rep-hover"><img src="<?php echo base_url();?>others/images/x-ray.jpg">
+                                <button class="hover-btn"><i class="fa fa-download" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                            <td>
+                                Xray report. Details Written on paper. Doctor will verify.
+                            </td>
+                            <td>
+                                07/08/2015
+                            </td>
+                            <td>
+                                Shuvro
+                            </td>
+
+                        </tr> -->
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                    <div class="modal-header">
+
+                        <h4 class="modal-title">Advise/Therapy/Others </h4>
+                    </div>
+
+                    <div class="table-responsive table-adjusment ">
+                        <p id="doctor-advise"></p>
+                        <!-- <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>SL</th>
+                                    <th>Description</th>
+                                    <th>Times/day</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Walk 30 min</td>
+                                    <td>1+0+1</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Dont take Sugar very much</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for add prescription -->
+
+    <script>
+        function printFunction() {
+            var divContents = $("#print").html();
+            var printWindow = window.open('', '');
+            printWindow.document.write('<html><head>' +
+                '<link href="<?php echo base_url(); ?>others/css/bootstrap.min.css" rel="stylesheet">' +
+                '<link href="<?php echo base_url(); ?>others/css/print.css" rel="stylesheet">' +
+                '<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">' +
+                '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">' +
+                '<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" type="text/css">' +
+                '<link rel="stylesheet" href="<?php echo base_url(); ?>others/css/monthly.css">' +
+                '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.min.css">' +
+                '<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">' +
+                '<link href="<?php echo base_url(); ?>others/css/typeahead.css" rel="stylesheet">' +
+                '<link rel="stylesheet" href="<?php echo base_url(); ?>others/css/perfect-scrollbar.css"><title></title>' +
+                '<style type="text/css">.print {display: none;}</style>');
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+            '<script type="text/javascript" src="<?php echo base_url();?>others/js/incomec.js">' +
+            '<script type="text/javascript" src="<?php echo base_url();?>others/js/incomec-category.js">' +
+            '<script type="text/javascript" src="<?php echo base_url();?>others/js/expanse-category.js">' +
+            '<script type="text/javascript" src="<?php echo base_url();?>others/js/monthly.js">' +
+            '<script src="<?php echo base_url();?>others/js/perfect-scrollbar.js">' +
+            '<script type="text/javascript" src="<?php echo base_url();?>others/js/typeahead.min.js">'
+        }
+    </script>

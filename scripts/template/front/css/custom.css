@@ -1,0 +1,378 @@
+/* Template Options */
+
+/*
+	--//-- 1. Color Options --//--
+	- Template color - 08c1f3;
+	- Body Background - ffffff;
+	- Main content color - 9da1ad;
+	- Headings color - 222629;
+	- Footer Background - 212528;
+	- Pre Footer Background - 25292c;
+	- Tagline Background - 262b2e;
+	- Header Background - 222629;
+	- Menu Text Color - 9da1ad;
+	
+	--//-- 2. Theme Font --//--
+	- Main font - Roboto;	
+	- Content font weight - 300;
+	- Content font size - 14px;
+	- Content line height - 22px;
+	
+*/
+
+body,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="submit"],
+textarea,
+.comment-form p.form-allowed-tags code {
+	font-family: 'Roboto', sans-serif; /* Main font */
+}
+
+body {
+	color:#9da1ad; /* Main content color */
+	line-height:22px; /* Content line height */
+	font-size:14px; /* Content font size */
+	font-weight:300; /* Content font weight */
+	background:#ffffff;
+	letter-spacing: 0.3px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+	color:#9da1ad; /* Main content color */
+}
+
+a {
+	color:#9da1ad; /* Main content color */
+}
+
+a:hover,
+a:focus {
+	color:#08c1f3; /* Template color */
+}
+
+.breadcrumbs a,
+.breadcrumbs span,
+.breadcrumbs a:after {
+	color:#9da1ad;  /* Main content color */
+}
+
+.breadcrumbs a:hover {
+	color:#08c1f3; /* Template color */
+}
+
+::selection {
+	background:#08c1f3; /* Template color */
+	color:#ffffff;
+}
+::-moz-selection {
+	background:#08c1f3; /* Template color */
+	color:#ffffff;
+}
+
+.color {
+	color:#08c1f3 !important; /* Template color */
+}
+
+.colored_bg {
+    background-color:#08c1f3;  /* Template color */
+}
+
+h1, h1 span, h1 a,
+h2, h2 span, h2 a,
+h3, h3 span, h3 a,
+h4, h4 span, h4 a,
+h5, h5 span, h5 a,
+h6, h6 span, h6 a,
+.featured_items_title h5,
+.featured_items_title h5 a,
+.summary .amount,
+.shop_cart thead th {
+	color:#222629; /* Headings color */
+}
+
+.contact_text .section_title {
+	color: #9da1ad;  /* Main content color */
+}
+
+.highlighted_colored {
+	background:#08c1f3;  /* Template color */
+}
+
+blockquote.type2:before {
+	background:#08c1f3;  /* Template color */
+}
+
+.dropcap.type2 {
+	color:#08c1f3;  /* Template color */
+}
+
+.footer {
+	background: #212528; /* Footer Background */
+}
+
+.pre_footer {
+	background-color:#25292c; /* Pre Footer Background */
+}
+
+.widget_tag_cloud a:hover {
+	background:#08c1f3;  /* Template color */
+	border-color:#08c1f3;  /* Template color */
+}
+
+.remove_products:hover:before,
+.remove_products:hover:after {
+	background-color:#08c1f3;
+}
+
+.shortcode_button.btn_type3,
+.shortcode_button.btn_type6:hover,
+.filter_navigation ul li ul li.selected a,
+.filter_navigation ul li ul li a:hover,
+.iconbox_wrapper .ico.bg6 {
+	background: #08c1f3;  /* Template color */
+	border-color:#08c1f3;  /* Template color */
+}
+
+.dark_parent .shortcode_button.btn_type6:hover,
+.dark_bg .shortcode_button.btn_type6:hover {
+	background: #08c1f3 !important;  /* Template color */
+	border-color:#08c1f3 !important;  /* Template color */
+}
+
+/* Logo Size */
+.logo_def,
+/*.logo_retina {
+	width:274px;
+	height:28px;
+}*/
+
+.tagline a:hover {
+	color: #08c1f3; /* Template color */
+}
+
+.summary .amount span {
+	color:#9da1ad; /* Main content color */
+}
+
+.cart_submenu,
+.login_submenu,
+.cart_submenu .product_posts li a.title {
+	color:#9da1ad; /* Main content color */
+	font-size:14px; /* Content font size */
+}
+
+.shortcode_tab_item_title.active,
+.shortcode_tab_item_title:hover {
+    background-color:#08c1f3;  /* Template color */
+    border-color:#08c1f3;  /* Template color */
+}
+
+.tagline {
+	background:#FFF; /* Tagline Background */
+}
+
+.tagline:before {
+	background: #F1F1F1; /* Tagline Background */
+}
+
+#main_header,
+#main_header header {
+	background:rgba(255, 255, 255, 0.32); /* Header Background */
+	
+}
+
+.fixed-menu header {
+	background:rgba(34,38,41, 0.9); /* Header Background */
+}
+
+.calculate {
+	color:#222629; /* Headings color */
+}
+
+.blog_post_readmore {
+	color:#08c1f3;  /* Template color */
+}
+
+.blog_post_readmore:hover {
+	color:#9da1ad; /* Main content color */
+}
+
+.post_format_link_href:hover {
+	color:#9da1ad !important; /* Main content color */
+}
+
+.post_format_quote_title {
+	border-left:4px solid #08c1f3;  /* Template color */
+}
+
+.share_block a:hover i {
+	color:#9da1ad; /* Main content color */
+}
+
+.prev_next_links .pull-left a:hover:before,
+.prev_next_links .pull-left a:hover:after,
+.prev_next_links .pull-right a:hover:before,
+.prev_next_links .pull-right a:hover:after {
+	background-color:#08c1f3;  /* Template color */
+}
+
+header nav ul.menu > li > a,
+header nav ul.sub-menu li a {
+	color: #3C404A; /* Menu Text Color */
+}
+
+header nav ul.menu > li:hover > a,
+header nav ul.menu > li.current-menu-ancestor > a,
+header nav ul.menu > li.current-menu-item > a,
+header nav ul.menu > li.current-menu-parent > a {
+	color:#08c1f3; /* Template color */
+}
+
+header nav ul.sub-menu > li:hover > a,
+header nav ul.sub-menu > li.current-menu-item > a,
+header nav ul.sub-menu > li.current-menu-parent > a {
+	color:#08c1f3; /* Template color */
+}
+
+header nav ul.menu .sub-nav:after {
+	background: #08c1f3;  /* Template color */
+}
+
+.search_form.active_submit:before {
+	color: #222629; /* Headings color */
+}
+
+.mobile_menu_wrapper,
+.mobile_menu_wrapper:before {
+	background:#08c1f3;  /* Template color */
+}
+
+.top_search a:hover,
+.page_with_abs_header .view_cart_btn:hover {
+	color: #08c1f3; /* Template color */
+}
+
+h5.shortcode_accordion_item_title:hover,
+h5.shortcode_toggles_item_title:hover,
+h5.shortcode_accordion_item_title.state-active,
+h5.shortcode_toggles_item_title.state-active {
+	background: #08c1f3;  /* Template color */
+	border-color: #08c1f3;  /* Template color */
+}
+
+.ifb-face {
+	background: #08c1f3; /* Template color */
+}
+
+.flip-box-icon i {
+	color: #08c1f3; /* Template color */
+}
+
+.price_item .price_item_head {
+	background-color: #08c1f3;  /* Template color */
+}
+
+
+.widget_text a {
+	color:#9da1ad; /* Main content color */
+}
+
+.widget_text a:hover,
+.sidepanel a:hover,
+.recent_posts li a.title:hover,
+.product_posts li a.title:hover,
+.sidepanel li.current-menu-item a,
+.price a:hover,
+.product_posts li a.title:hover,
+.shortcode_iconbox a:hover .iconbox_title,
+.featured_items_title h5 a:hover,
+.featured_meta a:hover,
+.contact_info_item a:hover {
+	color:#08c1f3;  /* Template color */
+}
+
+.shortcode_iconbox .iconbox_body,
+.shortcode_iconbox .iconbox_body p,
+.shop_cart .amount,
+.product-item a {
+	color:#9da1ad; /* Main content color */
+}
+
+.testimonials_list li .item .testimonials_photo i {
+    background-color:#08c1f3;  /* Template color */
+}
+
+.contact_info p a {
+	color:#9da1ad; /* Main content color */
+}
+
+.contact_info p a:hover,
+.listing_meta a:hover,
+.blogpost_title a:hover {
+	color:#08c1f3;  /* Template color */
+}
+
+.pagerblock li a:hover {
+	background-color:#08c1f3;  /* Template color */
+	border-color:#08c1f3;  /* Template color */
+}
+
+.pagerblock li a:focus {
+	color:#9da1ad; /* Main content color */
+}
+
+.pagerblock li a.current,
+.pagerblock li a.current:hover,
+.comment_author_name a:hover,
+.featured_items_body a:hover,
+.shop_list_info a:hover,
+.product_list_meta a:hover,
+.posted_in a:hover,
+.tagged_as a:hover,
+.product-item a:hover,
+.calculate:hover,
+h2.portf_title a:hover,
+.foot_menu li a:hover,
+.foot_menu li.current-menu-item a {
+	color:#08c1f3;  /* Template color */
+}
+
+.widget_filter .ui-slider-range {
+	background: #08c1f3;  /* Template color */
+}
+
+.info_circle_middle,
+.info_circle .fa,
+.action_button {
+	background: #08c1f3;  /* Template color */
+}
+
+span.selectOption {
+	color:#9da1ad; /* Main content color */
+}
+
+span.selectOption:hover {
+	color:#222629; /* Headings color */
+}
+
+.www_form input[type="text"]:focus,
+.www_form div.selectBox.act {
+	border-color: #08c1f3;  /* Template color */
+}
+
+.www_form span.selectOption:hover {
+	color: #08c1f3;  /* Template color */
+}
+
+.comment-reply-link a.shortcode_button {
+	color:#9da1ad !important; /* Main content color */
+}
+
+.price_filter_wrap .widget_filter_btn {
+	color:#9da1ad !important; /* Main content color */
+}

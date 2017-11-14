@@ -1,0 +1,69 @@
+<div class="row  nav-button-container fade in" role="tabpanel" id="petient">
+    <div class="col-xs-12">
+        <div class="noticeboard">
+            <div class="noticeboard-header content-header">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Manage Reference
+
+            </div>
+            <div class="noticeboard-body">
+                <div>
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#patient-list" aria-controls="patient-list" role="tab" data-toggle="tab"><i class="fa fa-align-justify"></i> 
+                                Reference List                    	</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="patient-list">
+
+                            <div class="table-responsive table-adjusment ">
+                                <table class="table table-hover" id="datatab">
+                                    
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th style="display: none">App. ID</th>
+                                            <th>Patient Name</th>
+                                            <th>Referenced By</th>
+                                            <th>Referenced To</th>
+                                            <th>Department</th>
+                                            <th>Comment</th>
+                                        </tr>
+
+                                    </thead>
+									
+                                    <tbody id="search_result_ot">
+                                          <?php foreach($reference as $row):?>
+                                            <tr >
+                                                <th scope="row">1</th>
+                                                <td style="display: none;"></td>
+                                                
+                                                <td style="cursor: pointer" class='clickable-row' data-href='<?php echo base_url(); ?>receptionist/patient_details/<?php echo $row['patient_id'];?>'>
+                                                   <?php echo $row['pname'];?>
+                                                </td>
+                                                <td><?php echo $row['username'];?>  </td>
+                                                <td><?php echo $row['username'];?> </td>
+                                                <td><?php echo $row['department_name'];?></td>
+                                                <td><?php echo $row['comment'];?></td>
+                                            </tr>
+                                          <?php endforeach; ?>
+                                       
+                                    </tbody>
+
+                                </table>
+                                <div class="col-xs-12 table-footer hidden">
+
+
+                                    <div class="btn-group pull-right" role="group" aria-label="" id="pagination">
+                                        <button type="button" class="btn btn-default"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                                        <button type="button" class="btn btn-default">1</button>
+                                        <button type="button" class="btn btn-default"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					
+	
